@@ -1,0 +1,442 @@
+{
+    "name": "twingate",
+    "description": "A Pulumi package for creating and managing twingate cloud resources.",
+    "keywords": [
+        "pulumi",
+        "twingate",
+        "category/cloud"
+    ],
+    "homepage": "https://www.pulumi.com",
+    "license": "Apache-2.0",
+    "attribution": "This Pulumi package is based on the [`twingate` Terraform Provider](https://github.com/Twingate/terraform-provider-twingate).",
+    "repository": "https://github.com/LimeWireOfficial/twingate-pulumi",
+    "publisher": "LimeWireOfficial",
+    "meta": {
+        "moduleFormat": "(.*)(?:/[^/]*)"
+    },
+    "config": {
+        "variables": {
+            "apiToken": {
+                "type": "string",
+                "description": "The access key for API operations. You can retrieve this from the Twingate Admin Console\n([documentation](https://docs.twingate.com/docs/api-overview)). Alternatively, this can be specified using the\nTWINGATE_API_TOKEN environment variable.\n"
+            },
+            "network": {
+                "type": "string",
+                "description": "Your Twingate network ID for API operations. You can find it in the Admin Console URL, for example:\n`autoco.twingate.com`, where `autoco` is your network ID Alternatively, this can be specified using the TWINGATE_NETWORK\nenvironment variable.\n"
+            },
+            "url": {
+                "type": "string",
+                "description": "The default is 'twingate.com' This is optional and shouldn't be changed under normal circumstances.\n"
+            }
+        }
+    },
+    "types": {
+        "twingate:twingate/TwingateResourceProtocols:TwingateResourceProtocols": {
+            "properties": {
+                "allowIcmp": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "tcp": {
+                    "$ref": "#/types/twingate:twingate/TwingateResourceProtocolsTcp:TwingateResourceProtocolsTcp",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "udp": {
+                    "$ref": "#/types/twingate:twingate/TwingateResourceProtocolsUdp:TwingateResourceProtocolsUdp",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "tcp",
+                "udp"
+            ]
+        },
+        "twingate:twingate/TwingateResourceProtocolsTcp:TwingateResourceProtocolsTcp": {
+            "properties": {
+                "policy": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ports": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "policy"
+            ]
+        },
+        "twingate:twingate/TwingateResourceProtocolsUdp:TwingateResourceProtocolsUdp": {
+            "properties": {
+                "policy": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ports": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "policy"
+            ]
+        }
+    },
+    "provider": {
+        "description": "The provider type for the twingate package. By default, resources use package-wide configuration\nsettings, however an explicit `Provider` instance may be created and passed during resource\nconstruction to achieve fine-grained programmatic control over provider settings. See the\n[documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.\n",
+        "properties": {
+            "apiToken": {
+                "type": "string",
+                "description": "The access key for API operations. You can retrieve this from the Twingate Admin Console\n([documentation](https://docs.twingate.com/docs/api-overview)). Alternatively, this can be specified using the\nTWINGATE_API_TOKEN environment variable.\n"
+            },
+            "network": {
+                "type": "string",
+                "description": "Your Twingate network ID for API operations. You can find it in the Admin Console URL, for example:\n`autoco.twingate.com`, where `autoco` is your network ID Alternatively, this can be specified using the TWINGATE_NETWORK\nenvironment variable.\n"
+            },
+            "url": {
+                "type": "string",
+                "description": "The default is 'twingate.com' This is optional and shouldn't be changed under normal circumstances.\n"
+            }
+        },
+        "inputProperties": {
+            "apiToken": {
+                "type": "string",
+                "description": "The access key for API operations. You can retrieve this from the Twingate Admin Console\n([documentation](https://docs.twingate.com/docs/api-overview)). Alternatively, this can be specified using the\nTWINGATE_API_TOKEN environment variable.\n"
+            },
+            "network": {
+                "type": "string",
+                "description": "Your Twingate network ID for API operations. You can find it in the Admin Console URL, for example:\n`autoco.twingate.com`, where `autoco` is your network ID Alternatively, this can be specified using the TWINGATE_NETWORK\nenvironment variable.\n"
+            },
+            "url": {
+                "type": "string",
+                "description": "The default is 'twingate.com' This is optional and shouldn't be changed under normal circumstances.\n"
+            }
+        }
+    },
+    "resources": {
+        "twingate:twingate/twingateConnector:TwingateConnector": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Autogenerated ID of the Connector, encoded in base64\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Autogenerated name of the Connector (can't be changed)\n"
+                },
+                "remoteNetworkId": {
+                    "type": "string",
+                    "description": "The ID of the Remote Network to attach the Connector to\n"
+                }
+            },
+            "required": [
+                "id",
+                "name",
+                "remoteNetworkId"
+            ],
+            "inputProperties": {
+                "remoteNetworkId": {
+                    "type": "string",
+                    "description": "The ID of the Remote Network to attach the Connector to\n"
+                }
+            },
+            "requiredInputs": [
+                "remoteNetworkId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering TwingateConnector resources.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Autogenerated ID of the Connector, encoded in base64\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Autogenerated name of the Connector (can't be changed)\n"
+                    },
+                    "remoteNetworkId": {
+                        "type": "string",
+                        "description": "The ID of the Remote Network to attach the Connector to\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "twingate:twingate/twingateConnectorTokens:TwingateConnectorTokens": {
+            "properties": {
+                "accessToken": {
+                    "type": "string",
+                    "description": "The Access Token of the parent Connector\n"
+                },
+                "connectorId": {
+                    "type": "string",
+                    "description": "The ID of the parent Connector\n"
+                },
+                "keepers": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "description": "Arbitrary map of values that, when changed, will trigger recreation of resource. Use this to automatically rotate\nConnector tokens on a schedule.\n"
+                },
+                "refreshToken": {
+                    "type": "string",
+                    "description": "The Refresh Token of the parent Connector\n"
+                }
+            },
+            "required": [
+                "accessToken",
+                "connectorId",
+                "refreshToken"
+            ],
+            "inputProperties": {
+                "connectorId": {
+                    "type": "string",
+                    "description": "The ID of the parent Connector\n"
+                },
+                "keepers": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "description": "Arbitrary map of values that, when changed, will trigger recreation of resource. Use this to automatically rotate\nConnector tokens on a schedule.\n"
+                }
+            },
+            "requiredInputs": [
+                "connectorId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering TwingateConnectorTokens resources.\n",
+                "properties": {
+                    "accessToken": {
+                        "type": "string",
+                        "description": "The Access Token of the parent Connector\n"
+                    },
+                    "connectorId": {
+                        "type": "string",
+                        "description": "The ID of the parent Connector\n"
+                    },
+                    "keepers": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        },
+                        "description": "Arbitrary map of values that, when changed, will trigger recreation of resource. Use this to automatically rotate\nConnector tokens on a schedule.\n"
+                    },
+                    "refreshToken": {
+                        "type": "string",
+                        "description": "The Refresh Token of the parent Connector\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "twingate:twingate/twingateRemoteNetwork:TwingateRemoteNetwork": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Remote Network\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the Remote Network\n"
+                }
+            },
+            "required": [
+                "id",
+                "name"
+            ],
+            "inputProperties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the Remote Network\n"
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering TwingateRemoteNetwork resources.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The ID of the Remote Network\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the Remote Network\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "twingate:twingate/twingateResource:TwingateResource": {
+            "properties": {
+                "address": {
+                    "type": "string",
+                    "description": "The Resource's IP/CIDR or FQDN/DNS zone\n"
+                },
+                "groupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of Group IDs that have permission to access the Resource, cannot be generated by Terraform and must be retrieved\nfrom the Twingate Admin Console or API\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "Autogenerated ID of the Resource, encoded in base64\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the Resource\n"
+                },
+                "protocols": {
+                    "$ref": "#/types/twingate:twingate/TwingateResourceProtocols:TwingateResourceProtocols",
+                    "description": "Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no\nrestriction, and all protocols and ports are allowed.\n"
+                },
+                "remoteNetworkId": {
+                    "type": "string",
+                    "description": "Remote Network ID where the Resource lives\n"
+                }
+            },
+            "required": [
+                "address",
+                "id",
+                "name",
+                "remoteNetworkId"
+            ],
+            "inputProperties": {
+                "address": {
+                    "type": "string",
+                    "description": "The Resource's IP/CIDR or FQDN/DNS zone\n"
+                },
+                "groupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of Group IDs that have permission to access the Resource, cannot be generated by Terraform and must be retrieved\nfrom the Twingate Admin Console or API\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the Resource\n"
+                },
+                "protocols": {
+                    "$ref": "#/types/twingate:twingate/TwingateResourceProtocols:TwingateResourceProtocols",
+                    "description": "Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no\nrestriction, and all protocols and ports are allowed.\n"
+                },
+                "remoteNetworkId": {
+                    "type": "string",
+                    "description": "Remote Network ID where the Resource lives\n"
+                }
+            },
+            "requiredInputs": [
+                "address",
+                "remoteNetworkId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering TwingateResource resources.\n",
+                "properties": {
+                    "address": {
+                        "type": "string",
+                        "description": "The Resource's IP/CIDR or FQDN/DNS zone\n"
+                    },
+                    "groupIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of Group IDs that have permission to access the Resource, cannot be generated by Terraform and must be retrieved\nfrom the Twingate Admin Console or API\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "Autogenerated ID of the Resource, encoded in base64\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the Resource\n"
+                    },
+                    "protocols": {
+                        "$ref": "#/types/twingate:twingate/TwingateResourceProtocols:TwingateResourceProtocols",
+                        "description": "Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no\nrestriction, and all protocols and ports are allowed.\n"
+                    },
+                    "remoteNetworkId": {
+                        "type": "string",
+                        "description": "Remote Network ID where the Resource lives\n"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "language": {
+        "csharp": {
+            "compatibility": "tfbridge20",
+            "namespaces": null,
+            "packageReferences": {
+                "Pulumi": "3.*"
+            }
+        },
+        "go": {
+            "generateResourceContainerTypes": true,
+            "importBasePath": "github.com/LimeWireOfficial/twingate/sdk/go/twingate"
+        },
+        "nodejs": {
+            "compatibility": "tfbridge20",
+            "dependencies": {
+                "@pulumi/pulumi": "^3.0.0"
+            },
+            "devDependencies": {
+                "@types/mime": "^2.0.0",
+                "@types/node": "^10.0.0"
+            },
+            "disableUnionOutputTypes": true,
+            "packageDescription": "A Pulumi package for creating and managing twingate cloud resources.",
+            "packageName": "",
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/Twingate/terraform-provider-twingate)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi/pulumi-twingate` repo](https://github.com/pulumi/pulumi-twingate/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`Twingate/terraform-provider-twingate` repo](https://github.com/Twingate/terraform-provider-twingate/issues).",
+            "typescriptVersion": ""
+        },
+        "python": {
+            "compatibility": "tfbridge20",
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/Twingate/terraform-provider-twingate)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi/pulumi-twingate` repo](https://github.com/pulumi/pulumi-twingate/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`Twingate/terraform-provider-twingate` repo](https://github.com/Twingate/terraform-provider-twingate/issues).",
+            "requires": {
+                "pulumi": "\u003e=3.0.0,\u003c4.0.0"
+            }
+        }
+    }
+}
