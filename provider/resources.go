@@ -61,17 +61,28 @@ func Provider() tfbridge.ProviderInfo {
 		Keywords:   []string{"pulumi", "twingate", "category/Infrastructure"},
 		License:    "Apache-2.0",
 		Homepage:   "https://www.pulumi.com",
-		Repository: "https://github.com/Twingate/pulumi-twingate",
-		Config:     map[string]*tfbridge.SchemaInfo{},
+		Repository: "https://github.com/Twingate-Labs/pulumi-twingate",
+		Config: map[string]*tfbridge.SchemaInfo{
+			"http_timeout": {
+				Default: &tfbridge.DefaultInfo{
+					Value: 10,
+				},
+			},
+			"http_max_retry": {
+				Default: &tfbridge.DefaultInfo{
+					Value: 5,
+				},
+			},
+		},
 		Resources: map[string]*tfbridge.ResourceInfo{
-			"twingate_connector":        {Tok: tfbridge.MakeResource(mainMod, "twingate", "TwingateConnector")},
-			"twingate_connector_tokens": {Tok: tfbridge.MakeResource(mainMod, "twingate", "TwingateConnectorTokens")},
-			"twingate_remote_network":   {Tok: tfbridge.MakeResource(mainMod, "twingate", "TwingateRemoteNetwork")},
-			"twingate_resource":         {Tok: tfbridge.MakeResource(mainMod, "twingate", "TwingateResource")},
+			"twingate_connector":        {Tok: tfbridge.MakeResource(mainPkg, mainMod, "TwingateConnector")},
+			"twingate_connector_tokens": {Tok: tfbridge.MakeResource(mainPkg, mainMod, "TwingateConnectorTokens")},
+			"twingate_remote_network":   {Tok: tfbridge.MakeResource(mainPkg, mainMod, "TwingateRemoteNetwork")},
+			"twingate_resource":         {Tok: tfbridge.MakeResource(mainPkg, mainMod, "TwingateResource")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{},
 		JavaScript: &tfbridge.JavaScriptInfo{
-			PackageName: "@twingate/pulumi-twingate",
+			PackageName: "@twingate-labs/pulumi-twingate",
 			// List any npm dependencies and their versions
 			Dependencies: map[string]string{
 				"@pulumi/pulumi": "^3.0.0",
@@ -89,7 +100,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		Golang: &tfbridge.GolangInfo{
 			ImportBasePath: filepath.Join(
-				fmt.Sprintf("github.com/Twingate/%[1]s/sdk/", mainPkg),
+				fmt.Sprintf("github.com/Twingate-Labs/pulumi-%[1]s/sdk/", mainPkg),
 				tfbridge.GetModuleMajorVersion(version.Version),
 				"go",
 				mainPkg,
@@ -100,9 +111,9 @@ func Provider() tfbridge.ProviderInfo {
 			PackageReferences: map[string]string{
 				"Pulumi": "3.*",
 			},
-			RootNamespace: "Twingate",
+			RootNamespace: "TwingateLabs",
 		},
-		GitHubOrg: "Twingate",
+		GitHubOrg: "Twingate-Labs",
 	}
 
 	prov.SetAutonaming(255, "-")
