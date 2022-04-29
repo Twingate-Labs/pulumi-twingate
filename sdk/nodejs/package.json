@@ -23,6 +23,7 @@
         "typescript": "^4.3.5"
     },
     "pulumi": {
-        "resource": true
+        "resource": true,
+        "pluginDownloadURL": "https://github.com/Twingate-Labs/pulumi-twingate/releases/download/v${VERSION}"
     }
 }

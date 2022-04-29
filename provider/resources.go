@@ -47,7 +47,8 @@ func Provider() tfbridge.ProviderInfo {
 		// Change this to your personal name (or a company name) that you
 		// would like to be shown in the Pulumi Registry if this package is published
 		// there.
-		Publisher: "Twingate",
+		Publisher:         "Twingate",
+		PluginDownloadURL: "https://github.com/Twingate-Labs/pulumi-twingate/releases/download/v${VERSION}",
 		// LogoURL is optional but useful to help identify your package in the Pulumi Registry
 		// if this package is published there.
 		//

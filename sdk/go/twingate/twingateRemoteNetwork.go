@@ -52,6 +52,7 @@ func NewTwingateRemoteNetwork(ctx *pulumi.Context,
 		args = &TwingateRemoteNetworkArgs{}
 	}
 
+	opts = pkgResourceDefaultOpts(opts)
 	var resource TwingateRemoteNetwork
 	err := ctx.RegisterResource("twingate:index/twingateRemoteNetwork:TwingateRemoteNetwork", name, args, &resource, opts...)
 	if err != nil {

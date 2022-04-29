@@ -42,6 +42,7 @@ func NewProvider(ctx *pulumi.Context,
 	if isZero(args.HttpTimeout) {
 		args.HttpTimeout = pulumi.IntPtr(10)
 	}
+	opts = pkgResourceDefaultOpts(opts)
 	var resource Provider
 	err := ctx.RegisterResource("pulumi:providers:twingate", name, args, &resource, opts...)
 	if err != nil {

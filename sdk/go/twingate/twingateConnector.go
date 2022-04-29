@@ -64,6 +64,7 @@ func NewTwingateConnector(ctx *pulumi.Context,
 	if args.RemoteNetworkId == nil {
 		return nil, errors.New("invalid value for required argument 'RemoteNetworkId'")
 	}
+	opts = pkgResourceDefaultOpts(opts)
 	var resource TwingateConnector
 	err := ctx.RegisterResource("twingate:index/twingateConnector:TwingateConnector", name, args, &resource, opts...)
 	if err != nil {
