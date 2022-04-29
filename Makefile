@@ -40,7 +40,8 @@ build_nodejs:: install_plugins tfgen # build the node sdk
 	cd sdk/nodejs/ && \
         yarn install && \
         yarn run tsc && \
-        cp scripts/ ../../README.md ../../LICENSE package.json yarn.lock ./bin/ && \
+	cp -R scripts/ bin/
+        cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/ && \
     	sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" ./bin/package.json
 
 build_python:: PYPI_VERSION := $(shell pulumictl get version --language python)
