@@ -61,7 +61,7 @@ func Provider() tfbridge.ProviderInfo {
 		// https://www.pulumi.com/docs/guides/pulumi-packages/schema/#package.
 		Keywords:   []string{"pulumi", "twingate", "category/Infrastructure"},
 		License:    "Apache-2.0",
-		Homepage:   "https://www.pulumi.com",
+		Homepage:   "https://www.twingate.com",
 		Repository: "https://github.com/Twingate-Labs/pulumi-twingate",
 		Config: map[string]*tfbridge.SchemaInfo{
 			"http_timeout": {
