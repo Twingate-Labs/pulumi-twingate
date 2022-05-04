@@ -98,24 +98,7 @@ class TwingateConnector(pulumi.CustomResource):
                  remote_network_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Connectors provide connectivity to Remote Networks. This resource type will create the Connector in the Twingate Admin Console, but in order to successfully deploy it, you must also generate Connector tokens that authenticate the Connector with Twingate. For more information, see Twingate's [documentation](https://docs.twingate.com/docs/understanding-access-nodes).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_twingate as twingate
-
-        aws_network = twingate.TwingateRemoteNetwork("awsNetwork")
-        aws_connector = twingate.TwingateConnector("awsConnector", remote_network_id=aws_network.id)
-        ```
-
-        ## Import
-
-        ```sh
-         $ pulumi import twingate:index/twingateConnector:TwingateConnector connector Q29ubmVjdG1b0qe0
-        ```
-
+        Create a TwingateConnector resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Name of the Connector, if not provided one will be generated
@@ -128,24 +111,7 @@ class TwingateConnector(pulumi.CustomResource):
                  args: TwingateConnectorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Connectors provide connectivity to Remote Networks. This resource type will create the Connector in the Twingate Admin Console, but in order to successfully deploy it, you must also generate Connector tokens that authenticate the Connector with Twingate. For more information, see Twingate's [documentation](https://docs.twingate.com/docs/understanding-access-nodes).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_twingate as twingate
-
-        aws_network = twingate.TwingateRemoteNetwork("awsNetwork")
-        aws_connector = twingate.TwingateConnector("awsConnector", remote_network_id=aws_network.id)
-        ```
-
-        ## Import
-
-        ```sh
-         $ pulumi import twingate:index/twingateConnector:TwingateConnector connector Q29ubmVjdG1b0qe0
-        ```
-
+        Create a TwingateConnector resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param TwingateConnectorArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

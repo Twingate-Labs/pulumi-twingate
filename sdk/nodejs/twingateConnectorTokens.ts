@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * This resource type will generate tokens for a Connector, which are needed to successfully provision one on your network. The Connector itself has its own resource type and must be created before you can provision tokens.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as pulumi_twingate from "@twingate-labs/pulumi-twingate";
- *
- * const awsNetwork = new twingate.TwingateRemoteNetwork("awsNetwork", {});
- * const awsConnector = new twingate.TwingateConnector("awsConnector", {remoteNetworkId: awsNetwork.id});
- * const awsConnectorTokens = new twingate.TwingateConnectorTokens("awsConnectorTokens", {connectorId: awsConnector.id});
- * ```
- */
 export class TwingateConnectorTokens extends pulumi.CustomResource {
     /**
      * Get an existing TwingateConnectorTokens resource's state with the given name, ID, and optional extra

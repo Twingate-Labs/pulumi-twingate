@@ -11,52 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resources in Twingate represent servers on the private network that clients can connect to. Resources can be defined by IP, CIDR range, FQDN, or DNS zone. For more information, see the Twingate [documentation](https://docs.twingate.com/docs/resources-and-access-nodes).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/Twingate-Labs/pulumi-twingate/sdk/go/twingate"
-// 	"github.com/pulumi/pulumi-twingate/sdk/go/twingate"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		awsNetwork, err := twingate.NewTwingateRemoteNetwork(ctx, "awsNetwork", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = twingate.NewTwingateResource(ctx, "resource", &twingate.TwingateResourceArgs{
-// 			Address:         pulumi.String("internal.int"),
-// 			RemoteNetworkId: awsNetwork.ID(),
-// 			GroupIds: pulumi.StringArray{
-// 				pulumi.String("group1"),
-// 			},
-// 			Protocols: &TwingateResourceProtocolsArgs{
-// 				AllowIcmp: pulumi.Bool(true),
-// 				Tcp: &TwingateResourceProtocolsTcpArgs{
-// 					Policy: pulumi.String("RESTRICTED"),
-// 					Ports: pulumi.StringArray{
-// 						pulumi.String("80"),
-// 						pulumi.String("82-83"),
-// 					},
-// 				},
-// 				Udp: &TwingateResourceProtocolsUdpArgs{
-// 					Policy: pulumi.String("ALLOW_ALL"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
 type TwingateResource struct {
 	pulumi.CustomResourceState
 

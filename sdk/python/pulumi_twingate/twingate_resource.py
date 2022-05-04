@@ -206,34 +206,7 @@ class TwingateResource(pulumi.CustomResource):
                  remote_network_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resources in Twingate represent servers on the private network that clients can connect to. Resources can be defined by IP, CIDR range, FQDN, or DNS zone. For more information, see the Twingate [documentation](https://docs.twingate.com/docs/resources-and-access-nodes).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_twingate as twingate
-
-        aws_network = twingate.TwingateRemoteNetwork("awsNetwork")
-        resource = twingate.TwingateResource("resource",
-            address="internal.int",
-            remote_network_id=aws_network.id,
-            group_ids=["group1"],
-            protocols=twingate.TwingateResourceProtocolsArgs(
-                allow_icmp=True,
-                tcp=twingate.TwingateResourceProtocolsTcpArgs(
-                    policy="RESTRICTED",
-                    ports=[
-                        "80",
-                        "82-83",
-                    ],
-                ),
-                udp=twingate.TwingateResourceProtocolsUdpArgs(
-                    policy="ALLOW_ALL",
-                ),
-            ))
-        ```
-
+        Create a TwingateResource resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address: The Resource's IP/CIDR or FQDN/DNS zone
@@ -251,34 +224,7 @@ class TwingateResource(pulumi.CustomResource):
                  args: TwingateResourceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resources in Twingate represent servers on the private network that clients can connect to. Resources can be defined by IP, CIDR range, FQDN, or DNS zone. For more information, see the Twingate [documentation](https://docs.twingate.com/docs/resources-and-access-nodes).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_twingate as twingate
-
-        aws_network = twingate.TwingateRemoteNetwork("awsNetwork")
-        resource = twingate.TwingateResource("resource",
-            address="internal.int",
-            remote_network_id=aws_network.id,
-            group_ids=["group1"],
-            protocols=twingate.TwingateResourceProtocolsArgs(
-                allow_icmp=True,
-                tcp=twingate.TwingateResourceProtocolsTcpArgs(
-                    policy="RESTRICTED",
-                    ports=[
-                        "80",
-                        "82-83",
-                    ],
-                ),
-                udp=twingate.TwingateResourceProtocolsUdpArgs(
-                    policy="ALLOW_ALL",
-                ),
-            ))
-        ```
-
+        Create a TwingateResource resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param TwingateResourceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
