@@ -5,36 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
-/**
- * Resources in Twingate represent servers on the private network that clients can connect to. Resources can be defined by IP, CIDR range, FQDN, or DNS zone. For more information, see the Twingate [documentation](https://docs.twingate.com/docs/resources-and-access-nodes).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as pulumi_twingate from "@twingate-labs/pulumi-twingate";
- *
- * const awsNetwork = new twingate.TwingateRemoteNetwork("awsNetwork", {});
- * const resource = new twingate.TwingateResource("resource", {
- *     address: "internal.int",
- *     remoteNetworkId: awsNetwork.id,
- *     groupIds: ["group1"],
- *     protocols: {
- *         allowIcmp: true,
- *         tcp: {
- *             policy: "RESTRICTED",
- *             ports: [
- *                 "80",
- *                 "82-83",
- *             ],
- *         },
- *         udp: {
- *             policy: "ALLOW_ALL",
- *         },
- *     },
- * });
- * ```
- */
 export class TwingateResource extends pulumi.CustomResource {
     /**
      * Get an existing TwingateResource resource's state with the given name, ID, and optional extra

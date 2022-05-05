@@ -11,40 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This resource type will generate tokens for a Connector, which are needed to successfully provision one on your network. The Connector itself has its own resource type and must be created before you can provision tokens.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/Twingate-Labs/pulumi-twingate/sdk/go/twingate"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		awsNetwork, err := twingate.NewTwingateRemoteNetwork(ctx, "awsNetwork", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		awsConnector, err := twingate.NewTwingateConnector(ctx, "awsConnector", &twingate.TwingateConnectorArgs{
-// 			RemoteNetworkId: awsNetwork.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = twingate.NewTwingateConnectorTokens(ctx, "awsConnectorTokens", &twingate.TwingateConnectorTokensArgs{
-// 			ConnectorId: awsConnector.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
 type TwingateConnectorTokens struct {
 	pulumi.CustomResourceState
 

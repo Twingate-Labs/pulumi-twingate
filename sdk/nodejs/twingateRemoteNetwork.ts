@@ -4,24 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * A Remote Network represents a single private network in Twingate that can have one or more Connectors and Resources assigned to it. You must create a Remote Network before creating Resources and Connectors that belong to it. For more information, see Twingate's [documentation](https://docs.twingate.com/docs/remote-networks).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as twingate from "@pulumi/twingate";
- *
- * const awsNetwork = new twingate.TwingateRemoteNetwork("aws_network", {});
- * ```
- *
- * ## Import
- *
- * ```sh
- *  $ pulumi import twingate:index/twingateRemoteNetwork:TwingateRemoteNetwork network UmVtb3RlTmV0d29zaipgMKIkNg==
- * ```
- */
 export class TwingateRemoteNetwork extends pulumi.CustomResource {
     /**
      * Get an existing TwingateRemoteNetwork resource's state with the given name, ID, and optional extra

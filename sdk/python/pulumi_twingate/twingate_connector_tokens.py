@@ -134,19 +134,7 @@ class TwingateConnectorTokens(pulumi.CustomResource):
                  keepers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  __props__=None):
         """
-        This resource type will generate tokens for a Connector, which are needed to successfully provision one on your network. The Connector itself has its own resource type and must be created before you can provision tokens.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_twingate as twingate
-
-        aws_network = twingate.TwingateRemoteNetwork("awsNetwork")
-        aws_connector = twingate.TwingateConnector("awsConnector", remote_network_id=aws_network.id)
-        aws_connector_tokens = twingate.TwingateConnectorTokens("awsConnectorTokens", connector_id=aws_connector.id)
-        ```
-
+        Create a TwingateConnectorTokens resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connector_id: The ID of the parent Connector
@@ -160,19 +148,7 @@ class TwingateConnectorTokens(pulumi.CustomResource):
                  args: TwingateConnectorTokensArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        This resource type will generate tokens for a Connector, which are needed to successfully provision one on your network. The Connector itself has its own resource type and must be created before you can provision tokens.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_twingate as twingate
-
-        aws_network = twingate.TwingateRemoteNetwork("awsNetwork")
-        aws_connector = twingate.TwingateConnector("awsConnector", remote_network_id=aws_network.id)
-        aws_connector_tokens = twingate.TwingateConnectorTokens("awsConnectorTokens", connector_id=aws_connector.id)
-        ```
-
+        Create a TwingateConnectorTokens resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param TwingateConnectorTokensArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

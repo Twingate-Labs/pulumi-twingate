@@ -66,23 +66,7 @@ class TwingateRemoteNetwork(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        A Remote Network represents a single private network in Twingate that can have one or more Connectors and Resources assigned to it. You must create a Remote Network before creating Resources and Connectors that belong to it. For more information, see Twingate's [documentation](https://docs.twingate.com/docs/remote-networks).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_twingate as twingate
-
-        aws_network = twingate.TwingateRemoteNetwork("awsNetwork")
-        ```
-
-        ## Import
-
-        ```sh
-         $ pulumi import twingate:index/twingateRemoteNetwork:TwingateRemoteNetwork network UmVtb3RlTmV0d29zaipgMKIkNg==
-        ```
-
+        Create a TwingateRemoteNetwork resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the Remote Network
@@ -94,23 +78,7 @@ class TwingateRemoteNetwork(pulumi.CustomResource):
                  args: Optional[TwingateRemoteNetworkArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        A Remote Network represents a single private network in Twingate that can have one or more Connectors and Resources assigned to it. You must create a Remote Network before creating Resources and Connectors that belong to it. For more information, see Twingate's [documentation](https://docs.twingate.com/docs/remote-networks).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_twingate as twingate
-
-        aws_network = twingate.TwingateRemoteNetwork("awsNetwork")
-        ```
-
-        ## Import
-
-        ```sh
-         $ pulumi import twingate:index/twingateRemoteNetwork:TwingateRemoteNetwork network UmVtb3RlTmV0d29zaipgMKIkNg==
-        ```
-
+        Create a TwingateRemoteNetwork resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param TwingateRemoteNetworkArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

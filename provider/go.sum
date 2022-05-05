@@ -118,6 +118,8 @@ github.com/Netflix/go-expect v0.0.0-20180615182759-c93bf25de8e8/go.mod h1:oX5x61
 github.com/ProtonMail/go-crypto v0.0.0-20210428141323-04723f9f07d7/go.mod h1:z4/9nQmJSSwwds7ejkxaJwO37dru3geImFUdJlaLzQo=
 github.com/Twingate-Labs/terraform-provider-twingate v0.1.7-0.20220429123622-020282518e12 h1:0dEfO53MlSYLrrFh6KHthsRfSzdtAuENiHOBIZJt7o4=
 github.com/Twingate-Labs/terraform-provider-twingate v0.1.7-0.20220429123622-020282518e12/go.mod h1:flczoB/cXjSKWzS36eeBvpc9ndYdKfvde0xw4HxFo1o=
+github.com/Twingate/terraform-provider-twingate v0.1.7-0.20220429170903-fbd2e621164b h1:CGsQ0Uo+QTlfIFQ0+rbKKuYYSCaKOJVv0FtTrZmUZtE=
+github.com/Twingate/terraform-provider-twingate v0.1.7-0.20220429170903-fbd2e621164b/go.mod h1:YzWclnrm+eGB/NTFqnqGHBkCnvBqJp/wW28JtCoANd8=
 github.com/acomagu/bufpipe v1.0.3/go.mod h1:mxdxdup/WdsKVreO5GpW4+M/1CE2sMG4jeGJ2sYmHc4=
 github.com/agext/levenshtein v1.2.1/go.mod h1:JEDfjyjHDjOF/1e4FlBE/PkbqA9OfWu2ki2W0IB5558=
 github.com/agext/levenshtein v1.2.2 h1:0S/Yg6LYmFJ5stwQeRp6EeOcCbj7xiqQSdNelsXvaqE=

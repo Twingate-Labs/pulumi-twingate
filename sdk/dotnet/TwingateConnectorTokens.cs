@@ -10,35 +10,6 @@ using Pulumi;
 
 namespace TwingateLabs.Twingate
 {
-    /// <summary>
-    /// This resource type will generate tokens for a Connector, which are needed to successfully provision one on your network. The Connector itself has its own resource type and must be created before you can provision tokens.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Twingate = TwingateLabs.Twingate;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var awsNetwork = new Twingate.TwingateRemoteNetwork("awsNetwork", new Twingate.TwingateRemoteNetworkArgs
-    ///         {
-    ///         });
-    ///         var awsConnector = new Twingate.TwingateConnector("awsConnector", new Twingate.TwingateConnectorArgs
-    ///         {
-    ///             RemoteNetworkId = awsNetwork.Id,
-    ///         });
-    ///         var awsConnectorTokens = new Twingate.TwingateConnectorTokens("awsConnectorTokens", new Twingate.TwingateConnectorTokensArgs
-    ///         {
-    ///             ConnectorId = awsConnector.Id,
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// </summary>
     [TwingateResourceType("twingate:index/twingateConnectorTokens:TwingateConnectorTokens")]
     public partial class TwingateConnectorTokens : Pulumi.CustomResource
     {

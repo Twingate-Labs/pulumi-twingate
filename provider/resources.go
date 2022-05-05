@@ -18,8 +18,8 @@ import (
 	"fmt"
 	"path/filepath"
 
-	"github.com/Twingate-Labs/terraform-provider-twingate/twingate"
 	"github.com/Twingate/pulumi-twingate/provider/pkg/version"
+	"github.com/Twingate/terraform-provider-twingate/twingate"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 )
@@ -36,7 +36,7 @@ const (
 // Provider returns additional overlaid schema and metadata associated with the provider..
 func Provider() tfbridge.ProviderInfo {
 	// Instantiate the Terraform provider
-	p := shimv2.NewProvider(twingate.Provider("-Pulumi")) // TODO: Which version needs to be passed here?
+	p := shimv2.NewProvider(twingate.Provider("1.0-pulumi")) // TODO: Get real version
 
 	// Create a Pulumi provider mapping
 	prov := tfbridge.ProviderInfo{

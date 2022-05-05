@@ -10,53 +10,6 @@ using Pulumi;
 
 namespace TwingateLabs.Twingate
 {
-    /// <summary>
-    /// Resources in Twingate represent servers on the private network that clients can connect to. Resources can be defined by IP, CIDR range, FQDN, or DNS zone. For more information, see the Twingate [documentation](https://docs.twingate.com/docs/resources-and-access-nodes).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Twingate = TwingateLabs.Twingate;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var awsNetwork = new Twingate.TwingateRemoteNetwork("awsNetwork", new Twingate.TwingateRemoteNetworkArgs
-    ///         {
-    ///         });
-    ///         var resource = new Twingate.TwingateResource("resource", new Twingate.TwingateResourceArgs
-    ///         {
-    ///             Address = "internal.int",
-    ///             RemoteNetworkId = awsNetwork.Id,
-    ///             GroupIds = 
-    ///             {
-    ///                 "group1",
-    ///             },
-    ///             Protocols = new Twingate.Inputs.TwingateResourceProtocolsArgs
-    ///             {
-    ///                 AllowIcmp = true,
-    ///                 Tcp = new Twingate.Inputs.TwingateResourceProtocolsTcpArgs
-    ///                 {
-    ///                     Policy = "RESTRICTED",
-    ///                     Ports = 
-    ///                     {
-    ///                         "80",
-    ///                         "82-83",
-    ///                     },
-    ///                 },
-    ///                 Udp = new Twingate.Inputs.TwingateResourceProtocolsUdpArgs
-    ///                 {
-    ///                     Policy = "ALLOW_ALL",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// </summary>
     [TwingateResourceType("twingate:index/twingateResource:TwingateResource")]
     public partial class TwingateResource : Pulumi.CustomResource
     {

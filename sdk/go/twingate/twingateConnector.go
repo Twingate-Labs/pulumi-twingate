@@ -11,40 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Connectors provide connectivity to Remote Networks. This resource type will create the Connector in the Twingate Admin Console, but in order to successfully deploy it, you must also generate Connector tokens that authenticate the Connector with Twingate. For more information, see Twingate's [documentation](https://docs.twingate.com/docs/understanding-access-nodes).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/Twingate-Labs/pulumi-twingate/sdk/go/twingate"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		awsNetwork, err := twingate.NewTwingateRemoteNetwork(ctx, "awsNetwork", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = twingate.NewTwingateConnector(ctx, "awsConnector", &twingate.TwingateConnectorArgs{
-// 			RemoteNetworkId: awsNetwork.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-//
-// ## Import
-//
-// ```sh
-//  $ pulumi import twingate:index/twingateConnector:TwingateConnector connector Q29ubmVjdG1b0qe0
-// ```
 type TwingateConnector struct {
 	pulumi.CustomResourceState
 
