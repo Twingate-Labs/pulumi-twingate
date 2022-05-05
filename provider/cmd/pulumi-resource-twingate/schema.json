@@ -7,7 +7,7 @@
         "twingate",
         "category/Infrastructure"
     ],
-    "homepage": "https://www.pulumi.com",
+    "homepage": "https://www.twingate.com",
     "license": "Apache-2.0",
     "attribution": "This Pulumi package is based on the [`twingate` Terraform Provider](https://github.com/Twingate-Labs/terraform-provider-twingate).",
     "repository": "https://github.com/Twingate-Labs/pulumi-twingate",
