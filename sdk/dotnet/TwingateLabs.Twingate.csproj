@@ -6,7 +6,7 @@
     <Company>Twingate</Company>
     <Description>A Pulumi package for creating and managing Twingate cloud resources.</Description>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-    <PackageProjectUrl>https://www.pulumi.com</PackageProjectUrl>
+    <PackageProjectUrl>https://www.twingate.com</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Twingate-Labs/pulumi-twingate</RepositoryUrl>
     <PackageIcon>logo.png</PackageIcon>
 

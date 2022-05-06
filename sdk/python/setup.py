@@ -46,7 +46,7 @@ setup(name='pulumi_twingate',
           'install': InstallPluginCommand,
       },
       keywords='pulumi twingate category/Infrastructure',
-      url='https://www.pulumi.com',
+      url='https://www.twingate.com',
       project_urls={
           'Repository': 'https://github.com/Twingate-Labs/pulumi-twingate'
       },
