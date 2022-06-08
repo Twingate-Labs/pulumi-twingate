@@ -2,7 +2,7 @@ PROJECT_NAME := twingate Package
 
 PACK             := twingate
 ORG              := Twingate
-PROJECT          := github.com/Twingate/pulumi-twingate
+PROJECT          := github.com/Twingate-Labs/pulumi-twingate
 NODE_MODULE_NAME := @pulumi/${PACK}
 TF_NAME          := ${PACK}
 PROVIDER_PATH    := provider
