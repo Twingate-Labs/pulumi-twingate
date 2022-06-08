@@ -17,8 +17,8 @@
 package main
 
 import (
-	twingate "github.com/Twingate/pulumi-twingate/provider"
-	"github.com/Twingate/pulumi-twingate/provider/pkg/version"
+	twingate "github.com/Twingate-Labs/pulumi-twingate/provider"
+	"github.com/Twingate-Labs/pulumi-twingate/provider/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 )
 

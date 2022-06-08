@@ -1,4 +1,4 @@
-module github.com/Twingate/pulumi-twingate/provider
+module github.com/Twingate-Labs/pulumi-twingate/provider
 
 go 1.17
 

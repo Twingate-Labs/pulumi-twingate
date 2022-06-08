@@ -18,7 +18,7 @@ import (
 	"fmt"
 	"path/filepath"
 
-	"github.com/Twingate/pulumi-twingate/provider/pkg/version"
+	"github.com/Twingate-Labs/pulumi-twingate/provider/pkg/version"
 	"github.com/Twingate/terraform-provider-twingate/twingate"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
