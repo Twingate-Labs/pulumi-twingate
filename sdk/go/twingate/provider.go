@@ -127,6 +127,25 @@ func (o ProviderOutput) ToProviderOutputWithContext(ctx context.Context) Provide
 	return o
 }
 
+// The access key for API operations. You can retrieve this from the Twingate Admin Console
+// ([documentation](https://docs.twingate.com/docs/api-overview)). Alternatively, this can be specified using the
+// TWINGATE_API_TOKEN environment variable.
+func (o ProviderOutput) ApiToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ApiToken }).(pulumi.StringPtrOutput)
+}
+
+// Your Twingate network ID for API operations. You can find it in the Admin Console URL, for example:
+// `autoco.twingate.com`, where `autoco` is your network ID Alternatively, this can be specified using the TWINGATE_NETWORK
+// environment variable.
+func (o ProviderOutput) Network() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Network }).(pulumi.StringPtrOutput)
+}
+
+// The default is 'twingate.com' This is optional and shouldn't be changed under normal circumstances.
+func (o ProviderOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Url }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderInput)(nil)).Elem(), &Provider{})
 	pulumi.RegisterOutputType(ProviderOutput{})

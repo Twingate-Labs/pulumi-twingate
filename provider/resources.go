@@ -36,7 +36,7 @@ const (
 // Provider returns additional overlaid schema and metadata associated with the provider..
 func Provider() tfbridge.ProviderInfo {
 	// Instantiate the Terraform provider
-	p := shimv2.NewProvider(twingate.Provider("1.0-pulumi")) // TODO: Get real version
+	p := shimv2.NewProvider(twingate.Provider("${VERSION}-pulumi")) // TODO: Get real version
 
 	// Create a Pulumi provider mapping
 	prov := tfbridge.ProviderInfo{

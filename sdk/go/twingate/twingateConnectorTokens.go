@@ -189,6 +189,27 @@ func (o TwingateConnectorTokensOutput) ToTwingateConnectorTokensOutputWithContex
 	return o
 }
 
+// The Access Token of the parent Connector
+func (o TwingateConnectorTokensOutput) AccessToken() pulumi.StringOutput {
+	return o.ApplyT(func(v *TwingateConnectorTokens) pulumi.StringOutput { return v.AccessToken }).(pulumi.StringOutput)
+}
+
+// The ID of the parent Connector
+func (o TwingateConnectorTokensOutput) ConnectorId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TwingateConnectorTokens) pulumi.StringOutput { return v.ConnectorId }).(pulumi.StringOutput)
+}
+
+// Arbitrary map of values that, when changed, will trigger recreation of resource. Use this to automatically rotate
+// Connector tokens on a schedule.
+func (o TwingateConnectorTokensOutput) Keepers() pulumi.MapOutput {
+	return o.ApplyT(func(v *TwingateConnectorTokens) pulumi.MapOutput { return v.Keepers }).(pulumi.MapOutput)
+}
+
+// The Refresh Token of the parent Connector
+func (o TwingateConnectorTokensOutput) RefreshToken() pulumi.StringOutput {
+	return o.ApplyT(func(v *TwingateConnectorTokens) pulumi.StringOutput { return v.RefreshToken }).(pulumi.StringOutput)
+}
+
 type TwingateConnectorTokensArrayOutput struct{ *pulumi.OutputState }
 
 func (TwingateConnectorTokensArrayOutput) ElementType() reflect.Type {

@@ -158,6 +158,11 @@ func (o TwingateRemoteNetworkOutput) ToTwingateRemoteNetworkOutputWithContext(ct
 	return o
 }
 
+// The name of the Remote Network
+func (o TwingateRemoteNetworkOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *TwingateRemoteNetwork) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
 type TwingateRemoteNetworkArrayOutput struct{ *pulumi.OutputState }
 
 func (TwingateRemoteNetworkArrayOutput) ElementType() reflect.Type {

@@ -172,6 +172,16 @@ func (o TwingateConnectorOutput) ToTwingateConnectorOutputWithContext(ctx contex
 	return o
 }
 
+// Name of the Connector, if not provided one will be generated
+func (o TwingateConnectorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *TwingateConnector) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The ID of the Remote Network to attach the Connector to
+func (o TwingateConnectorOutput) RemoteNetworkId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TwingateConnector) pulumi.StringOutput { return v.RemoteNetworkId }).(pulumi.StringOutput)
+}
+
 type TwingateConnectorArrayOutput struct{ *pulumi.OutputState }
 
 func (TwingateConnectorArrayOutput) ElementType() reflect.Type {

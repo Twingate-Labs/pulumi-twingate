@@ -203,7 +203,8 @@
                 },
                 "remoteNetworkId": {
                     "type": "string",
-                    "description": "The ID of the Remote Network to attach the Connector to\n"
+                    "description": "The ID of the Remote Network to attach the Connector to\n",
+                    "willReplaceOnChanges": true
                 }
             },
             "requiredInputs": [
@@ -218,7 +219,8 @@
                     },
                     "remoteNetworkId": {
                         "type": "string",
-                        "description": "The ID of the Remote Network to attach the Connector to\n"
+                        "description": "The ID of the Remote Network to attach the Connector to\n",
+                        "willReplaceOnChanges": true
                     }
                 },
                 "type": "object"
@@ -254,14 +256,16 @@
             "inputProperties": {
                 "connectorId": {
                     "type": "string",
-                    "description": "The ID of the parent Connector\n"
+                    "description": "The ID of the parent Connector\n",
+                    "willReplaceOnChanges": true
                 },
                 "keepers": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     },
-                    "description": "Arbitrary map of values that, when changed, will trigger recreation of resource. Use this to automatically rotate\nConnector tokens on a schedule.\n"
+                    "description": "Arbitrary map of values that, when changed, will trigger recreation of resource. Use this to automatically rotate\nConnector tokens on a schedule.\n",
+                    "willReplaceOnChanges": true
                 }
             },
             "requiredInputs": [
@@ -276,14 +280,16 @@
                     },
                     "connectorId": {
                         "type": "string",
-                        "description": "The ID of the parent Connector\n"
+                        "description": "The ID of the parent Connector\n",
+                        "willReplaceOnChanges": true
                     },
                     "keepers": {
                         "type": "object",
                         "additionalProperties": {
                             "$ref": "pulumi.json#/Any"
                         },
-                        "description": "Arbitrary map of values that, when changed, will trigger recreation of resource. Use this to automatically rotate\nConnector tokens on a schedule.\n"
+                        "description": "Arbitrary map of values that, when changed, will trigger recreation of resource. Use this to automatically rotate\nConnector tokens on a schedule.\n",
+                        "willReplaceOnChanges": true
                     },
                     "refreshToken": {
                         "type": "string",
