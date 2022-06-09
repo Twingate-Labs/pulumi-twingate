@@ -50,5 +50,5 @@ export function getVersion(): string {
 
 /** @internal */
 export function resourceOptsDefaults(): any {
-    return { version: getVersion(), pluginDownloadURL: "https://github.com/Twingate-Labs/pulumi-twingate/releases/download/v${VERSION}" };
+    return { version: getVersion(), pluginDownloadURL: "https://github.com/Twingate-Labs/pulumi-twingate/releases/tag/${VERSION}" };
 }
