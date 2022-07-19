@@ -38,6 +38,9 @@ func NewTwingateResource(ctx *pulumi.Context,
 	if args.Address == nil {
 		return nil, errors.New("invalid value for required argument 'Address'")
 	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
 	if args.RemoteNetworkId == nil {
 		return nil, errors.New("invalid value for required argument 'RemoteNetworkId'")
 	}
@@ -104,7 +107,7 @@ type twingateResourceArgs struct {
 	// from the Twingate Admin Console or API
 	GroupIds []string `pulumi:"groupIds"`
 	// The name of the Resource
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 	// Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no
 	// restriction, and all protocols and ports are allowed.
 	Protocols *TwingateResourceProtocols `pulumi:"protocols"`
@@ -120,7 +123,7 @@ type TwingateResourceArgs struct {
 	// from the Twingate Admin Console or API
 	GroupIds pulumi.StringArrayInput
 	// The name of the Resource
-	Name pulumi.StringPtrInput
+	Name pulumi.StringInput
 	// Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no
 	// restriction, and all protocols and ports are allowed.
 	Protocols TwingateResourceProtocolsPtrInput

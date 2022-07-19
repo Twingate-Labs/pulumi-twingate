@@ -469,6 +469,954 @@ func (o TwingateResourceProtocolsUdpPtrOutput) Ports() pulumi.StringArrayOutput 
 	}).(pulumi.StringArrayOutput)
 }
 
+type GetTwingateConnectorsConnector struct {
+	Id              string `pulumi:"id"`
+	Name            string `pulumi:"name"`
+	RemoteNetworkId string `pulumi:"remoteNetworkId"`
+}
+
+// GetTwingateConnectorsConnectorInput is an input type that accepts GetTwingateConnectorsConnectorArgs and GetTwingateConnectorsConnectorOutput values.
+// You can construct a concrete instance of `GetTwingateConnectorsConnectorInput` via:
+//
+//          GetTwingateConnectorsConnectorArgs{...}
+type GetTwingateConnectorsConnectorInput interface {
+	pulumi.Input
+
+	ToGetTwingateConnectorsConnectorOutput() GetTwingateConnectorsConnectorOutput
+	ToGetTwingateConnectorsConnectorOutputWithContext(context.Context) GetTwingateConnectorsConnectorOutput
+}
+
+type GetTwingateConnectorsConnectorArgs struct {
+	Id              pulumi.StringInput `pulumi:"id"`
+	Name            pulumi.StringInput `pulumi:"name"`
+	RemoteNetworkId pulumi.StringInput `pulumi:"remoteNetworkId"`
+}
+
+func (GetTwingateConnectorsConnectorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTwingateConnectorsConnector)(nil)).Elem()
+}
+
+func (i GetTwingateConnectorsConnectorArgs) ToGetTwingateConnectorsConnectorOutput() GetTwingateConnectorsConnectorOutput {
+	return i.ToGetTwingateConnectorsConnectorOutputWithContext(context.Background())
+}
+
+func (i GetTwingateConnectorsConnectorArgs) ToGetTwingateConnectorsConnectorOutputWithContext(ctx context.Context) GetTwingateConnectorsConnectorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTwingateConnectorsConnectorOutput)
+}
+
+// GetTwingateConnectorsConnectorArrayInput is an input type that accepts GetTwingateConnectorsConnectorArray and GetTwingateConnectorsConnectorArrayOutput values.
+// You can construct a concrete instance of `GetTwingateConnectorsConnectorArrayInput` via:
+//
+//          GetTwingateConnectorsConnectorArray{ GetTwingateConnectorsConnectorArgs{...} }
+type GetTwingateConnectorsConnectorArrayInput interface {
+	pulumi.Input
+
+	ToGetTwingateConnectorsConnectorArrayOutput() GetTwingateConnectorsConnectorArrayOutput
+	ToGetTwingateConnectorsConnectorArrayOutputWithContext(context.Context) GetTwingateConnectorsConnectorArrayOutput
+}
+
+type GetTwingateConnectorsConnectorArray []GetTwingateConnectorsConnectorInput
+
+func (GetTwingateConnectorsConnectorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTwingateConnectorsConnector)(nil)).Elem()
+}
+
+func (i GetTwingateConnectorsConnectorArray) ToGetTwingateConnectorsConnectorArrayOutput() GetTwingateConnectorsConnectorArrayOutput {
+	return i.ToGetTwingateConnectorsConnectorArrayOutputWithContext(context.Background())
+}
+
+func (i GetTwingateConnectorsConnectorArray) ToGetTwingateConnectorsConnectorArrayOutputWithContext(ctx context.Context) GetTwingateConnectorsConnectorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTwingateConnectorsConnectorArrayOutput)
+}
+
+type GetTwingateConnectorsConnectorOutput struct{ *pulumi.OutputState }
+
+func (GetTwingateConnectorsConnectorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTwingateConnectorsConnector)(nil)).Elem()
+}
+
+func (o GetTwingateConnectorsConnectorOutput) ToGetTwingateConnectorsConnectorOutput() GetTwingateConnectorsConnectorOutput {
+	return o
+}
+
+func (o GetTwingateConnectorsConnectorOutput) ToGetTwingateConnectorsConnectorOutputWithContext(ctx context.Context) GetTwingateConnectorsConnectorOutput {
+	return o
+}
+
+func (o GetTwingateConnectorsConnectorOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTwingateConnectorsConnector) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetTwingateConnectorsConnectorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTwingateConnectorsConnector) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetTwingateConnectorsConnectorOutput) RemoteNetworkId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTwingateConnectorsConnector) string { return v.RemoteNetworkId }).(pulumi.StringOutput)
+}
+
+type GetTwingateConnectorsConnectorArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTwingateConnectorsConnectorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTwingateConnectorsConnector)(nil)).Elem()
+}
+
+func (o GetTwingateConnectorsConnectorArrayOutput) ToGetTwingateConnectorsConnectorArrayOutput() GetTwingateConnectorsConnectorArrayOutput {
+	return o
+}
+
+func (o GetTwingateConnectorsConnectorArrayOutput) ToGetTwingateConnectorsConnectorArrayOutputWithContext(ctx context.Context) GetTwingateConnectorsConnectorArrayOutput {
+	return o
+}
+
+func (o GetTwingateConnectorsConnectorArrayOutput) Index(i pulumi.IntInput) GetTwingateConnectorsConnectorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTwingateConnectorsConnector {
+		return vs[0].([]GetTwingateConnectorsConnector)[vs[1].(int)]
+	}).(GetTwingateConnectorsConnectorOutput)
+}
+
+type GetTwingateGroupsGroup struct {
+	Id       string `pulumi:"id"`
+	IsActive bool   `pulumi:"isActive"`
+	Name     string `pulumi:"name"`
+	Type     string `pulumi:"type"`
+}
+
+// GetTwingateGroupsGroupInput is an input type that accepts GetTwingateGroupsGroupArgs and GetTwingateGroupsGroupOutput values.
+// You can construct a concrete instance of `GetTwingateGroupsGroupInput` via:
+//
+//          GetTwingateGroupsGroupArgs{...}
+type GetTwingateGroupsGroupInput interface {
+	pulumi.Input
+
+	ToGetTwingateGroupsGroupOutput() GetTwingateGroupsGroupOutput
+	ToGetTwingateGroupsGroupOutputWithContext(context.Context) GetTwingateGroupsGroupOutput
+}
+
+type GetTwingateGroupsGroupArgs struct {
+	Id       pulumi.StringInput `pulumi:"id"`
+	IsActive pulumi.BoolInput   `pulumi:"isActive"`
+	Name     pulumi.StringInput `pulumi:"name"`
+	Type     pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetTwingateGroupsGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTwingateGroupsGroup)(nil)).Elem()
+}
+
+func (i GetTwingateGroupsGroupArgs) ToGetTwingateGroupsGroupOutput() GetTwingateGroupsGroupOutput {
+	return i.ToGetTwingateGroupsGroupOutputWithContext(context.Background())
+}
+
+func (i GetTwingateGroupsGroupArgs) ToGetTwingateGroupsGroupOutputWithContext(ctx context.Context) GetTwingateGroupsGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTwingateGroupsGroupOutput)
+}
+
+// GetTwingateGroupsGroupArrayInput is an input type that accepts GetTwingateGroupsGroupArray and GetTwingateGroupsGroupArrayOutput values.
+// You can construct a concrete instance of `GetTwingateGroupsGroupArrayInput` via:
+//
+//          GetTwingateGroupsGroupArray{ GetTwingateGroupsGroupArgs{...} }
+type GetTwingateGroupsGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetTwingateGroupsGroupArrayOutput() GetTwingateGroupsGroupArrayOutput
+	ToGetTwingateGroupsGroupArrayOutputWithContext(context.Context) GetTwingateGroupsGroupArrayOutput
+}
+
+type GetTwingateGroupsGroupArray []GetTwingateGroupsGroupInput
+
+func (GetTwingateGroupsGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTwingateGroupsGroup)(nil)).Elem()
+}
+
+func (i GetTwingateGroupsGroupArray) ToGetTwingateGroupsGroupArrayOutput() GetTwingateGroupsGroupArrayOutput {
+	return i.ToGetTwingateGroupsGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetTwingateGroupsGroupArray) ToGetTwingateGroupsGroupArrayOutputWithContext(ctx context.Context) GetTwingateGroupsGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTwingateGroupsGroupArrayOutput)
+}
+
+type GetTwingateGroupsGroupOutput struct{ *pulumi.OutputState }
+
+func (GetTwingateGroupsGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTwingateGroupsGroup)(nil)).Elem()
+}
+
+func (o GetTwingateGroupsGroupOutput) ToGetTwingateGroupsGroupOutput() GetTwingateGroupsGroupOutput {
+	return o
+}
+
+func (o GetTwingateGroupsGroupOutput) ToGetTwingateGroupsGroupOutputWithContext(ctx context.Context) GetTwingateGroupsGroupOutput {
+	return o
+}
+
+func (o GetTwingateGroupsGroupOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTwingateGroupsGroup) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetTwingateGroupsGroupOutput) IsActive() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetTwingateGroupsGroup) bool { return v.IsActive }).(pulumi.BoolOutput)
+}
+
+func (o GetTwingateGroupsGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTwingateGroupsGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetTwingateGroupsGroupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTwingateGroupsGroup) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetTwingateGroupsGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTwingateGroupsGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTwingateGroupsGroup)(nil)).Elem()
+}
+
+func (o GetTwingateGroupsGroupArrayOutput) ToGetTwingateGroupsGroupArrayOutput() GetTwingateGroupsGroupArrayOutput {
+	return o
+}
+
+func (o GetTwingateGroupsGroupArrayOutput) ToGetTwingateGroupsGroupArrayOutputWithContext(ctx context.Context) GetTwingateGroupsGroupArrayOutput {
+	return o
+}
+
+func (o GetTwingateGroupsGroupArrayOutput) Index(i pulumi.IntInput) GetTwingateGroupsGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTwingateGroupsGroup {
+		return vs[0].([]GetTwingateGroupsGroup)[vs[1].(int)]
+	}).(GetTwingateGroupsGroupOutput)
+}
+
+type GetTwingateResourceProtocol struct {
+	AllowIcmp bool                             `pulumi:"allowIcmp"`
+	Tcps      []GetTwingateResourceProtocolTcp `pulumi:"tcps"`
+	Udps      []GetTwingateResourceProtocolUdp `pulumi:"udps"`
+}
+
+// GetTwingateResourceProtocolInput is an input type that accepts GetTwingateResourceProtocolArgs and GetTwingateResourceProtocolOutput values.
+// You can construct a concrete instance of `GetTwingateResourceProtocolInput` via:
+//
+//          GetTwingateResourceProtocolArgs{...}
+type GetTwingateResourceProtocolInput interface {
+	pulumi.Input
+
+	ToGetTwingateResourceProtocolOutput() GetTwingateResourceProtocolOutput
+	ToGetTwingateResourceProtocolOutputWithContext(context.Context) GetTwingateResourceProtocolOutput
+}
+
+type GetTwingateResourceProtocolArgs struct {
+	AllowIcmp pulumi.BoolInput                         `pulumi:"allowIcmp"`
+	Tcps      GetTwingateResourceProtocolTcpArrayInput `pulumi:"tcps"`
+	Udps      GetTwingateResourceProtocolUdpArrayInput `pulumi:"udps"`
+}
+
+func (GetTwingateResourceProtocolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTwingateResourceProtocol)(nil)).Elem()
+}
+
+func (i GetTwingateResourceProtocolArgs) ToGetTwingateResourceProtocolOutput() GetTwingateResourceProtocolOutput {
+	return i.ToGetTwingateResourceProtocolOutputWithContext(context.Background())
+}
+
+func (i GetTwingateResourceProtocolArgs) ToGetTwingateResourceProtocolOutputWithContext(ctx context.Context) GetTwingateResourceProtocolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTwingateResourceProtocolOutput)
+}
+
+// GetTwingateResourceProtocolArrayInput is an input type that accepts GetTwingateResourceProtocolArray and GetTwingateResourceProtocolArrayOutput values.
+// You can construct a concrete instance of `GetTwingateResourceProtocolArrayInput` via:
+//
+//          GetTwingateResourceProtocolArray{ GetTwingateResourceProtocolArgs{...} }
+type GetTwingateResourceProtocolArrayInput interface {
+	pulumi.Input
+
+	ToGetTwingateResourceProtocolArrayOutput() GetTwingateResourceProtocolArrayOutput
+	ToGetTwingateResourceProtocolArrayOutputWithContext(context.Context) GetTwingateResourceProtocolArrayOutput
+}
+
+type GetTwingateResourceProtocolArray []GetTwingateResourceProtocolInput
+
+func (GetTwingateResourceProtocolArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTwingateResourceProtocol)(nil)).Elem()
+}
+
+func (i GetTwingateResourceProtocolArray) ToGetTwingateResourceProtocolArrayOutput() GetTwingateResourceProtocolArrayOutput {
+	return i.ToGetTwingateResourceProtocolArrayOutputWithContext(context.Background())
+}
+
+func (i GetTwingateResourceProtocolArray) ToGetTwingateResourceProtocolArrayOutputWithContext(ctx context.Context) GetTwingateResourceProtocolArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTwingateResourceProtocolArrayOutput)
+}
+
+type GetTwingateResourceProtocolOutput struct{ *pulumi.OutputState }
+
+func (GetTwingateResourceProtocolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTwingateResourceProtocol)(nil)).Elem()
+}
+
+func (o GetTwingateResourceProtocolOutput) ToGetTwingateResourceProtocolOutput() GetTwingateResourceProtocolOutput {
+	return o
+}
+
+func (o GetTwingateResourceProtocolOutput) ToGetTwingateResourceProtocolOutputWithContext(ctx context.Context) GetTwingateResourceProtocolOutput {
+	return o
+}
+
+func (o GetTwingateResourceProtocolOutput) AllowIcmp() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetTwingateResourceProtocol) bool { return v.AllowIcmp }).(pulumi.BoolOutput)
+}
+
+func (o GetTwingateResourceProtocolOutput) Tcps() GetTwingateResourceProtocolTcpArrayOutput {
+	return o.ApplyT(func(v GetTwingateResourceProtocol) []GetTwingateResourceProtocolTcp { return v.Tcps }).(GetTwingateResourceProtocolTcpArrayOutput)
+}
+
+func (o GetTwingateResourceProtocolOutput) Udps() GetTwingateResourceProtocolUdpArrayOutput {
+	return o.ApplyT(func(v GetTwingateResourceProtocol) []GetTwingateResourceProtocolUdp { return v.Udps }).(GetTwingateResourceProtocolUdpArrayOutput)
+}
+
+type GetTwingateResourceProtocolArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTwingateResourceProtocolArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTwingateResourceProtocol)(nil)).Elem()
+}
+
+func (o GetTwingateResourceProtocolArrayOutput) ToGetTwingateResourceProtocolArrayOutput() GetTwingateResourceProtocolArrayOutput {
+	return o
+}
+
+func (o GetTwingateResourceProtocolArrayOutput) ToGetTwingateResourceProtocolArrayOutputWithContext(ctx context.Context) GetTwingateResourceProtocolArrayOutput {
+	return o
+}
+
+func (o GetTwingateResourceProtocolArrayOutput) Index(i pulumi.IntInput) GetTwingateResourceProtocolOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTwingateResourceProtocol {
+		return vs[0].([]GetTwingateResourceProtocol)[vs[1].(int)]
+	}).(GetTwingateResourceProtocolOutput)
+}
+
+type GetTwingateResourceProtocolTcp struct {
+	Policy string   `pulumi:"policy"`
+	Ports  []string `pulumi:"ports"`
+}
+
+// GetTwingateResourceProtocolTcpInput is an input type that accepts GetTwingateResourceProtocolTcpArgs and GetTwingateResourceProtocolTcpOutput values.
+// You can construct a concrete instance of `GetTwingateResourceProtocolTcpInput` via:
+//
+//          GetTwingateResourceProtocolTcpArgs{...}
+type GetTwingateResourceProtocolTcpInput interface {
+	pulumi.Input
+
+	ToGetTwingateResourceProtocolTcpOutput() GetTwingateResourceProtocolTcpOutput
+	ToGetTwingateResourceProtocolTcpOutputWithContext(context.Context) GetTwingateResourceProtocolTcpOutput
+}
+
+type GetTwingateResourceProtocolTcpArgs struct {
+	Policy pulumi.StringInput      `pulumi:"policy"`
+	Ports  pulumi.StringArrayInput `pulumi:"ports"`
+}
+
+func (GetTwingateResourceProtocolTcpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTwingateResourceProtocolTcp)(nil)).Elem()
+}
+
+func (i GetTwingateResourceProtocolTcpArgs) ToGetTwingateResourceProtocolTcpOutput() GetTwingateResourceProtocolTcpOutput {
+	return i.ToGetTwingateResourceProtocolTcpOutputWithContext(context.Background())
+}
+
+func (i GetTwingateResourceProtocolTcpArgs) ToGetTwingateResourceProtocolTcpOutputWithContext(ctx context.Context) GetTwingateResourceProtocolTcpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTwingateResourceProtocolTcpOutput)
+}
+
+// GetTwingateResourceProtocolTcpArrayInput is an input type that accepts GetTwingateResourceProtocolTcpArray and GetTwingateResourceProtocolTcpArrayOutput values.
+// You can construct a concrete instance of `GetTwingateResourceProtocolTcpArrayInput` via:
+//
+//          GetTwingateResourceProtocolTcpArray{ GetTwingateResourceProtocolTcpArgs{...} }
+type GetTwingateResourceProtocolTcpArrayInput interface {
+	pulumi.Input
+
+	ToGetTwingateResourceProtocolTcpArrayOutput() GetTwingateResourceProtocolTcpArrayOutput
+	ToGetTwingateResourceProtocolTcpArrayOutputWithContext(context.Context) GetTwingateResourceProtocolTcpArrayOutput
+}
+
+type GetTwingateResourceProtocolTcpArray []GetTwingateResourceProtocolTcpInput
+
+func (GetTwingateResourceProtocolTcpArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTwingateResourceProtocolTcp)(nil)).Elem()
+}
+
+func (i GetTwingateResourceProtocolTcpArray) ToGetTwingateResourceProtocolTcpArrayOutput() GetTwingateResourceProtocolTcpArrayOutput {
+	return i.ToGetTwingateResourceProtocolTcpArrayOutputWithContext(context.Background())
+}
+
+func (i GetTwingateResourceProtocolTcpArray) ToGetTwingateResourceProtocolTcpArrayOutputWithContext(ctx context.Context) GetTwingateResourceProtocolTcpArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTwingateResourceProtocolTcpArrayOutput)
+}
+
+type GetTwingateResourceProtocolTcpOutput struct{ *pulumi.OutputState }
+
+func (GetTwingateResourceProtocolTcpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTwingateResourceProtocolTcp)(nil)).Elem()
+}
+
+func (o GetTwingateResourceProtocolTcpOutput) ToGetTwingateResourceProtocolTcpOutput() GetTwingateResourceProtocolTcpOutput {
+	return o
+}
+
+func (o GetTwingateResourceProtocolTcpOutput) ToGetTwingateResourceProtocolTcpOutputWithContext(ctx context.Context) GetTwingateResourceProtocolTcpOutput {
+	return o
+}
+
+func (o GetTwingateResourceProtocolTcpOutput) Policy() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTwingateResourceProtocolTcp) string { return v.Policy }).(pulumi.StringOutput)
+}
+
+func (o GetTwingateResourceProtocolTcpOutput) Ports() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetTwingateResourceProtocolTcp) []string { return v.Ports }).(pulumi.StringArrayOutput)
+}
+
+type GetTwingateResourceProtocolTcpArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTwingateResourceProtocolTcpArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTwingateResourceProtocolTcp)(nil)).Elem()
+}
+
+func (o GetTwingateResourceProtocolTcpArrayOutput) ToGetTwingateResourceProtocolTcpArrayOutput() GetTwingateResourceProtocolTcpArrayOutput {
+	return o
+}
+
+func (o GetTwingateResourceProtocolTcpArrayOutput) ToGetTwingateResourceProtocolTcpArrayOutputWithContext(ctx context.Context) GetTwingateResourceProtocolTcpArrayOutput {
+	return o
+}
+
+func (o GetTwingateResourceProtocolTcpArrayOutput) Index(i pulumi.IntInput) GetTwingateResourceProtocolTcpOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTwingateResourceProtocolTcp {
+		return vs[0].([]GetTwingateResourceProtocolTcp)[vs[1].(int)]
+	}).(GetTwingateResourceProtocolTcpOutput)
+}
+
+type GetTwingateResourceProtocolUdp struct {
+	Policy string   `pulumi:"policy"`
+	Ports  []string `pulumi:"ports"`
+}
+
+// GetTwingateResourceProtocolUdpInput is an input type that accepts GetTwingateResourceProtocolUdpArgs and GetTwingateResourceProtocolUdpOutput values.
+// You can construct a concrete instance of `GetTwingateResourceProtocolUdpInput` via:
+//
+//          GetTwingateResourceProtocolUdpArgs{...}
+type GetTwingateResourceProtocolUdpInput interface {
+	pulumi.Input
+
+	ToGetTwingateResourceProtocolUdpOutput() GetTwingateResourceProtocolUdpOutput
+	ToGetTwingateResourceProtocolUdpOutputWithContext(context.Context) GetTwingateResourceProtocolUdpOutput
+}
+
+type GetTwingateResourceProtocolUdpArgs struct {
+	Policy pulumi.StringInput      `pulumi:"policy"`
+	Ports  pulumi.StringArrayInput `pulumi:"ports"`
+}
+
+func (GetTwingateResourceProtocolUdpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTwingateResourceProtocolUdp)(nil)).Elem()
+}
+
+func (i GetTwingateResourceProtocolUdpArgs) ToGetTwingateResourceProtocolUdpOutput() GetTwingateResourceProtocolUdpOutput {
+	return i.ToGetTwingateResourceProtocolUdpOutputWithContext(context.Background())
+}
+
+func (i GetTwingateResourceProtocolUdpArgs) ToGetTwingateResourceProtocolUdpOutputWithContext(ctx context.Context) GetTwingateResourceProtocolUdpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTwingateResourceProtocolUdpOutput)
+}
+
+// GetTwingateResourceProtocolUdpArrayInput is an input type that accepts GetTwingateResourceProtocolUdpArray and GetTwingateResourceProtocolUdpArrayOutput values.
+// You can construct a concrete instance of `GetTwingateResourceProtocolUdpArrayInput` via:
+//
+//          GetTwingateResourceProtocolUdpArray{ GetTwingateResourceProtocolUdpArgs{...} }
+type GetTwingateResourceProtocolUdpArrayInput interface {
+	pulumi.Input
+
+	ToGetTwingateResourceProtocolUdpArrayOutput() GetTwingateResourceProtocolUdpArrayOutput
+	ToGetTwingateResourceProtocolUdpArrayOutputWithContext(context.Context) GetTwingateResourceProtocolUdpArrayOutput
+}
+
+type GetTwingateResourceProtocolUdpArray []GetTwingateResourceProtocolUdpInput
+
+func (GetTwingateResourceProtocolUdpArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTwingateResourceProtocolUdp)(nil)).Elem()
+}
+
+func (i GetTwingateResourceProtocolUdpArray) ToGetTwingateResourceProtocolUdpArrayOutput() GetTwingateResourceProtocolUdpArrayOutput {
+	return i.ToGetTwingateResourceProtocolUdpArrayOutputWithContext(context.Background())
+}
+
+func (i GetTwingateResourceProtocolUdpArray) ToGetTwingateResourceProtocolUdpArrayOutputWithContext(ctx context.Context) GetTwingateResourceProtocolUdpArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTwingateResourceProtocolUdpArrayOutput)
+}
+
+type GetTwingateResourceProtocolUdpOutput struct{ *pulumi.OutputState }
+
+func (GetTwingateResourceProtocolUdpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTwingateResourceProtocolUdp)(nil)).Elem()
+}
+
+func (o GetTwingateResourceProtocolUdpOutput) ToGetTwingateResourceProtocolUdpOutput() GetTwingateResourceProtocolUdpOutput {
+	return o
+}
+
+func (o GetTwingateResourceProtocolUdpOutput) ToGetTwingateResourceProtocolUdpOutputWithContext(ctx context.Context) GetTwingateResourceProtocolUdpOutput {
+	return o
+}
+
+func (o GetTwingateResourceProtocolUdpOutput) Policy() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTwingateResourceProtocolUdp) string { return v.Policy }).(pulumi.StringOutput)
+}
+
+func (o GetTwingateResourceProtocolUdpOutput) Ports() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetTwingateResourceProtocolUdp) []string { return v.Ports }).(pulumi.StringArrayOutput)
+}
+
+type GetTwingateResourceProtocolUdpArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTwingateResourceProtocolUdpArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTwingateResourceProtocolUdp)(nil)).Elem()
+}
+
+func (o GetTwingateResourceProtocolUdpArrayOutput) ToGetTwingateResourceProtocolUdpArrayOutput() GetTwingateResourceProtocolUdpArrayOutput {
+	return o
+}
+
+func (o GetTwingateResourceProtocolUdpArrayOutput) ToGetTwingateResourceProtocolUdpArrayOutputWithContext(ctx context.Context) GetTwingateResourceProtocolUdpArrayOutput {
+	return o
+}
+
+func (o GetTwingateResourceProtocolUdpArrayOutput) Index(i pulumi.IntInput) GetTwingateResourceProtocolUdpOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTwingateResourceProtocolUdp {
+		return vs[0].([]GetTwingateResourceProtocolUdp)[vs[1].(int)]
+	}).(GetTwingateResourceProtocolUdpOutput)
+}
+
+type GetTwingateResourcesResource struct {
+	Address         string                                 `pulumi:"address"`
+	Id              string                                 `pulumi:"id"`
+	Name            string                                 `pulumi:"name"`
+	Protocols       []GetTwingateResourcesResourceProtocol `pulumi:"protocols"`
+	RemoteNetworkId string                                 `pulumi:"remoteNetworkId"`
+}
+
+// GetTwingateResourcesResourceInput is an input type that accepts GetTwingateResourcesResourceArgs and GetTwingateResourcesResourceOutput values.
+// You can construct a concrete instance of `GetTwingateResourcesResourceInput` via:
+//
+//          GetTwingateResourcesResourceArgs{...}
+type GetTwingateResourcesResourceInput interface {
+	pulumi.Input
+
+	ToGetTwingateResourcesResourceOutput() GetTwingateResourcesResourceOutput
+	ToGetTwingateResourcesResourceOutputWithContext(context.Context) GetTwingateResourcesResourceOutput
+}
+
+type GetTwingateResourcesResourceArgs struct {
+	Address         pulumi.StringInput                             `pulumi:"address"`
+	Id              pulumi.StringInput                             `pulumi:"id"`
+	Name            pulumi.StringInput                             `pulumi:"name"`
+	Protocols       GetTwingateResourcesResourceProtocolArrayInput `pulumi:"protocols"`
+	RemoteNetworkId pulumi.StringInput                             `pulumi:"remoteNetworkId"`
+}
+
+func (GetTwingateResourcesResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTwingateResourcesResource)(nil)).Elem()
+}
+
+func (i GetTwingateResourcesResourceArgs) ToGetTwingateResourcesResourceOutput() GetTwingateResourcesResourceOutput {
+	return i.ToGetTwingateResourcesResourceOutputWithContext(context.Background())
+}
+
+func (i GetTwingateResourcesResourceArgs) ToGetTwingateResourcesResourceOutputWithContext(ctx context.Context) GetTwingateResourcesResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTwingateResourcesResourceOutput)
+}
+
+// GetTwingateResourcesResourceArrayInput is an input type that accepts GetTwingateResourcesResourceArray and GetTwingateResourcesResourceArrayOutput values.
+// You can construct a concrete instance of `GetTwingateResourcesResourceArrayInput` via:
+//
+//          GetTwingateResourcesResourceArray{ GetTwingateResourcesResourceArgs{...} }
+type GetTwingateResourcesResourceArrayInput interface {
+	pulumi.Input
+
+	ToGetTwingateResourcesResourceArrayOutput() GetTwingateResourcesResourceArrayOutput
+	ToGetTwingateResourcesResourceArrayOutputWithContext(context.Context) GetTwingateResourcesResourceArrayOutput
+}
+
+type GetTwingateResourcesResourceArray []GetTwingateResourcesResourceInput
+
+func (GetTwingateResourcesResourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTwingateResourcesResource)(nil)).Elem()
+}
+
+func (i GetTwingateResourcesResourceArray) ToGetTwingateResourcesResourceArrayOutput() GetTwingateResourcesResourceArrayOutput {
+	return i.ToGetTwingateResourcesResourceArrayOutputWithContext(context.Background())
+}
+
+func (i GetTwingateResourcesResourceArray) ToGetTwingateResourcesResourceArrayOutputWithContext(ctx context.Context) GetTwingateResourcesResourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTwingateResourcesResourceArrayOutput)
+}
+
+type GetTwingateResourcesResourceOutput struct{ *pulumi.OutputState }
+
+func (GetTwingateResourcesResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTwingateResourcesResource)(nil)).Elem()
+}
+
+func (o GetTwingateResourcesResourceOutput) ToGetTwingateResourcesResourceOutput() GetTwingateResourcesResourceOutput {
+	return o
+}
+
+func (o GetTwingateResourcesResourceOutput) ToGetTwingateResourcesResourceOutputWithContext(ctx context.Context) GetTwingateResourcesResourceOutput {
+	return o
+}
+
+func (o GetTwingateResourcesResourceOutput) Address() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTwingateResourcesResource) string { return v.Address }).(pulumi.StringOutput)
+}
+
+func (o GetTwingateResourcesResourceOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTwingateResourcesResource) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetTwingateResourcesResourceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTwingateResourcesResource) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetTwingateResourcesResourceOutput) Protocols() GetTwingateResourcesResourceProtocolArrayOutput {
+	return o.ApplyT(func(v GetTwingateResourcesResource) []GetTwingateResourcesResourceProtocol { return v.Protocols }).(GetTwingateResourcesResourceProtocolArrayOutput)
+}
+
+func (o GetTwingateResourcesResourceOutput) RemoteNetworkId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTwingateResourcesResource) string { return v.RemoteNetworkId }).(pulumi.StringOutput)
+}
+
+type GetTwingateResourcesResourceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTwingateResourcesResourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTwingateResourcesResource)(nil)).Elem()
+}
+
+func (o GetTwingateResourcesResourceArrayOutput) ToGetTwingateResourcesResourceArrayOutput() GetTwingateResourcesResourceArrayOutput {
+	return o
+}
+
+func (o GetTwingateResourcesResourceArrayOutput) ToGetTwingateResourcesResourceArrayOutputWithContext(ctx context.Context) GetTwingateResourcesResourceArrayOutput {
+	return o
+}
+
+func (o GetTwingateResourcesResourceArrayOutput) Index(i pulumi.IntInput) GetTwingateResourcesResourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTwingateResourcesResource {
+		return vs[0].([]GetTwingateResourcesResource)[vs[1].(int)]
+	}).(GetTwingateResourcesResourceOutput)
+}
+
+type GetTwingateResourcesResourceProtocol struct {
+	AllowIcmp bool                                      `pulumi:"allowIcmp"`
+	Tcps      []GetTwingateResourcesResourceProtocolTcp `pulumi:"tcps"`
+	Udps      []GetTwingateResourcesResourceProtocolUdp `pulumi:"udps"`
+}
+
+// GetTwingateResourcesResourceProtocolInput is an input type that accepts GetTwingateResourcesResourceProtocolArgs and GetTwingateResourcesResourceProtocolOutput values.
+// You can construct a concrete instance of `GetTwingateResourcesResourceProtocolInput` via:
+//
+//          GetTwingateResourcesResourceProtocolArgs{...}
+type GetTwingateResourcesResourceProtocolInput interface {
+	pulumi.Input
+
+	ToGetTwingateResourcesResourceProtocolOutput() GetTwingateResourcesResourceProtocolOutput
+	ToGetTwingateResourcesResourceProtocolOutputWithContext(context.Context) GetTwingateResourcesResourceProtocolOutput
+}
+
+type GetTwingateResourcesResourceProtocolArgs struct {
+	AllowIcmp pulumi.BoolInput                                  `pulumi:"allowIcmp"`
+	Tcps      GetTwingateResourcesResourceProtocolTcpArrayInput `pulumi:"tcps"`
+	Udps      GetTwingateResourcesResourceProtocolUdpArrayInput `pulumi:"udps"`
+}
+
+func (GetTwingateResourcesResourceProtocolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTwingateResourcesResourceProtocol)(nil)).Elem()
+}
+
+func (i GetTwingateResourcesResourceProtocolArgs) ToGetTwingateResourcesResourceProtocolOutput() GetTwingateResourcesResourceProtocolOutput {
+	return i.ToGetTwingateResourcesResourceProtocolOutputWithContext(context.Background())
+}
+
+func (i GetTwingateResourcesResourceProtocolArgs) ToGetTwingateResourcesResourceProtocolOutputWithContext(ctx context.Context) GetTwingateResourcesResourceProtocolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTwingateResourcesResourceProtocolOutput)
+}
+
+// GetTwingateResourcesResourceProtocolArrayInput is an input type that accepts GetTwingateResourcesResourceProtocolArray and GetTwingateResourcesResourceProtocolArrayOutput values.
+// You can construct a concrete instance of `GetTwingateResourcesResourceProtocolArrayInput` via:
+//
+//          GetTwingateResourcesResourceProtocolArray{ GetTwingateResourcesResourceProtocolArgs{...} }
+type GetTwingateResourcesResourceProtocolArrayInput interface {
+	pulumi.Input
+
+	ToGetTwingateResourcesResourceProtocolArrayOutput() GetTwingateResourcesResourceProtocolArrayOutput
+	ToGetTwingateResourcesResourceProtocolArrayOutputWithContext(context.Context) GetTwingateResourcesResourceProtocolArrayOutput
+}
+
+type GetTwingateResourcesResourceProtocolArray []GetTwingateResourcesResourceProtocolInput
+
+func (GetTwingateResourcesResourceProtocolArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTwingateResourcesResourceProtocol)(nil)).Elem()
+}
+
+func (i GetTwingateResourcesResourceProtocolArray) ToGetTwingateResourcesResourceProtocolArrayOutput() GetTwingateResourcesResourceProtocolArrayOutput {
+	return i.ToGetTwingateResourcesResourceProtocolArrayOutputWithContext(context.Background())
+}
+
+func (i GetTwingateResourcesResourceProtocolArray) ToGetTwingateResourcesResourceProtocolArrayOutputWithContext(ctx context.Context) GetTwingateResourcesResourceProtocolArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTwingateResourcesResourceProtocolArrayOutput)
+}
+
+type GetTwingateResourcesResourceProtocolOutput struct{ *pulumi.OutputState }
+
+func (GetTwingateResourcesResourceProtocolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTwingateResourcesResourceProtocol)(nil)).Elem()
+}
+
+func (o GetTwingateResourcesResourceProtocolOutput) ToGetTwingateResourcesResourceProtocolOutput() GetTwingateResourcesResourceProtocolOutput {
+	return o
+}
+
+func (o GetTwingateResourcesResourceProtocolOutput) ToGetTwingateResourcesResourceProtocolOutputWithContext(ctx context.Context) GetTwingateResourcesResourceProtocolOutput {
+	return o
+}
+
+func (o GetTwingateResourcesResourceProtocolOutput) AllowIcmp() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetTwingateResourcesResourceProtocol) bool { return v.AllowIcmp }).(pulumi.BoolOutput)
+}
+
+func (o GetTwingateResourcesResourceProtocolOutput) Tcps() GetTwingateResourcesResourceProtocolTcpArrayOutput {
+	return o.ApplyT(func(v GetTwingateResourcesResourceProtocol) []GetTwingateResourcesResourceProtocolTcp { return v.Tcps }).(GetTwingateResourcesResourceProtocolTcpArrayOutput)
+}
+
+func (o GetTwingateResourcesResourceProtocolOutput) Udps() GetTwingateResourcesResourceProtocolUdpArrayOutput {
+	return o.ApplyT(func(v GetTwingateResourcesResourceProtocol) []GetTwingateResourcesResourceProtocolUdp { return v.Udps }).(GetTwingateResourcesResourceProtocolUdpArrayOutput)
+}
+
+type GetTwingateResourcesResourceProtocolArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTwingateResourcesResourceProtocolArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTwingateResourcesResourceProtocol)(nil)).Elem()
+}
+
+func (o GetTwingateResourcesResourceProtocolArrayOutput) ToGetTwingateResourcesResourceProtocolArrayOutput() GetTwingateResourcesResourceProtocolArrayOutput {
+	return o
+}
+
+func (o GetTwingateResourcesResourceProtocolArrayOutput) ToGetTwingateResourcesResourceProtocolArrayOutputWithContext(ctx context.Context) GetTwingateResourcesResourceProtocolArrayOutput {
+	return o
+}
+
+func (o GetTwingateResourcesResourceProtocolArrayOutput) Index(i pulumi.IntInput) GetTwingateResourcesResourceProtocolOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTwingateResourcesResourceProtocol {
+		return vs[0].([]GetTwingateResourcesResourceProtocol)[vs[1].(int)]
+	}).(GetTwingateResourcesResourceProtocolOutput)
+}
+
+type GetTwingateResourcesResourceProtocolTcp struct {
+	Policy string   `pulumi:"policy"`
+	Ports  []string `pulumi:"ports"`
+}
+
+// GetTwingateResourcesResourceProtocolTcpInput is an input type that accepts GetTwingateResourcesResourceProtocolTcpArgs and GetTwingateResourcesResourceProtocolTcpOutput values.
+// You can construct a concrete instance of `GetTwingateResourcesResourceProtocolTcpInput` via:
+//
+//          GetTwingateResourcesResourceProtocolTcpArgs{...}
+type GetTwingateResourcesResourceProtocolTcpInput interface {
+	pulumi.Input
+
+	ToGetTwingateResourcesResourceProtocolTcpOutput() GetTwingateResourcesResourceProtocolTcpOutput
+	ToGetTwingateResourcesResourceProtocolTcpOutputWithContext(context.Context) GetTwingateResourcesResourceProtocolTcpOutput
+}
+
+type GetTwingateResourcesResourceProtocolTcpArgs struct {
+	Policy pulumi.StringInput      `pulumi:"policy"`
+	Ports  pulumi.StringArrayInput `pulumi:"ports"`
+}
+
+func (GetTwingateResourcesResourceProtocolTcpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTwingateResourcesResourceProtocolTcp)(nil)).Elem()
+}
+
+func (i GetTwingateResourcesResourceProtocolTcpArgs) ToGetTwingateResourcesResourceProtocolTcpOutput() GetTwingateResourcesResourceProtocolTcpOutput {
+	return i.ToGetTwingateResourcesResourceProtocolTcpOutputWithContext(context.Background())
+}
+
+func (i GetTwingateResourcesResourceProtocolTcpArgs) ToGetTwingateResourcesResourceProtocolTcpOutputWithContext(ctx context.Context) GetTwingateResourcesResourceProtocolTcpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTwingateResourcesResourceProtocolTcpOutput)
+}
+
+// GetTwingateResourcesResourceProtocolTcpArrayInput is an input type that accepts GetTwingateResourcesResourceProtocolTcpArray and GetTwingateResourcesResourceProtocolTcpArrayOutput values.
+// You can construct a concrete instance of `GetTwingateResourcesResourceProtocolTcpArrayInput` via:
+//
+//          GetTwingateResourcesResourceProtocolTcpArray{ GetTwingateResourcesResourceProtocolTcpArgs{...} }
+type GetTwingateResourcesResourceProtocolTcpArrayInput interface {
+	pulumi.Input
+
+	ToGetTwingateResourcesResourceProtocolTcpArrayOutput() GetTwingateResourcesResourceProtocolTcpArrayOutput
+	ToGetTwingateResourcesResourceProtocolTcpArrayOutputWithContext(context.Context) GetTwingateResourcesResourceProtocolTcpArrayOutput
+}
+
+type GetTwingateResourcesResourceProtocolTcpArray []GetTwingateResourcesResourceProtocolTcpInput
+
+func (GetTwingateResourcesResourceProtocolTcpArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTwingateResourcesResourceProtocolTcp)(nil)).Elem()
+}
+
+func (i GetTwingateResourcesResourceProtocolTcpArray) ToGetTwingateResourcesResourceProtocolTcpArrayOutput() GetTwingateResourcesResourceProtocolTcpArrayOutput {
+	return i.ToGetTwingateResourcesResourceProtocolTcpArrayOutputWithContext(context.Background())
+}
+
+func (i GetTwingateResourcesResourceProtocolTcpArray) ToGetTwingateResourcesResourceProtocolTcpArrayOutputWithContext(ctx context.Context) GetTwingateResourcesResourceProtocolTcpArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTwingateResourcesResourceProtocolTcpArrayOutput)
+}
+
+type GetTwingateResourcesResourceProtocolTcpOutput struct{ *pulumi.OutputState }
+
+func (GetTwingateResourcesResourceProtocolTcpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTwingateResourcesResourceProtocolTcp)(nil)).Elem()
+}
+
+func (o GetTwingateResourcesResourceProtocolTcpOutput) ToGetTwingateResourcesResourceProtocolTcpOutput() GetTwingateResourcesResourceProtocolTcpOutput {
+	return o
+}
+
+func (o GetTwingateResourcesResourceProtocolTcpOutput) ToGetTwingateResourcesResourceProtocolTcpOutputWithContext(ctx context.Context) GetTwingateResourcesResourceProtocolTcpOutput {
+	return o
+}
+
+func (o GetTwingateResourcesResourceProtocolTcpOutput) Policy() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTwingateResourcesResourceProtocolTcp) string { return v.Policy }).(pulumi.StringOutput)
+}
+
+func (o GetTwingateResourcesResourceProtocolTcpOutput) Ports() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetTwingateResourcesResourceProtocolTcp) []string { return v.Ports }).(pulumi.StringArrayOutput)
+}
+
+type GetTwingateResourcesResourceProtocolTcpArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTwingateResourcesResourceProtocolTcpArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTwingateResourcesResourceProtocolTcp)(nil)).Elem()
+}
+
+func (o GetTwingateResourcesResourceProtocolTcpArrayOutput) ToGetTwingateResourcesResourceProtocolTcpArrayOutput() GetTwingateResourcesResourceProtocolTcpArrayOutput {
+	return o
+}
+
+func (o GetTwingateResourcesResourceProtocolTcpArrayOutput) ToGetTwingateResourcesResourceProtocolTcpArrayOutputWithContext(ctx context.Context) GetTwingateResourcesResourceProtocolTcpArrayOutput {
+	return o
+}
+
+func (o GetTwingateResourcesResourceProtocolTcpArrayOutput) Index(i pulumi.IntInput) GetTwingateResourcesResourceProtocolTcpOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTwingateResourcesResourceProtocolTcp {
+		return vs[0].([]GetTwingateResourcesResourceProtocolTcp)[vs[1].(int)]
+	}).(GetTwingateResourcesResourceProtocolTcpOutput)
+}
+
+type GetTwingateResourcesResourceProtocolUdp struct {
+	Policy string   `pulumi:"policy"`
+	Ports  []string `pulumi:"ports"`
+}
+
+// GetTwingateResourcesResourceProtocolUdpInput is an input type that accepts GetTwingateResourcesResourceProtocolUdpArgs and GetTwingateResourcesResourceProtocolUdpOutput values.
+// You can construct a concrete instance of `GetTwingateResourcesResourceProtocolUdpInput` via:
+//
+//          GetTwingateResourcesResourceProtocolUdpArgs{...}
+type GetTwingateResourcesResourceProtocolUdpInput interface {
+	pulumi.Input
+
+	ToGetTwingateResourcesResourceProtocolUdpOutput() GetTwingateResourcesResourceProtocolUdpOutput
+	ToGetTwingateResourcesResourceProtocolUdpOutputWithContext(context.Context) GetTwingateResourcesResourceProtocolUdpOutput
+}
+
+type GetTwingateResourcesResourceProtocolUdpArgs struct {
+	Policy pulumi.StringInput      `pulumi:"policy"`
+	Ports  pulumi.StringArrayInput `pulumi:"ports"`
+}
+
+func (GetTwingateResourcesResourceProtocolUdpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTwingateResourcesResourceProtocolUdp)(nil)).Elem()
+}
+
+func (i GetTwingateResourcesResourceProtocolUdpArgs) ToGetTwingateResourcesResourceProtocolUdpOutput() GetTwingateResourcesResourceProtocolUdpOutput {
+	return i.ToGetTwingateResourcesResourceProtocolUdpOutputWithContext(context.Background())
+}
+
+func (i GetTwingateResourcesResourceProtocolUdpArgs) ToGetTwingateResourcesResourceProtocolUdpOutputWithContext(ctx context.Context) GetTwingateResourcesResourceProtocolUdpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTwingateResourcesResourceProtocolUdpOutput)
+}
+
+// GetTwingateResourcesResourceProtocolUdpArrayInput is an input type that accepts GetTwingateResourcesResourceProtocolUdpArray and GetTwingateResourcesResourceProtocolUdpArrayOutput values.
+// You can construct a concrete instance of `GetTwingateResourcesResourceProtocolUdpArrayInput` via:
+//
+//          GetTwingateResourcesResourceProtocolUdpArray{ GetTwingateResourcesResourceProtocolUdpArgs{...} }
+type GetTwingateResourcesResourceProtocolUdpArrayInput interface {
+	pulumi.Input
+
+	ToGetTwingateResourcesResourceProtocolUdpArrayOutput() GetTwingateResourcesResourceProtocolUdpArrayOutput
+	ToGetTwingateResourcesResourceProtocolUdpArrayOutputWithContext(context.Context) GetTwingateResourcesResourceProtocolUdpArrayOutput
+}
+
+type GetTwingateResourcesResourceProtocolUdpArray []GetTwingateResourcesResourceProtocolUdpInput
+
+func (GetTwingateResourcesResourceProtocolUdpArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTwingateResourcesResourceProtocolUdp)(nil)).Elem()
+}
+
+func (i GetTwingateResourcesResourceProtocolUdpArray) ToGetTwingateResourcesResourceProtocolUdpArrayOutput() GetTwingateResourcesResourceProtocolUdpArrayOutput {
+	return i.ToGetTwingateResourcesResourceProtocolUdpArrayOutputWithContext(context.Background())
+}
+
+func (i GetTwingateResourcesResourceProtocolUdpArray) ToGetTwingateResourcesResourceProtocolUdpArrayOutputWithContext(ctx context.Context) GetTwingateResourcesResourceProtocolUdpArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTwingateResourcesResourceProtocolUdpArrayOutput)
+}
+
+type GetTwingateResourcesResourceProtocolUdpOutput struct{ *pulumi.OutputState }
+
+func (GetTwingateResourcesResourceProtocolUdpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTwingateResourcesResourceProtocolUdp)(nil)).Elem()
+}
+
+func (o GetTwingateResourcesResourceProtocolUdpOutput) ToGetTwingateResourcesResourceProtocolUdpOutput() GetTwingateResourcesResourceProtocolUdpOutput {
+	return o
+}
+
+func (o GetTwingateResourcesResourceProtocolUdpOutput) ToGetTwingateResourcesResourceProtocolUdpOutputWithContext(ctx context.Context) GetTwingateResourcesResourceProtocolUdpOutput {
+	return o
+}
+
+func (o GetTwingateResourcesResourceProtocolUdpOutput) Policy() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTwingateResourcesResourceProtocolUdp) string { return v.Policy }).(pulumi.StringOutput)
+}
+
+func (o GetTwingateResourcesResourceProtocolUdpOutput) Ports() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetTwingateResourcesResourceProtocolUdp) []string { return v.Ports }).(pulumi.StringArrayOutput)
+}
+
+type GetTwingateResourcesResourceProtocolUdpArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTwingateResourcesResourceProtocolUdpArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTwingateResourcesResourceProtocolUdp)(nil)).Elem()
+}
+
+func (o GetTwingateResourcesResourceProtocolUdpArrayOutput) ToGetTwingateResourcesResourceProtocolUdpArrayOutput() GetTwingateResourcesResourceProtocolUdpArrayOutput {
+	return o
+}
+
+func (o GetTwingateResourcesResourceProtocolUdpArrayOutput) ToGetTwingateResourcesResourceProtocolUdpArrayOutputWithContext(ctx context.Context) GetTwingateResourcesResourceProtocolUdpArrayOutput {
+	return o
+}
+
+func (o GetTwingateResourcesResourceProtocolUdpArrayOutput) Index(i pulumi.IntInput) GetTwingateResourcesResourceProtocolUdpOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTwingateResourcesResourceProtocolUdp {
+		return vs[0].([]GetTwingateResourcesResourceProtocolUdp)[vs[1].(int)]
+	}).(GetTwingateResourcesResourceProtocolUdpOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TwingateResourceProtocolsInput)(nil)).Elem(), TwingateResourceProtocolsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TwingateResourceProtocolsPtrInput)(nil)).Elem(), TwingateResourceProtocolsArgs{})
@@ -476,10 +1424,46 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TwingateResourceProtocolsTcpPtrInput)(nil)).Elem(), TwingateResourceProtocolsTcpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TwingateResourceProtocolsUdpInput)(nil)).Elem(), TwingateResourceProtocolsUdpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TwingateResourceProtocolsUdpPtrInput)(nil)).Elem(), TwingateResourceProtocolsUdpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTwingateConnectorsConnectorInput)(nil)).Elem(), GetTwingateConnectorsConnectorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTwingateConnectorsConnectorArrayInput)(nil)).Elem(), GetTwingateConnectorsConnectorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTwingateGroupsGroupInput)(nil)).Elem(), GetTwingateGroupsGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTwingateGroupsGroupArrayInput)(nil)).Elem(), GetTwingateGroupsGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTwingateResourceProtocolInput)(nil)).Elem(), GetTwingateResourceProtocolArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTwingateResourceProtocolArrayInput)(nil)).Elem(), GetTwingateResourceProtocolArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTwingateResourceProtocolTcpInput)(nil)).Elem(), GetTwingateResourceProtocolTcpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTwingateResourceProtocolTcpArrayInput)(nil)).Elem(), GetTwingateResourceProtocolTcpArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTwingateResourceProtocolUdpInput)(nil)).Elem(), GetTwingateResourceProtocolUdpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTwingateResourceProtocolUdpArrayInput)(nil)).Elem(), GetTwingateResourceProtocolUdpArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTwingateResourcesResourceInput)(nil)).Elem(), GetTwingateResourcesResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTwingateResourcesResourceArrayInput)(nil)).Elem(), GetTwingateResourcesResourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTwingateResourcesResourceProtocolInput)(nil)).Elem(), GetTwingateResourcesResourceProtocolArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTwingateResourcesResourceProtocolArrayInput)(nil)).Elem(), GetTwingateResourcesResourceProtocolArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTwingateResourcesResourceProtocolTcpInput)(nil)).Elem(), GetTwingateResourcesResourceProtocolTcpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTwingateResourcesResourceProtocolTcpArrayInput)(nil)).Elem(), GetTwingateResourcesResourceProtocolTcpArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTwingateResourcesResourceProtocolUdpInput)(nil)).Elem(), GetTwingateResourcesResourceProtocolUdpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTwingateResourcesResourceProtocolUdpArrayInput)(nil)).Elem(), GetTwingateResourcesResourceProtocolUdpArray{})
 	pulumi.RegisterOutputType(TwingateResourceProtocolsOutput{})
 	pulumi.RegisterOutputType(TwingateResourceProtocolsPtrOutput{})
 	pulumi.RegisterOutputType(TwingateResourceProtocolsTcpOutput{})
 	pulumi.RegisterOutputType(TwingateResourceProtocolsTcpPtrOutput{})
 	pulumi.RegisterOutputType(TwingateResourceProtocolsUdpOutput{})
 	pulumi.RegisterOutputType(TwingateResourceProtocolsUdpPtrOutput{})
+	pulumi.RegisterOutputType(GetTwingateConnectorsConnectorOutput{})
+	pulumi.RegisterOutputType(GetTwingateConnectorsConnectorArrayOutput{})
+	pulumi.RegisterOutputType(GetTwingateGroupsGroupOutput{})
+	pulumi.RegisterOutputType(GetTwingateGroupsGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetTwingateResourceProtocolOutput{})
+	pulumi.RegisterOutputType(GetTwingateResourceProtocolArrayOutput{})
+	pulumi.RegisterOutputType(GetTwingateResourceProtocolTcpOutput{})
+	pulumi.RegisterOutputType(GetTwingateResourceProtocolTcpArrayOutput{})
+	pulumi.RegisterOutputType(GetTwingateResourceProtocolUdpOutput{})
+	pulumi.RegisterOutputType(GetTwingateResourceProtocolUdpArrayOutput{})
+	pulumi.RegisterOutputType(GetTwingateResourcesResourceOutput{})
+	pulumi.RegisterOutputType(GetTwingateResourcesResourceArrayOutput{})
+	pulumi.RegisterOutputType(GetTwingateResourcesResourceProtocolOutput{})
+	pulumi.RegisterOutputType(GetTwingateResourcesResourceProtocolArrayOutput{})
+	pulumi.RegisterOutputType(GetTwingateResourcesResourceProtocolTcpOutput{})
+	pulumi.RegisterOutputType(GetTwingateResourcesResourceProtocolTcpArrayOutput{})
+	pulumi.RegisterOutputType(GetTwingateResourcesResourceProtocolUdpOutput{})
+	pulumi.RegisterOutputType(GetTwingateResourcesResourceProtocolUdpArrayOutput{})
 }

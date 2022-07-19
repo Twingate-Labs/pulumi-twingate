@@ -5,9 +5,17 @@
 from . import _utilities
 import typing
 # Export this package's modules as members:
+from .get_twingate_connector import *
+from .get_twingate_connectors import *
+from .get_twingate_group import *
+from .get_twingate_groups import *
+from .get_twingate_remote_network import *
+from .get_twingate_resource import *
+from .get_twingate_resources import *
 from .provider import *
 from .twingate_connector import *
 from .twingate_connector_tokens import *
+from .twingate_group import *
 from .twingate_remote_network import *
 from .twingate_resource import *
 from ._inputs import *
@@ -37,6 +45,14 @@ _utilities.register(
   "fqn": "pulumi_twingate",
   "classes": {
    "twingate:index/twingateConnectorTokens:TwingateConnectorTokens": "TwingateConnectorTokens"
+  }
+ },
+ {
+  "pkg": "twingate",
+  "mod": "index/twingateGroup",
+  "fqn": "pulumi_twingate",
+  "classes": {
+   "twingate:index/twingateGroup:TwingateGroup": "TwingateGroup"
   }
  },
  {

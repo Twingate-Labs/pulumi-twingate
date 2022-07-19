@@ -79,6 +79,9 @@ export class TwingateResource extends pulumi.CustomResource {
             if ((!args || args.address === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'address'");
             }
+            if ((!args || args.name === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'name'");
+            }
             if ((!args || args.remoteNetworkId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'remoteNetworkId'");
             }
@@ -137,7 +140,7 @@ export interface TwingateResourceArgs {
     /**
      * The name of the Resource
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no
      * restriction, and all protocols and ports are allowed.

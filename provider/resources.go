@@ -76,12 +76,21 @@ func Provider() tfbridge.ProviderInfo {
 			},
 		},
 		Resources: map[string]*tfbridge.ResourceInfo{
+			"twingate_remote_network":   {Tok: tfbridge.MakeResource(mainPkg, mainMod, "TwingateRemoteNetwork")},
 			"twingate_connector":        {Tok: tfbridge.MakeResource(mainPkg, mainMod, "TwingateConnector")},
 			"twingate_connector_tokens": {Tok: tfbridge.MakeResource(mainPkg, mainMod, "TwingateConnectorTokens")},
-			"twingate_remote_network":   {Tok: tfbridge.MakeResource(mainPkg, mainMod, "TwingateRemoteNetwork")},
+			"twingate_group":            {Tok: tfbridge.MakeResource(mainPkg, mainMod, "TwingateGroup")},
 			"twingate_resource":         {Tok: tfbridge.MakeResource(mainPkg, mainMod, "TwingateResource")},
 		},
-		DataSources: map[string]*tfbridge.DataSourceInfo{},
+		DataSources: map[string]*tfbridge.DataSourceInfo{
+			"twingate_remote_network": {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getTwingateRemoteNetwork")},
+			"twingate_connector":      {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getTwingateConnector")},
+			"twingate_connectors":     {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getTwingateConnectors")},
+			"twingate_group":          {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getTwingateGroup")},
+			"twingate_groups":         {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getTwingateGroups")},
+			"twingate_resource":       {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getTwingateResource")},
+			"twingate_resources":      {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getTwingateResources")},
+		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			PackageName: "@twingate-labs/pulumi-twingate",
 			// List any npm dependencies and their versions
@@ -117,7 +126,7 @@ func Provider() tfbridge.ProviderInfo {
 		GitHubOrg: "Twingate-Labs",
 	}
 
-	prov.SetAutonaming(255, "-")
+	// prov.SetAutonaming(255, "-")
 
 	return prov
 }

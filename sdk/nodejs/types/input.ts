@@ -19,3 +19,4 @@ export interface TwingateResourceProtocolsUdp {
     policy: pulumi.Input<string>;
     ports?: pulumi.Input<pulumi.Input<string>[]>;
 }
+

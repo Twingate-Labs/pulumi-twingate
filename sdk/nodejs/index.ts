@@ -5,9 +5,17 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 // Export members:
+export * from "./getTwingateConnector";
+export * from "./getTwingateConnectors";
+export * from "./getTwingateGroup";
+export * from "./getTwingateGroups";
+export * from "./getTwingateRemoteNetwork";
+export * from "./getTwingateResource";
+export * from "./getTwingateResources";
 export * from "./provider";
 export * from "./twingateConnector";
 export * from "./twingateConnectorTokens";
+export * from "./twingateGroup";
 export * from "./twingateRemoteNetwork";
 export * from "./twingateResource";
 
@@ -23,6 +31,7 @@ export {
 // Import resources to register:
 import { TwingateConnector } from "./twingateConnector";
 import { TwingateConnectorTokens } from "./twingateConnectorTokens";
+import { TwingateGroup } from "./twingateGroup";
 import { TwingateRemoteNetwork } from "./twingateRemoteNetwork";
 import { TwingateResource } from "./twingateResource";
 
@@ -34,6 +43,8 @@ const _module = {
                 return new TwingateConnector(name, <any>undefined, { urn })
             case "twingate:index/twingateConnectorTokens:TwingateConnectorTokens":
                 return new TwingateConnectorTokens(name, <any>undefined, { urn })
+            case "twingate:index/twingateGroup:TwingateGroup":
+                return new TwingateGroup(name, <any>undefined, { urn })
             case "twingate:index/twingateRemoteNetwork:TwingateRemoteNetwork":
                 return new TwingateRemoteNetwork(name, <any>undefined, { urn })
             case "twingate:index/twingateResource:TwingateResource":
@@ -45,6 +56,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("twingate", "index/twingateConnector", _module)
 pulumi.runtime.registerResourceModule("twingate", "index/twingateConnectorTokens", _module)
+pulumi.runtime.registerResourceModule("twingate", "index/twingateGroup", _module)
 pulumi.runtime.registerResourceModule("twingate", "index/twingateRemoteNetwork", _module)
 pulumi.runtime.registerResourceModule("twingate", "index/twingateResource", _module)
 

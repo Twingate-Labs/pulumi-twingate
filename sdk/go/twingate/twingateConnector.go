@@ -16,7 +16,7 @@ type TwingateConnector struct {
 
 	// Name of the Connector, if not provided one will be generated
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The ID of the Remote Network to attach the Connector to
+	// The ID of the Remote Network the Connector is attached to
 	RemoteNetworkId pulumi.StringOutput `pulumi:"remoteNetworkId"`
 }
 
@@ -55,14 +55,14 @@ func GetTwingateConnector(ctx *pulumi.Context,
 type twingateConnectorState struct {
 	// Name of the Connector, if not provided one will be generated
 	Name *string `pulumi:"name"`
-	// The ID of the Remote Network to attach the Connector to
+	// The ID of the Remote Network the Connector is attached to
 	RemoteNetworkId *string `pulumi:"remoteNetworkId"`
 }
 
 type TwingateConnectorState struct {
 	// Name of the Connector, if not provided one will be generated
 	Name pulumi.StringPtrInput
-	// The ID of the Remote Network to attach the Connector to
+	// The ID of the Remote Network the Connector is attached to
 	RemoteNetworkId pulumi.StringPtrInput
 }
 
@@ -73,7 +73,7 @@ func (TwingateConnectorState) ElementType() reflect.Type {
 type twingateConnectorArgs struct {
 	// Name of the Connector, if not provided one will be generated
 	Name *string `pulumi:"name"`
-	// The ID of the Remote Network to attach the Connector to
+	// The ID of the Remote Network the Connector is attached to
 	RemoteNetworkId string `pulumi:"remoteNetworkId"`
 }
 
@@ -81,7 +81,7 @@ type twingateConnectorArgs struct {
 type TwingateConnectorArgs struct {
 	// Name of the Connector, if not provided one will be generated
 	Name pulumi.StringPtrInput
-	// The ID of the Remote Network to attach the Connector to
+	// The ID of the Remote Network the Connector is attached to
 	RemoteNetworkId pulumi.StringInput
 }
 
@@ -177,7 +177,7 @@ func (o TwingateConnectorOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TwingateConnector) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The ID of the Remote Network to attach the Connector to
+// The ID of the Remote Network the Connector is attached to
 func (o TwingateConnectorOutput) RemoteNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TwingateConnector) pulumi.StringOutput { return v.RemoteNetworkId }).(pulumi.StringOutput)
 }

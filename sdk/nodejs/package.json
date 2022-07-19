@@ -24,6 +24,7 @@
     },
     "pulumi": {
         "resource": true,
-        "pluginDownloadURL": "https://github.com/Twingate-Labs/pulumi-twingate/releases/download/v${VERSION}"
+        "name": "twingate",
+        "server": "https://github.com/Twingate-Labs/pulumi-twingate/releases/download/v${VERSION}"
     }
 }

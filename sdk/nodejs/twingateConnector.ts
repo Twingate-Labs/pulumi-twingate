@@ -37,7 +37,7 @@ export class TwingateConnector extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The ID of the Remote Network to attach the Connector to
+     * The ID of the Remote Network the Connector is attached to
      */
     public readonly remoteNetworkId!: pulumi.Output<string>;
 
@@ -78,7 +78,7 @@ export interface TwingateConnectorState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The ID of the Remote Network to attach the Connector to
+     * The ID of the Remote Network the Connector is attached to
      */
     remoteNetworkId?: pulumi.Input<string>;
 }
@@ -92,7 +92,7 @@ export interface TwingateConnectorArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The ID of the Remote Network to attach the Connector to
+     * The ID of the Remote Network the Connector is attached to
      */
     remoteNetworkId: pulumi.Input<string>;
 }

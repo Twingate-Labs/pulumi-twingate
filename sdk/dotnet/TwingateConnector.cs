@@ -20,7 +20,7 @@ namespace TwingateLabs.Twingate
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Remote Network to attach the Connector to
+        /// The ID of the Remote Network the Connector is attached to
         /// </summary>
         [Output("remoteNetworkId")]
         public Output<string> RemoteNetworkId { get; private set; } = null!;
@@ -79,7 +79,7 @@ namespace TwingateLabs.Twingate
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the Remote Network to attach the Connector to
+        /// The ID of the Remote Network the Connector is attached to
         /// </summary>
         [Input("remoteNetworkId", required: true)]
         public Input<string> RemoteNetworkId { get; set; } = null!;
@@ -98,7 +98,7 @@ namespace TwingateLabs.Twingate
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the Remote Network to attach the Connector to
+        /// The ID of the Remote Network the Connector is attached to
         /// </summary>
         [Input("remoteNetworkId")]
         public Input<string>? RemoteNetworkId { get; set; }

@@ -44,7 +44,7 @@ export class TwingateRemoteNetwork extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: TwingateRemoteNetworkArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: TwingateRemoteNetworkArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TwingateRemoteNetworkArgs | TwingateRemoteNetworkState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -53,6 +53,9 @@ export class TwingateRemoteNetwork extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as TwingateRemoteNetworkArgs | undefined;
+            if ((!args || args.name === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'name'");
+            }
             resourceInputs["name"] = args ? args.name : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -77,5 +80,5 @@ export interface TwingateRemoteNetworkArgs {
     /**
      * The name of the Remote Network
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
 }
