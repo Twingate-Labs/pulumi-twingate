@@ -12,8 +12,44 @@ namespace TwingateLabs.Twingate
 {
     public static class GetTwingateConnectors
     {
-        public static Task<GetTwingateConnectorsResult> InvokeAsync(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTwingateConnectorsResult>("twingate:index/getTwingateConnectors:getTwingateConnectors", InvokeArgs.Empty, options.WithDefaults());
+        public static Task<GetTwingateConnectorsResult> InvokeAsync(GetTwingateConnectorsArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTwingateConnectorsResult>("twingate:index/getTwingateConnectors:getTwingateConnectors", args ?? new GetTwingateConnectorsArgs(), options.WithDefaults());
+
+        public static Output<GetTwingateConnectorsResult> Invoke(GetTwingateConnectorsInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetTwingateConnectorsResult>("twingate:index/getTwingateConnectors:getTwingateConnectors", args ?? new GetTwingateConnectorsInvokeArgs(), options.WithDefaults());
+    }
+
+
+    public sealed class GetTwingateConnectorsArgs : global::Pulumi.InvokeArgs
+    {
+        [Input("connectors")]
+        private List<Inputs.GetTwingateConnectorsConnectorArgs>? _connectors;
+        public List<Inputs.GetTwingateConnectorsConnectorArgs> Connectors
+        {
+            get => _connectors ?? (_connectors = new List<Inputs.GetTwingateConnectorsConnectorArgs>());
+            set => _connectors = value;
+        }
+
+        public GetTwingateConnectorsArgs()
+        {
+        }
+        public static new GetTwingateConnectorsArgs Empty => new GetTwingateConnectorsArgs();
+    }
+
+    public sealed class GetTwingateConnectorsInvokeArgs : global::Pulumi.InvokeArgs
+    {
+        [Input("connectors")]
+        private InputList<Inputs.GetTwingateConnectorsConnectorInputArgs>? _connectors;
+        public InputList<Inputs.GetTwingateConnectorsConnectorInputArgs> Connectors
+        {
+            get => _connectors ?? (_connectors = new InputList<Inputs.GetTwingateConnectorsConnectorInputArgs>());
+            set => _connectors = value;
+        }
+
+        public GetTwingateConnectorsInvokeArgs()
+        {
+        }
+        public static new GetTwingateConnectorsInvokeArgs Empty => new GetTwingateConnectorsInvokeArgs();
     }
 
 

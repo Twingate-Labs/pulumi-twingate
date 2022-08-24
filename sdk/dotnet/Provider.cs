@@ -17,7 +17,7 @@ namespace TwingateLabs.Twingate
     /// [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
     /// </summary>
     [TwingateResourceType("pulumi:providers:twingate")]
-    public partial class Provider : Pulumi.ProviderResource
+    public partial class Provider : global::Pulumi.ProviderResource
     {
         /// <summary>
         /// The access key for API operations. You can retrieve this from the Twingate Admin Console
@@ -68,7 +68,7 @@ namespace TwingateLabs.Twingate
         }
     }
 
-    public sealed class ProviderArgs : Pulumi.ResourceArgs
+    public sealed class ProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The access key for API operations. You can retrieve this from the Twingate Admin Console
@@ -79,8 +79,8 @@ namespace TwingateLabs.Twingate
         public Input<string>? ApiToken { get; set; }
 
         /// <summary>
-        /// Specifies a retry limit for the http requests made. This setting is 5. Alternatively, this can be specified using the
-        /// TWINGATE_HTTP_MAX_RETRY environment variable
+        /// Specifies a retry limit for the http requests made. This default value is 10. Alternatively, this can be specified using
+        /// the TWINGATE_HTTP_MAX_RETRY environment variable
         /// </summary>
         [Input("httpMaxRetry", json: true)]
         public Input<int>? HttpMaxRetry { get; set; }
@@ -111,5 +111,6 @@ namespace TwingateLabs.Twingate
             HttpMaxRetry = 5;
             HttpTimeout = 10;
         }
+        public static new ProviderArgs Empty => new ProviderArgs();
     }
 }

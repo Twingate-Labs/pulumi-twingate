@@ -31,12 +31,12 @@ class GetTwingateRemoteNetworkResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
 
@@ -51,12 +51,14 @@ class AwaitableGetTwingateRemoteNetworkResult(GetTwingateRemoteNetworkResult):
 
 
 def get_twingate_remote_network(id: Optional[str] = None,
+                                name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTwingateRemoteNetworkResult:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id
+    __args__['name'] = name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('twingate:index/getTwingateRemoteNetwork:getTwingateRemoteNetwork', __args__, opts=opts, typ=GetTwingateRemoteNetworkResult).value
 
@@ -66,7 +68,8 @@ def get_twingate_remote_network(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_twingate_remote_network)
-def get_twingate_remote_network_output(id: Optional[pulumi.Input[str]] = None,
+def get_twingate_remote_network_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+                                       name: Optional[pulumi.Input[Optional[str]]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTwingateRemoteNetworkResult]:
     """
     Use this data source to access information about an existing resource.

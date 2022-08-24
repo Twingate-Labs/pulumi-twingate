@@ -22,7 +22,8 @@ func GetTwingateResources(ctx *pulumi.Context, args *GetTwingateResourcesArgs, o
 
 // A collection of arguments for invoking getTwingateResources.
 type GetTwingateResourcesArgs struct {
-	Name string `pulumi:"name"`
+	Name      string                         `pulumi:"name"`
+	Resources []GetTwingateResourcesResource `pulumi:"resources"`
 }
 
 // A collection of values returned by getTwingateResources.
@@ -48,7 +49,8 @@ func GetTwingateResourcesOutput(ctx *pulumi.Context, args GetTwingateResourcesOu
 
 // A collection of arguments for invoking getTwingateResources.
 type GetTwingateResourcesOutputArgs struct {
-	Name pulumi.StringInput `pulumi:"name"`
+	Name      pulumi.StringInput                     `pulumi:"name"`
+	Resources GetTwingateResourcesResourceArrayInput `pulumi:"resources"`
 }
 
 func (GetTwingateResourcesOutputArgs) ElementType() reflect.Type {

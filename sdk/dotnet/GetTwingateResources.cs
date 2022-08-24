@@ -20,24 +20,42 @@ namespace TwingateLabs.Twingate
     }
 
 
-    public sealed class GetTwingateResourcesArgs : Pulumi.InvokeArgs
+    public sealed class GetTwingateResourcesArgs : global::Pulumi.InvokeArgs
     {
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        [Input("resources")]
+        private List<Inputs.GetTwingateResourcesResourceArgs>? _resources;
+        public List<Inputs.GetTwingateResourcesResourceArgs> Resources
+        {
+            get => _resources ?? (_resources = new List<Inputs.GetTwingateResourcesResourceArgs>());
+            set => _resources = value;
+        }
+
         public GetTwingateResourcesArgs()
         {
         }
+        public static new GetTwingateResourcesArgs Empty => new GetTwingateResourcesArgs();
     }
 
-    public sealed class GetTwingateResourcesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTwingateResourcesInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("resources")]
+        private InputList<Inputs.GetTwingateResourcesResourceInputArgs>? _resources;
+        public InputList<Inputs.GetTwingateResourcesResourceInputArgs> Resources
+        {
+            get => _resources ?? (_resources = new InputList<Inputs.GetTwingateResourcesResourceInputArgs>());
+            set => _resources = value;
+        }
+
         public GetTwingateResourcesInvokeArgs()
         {
         }
+        public static new GetTwingateResourcesInvokeArgs Empty => new GetTwingateResourcesInvokeArgs();
     }
 
 

@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
+from ._inputs import *
 
 __all__ = [
     'GetTwingateResourceResult',
@@ -56,7 +57,7 @@ class GetTwingateResourceResult:
 
     @property
     @pulumi.getter
-    def protocols(self) -> Sequence['outputs.GetTwingateResourceProtocolResult']:
+    def protocols(self) -> Optional[Sequence['outputs.GetTwingateResourceProtocolResult']]:
         return pulumi.get(self, "protocols")
 
     @property
@@ -79,12 +80,14 @@ class AwaitableGetTwingateResourceResult(GetTwingateResourceResult):
 
 
 def get_twingate_resource(id: Optional[str] = None,
+                          protocols: Optional[Sequence[pulumi.InputType['GetTwingateResourceProtocolArgs']]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTwingateResourceResult:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id
+    __args__['protocols'] = protocols
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('twingate:index/getTwingateResource:getTwingateResource', __args__, opts=opts, typ=GetTwingateResourceResult).value
 
@@ -98,6 +101,7 @@ def get_twingate_resource(id: Optional[str] = None,
 
 @_utilities.lift_output_func(get_twingate_resource)
 def get_twingate_resource_output(id: Optional[pulumi.Input[str]] = None,
+                                 protocols: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetTwingateResourceProtocolArgs']]]]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTwingateResourceResult]:
     """
     Use this data source to access information about an existing resource.

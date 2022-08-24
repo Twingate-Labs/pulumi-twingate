@@ -21,8 +21,8 @@ Object.defineProperty(exports, "apiToken", {
 });
 
 /**
- * Specifies a retry limit for the http requests made. This setting is 5. Alternatively, this can be specified using the
- * TWINGATE_HTTP_MAX_RETRY environment variable
+ * Specifies a retry limit for the http requests made. This default value is 10. Alternatively, this can be specified using
+ * the TWINGATE_HTTP_MAX_RETRY environment variable
  */
 export declare const httpMaxRetry: number;
 Object.defineProperty(exports, "httpMaxRetry", {

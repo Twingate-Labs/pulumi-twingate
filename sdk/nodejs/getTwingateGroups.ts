@@ -13,6 +13,7 @@ export function getTwingateGroups(args?: GetTwingateGroupsArgs, opts?: pulumi.In
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("twingate:index/getTwingateGroups:getTwingateGroups", {
+        "groups": args.groups,
         "isActive": args.isActive,
         "name": args.name,
         "type": args.type,
@@ -23,6 +24,7 @@ export function getTwingateGroups(args?: GetTwingateGroupsArgs, opts?: pulumi.In
  * A collection of arguments for invoking getTwingateGroups.
  */
 export interface GetTwingateGroupsArgs {
+    groups?: inputs.GetTwingateGroupsGroup[];
     isActive?: boolean;
     name?: string;
     type?: string;
@@ -32,7 +34,7 @@ export interface GetTwingateGroupsArgs {
  * A collection of values returned by getTwingateGroups.
  */
 export interface GetTwingateGroupsResult {
-    readonly groups: outputs.GetTwingateGroupsGroup[];
+    readonly groups?: outputs.GetTwingateGroupsGroup[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -50,6 +52,7 @@ export function getTwingateGroupsOutput(args?: GetTwingateGroupsOutputArgs, opts
  * A collection of arguments for invoking getTwingateGroups.
  */
 export interface GetTwingateGroupsOutputArgs {
+    groups?: pulumi.Input<pulumi.Input<inputs.GetTwingateGroupsGroupArgs>[]>;
     isActive?: pulumi.Input<boolean>;
     name?: pulumi.Input<string>;
     type?: pulumi.Input<string>;

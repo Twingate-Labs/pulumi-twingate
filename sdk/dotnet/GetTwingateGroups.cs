@@ -20,8 +20,16 @@ namespace TwingateLabs.Twingate
     }
 
 
-    public sealed class GetTwingateGroupsArgs : Pulumi.InvokeArgs
+    public sealed class GetTwingateGroupsArgs : global::Pulumi.InvokeArgs
     {
+        [Input("groups")]
+        private List<Inputs.GetTwingateGroupsGroupArgs>? _groups;
+        public List<Inputs.GetTwingateGroupsGroupArgs> Groups
+        {
+            get => _groups ?? (_groups = new List<Inputs.GetTwingateGroupsGroupArgs>());
+            set => _groups = value;
+        }
+
         [Input("isActive")]
         public bool? IsActive { get; set; }
 
@@ -34,10 +42,19 @@ namespace TwingateLabs.Twingate
         public GetTwingateGroupsArgs()
         {
         }
+        public static new GetTwingateGroupsArgs Empty => new GetTwingateGroupsArgs();
     }
 
-    public sealed class GetTwingateGroupsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTwingateGroupsInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("groups")]
+        private InputList<Inputs.GetTwingateGroupsGroupInputArgs>? _groups;
+        public InputList<Inputs.GetTwingateGroupsGroupInputArgs> Groups
+        {
+            get => _groups ?? (_groups = new InputList<Inputs.GetTwingateGroupsGroupInputArgs>());
+            set => _groups = value;
+        }
+
         [Input("isActive")]
         public Input<bool>? IsActive { get; set; }
 
@@ -50,6 +67,7 @@ namespace TwingateLabs.Twingate
         public GetTwingateGroupsInvokeArgs()
         {
         }
+        public static new GetTwingateGroupsInvokeArgs Empty => new GetTwingateGroupsInvokeArgs();
     }
 
 

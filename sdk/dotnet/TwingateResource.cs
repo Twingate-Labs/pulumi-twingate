@@ -11,7 +11,7 @@ using Pulumi;
 namespace TwingateLabs.Twingate
 {
     [TwingateResourceType("twingate:index/twingateResource:TwingateResource")]
-    public partial class TwingateResource : Pulumi.CustomResource
+    public partial class TwingateResource : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Resource's IP/CIDR or FQDN/DNS zone
@@ -90,7 +90,7 @@ namespace TwingateLabs.Twingate
         }
     }
 
-    public sealed class TwingateResourceArgs : Pulumi.ResourceArgs
+    public sealed class TwingateResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Resource's IP/CIDR or FQDN/DNS zone
@@ -133,9 +133,10 @@ namespace TwingateLabs.Twingate
         public TwingateResourceArgs()
         {
         }
+        public static new TwingateResourceArgs Empty => new TwingateResourceArgs();
     }
 
-    public sealed class TwingateResourceState : Pulumi.ResourceArgs
+    public sealed class TwingateResourceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Resource's IP/CIDR or FQDN/DNS zone
@@ -178,5 +179,6 @@ namespace TwingateLabs.Twingate
         public TwingateResourceState()
         {
         }
+        public static new TwingateResourceState Empty => new TwingateResourceState();
     }
 }

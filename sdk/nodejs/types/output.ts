@@ -19,8 +19,8 @@ export interface GetTwingateGroupsGroup {
 
 export interface GetTwingateResourceProtocol {
     allowIcmp: boolean;
-    tcps: outputs.GetTwingateResourceProtocolTcp[];
-    udps: outputs.GetTwingateResourceProtocolUdp[];
+    tcps?: outputs.GetTwingateResourceProtocolTcp[];
+    udps?: outputs.GetTwingateResourceProtocolUdp[];
 }
 
 export interface GetTwingateResourceProtocolTcp {
@@ -37,14 +37,14 @@ export interface GetTwingateResourcesResource {
     address: string;
     id: string;
     name: string;
-    protocols: outputs.GetTwingateResourcesResourceProtocol[];
+    protocols?: outputs.GetTwingateResourcesResourceProtocol[];
     remoteNetworkId: string;
 }
 
 export interface GetTwingateResourcesResourceProtocol {
     allowIcmp: boolean;
-    tcps: outputs.GetTwingateResourcesResourceProtocolTcp[];
-    udps: outputs.GetTwingateResourcesResourceProtocolUdp[];
+    tcps?: outputs.GetTwingateResourcesResourceProtocolTcp[];
+    udps?: outputs.GetTwingateResourcesResourceProtocolUdp[];
 }
 
 export interface GetTwingateResourcesResourceProtocolTcp {
@@ -72,3 +72,4 @@ export interface TwingateResourceProtocolsUdp {
     policy: string;
     ports?: string[];
 }
+

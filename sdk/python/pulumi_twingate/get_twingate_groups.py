@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
+from ._inputs import *
 
 __all__ = [
     'GetTwingateGroupsResult',
@@ -41,7 +42,7 @@ class GetTwingateGroupsResult:
 
     @property
     @pulumi.getter
-    def groups(self) -> Sequence['outputs.GetTwingateGroupsGroupResult']:
+    def groups(self) -> Optional[Sequence['outputs.GetTwingateGroupsGroupResult']]:
         return pulumi.get(self, "groups")
 
     @property
@@ -81,7 +82,8 @@ class AwaitableGetTwingateGroupsResult(GetTwingateGroupsResult):
             type=self.type)
 
 
-def get_twingate_groups(is_active: Optional[bool] = None,
+def get_twingate_groups(groups: Optional[Sequence[pulumi.InputType['GetTwingateGroupsGroupArgs']]] = None,
+                        is_active: Optional[bool] = None,
                         name: Optional[str] = None,
                         type: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTwingateGroupsResult:
@@ -89,6 +91,7 @@ def get_twingate_groups(is_active: Optional[bool] = None,
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
+    __args__['groups'] = groups
     __args__['isActive'] = is_active
     __args__['name'] = name
     __args__['type'] = type
@@ -104,7 +107,8 @@ def get_twingate_groups(is_active: Optional[bool] = None,
 
 
 @_utilities.lift_output_func(get_twingate_groups)
-def get_twingate_groups_output(is_active: Optional[pulumi.Input[Optional[bool]]] = None,
+def get_twingate_groups_output(groups: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetTwingateGroupsGroupArgs']]]]] = None,
+                               is_active: Optional[pulumi.Input[Optional[bool]]] = None,
                                name: Optional[pulumi.Input[Optional[str]]] = None,
                                type: Optional[pulumi.Input[Optional[str]]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTwingateGroupsResult]:

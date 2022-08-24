@@ -11,7 +11,7 @@ using Pulumi;
 namespace TwingateLabs.Twingate.Inputs
 {
 
-    public sealed class TwingateResourceProtocolsGetArgs : Pulumi.ResourceArgs
+    public sealed class TwingateResourceProtocolsGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowIcmp")]
         public Input<bool>? AllowIcmp { get; set; }
@@ -25,5 +25,6 @@ namespace TwingateLabs.Twingate.Inputs
         public TwingateResourceProtocolsGetArgs()
         {
         }
+        public static new TwingateResourceProtocolsGetArgs Empty => new TwingateResourceProtocolsGetArgs();
     }
 }

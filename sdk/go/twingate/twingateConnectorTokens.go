@@ -128,7 +128,7 @@ func (i *TwingateConnectorTokens) ToTwingateConnectorTokensOutputWithContext(ctx
 // TwingateConnectorTokensArrayInput is an input type that accepts TwingateConnectorTokensArray and TwingateConnectorTokensArrayOutput values.
 // You can construct a concrete instance of `TwingateConnectorTokensArrayInput` via:
 //
-//          TwingateConnectorTokensArray{ TwingateConnectorTokensArgs{...} }
+//	TwingateConnectorTokensArray{ TwingateConnectorTokensArgs{...} }
 type TwingateConnectorTokensArrayInput interface {
 	pulumi.Input
 
@@ -153,7 +153,7 @@ func (i TwingateConnectorTokensArray) ToTwingateConnectorTokensArrayOutputWithCo
 // TwingateConnectorTokensMapInput is an input type that accepts TwingateConnectorTokensMap and TwingateConnectorTokensMapOutput values.
 // You can construct a concrete instance of `TwingateConnectorTokensMapInput` via:
 //
-//          TwingateConnectorTokensMap{ "key": TwingateConnectorTokensArgs{...} }
+//	TwingateConnectorTokensMap{ "key": TwingateConnectorTokensArgs{...} }
 type TwingateConnectorTokensMapInput interface {
 	pulumi.Input
 

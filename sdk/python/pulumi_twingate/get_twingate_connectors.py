@@ -9,11 +9,13 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
+from ._inputs import *
 
 __all__ = [
     'GetTwingateConnectorsResult',
     'AwaitableGetTwingateConnectorsResult',
     'get_twingate_connectors',
+    'get_twingate_connectors_output',
 ]
 
 @pulumi.output_type
@@ -31,7 +33,7 @@ class GetTwingateConnectorsResult:
 
     @property
     @pulumi.getter
-    def connectors(self) -> Sequence['outputs.GetTwingateConnectorsConnectorResult']:
+    def connectors(self) -> Optional[Sequence['outputs.GetTwingateConnectorsConnectorResult']]:
         return pulumi.get(self, "connectors")
 
     @property
@@ -53,14 +55,25 @@ class AwaitableGetTwingateConnectorsResult(GetTwingateConnectorsResult):
             id=self.id)
 
 
-def get_twingate_connectors(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTwingateConnectorsResult:
+def get_twingate_connectors(connectors: Optional[Sequence[pulumi.InputType['GetTwingateConnectorsConnectorArgs']]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTwingateConnectorsResult:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
+    __args__['connectors'] = connectors
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('twingate:index/getTwingateConnectors:getTwingateConnectors', __args__, opts=opts, typ=GetTwingateConnectorsResult).value
 
     return AwaitableGetTwingateConnectorsResult(
         connectors=__ret__.connectors,
         id=__ret__.id)
+
+
+@_utilities.lift_output_func(get_twingate_connectors)
+def get_twingate_connectors_output(connectors: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetTwingateConnectorsConnectorArgs']]]]] = None,
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTwingateConnectorsResult]:
+    """
+    Use this data source to access information about an existing resource.
+    """
+    ...

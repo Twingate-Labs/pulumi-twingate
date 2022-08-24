@@ -5,23 +5,43 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
-export function getTwingateConnectors(opts?: pulumi.InvokeOptions): Promise<GetTwingateConnectorsResult> {
+export function getTwingateConnectors(args?: GetTwingateConnectorsArgs, opts?: pulumi.InvokeOptions): Promise<GetTwingateConnectorsResult> {
+    args = args || {};
     if (!opts) {
         opts = {}
     }
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("twingate:index/getTwingateConnectors:getTwingateConnectors", {
+        "connectors": args.connectors,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getTwingateConnectors.
+ */
+export interface GetTwingateConnectorsArgs {
+    connectors?: inputs.GetTwingateConnectorsConnector[];
 }
 
 /**
  * A collection of values returned by getTwingateConnectors.
  */
 export interface GetTwingateConnectorsResult {
-    readonly connectors: outputs.GetTwingateConnectorsConnector[];
+    readonly connectors?: outputs.GetTwingateConnectorsConnector[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+}
+
+export function getTwingateConnectorsOutput(args?: GetTwingateConnectorsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTwingateConnectorsResult> {
+    return pulumi.output(args).apply(a => getTwingateConnectors(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getTwingateConnectors.
+ */
+export interface GetTwingateConnectorsOutputArgs {
+    connectors?: pulumi.Input<pulumi.Input<inputs.GetTwingateConnectorsConnectorArgs>[]>;
 }

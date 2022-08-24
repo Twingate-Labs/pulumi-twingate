@@ -11,7 +11,7 @@ using Pulumi;
 namespace TwingateLabs.Twingate
 {
     [TwingateResourceType("twingate:index/twingateGroup:TwingateGroup")]
-    public partial class TwingateGroup : Pulumi.CustomResource
+    public partial class TwingateGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the group
@@ -64,7 +64,7 @@ namespace TwingateLabs.Twingate
         }
     }
 
-    public sealed class TwingateGroupArgs : Pulumi.ResourceArgs
+    public sealed class TwingateGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the group
@@ -75,9 +75,10 @@ namespace TwingateLabs.Twingate
         public TwingateGroupArgs()
         {
         }
+        public static new TwingateGroupArgs Empty => new TwingateGroupArgs();
     }
 
-    public sealed class TwingateGroupState : Pulumi.ResourceArgs
+    public sealed class TwingateGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the group
@@ -88,5 +89,6 @@ namespace TwingateLabs.Twingate
         public TwingateGroupState()
         {
         }
+        public static new TwingateGroupState Empty => new TwingateGroupState();
     }
 }

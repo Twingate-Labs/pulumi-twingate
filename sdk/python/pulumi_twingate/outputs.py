@@ -172,11 +172,13 @@ class GetTwingateGroupsGroupResult(dict):
 class GetTwingateResourceProtocolResult(dict):
     def __init__(__self__, *,
                  allow_icmp: bool,
-                 tcps: Sequence['outputs.GetTwingateResourceProtocolTcpResult'],
-                 udps: Sequence['outputs.GetTwingateResourceProtocolUdpResult']):
+                 tcps: Optional[Sequence['outputs.GetTwingateResourceProtocolTcpResult']] = None,
+                 udps: Optional[Sequence['outputs.GetTwingateResourceProtocolUdpResult']] = None):
         pulumi.set(__self__, "allow_icmp", allow_icmp)
-        pulumi.set(__self__, "tcps", tcps)
-        pulumi.set(__self__, "udps", udps)
+        if tcps is not None:
+            pulumi.set(__self__, "tcps", tcps)
+        if udps is not None:
+            pulumi.set(__self__, "udps", udps)
 
     @property
     @pulumi.getter(name="allowIcmp")
@@ -185,12 +187,12 @@ class GetTwingateResourceProtocolResult(dict):
 
     @property
     @pulumi.getter
-    def tcps(self) -> Sequence['outputs.GetTwingateResourceProtocolTcpResult']:
+    def tcps(self) -> Optional[Sequence['outputs.GetTwingateResourceProtocolTcpResult']]:
         return pulumi.get(self, "tcps")
 
     @property
     @pulumi.getter
-    def udps(self) -> Sequence['outputs.GetTwingateResourceProtocolUdpResult']:
+    def udps(self) -> Optional[Sequence['outputs.GetTwingateResourceProtocolUdpResult']]:
         return pulumi.get(self, "udps")
 
 
@@ -238,13 +240,14 @@ class GetTwingateResourcesResourceResult(dict):
                  address: str,
                  id: str,
                  name: str,
-                 protocols: Sequence['outputs.GetTwingateResourcesResourceProtocolResult'],
-                 remote_network_id: str):
+                 remote_network_id: str,
+                 protocols: Optional[Sequence['outputs.GetTwingateResourcesResourceProtocolResult']] = None):
         pulumi.set(__self__, "address", address)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "protocols", protocols)
         pulumi.set(__self__, "remote_network_id", remote_network_id)
+        if protocols is not None:
+            pulumi.set(__self__, "protocols", protocols)
 
     @property
     @pulumi.getter
@@ -262,25 +265,27 @@ class GetTwingateResourcesResourceResult(dict):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter
-    def protocols(self) -> Sequence['outputs.GetTwingateResourcesResourceProtocolResult']:
-        return pulumi.get(self, "protocols")
-
-    @property
     @pulumi.getter(name="remoteNetworkId")
     def remote_network_id(self) -> str:
         return pulumi.get(self, "remote_network_id")
+
+    @property
+    @pulumi.getter
+    def protocols(self) -> Optional[Sequence['outputs.GetTwingateResourcesResourceProtocolResult']]:
+        return pulumi.get(self, "protocols")
 
 
 @pulumi.output_type
 class GetTwingateResourcesResourceProtocolResult(dict):
     def __init__(__self__, *,
                  allow_icmp: bool,
-                 tcps: Sequence['outputs.GetTwingateResourcesResourceProtocolTcpResult'],
-                 udps: Sequence['outputs.GetTwingateResourcesResourceProtocolUdpResult']):
+                 tcps: Optional[Sequence['outputs.GetTwingateResourcesResourceProtocolTcpResult']] = None,
+                 udps: Optional[Sequence['outputs.GetTwingateResourcesResourceProtocolUdpResult']] = None):
         pulumi.set(__self__, "allow_icmp", allow_icmp)
-        pulumi.set(__self__, "tcps", tcps)
-        pulumi.set(__self__, "udps", udps)
+        if tcps is not None:
+            pulumi.set(__self__, "tcps", tcps)
+        if udps is not None:
+            pulumi.set(__self__, "udps", udps)
 
     @property
     @pulumi.getter(name="allowIcmp")
@@ -289,12 +294,12 @@ class GetTwingateResourcesResourceProtocolResult(dict):
 
     @property
     @pulumi.getter
-    def tcps(self) -> Sequence['outputs.GetTwingateResourcesResourceProtocolTcpResult']:
+    def tcps(self) -> Optional[Sequence['outputs.GetTwingateResourcesResourceProtocolTcpResult']]:
         return pulumi.get(self, "tcps")
 
     @property
     @pulumi.getter
-    def udps(self) -> Sequence['outputs.GetTwingateResourcesResourceProtocolUdpResult']:
+    def udps(self) -> Optional[Sequence['outputs.GetTwingateResourcesResourceProtocolUdpResult']]:
         return pulumi.get(self, "udps")
 
 

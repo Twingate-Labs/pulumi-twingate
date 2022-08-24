@@ -42,12 +42,12 @@
             "disableUnionOutputTypes": true,
             "packageDescription": "A Pulumi package for creating and managing Twingate cloud resources.",
             "packageName": "@twingate-labs/pulumi-twingate",
-            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/Twingate-Labs/terraform-provider-twingate)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi/pulumi-twingate` repo](https://github.com/pulumi/pulumi-twingate/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`Twingate-Labs/terraform-provider-twingate` repo](https://github.com/Twingate-Labs/terraform-provider-twingate/issues).",
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/Twingate-Labs/terraform-provider-twingate)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-twingate` repo](https://github.com/Twingate-Labs/pulumi-twingate/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-twingate` repo](https://github.com/Twingate-Labs/terraform-provider-twingate/issues).",
             "typescriptVersion": ""
         },
         "python": {
             "compatibility": "tfbridge20",
-            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/Twingate-Labs/terraform-provider-twingate)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi/pulumi-twingate` repo](https://github.com/pulumi/pulumi-twingate/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`Twingate-Labs/terraform-provider-twingate` repo](https://github.com/Twingate-Labs/terraform-provider-twingate/issues).",
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/Twingate-Labs/terraform-provider-twingate)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-twingate` repo](https://github.com/Twingate-Labs/pulumi-twingate/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-twingate` repo](https://github.com/Twingate-Labs/terraform-provider-twingate/issues).",
             "requires": {
                 "pulumi": "\u003e=3.0.0,\u003c4.0.0"
             }
@@ -61,7 +61,7 @@
             },
             "httpMaxRetry": {
                 "type": "integer",
-                "description": "Specifies a retry limit for the http requests made. This setting is 5. Alternatively, this can be specified using the\nTWINGATE_HTTP_MAX_RETRY environment variable\n",
+                "description": "Specifies a retry limit for the http requests made. This default value is 10. Alternatively, this can be specified using\nthe TWINGATE_HTTP_MAX_RETRY environment variable\n",
                 "default": 5
             },
             "httpTimeout": {
@@ -289,9 +289,7 @@
             },
             "type": "object",
             "required": [
-                "allowIcmp",
-                "tcps",
-                "udps"
+                "allowIcmp"
             ],
             "language": {
                 "nodejs": {
@@ -416,7 +414,6 @@
                 "address",
                 "id",
                 "name",
-                "protocols",
                 "remoteNetworkId"
             ],
             "language": {
@@ -460,9 +457,7 @@
             },
             "type": "object",
             "required": [
-                "allowIcmp",
-                "tcps",
-                "udps"
+                "allowIcmp"
             ],
             "language": {
                 "nodejs": {
@@ -546,7 +541,7 @@
             },
             "httpMaxRetry": {
                 "type": "integer",
-                "description": "Specifies a retry limit for the http requests made. This setting is 5. Alternatively, this can be specified using the\nTWINGATE_HTTP_MAX_RETRY environment variable\n"
+                "description": "Specifies a retry limit for the http requests made. This default value is 10. Alternatively, this can be specified using\nthe TWINGATE_HTTP_MAX_RETRY environment variable\n"
             },
             "httpTimeout": {
                 "type": "integer",
@@ -568,7 +563,7 @@
             },
             "httpMaxRetry": {
                 "type": "integer",
-                "description": "Specifies a retry limit for the http requests made. This setting is 5. Alternatively, this can be specified using the\nTWINGATE_HTTP_MAX_RETRY environment variable\n",
+                "description": "Specifies a retry limit for the http requests made. This default value is 10. Alternatively, this can be specified using\nthe TWINGATE_HTTP_MAX_RETRY environment variable\n",
                 "default": 5
             },
             "httpTimeout": {
@@ -893,6 +888,18 @@
             }
         },
         "twingate:index/getTwingateConnectors:getTwingateConnectors": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getTwingateConnectors.\n",
+                "properties": {
+                    "connectors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/twingate:index/getTwingateConnectorsConnector:getTwingateConnectorsConnector"
+                        }
+                    }
+                },
+                "type": "object"
+            },
             "outputs": {
                 "description": "A collection of values returned by getTwingateConnectors.\n",
                 "properties": {
@@ -909,7 +916,6 @@
                 },
                 "type": "object",
                 "required": [
-                    "connectors",
                     "id"
                 ]
             }
@@ -956,6 +962,12 @@
             "inputs": {
                 "description": "A collection of arguments for invoking getTwingateGroups.\n",
                 "properties": {
+                    "groups": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/twingate:index/getTwingateGroupsGroup:getTwingateGroupsGroup"
+                        }
+                    },
                     "isActive": {
                         "type": "boolean"
                     },
@@ -993,7 +1005,6 @@
                 },
                 "type": "object",
                 "required": [
-                    "groups",
                     "id"
                 ]
             }
@@ -1004,12 +1015,12 @@
                 "properties": {
                     "id": {
                         "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
                     }
                 },
-                "type": "object",
-                "required": [
-                    "id"
-                ]
+                "type": "object"
             },
             "outputs": {
                 "description": "A collection of values returned by getTwingateRemoteNetwork.\n",
@@ -1021,11 +1032,7 @@
                         "type": "string"
                     }
                 },
-                "type": "object",
-                "required": [
-                    "id",
-                    "name"
-                ]
+                "type": "object"
             }
         },
         "twingate:index/getTwingateResource:getTwingateResource": {
@@ -1034,6 +1041,12 @@
                 "properties": {
                     "id": {
                         "type": "string"
+                    },
+                    "protocols": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/twingate:index/getTwingateResourceProtocol:getTwingateResourceProtocol"
+                        }
                     }
                 },
                 "type": "object",
@@ -1068,7 +1081,6 @@
                     "address",
                     "id",
                     "name",
-                    "protocols",
                     "remoteNetworkId"
                 ]
             }
@@ -1079,6 +1091,12 @@
                 "properties": {
                     "name": {
                         "type": "string"
+                    },
+                    "resources": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/twingate:index/getTwingateResourcesResource:getTwingateResourcesResource"
+                        }
                     }
                 },
                 "type": "object",
@@ -1106,7 +1124,6 @@
                 "type": "object",
                 "required": [
                     "name",
-                    "resources",
                     "id"
                 ]
             }

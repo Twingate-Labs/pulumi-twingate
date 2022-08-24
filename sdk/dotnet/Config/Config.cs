@@ -46,8 +46,8 @@ namespace TwingateLabs.Twingate
 
         private static readonly __Value<int?> _httpMaxRetry = new __Value<int?>(() => __config.GetInt32("httpMaxRetry") ?? 5);
         /// <summary>
-        /// Specifies a retry limit for the http requests made. This setting is 5. Alternatively, this can be specified using the
-        /// TWINGATE_HTTP_MAX_RETRY environment variable
+        /// Specifies a retry limit for the http requests made. This default value is 10. Alternatively, this can be specified using
+        /// the TWINGATE_HTTP_MAX_RETRY environment variable
         /// </summary>
         public static int? HttpMaxRetry
         {

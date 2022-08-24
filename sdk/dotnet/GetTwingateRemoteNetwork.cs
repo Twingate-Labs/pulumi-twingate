@@ -12,46 +12,54 @@ namespace TwingateLabs.Twingate
 {
     public static class GetTwingateRemoteNetwork
     {
-        public static Task<GetTwingateRemoteNetworkResult> InvokeAsync(GetTwingateRemoteNetworkArgs args, InvokeOptions? options = null)
+        public static Task<GetTwingateRemoteNetworkResult> InvokeAsync(GetTwingateRemoteNetworkArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTwingateRemoteNetworkResult>("twingate:index/getTwingateRemoteNetwork:getTwingateRemoteNetwork", args ?? new GetTwingateRemoteNetworkArgs(), options.WithDefaults());
 
-        public static Output<GetTwingateRemoteNetworkResult> Invoke(GetTwingateRemoteNetworkInvokeArgs args, InvokeOptions? options = null)
+        public static Output<GetTwingateRemoteNetworkResult> Invoke(GetTwingateRemoteNetworkInvokeArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetTwingateRemoteNetworkResult>("twingate:index/getTwingateRemoteNetwork:getTwingateRemoteNetwork", args ?? new GetTwingateRemoteNetworkInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetTwingateRemoteNetworkArgs : Pulumi.InvokeArgs
+    public sealed class GetTwingateRemoteNetworkArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        [Input("id")]
+        public string? Id { get; set; }
+
+        [Input("name")]
+        public string? Name { get; set; }
 
         public GetTwingateRemoteNetworkArgs()
         {
         }
+        public static new GetTwingateRemoteNetworkArgs Empty => new GetTwingateRemoteNetworkArgs();
     }
 
-    public sealed class GetTwingateRemoteNetworkInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTwingateRemoteNetworkInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         public GetTwingateRemoteNetworkInvokeArgs()
         {
         }
+        public static new GetTwingateRemoteNetworkInvokeArgs Empty => new GetTwingateRemoteNetworkInvokeArgs();
     }
 
 
     [OutputType]
     public sealed class GetTwingateRemoteNetworkResult
     {
-        public readonly string Id;
-        public readonly string Name;
+        public readonly string? Id;
+        public readonly string? Name;
 
         [OutputConstructor]
         private GetTwingateRemoteNetworkResult(
-            string id,
+            string? id,
 
-            string name)
+            string? name)
         {
             Id = id;
             Name = name;

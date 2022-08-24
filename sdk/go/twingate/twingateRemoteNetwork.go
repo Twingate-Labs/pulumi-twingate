@@ -101,7 +101,7 @@ func (i *TwingateRemoteNetwork) ToTwingateRemoteNetworkOutputWithContext(ctx con
 // TwingateRemoteNetworkArrayInput is an input type that accepts TwingateRemoteNetworkArray and TwingateRemoteNetworkArrayOutput values.
 // You can construct a concrete instance of `TwingateRemoteNetworkArrayInput` via:
 //
-//          TwingateRemoteNetworkArray{ TwingateRemoteNetworkArgs{...} }
+//	TwingateRemoteNetworkArray{ TwingateRemoteNetworkArgs{...} }
 type TwingateRemoteNetworkArrayInput interface {
 	pulumi.Input
 
@@ -126,7 +126,7 @@ func (i TwingateRemoteNetworkArray) ToTwingateRemoteNetworkArrayOutputWithContex
 // TwingateRemoteNetworkMapInput is an input type that accepts TwingateRemoteNetworkMap and TwingateRemoteNetworkMapOutput values.
 // You can construct a concrete instance of `TwingateRemoteNetworkMapInput` via:
 //
-//          TwingateRemoteNetworkMap{ "key": TwingateRemoteNetworkArgs{...} }
+//	TwingateRemoteNetworkMap{ "key": TwingateRemoteNetworkArgs{...} }
 type TwingateRemoteNetworkMapInput interface {
 	pulumi.Input
 

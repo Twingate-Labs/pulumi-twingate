@@ -24,8 +24,8 @@ class ProviderArgs:
         :param pulumi.Input[str] api_token: The access key for API operations. You can retrieve this from the Twingate Admin Console
                ([documentation](https://docs.twingate.com/docs/api-overview)). Alternatively, this can be specified using the
                TWINGATE_API_TOKEN environment variable.
-        :param pulumi.Input[int] http_max_retry: Specifies a retry limit for the http requests made. This setting is 5. Alternatively, this can be specified using the
-               TWINGATE_HTTP_MAX_RETRY environment variable
+        :param pulumi.Input[int] http_max_retry: Specifies a retry limit for the http requests made. This default value is 10. Alternatively, this can be specified using
+               the TWINGATE_HTTP_MAX_RETRY environment variable
         :param pulumi.Input[int] http_timeout: Specifies a time limit in seconds for the http requests made. The default value is 10 seconds. Alternatively, this can
                be specified using the TWINGATE_HTTP_TIMEOUT environment variable
         :param pulumi.Input[str] network: Your Twingate network ID for API operations. You can find it in the Admin Console URL, for example:
@@ -66,8 +66,8 @@ class ProviderArgs:
     @pulumi.getter(name="httpMaxRetry")
     def http_max_retry(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies a retry limit for the http requests made. This setting is 5. Alternatively, this can be specified using the
-        TWINGATE_HTTP_MAX_RETRY environment variable
+        Specifies a retry limit for the http requests made. This default value is 10. Alternatively, this can be specified using
+        the TWINGATE_HTTP_MAX_RETRY environment variable
         """
         return pulumi.get(self, "http_max_retry")
 
@@ -137,8 +137,8 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[str] api_token: The access key for API operations. You can retrieve this from the Twingate Admin Console
                ([documentation](https://docs.twingate.com/docs/api-overview)). Alternatively, this can be specified using the
                TWINGATE_API_TOKEN environment variable.
-        :param pulumi.Input[int] http_max_retry: Specifies a retry limit for the http requests made. This setting is 5. Alternatively, this can be specified using the
-               TWINGATE_HTTP_MAX_RETRY environment variable
+        :param pulumi.Input[int] http_max_retry: Specifies a retry limit for the http requests made. This default value is 10. Alternatively, this can be specified using
+               the TWINGATE_HTTP_MAX_RETRY environment variable
         :param pulumi.Input[int] http_timeout: Specifies a time limit in seconds for the http requests made. The default value is 10 seconds. Alternatively, this can
                be specified using the TWINGATE_HTTP_TIMEOUT environment variable
         :param pulumi.Input[str] network: Your Twingate network ID for API operations. You can find it in the Admin Console URL, for example:

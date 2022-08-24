@@ -27,8 +27,8 @@ class _ExportableConfig(types.ModuleType):
     @property
     def http_max_retry(self) -> int:
         """
-        Specifies a retry limit for the http requests made. This setting is 5. Alternatively, this can be specified using the
-        TWINGATE_HTTP_MAX_RETRY environment variable
+        Specifies a retry limit for the http requests made. This default value is 10. Alternatively, this can be specified using
+        the TWINGATE_HTTP_MAX_RETRY environment variable
         """
         return __config__.get_int('httpMaxRetry') or 5
 

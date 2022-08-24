@@ -22,9 +22,10 @@ func GetTwingateGroups(ctx *pulumi.Context, args *GetTwingateGroupsArgs, opts ..
 
 // A collection of arguments for invoking getTwingateGroups.
 type GetTwingateGroupsArgs struct {
-	IsActive *bool   `pulumi:"isActive"`
-	Name     *string `pulumi:"name"`
-	Type     *string `pulumi:"type"`
+	Groups   []GetTwingateGroupsGroup `pulumi:"groups"`
+	IsActive *bool                    `pulumi:"isActive"`
+	Name     *string                  `pulumi:"name"`
+	Type     *string                  `pulumi:"type"`
 }
 
 // A collection of values returned by getTwingateGroups.
@@ -52,9 +53,10 @@ func GetTwingateGroupsOutput(ctx *pulumi.Context, args GetTwingateGroupsOutputAr
 
 // A collection of arguments for invoking getTwingateGroups.
 type GetTwingateGroupsOutputArgs struct {
-	IsActive pulumi.BoolPtrInput   `pulumi:"isActive"`
-	Name     pulumi.StringPtrInput `pulumi:"name"`
-	Type     pulumi.StringPtrInput `pulumi:"type"`
+	Groups   GetTwingateGroupsGroupArrayInput `pulumi:"groups"`
+	IsActive pulumi.BoolPtrInput              `pulumi:"isActive"`
+	Name     pulumi.StringPtrInput            `pulumi:"name"`
+	Type     pulumi.StringPtrInput            `pulumi:"type"`
 }
 
 func (GetTwingateGroupsOutputArgs) ElementType() reflect.Type {

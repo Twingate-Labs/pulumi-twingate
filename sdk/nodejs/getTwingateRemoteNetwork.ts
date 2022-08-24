@@ -4,7 +4,8 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-export function getTwingateRemoteNetwork(args: GetTwingateRemoteNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetTwingateRemoteNetworkResult> {
+export function getTwingateRemoteNetwork(args?: GetTwingateRemoteNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetTwingateRemoteNetworkResult> {
+    args = args || {};
     if (!opts) {
         opts = {}
     }
@@ -12,6 +13,7 @@ export function getTwingateRemoteNetwork(args: GetTwingateRemoteNetworkArgs, opt
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("twingate:index/getTwingateRemoteNetwork:getTwingateRemoteNetwork", {
         "id": args.id,
+        "name": args.name,
     }, opts);
 }
 
@@ -19,18 +21,19 @@ export function getTwingateRemoteNetwork(args: GetTwingateRemoteNetworkArgs, opt
  * A collection of arguments for invoking getTwingateRemoteNetwork.
  */
 export interface GetTwingateRemoteNetworkArgs {
-    id: string;
+    id?: string;
+    name?: string;
 }
 
 /**
  * A collection of values returned by getTwingateRemoteNetwork.
  */
 export interface GetTwingateRemoteNetworkResult {
-    readonly id: string;
-    readonly name: string;
+    readonly id?: string;
+    readonly name?: string;
 }
 
-export function getTwingateRemoteNetworkOutput(args: GetTwingateRemoteNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTwingateRemoteNetworkResult> {
+export function getTwingateRemoteNetworkOutput(args?: GetTwingateRemoteNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTwingateRemoteNetworkResult> {
     return pulumi.output(args).apply(a => getTwingateRemoteNetwork(a, opts))
 }
 
@@ -38,5 +41,6 @@ export function getTwingateRemoteNetworkOutput(args: GetTwingateRemoteNetworkOut
  * A collection of arguments for invoking getTwingateRemoteNetwork.
  */
 export interface GetTwingateRemoteNetworkOutputArgs {
-    id: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }

@@ -11,7 +11,7 @@ using Pulumi;
 namespace TwingateLabs.Twingate.Inputs
 {
 
-    public sealed class TwingateResourceProtocolsUdpGetArgs : Pulumi.ResourceArgs
+    public sealed class TwingateResourceProtocolsUdpGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
@@ -27,5 +27,6 @@ namespace TwingateLabs.Twingate.Inputs
         public TwingateResourceProtocolsUdpGetArgs()
         {
         }
+        public static new TwingateResourceProtocolsUdpGetArgs Empty => new TwingateResourceProtocolsUdpGetArgs();
     }
 }

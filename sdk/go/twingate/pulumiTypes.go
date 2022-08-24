@@ -19,7 +19,7 @@ type TwingateResourceProtocols struct {
 // TwingateResourceProtocolsInput is an input type that accepts TwingateResourceProtocolsArgs and TwingateResourceProtocolsOutput values.
 // You can construct a concrete instance of `TwingateResourceProtocolsInput` via:
 //
-//          TwingateResourceProtocolsArgs{...}
+//	TwingateResourceProtocolsArgs{...}
 type TwingateResourceProtocolsInput interface {
 	pulumi.Input
 
@@ -56,11 +56,11 @@ func (i TwingateResourceProtocolsArgs) ToTwingateResourceProtocolsPtrOutputWithC
 // TwingateResourceProtocolsPtrInput is an input type that accepts TwingateResourceProtocolsArgs, TwingateResourceProtocolsPtr and TwingateResourceProtocolsPtrOutput values.
 // You can construct a concrete instance of `TwingateResourceProtocolsPtrInput` via:
 //
-//          TwingateResourceProtocolsArgs{...}
+//	        TwingateResourceProtocolsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TwingateResourceProtocolsPtrInput interface {
 	pulumi.Input
 
@@ -181,7 +181,7 @@ type TwingateResourceProtocolsTcp struct {
 // TwingateResourceProtocolsTcpInput is an input type that accepts TwingateResourceProtocolsTcpArgs and TwingateResourceProtocolsTcpOutput values.
 // You can construct a concrete instance of `TwingateResourceProtocolsTcpInput` via:
 //
-//          TwingateResourceProtocolsTcpArgs{...}
+//	TwingateResourceProtocolsTcpArgs{...}
 type TwingateResourceProtocolsTcpInput interface {
 	pulumi.Input
 
@@ -217,11 +217,11 @@ func (i TwingateResourceProtocolsTcpArgs) ToTwingateResourceProtocolsTcpPtrOutpu
 // TwingateResourceProtocolsTcpPtrInput is an input type that accepts TwingateResourceProtocolsTcpArgs, TwingateResourceProtocolsTcpPtr and TwingateResourceProtocolsTcpPtrOutput values.
 // You can construct a concrete instance of `TwingateResourceProtocolsTcpPtrInput` via:
 //
-//          TwingateResourceProtocolsTcpArgs{...}
+//	        TwingateResourceProtocolsTcpArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TwingateResourceProtocolsTcpPtrInput interface {
 	pulumi.Input
 
@@ -329,7 +329,7 @@ type TwingateResourceProtocolsUdp struct {
 // TwingateResourceProtocolsUdpInput is an input type that accepts TwingateResourceProtocolsUdpArgs and TwingateResourceProtocolsUdpOutput values.
 // You can construct a concrete instance of `TwingateResourceProtocolsUdpInput` via:
 //
-//          TwingateResourceProtocolsUdpArgs{...}
+//	TwingateResourceProtocolsUdpArgs{...}
 type TwingateResourceProtocolsUdpInput interface {
 	pulumi.Input
 
@@ -365,11 +365,11 @@ func (i TwingateResourceProtocolsUdpArgs) ToTwingateResourceProtocolsUdpPtrOutpu
 // TwingateResourceProtocolsUdpPtrInput is an input type that accepts TwingateResourceProtocolsUdpArgs, TwingateResourceProtocolsUdpPtr and TwingateResourceProtocolsUdpPtrOutput values.
 // You can construct a concrete instance of `TwingateResourceProtocolsUdpPtrInput` via:
 //
-//          TwingateResourceProtocolsUdpArgs{...}
+//	        TwingateResourceProtocolsUdpArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TwingateResourceProtocolsUdpPtrInput interface {
 	pulumi.Input
 
@@ -478,7 +478,7 @@ type GetTwingateConnectorsConnector struct {
 // GetTwingateConnectorsConnectorInput is an input type that accepts GetTwingateConnectorsConnectorArgs and GetTwingateConnectorsConnectorOutput values.
 // You can construct a concrete instance of `GetTwingateConnectorsConnectorInput` via:
 //
-//          GetTwingateConnectorsConnectorArgs{...}
+//	GetTwingateConnectorsConnectorArgs{...}
 type GetTwingateConnectorsConnectorInput interface {
 	pulumi.Input
 
@@ -507,7 +507,7 @@ func (i GetTwingateConnectorsConnectorArgs) ToGetTwingateConnectorsConnectorOutp
 // GetTwingateConnectorsConnectorArrayInput is an input type that accepts GetTwingateConnectorsConnectorArray and GetTwingateConnectorsConnectorArrayOutput values.
 // You can construct a concrete instance of `GetTwingateConnectorsConnectorArrayInput` via:
 //
-//          GetTwingateConnectorsConnectorArray{ GetTwingateConnectorsConnectorArgs{...} }
+//	GetTwingateConnectorsConnectorArray{ GetTwingateConnectorsConnectorArgs{...} }
 type GetTwingateConnectorsConnectorArrayInput interface {
 	pulumi.Input
 
@@ -585,7 +585,7 @@ type GetTwingateGroupsGroup struct {
 // GetTwingateGroupsGroupInput is an input type that accepts GetTwingateGroupsGroupArgs and GetTwingateGroupsGroupOutput values.
 // You can construct a concrete instance of `GetTwingateGroupsGroupInput` via:
 //
-//          GetTwingateGroupsGroupArgs{...}
+//	GetTwingateGroupsGroupArgs{...}
 type GetTwingateGroupsGroupInput interface {
 	pulumi.Input
 
@@ -615,7 +615,7 @@ func (i GetTwingateGroupsGroupArgs) ToGetTwingateGroupsGroupOutputWithContext(ct
 // GetTwingateGroupsGroupArrayInput is an input type that accepts GetTwingateGroupsGroupArray and GetTwingateGroupsGroupArrayOutput values.
 // You can construct a concrete instance of `GetTwingateGroupsGroupArrayInput` via:
 //
-//          GetTwingateGroupsGroupArray{ GetTwingateGroupsGroupArgs{...} }
+//	GetTwingateGroupsGroupArray{ GetTwingateGroupsGroupArgs{...} }
 type GetTwingateGroupsGroupArrayInput interface {
 	pulumi.Input
 
@@ -696,7 +696,7 @@ type GetTwingateResourceProtocol struct {
 // GetTwingateResourceProtocolInput is an input type that accepts GetTwingateResourceProtocolArgs and GetTwingateResourceProtocolOutput values.
 // You can construct a concrete instance of `GetTwingateResourceProtocolInput` via:
 //
-//          GetTwingateResourceProtocolArgs{...}
+//	GetTwingateResourceProtocolArgs{...}
 type GetTwingateResourceProtocolInput interface {
 	pulumi.Input
 
@@ -725,7 +725,7 @@ func (i GetTwingateResourceProtocolArgs) ToGetTwingateResourceProtocolOutputWith
 // GetTwingateResourceProtocolArrayInput is an input type that accepts GetTwingateResourceProtocolArray and GetTwingateResourceProtocolArrayOutput values.
 // You can construct a concrete instance of `GetTwingateResourceProtocolArrayInput` via:
 //
-//          GetTwingateResourceProtocolArray{ GetTwingateResourceProtocolArgs{...} }
+//	GetTwingateResourceProtocolArray{ GetTwingateResourceProtocolArgs{...} }
 type GetTwingateResourceProtocolArrayInput interface {
 	pulumi.Input
 
@@ -801,7 +801,7 @@ type GetTwingateResourceProtocolTcp struct {
 // GetTwingateResourceProtocolTcpInput is an input type that accepts GetTwingateResourceProtocolTcpArgs and GetTwingateResourceProtocolTcpOutput values.
 // You can construct a concrete instance of `GetTwingateResourceProtocolTcpInput` via:
 //
-//          GetTwingateResourceProtocolTcpArgs{...}
+//	GetTwingateResourceProtocolTcpArgs{...}
 type GetTwingateResourceProtocolTcpInput interface {
 	pulumi.Input
 
@@ -829,7 +829,7 @@ func (i GetTwingateResourceProtocolTcpArgs) ToGetTwingateResourceProtocolTcpOutp
 // GetTwingateResourceProtocolTcpArrayInput is an input type that accepts GetTwingateResourceProtocolTcpArray and GetTwingateResourceProtocolTcpArrayOutput values.
 // You can construct a concrete instance of `GetTwingateResourceProtocolTcpArrayInput` via:
 //
-//          GetTwingateResourceProtocolTcpArray{ GetTwingateResourceProtocolTcpArgs{...} }
+//	GetTwingateResourceProtocolTcpArray{ GetTwingateResourceProtocolTcpArgs{...} }
 type GetTwingateResourceProtocolTcpArrayInput interface {
 	pulumi.Input
 
@@ -901,7 +901,7 @@ type GetTwingateResourceProtocolUdp struct {
 // GetTwingateResourceProtocolUdpInput is an input type that accepts GetTwingateResourceProtocolUdpArgs and GetTwingateResourceProtocolUdpOutput values.
 // You can construct a concrete instance of `GetTwingateResourceProtocolUdpInput` via:
 //
-//          GetTwingateResourceProtocolUdpArgs{...}
+//	GetTwingateResourceProtocolUdpArgs{...}
 type GetTwingateResourceProtocolUdpInput interface {
 	pulumi.Input
 
@@ -929,7 +929,7 @@ func (i GetTwingateResourceProtocolUdpArgs) ToGetTwingateResourceProtocolUdpOutp
 // GetTwingateResourceProtocolUdpArrayInput is an input type that accepts GetTwingateResourceProtocolUdpArray and GetTwingateResourceProtocolUdpArrayOutput values.
 // You can construct a concrete instance of `GetTwingateResourceProtocolUdpArrayInput` via:
 //
-//          GetTwingateResourceProtocolUdpArray{ GetTwingateResourceProtocolUdpArgs{...} }
+//	GetTwingateResourceProtocolUdpArray{ GetTwingateResourceProtocolUdpArgs{...} }
 type GetTwingateResourceProtocolUdpArrayInput interface {
 	pulumi.Input
 
@@ -1004,7 +1004,7 @@ type GetTwingateResourcesResource struct {
 // GetTwingateResourcesResourceInput is an input type that accepts GetTwingateResourcesResourceArgs and GetTwingateResourcesResourceOutput values.
 // You can construct a concrete instance of `GetTwingateResourcesResourceInput` via:
 //
-//          GetTwingateResourcesResourceArgs{...}
+//	GetTwingateResourcesResourceArgs{...}
 type GetTwingateResourcesResourceInput interface {
 	pulumi.Input
 
@@ -1035,7 +1035,7 @@ func (i GetTwingateResourcesResourceArgs) ToGetTwingateResourcesResourceOutputWi
 // GetTwingateResourcesResourceArrayInput is an input type that accepts GetTwingateResourcesResourceArray and GetTwingateResourcesResourceArrayOutput values.
 // You can construct a concrete instance of `GetTwingateResourcesResourceArrayInput` via:
 //
-//          GetTwingateResourcesResourceArray{ GetTwingateResourcesResourceArgs{...} }
+//	GetTwingateResourcesResourceArray{ GetTwingateResourcesResourceArgs{...} }
 type GetTwingateResourcesResourceArrayInput interface {
 	pulumi.Input
 
@@ -1120,7 +1120,7 @@ type GetTwingateResourcesResourceProtocol struct {
 // GetTwingateResourcesResourceProtocolInput is an input type that accepts GetTwingateResourcesResourceProtocolArgs and GetTwingateResourcesResourceProtocolOutput values.
 // You can construct a concrete instance of `GetTwingateResourcesResourceProtocolInput` via:
 //
-//          GetTwingateResourcesResourceProtocolArgs{...}
+//	GetTwingateResourcesResourceProtocolArgs{...}
 type GetTwingateResourcesResourceProtocolInput interface {
 	pulumi.Input
 
@@ -1149,7 +1149,7 @@ func (i GetTwingateResourcesResourceProtocolArgs) ToGetTwingateResourcesResource
 // GetTwingateResourcesResourceProtocolArrayInput is an input type that accepts GetTwingateResourcesResourceProtocolArray and GetTwingateResourcesResourceProtocolArrayOutput values.
 // You can construct a concrete instance of `GetTwingateResourcesResourceProtocolArrayInput` via:
 //
-//          GetTwingateResourcesResourceProtocolArray{ GetTwingateResourcesResourceProtocolArgs{...} }
+//	GetTwingateResourcesResourceProtocolArray{ GetTwingateResourcesResourceProtocolArgs{...} }
 type GetTwingateResourcesResourceProtocolArrayInput interface {
 	pulumi.Input
 
@@ -1225,7 +1225,7 @@ type GetTwingateResourcesResourceProtocolTcp struct {
 // GetTwingateResourcesResourceProtocolTcpInput is an input type that accepts GetTwingateResourcesResourceProtocolTcpArgs and GetTwingateResourcesResourceProtocolTcpOutput values.
 // You can construct a concrete instance of `GetTwingateResourcesResourceProtocolTcpInput` via:
 //
-//          GetTwingateResourcesResourceProtocolTcpArgs{...}
+//	GetTwingateResourcesResourceProtocolTcpArgs{...}
 type GetTwingateResourcesResourceProtocolTcpInput interface {
 	pulumi.Input
 
@@ -1253,7 +1253,7 @@ func (i GetTwingateResourcesResourceProtocolTcpArgs) ToGetTwingateResourcesResou
 // GetTwingateResourcesResourceProtocolTcpArrayInput is an input type that accepts GetTwingateResourcesResourceProtocolTcpArray and GetTwingateResourcesResourceProtocolTcpArrayOutput values.
 // You can construct a concrete instance of `GetTwingateResourcesResourceProtocolTcpArrayInput` via:
 //
-//          GetTwingateResourcesResourceProtocolTcpArray{ GetTwingateResourcesResourceProtocolTcpArgs{...} }
+//	GetTwingateResourcesResourceProtocolTcpArray{ GetTwingateResourcesResourceProtocolTcpArgs{...} }
 type GetTwingateResourcesResourceProtocolTcpArrayInput interface {
 	pulumi.Input
 
@@ -1325,7 +1325,7 @@ type GetTwingateResourcesResourceProtocolUdp struct {
 // GetTwingateResourcesResourceProtocolUdpInput is an input type that accepts GetTwingateResourcesResourceProtocolUdpArgs and GetTwingateResourcesResourceProtocolUdpOutput values.
 // You can construct a concrete instance of `GetTwingateResourcesResourceProtocolUdpInput` via:
 //
-//          GetTwingateResourcesResourceProtocolUdpArgs{...}
+//	GetTwingateResourcesResourceProtocolUdpArgs{...}
 type GetTwingateResourcesResourceProtocolUdpInput interface {
 	pulumi.Input
 
@@ -1353,7 +1353,7 @@ func (i GetTwingateResourcesResourceProtocolUdpArgs) ToGetTwingateResourcesResou
 // GetTwingateResourcesResourceProtocolUdpArrayInput is an input type that accepts GetTwingateResourcesResourceProtocolUdpArray and GetTwingateResourcesResourceProtocolUdpArrayOutput values.
 // You can construct a concrete instance of `GetTwingateResourcesResourceProtocolUdpArrayInput` via:
 //
-//          GetTwingateResourcesResourceProtocolUdpArray{ GetTwingateResourcesResourceProtocolUdpArgs{...} }
+//	GetTwingateResourcesResourceProtocolUdpArray{ GetTwingateResourcesResourceProtocolUdpArgs{...} }
 type GetTwingateResourcesResourceProtocolUdpArrayInput interface {
 	pulumi.Input
 

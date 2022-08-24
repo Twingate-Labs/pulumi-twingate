@@ -20,7 +20,7 @@ namespace TwingateLabs.Twingate
     }
 
 
-    public sealed class GetTwingateConnectorArgs : Pulumi.InvokeArgs
+    public sealed class GetTwingateConnectorArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -28,9 +28,10 @@ namespace TwingateLabs.Twingate
         public GetTwingateConnectorArgs()
         {
         }
+        public static new GetTwingateConnectorArgs Empty => new GetTwingateConnectorArgs();
     }
 
-    public sealed class GetTwingateConnectorInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTwingateConnectorInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -38,6 +39,7 @@ namespace TwingateLabs.Twingate
         public GetTwingateConnectorInvokeArgs()
         {
         }
+        public static new GetTwingateConnectorInvokeArgs Empty => new GetTwingateConnectorInvokeArgs();
     }
 
 

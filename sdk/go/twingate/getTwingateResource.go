@@ -22,7 +22,8 @@ func LookupTwingateResource(ctx *pulumi.Context, args *LookupTwingateResourceArg
 
 // A collection of arguments for invoking getTwingateResource.
 type LookupTwingateResourceArgs struct {
-	Id string `pulumi:"id"`
+	Id        string                        `pulumi:"id"`
+	Protocols []GetTwingateResourceProtocol `pulumi:"protocols"`
 }
 
 // A collection of values returned by getTwingateResource.
@@ -49,7 +50,8 @@ func LookupTwingateResourceOutput(ctx *pulumi.Context, args LookupTwingateResour
 
 // A collection of arguments for invoking getTwingateResource.
 type LookupTwingateResourceOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	Id        pulumi.StringInput                    `pulumi:"id"`
+	Protocols GetTwingateResourceProtocolArrayInput `pulumi:"protocols"`
 }
 
 func (LookupTwingateResourceOutputArgs) ElementType() reflect.Type {

@@ -101,7 +101,7 @@ func (i *TwingateGroup) ToTwingateGroupOutputWithContext(ctx context.Context) Tw
 // TwingateGroupArrayInput is an input type that accepts TwingateGroupArray and TwingateGroupArrayOutput values.
 // You can construct a concrete instance of `TwingateGroupArrayInput` via:
 //
-//          TwingateGroupArray{ TwingateGroupArgs{...} }
+//	TwingateGroupArray{ TwingateGroupArgs{...} }
 type TwingateGroupArrayInput interface {
 	pulumi.Input
 
@@ -126,7 +126,7 @@ func (i TwingateGroupArray) ToTwingateGroupArrayOutputWithContext(ctx context.Co
 // TwingateGroupMapInput is an input type that accepts TwingateGroupMap and TwingateGroupMapOutput values.
 // You can construct a concrete instance of `TwingateGroupMapInput` via:
 //
-//          TwingateGroupMap{ "key": TwingateGroupArgs{...} }
+//	TwingateGroupMap{ "key": TwingateGroupArgs{...} }
 type TwingateGroupMapInput interface {
 	pulumi.Input
 

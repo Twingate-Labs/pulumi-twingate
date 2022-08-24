@@ -22,13 +22,14 @@ func LookupTwingateRemoteNetwork(ctx *pulumi.Context, args *LookupTwingateRemote
 
 // A collection of arguments for invoking getTwingateRemoteNetwork.
 type LookupTwingateRemoteNetworkArgs struct {
-	Id string `pulumi:"id"`
+	Id   *string `pulumi:"id"`
+	Name *string `pulumi:"name"`
 }
 
 // A collection of values returned by getTwingateRemoteNetwork.
 type LookupTwingateRemoteNetworkResult struct {
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id   *string `pulumi:"id"`
+	Name *string `pulumi:"name"`
 }
 
 func LookupTwingateRemoteNetworkOutput(ctx *pulumi.Context, args LookupTwingateRemoteNetworkOutputArgs, opts ...pulumi.InvokeOption) LookupTwingateRemoteNetworkResultOutput {
@@ -46,7 +47,8 @@ func LookupTwingateRemoteNetworkOutput(ctx *pulumi.Context, args LookupTwingateR
 
 // A collection of arguments for invoking getTwingateRemoteNetwork.
 type LookupTwingateRemoteNetworkOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	Id   pulumi.StringPtrInput `pulumi:"id"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (LookupTwingateRemoteNetworkOutputArgs) ElementType() reflect.Type {
@@ -68,12 +70,12 @@ func (o LookupTwingateRemoteNetworkResultOutput) ToLookupTwingateRemoteNetworkRe
 	return o
 }
 
-func (o LookupTwingateRemoteNetworkResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupTwingateRemoteNetworkResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupTwingateRemoteNetworkResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTwingateRemoteNetworkResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupTwingateRemoteNetworkResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupTwingateRemoteNetworkResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupTwingateRemoteNetworkResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTwingateRemoteNetworkResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 func init() {

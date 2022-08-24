@@ -11,7 +11,7 @@ using Pulumi;
 namespace TwingateLabs.Twingate
 {
     [TwingateResourceType("twingate:index/twingateRemoteNetwork:TwingateRemoteNetwork")]
-    public partial class TwingateRemoteNetwork : Pulumi.CustomResource
+    public partial class TwingateRemoteNetwork : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the Remote Network
@@ -64,7 +64,7 @@ namespace TwingateLabs.Twingate
         }
     }
 
-    public sealed class TwingateRemoteNetworkArgs : Pulumi.ResourceArgs
+    public sealed class TwingateRemoteNetworkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Remote Network
@@ -75,9 +75,10 @@ namespace TwingateLabs.Twingate
         public TwingateRemoteNetworkArgs()
         {
         }
+        public static new TwingateRemoteNetworkArgs Empty => new TwingateRemoteNetworkArgs();
     }
 
-    public sealed class TwingateRemoteNetworkState : Pulumi.ResourceArgs
+    public sealed class TwingateRemoteNetworkState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Remote Network
@@ -88,5 +89,6 @@ namespace TwingateLabs.Twingate
         public TwingateRemoteNetworkState()
         {
         }
+        public static new TwingateRemoteNetworkState Empty => new TwingateRemoteNetworkState();
     }
 }

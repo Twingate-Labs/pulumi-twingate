@@ -11,7 +11,7 @@ using Pulumi;
 namespace TwingateLabs.Twingate
 {
     [TwingateResourceType("twingate:index/twingateConnectorTokens:TwingateConnectorTokens")]
-    public partial class TwingateConnectorTokens : Pulumi.CustomResource
+    public partial class TwingateConnectorTokens : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Access Token of the parent Connector
@@ -83,7 +83,7 @@ namespace TwingateLabs.Twingate
         }
     }
 
-    public sealed class TwingateConnectorTokensArgs : Pulumi.ResourceArgs
+    public sealed class TwingateConnectorTokensArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the parent Connector
@@ -107,9 +107,10 @@ namespace TwingateLabs.Twingate
         public TwingateConnectorTokensArgs()
         {
         }
+        public static new TwingateConnectorTokensArgs Empty => new TwingateConnectorTokensArgs();
     }
 
-    public sealed class TwingateConnectorTokensState : Pulumi.ResourceArgs
+    public sealed class TwingateConnectorTokensState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Access Token of the parent Connector
@@ -145,5 +146,6 @@ namespace TwingateLabs.Twingate
         public TwingateConnectorTokensState()
         {
         }
+        public static new TwingateConnectorTokensState Empty => new TwingateConnectorTokensState();
     }
 }

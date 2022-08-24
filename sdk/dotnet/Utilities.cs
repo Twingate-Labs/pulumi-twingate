@@ -75,7 +75,7 @@ namespace TwingateLabs.Twingate
         }
     }
 
-    internal sealed class TwingateResourceTypeAttribute : Pulumi.ResourceTypeAttribute
+    internal sealed class TwingateResourceTypeAttribute : global::Pulumi.ResourceTypeAttribute
     {
         public TwingateResourceTypeAttribute(string type) : base(type, Utilities.Version)
         {

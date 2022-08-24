@@ -157,7 +157,7 @@ func (i *TwingateResource) ToTwingateResourceOutputWithContext(ctx context.Conte
 // TwingateResourceArrayInput is an input type that accepts TwingateResourceArray and TwingateResourceArrayOutput values.
 // You can construct a concrete instance of `TwingateResourceArrayInput` via:
 //
-//          TwingateResourceArray{ TwingateResourceArgs{...} }
+//	TwingateResourceArray{ TwingateResourceArgs{...} }
 type TwingateResourceArrayInput interface {
 	pulumi.Input
 
@@ -182,7 +182,7 @@ func (i TwingateResourceArray) ToTwingateResourceArrayOutputWithContext(ctx cont
 // TwingateResourceMapInput is an input type that accepts TwingateResourceMap and TwingateResourceMapOutput values.
 // You can construct a concrete instance of `TwingateResourceMapInput` via:
 //
-//          TwingateResourceMap{ "key": TwingateResourceArgs{...} }
+//	TwingateResourceMap{ "key": TwingateResourceArgs{...} }
 type TwingateResourceMapInput interface {
 	pulumi.Input
 

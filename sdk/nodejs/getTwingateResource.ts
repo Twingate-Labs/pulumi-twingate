@@ -13,6 +13,7 @@ export function getTwingateResource(args: GetTwingateResourceArgs, opts?: pulumi
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("twingate:index/getTwingateResource:getTwingateResource", {
         "id": args.id,
+        "protocols": args.protocols,
     }, opts);
 }
 
@@ -21,6 +22,7 @@ export function getTwingateResource(args: GetTwingateResourceArgs, opts?: pulumi
  */
 export interface GetTwingateResourceArgs {
     id: string;
+    protocols?: inputs.GetTwingateResourceProtocol[];
 }
 
 /**
@@ -30,7 +32,7 @@ export interface GetTwingateResourceResult {
     readonly address: string;
     readonly id: string;
     readonly name: string;
-    readonly protocols: outputs.GetTwingateResourceProtocol[];
+    readonly protocols?: outputs.GetTwingateResourceProtocol[];
     readonly remoteNetworkId: string;
 }
 
@@ -43,4 +45,5 @@ export function getTwingateResourceOutput(args: GetTwingateResourceOutputArgs, o
  */
 export interface GetTwingateResourceOutputArgs {
     id: pulumi.Input<string>;
+    protocols?: pulumi.Input<pulumi.Input<inputs.GetTwingateResourceProtocolArgs>[]>;
 }
