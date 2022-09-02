@@ -90,6 +90,8 @@ func Provider() tfbridge.ProviderInfo {
 			"twingate_groups":         {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getTwingateGroups")},
 			"twingate_resource":       {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getTwingateResource")},
 			"twingate_resources":      {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getTwingateResources")},
+			"twingate_user":           {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getTwingateUser")},
+			"twingate_users":          {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getTwingateUsers")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			PackageName: "@twingate-labs/pulumi-twingate",
