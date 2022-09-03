@@ -22,6 +22,7 @@ __all__ = [
     'GetTwingateResourcesResourceProtocolArgs',
     'GetTwingateResourcesResourceProtocolTcpArgs',
     'GetTwingateResourcesResourceProtocolUdpArgs',
+    'GetTwingateUsersUserArgs',
 ]
 
 @pulumi.input_type
@@ -453,5 +454,76 @@ class GetTwingateResourcesResourceProtocolUdpArgs:
     @ports.setter
     def ports(self, value: Sequence[str]):
         pulumi.set(self, "ports", value)
+
+
+@pulumi.input_type
+class GetTwingateUsersUserArgs:
+    def __init__(__self__, *,
+                 email: str,
+                 first_name: str,
+                 id: str,
+                 is_admin: bool,
+                 last_name: str,
+                 role: str):
+        pulumi.set(__self__, "email", email)
+        pulumi.set(__self__, "first_name", first_name)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "is_admin", is_admin)
+        pulumi.set(__self__, "last_name", last_name)
+        pulumi.set(__self__, "role", role)
+
+    @property
+    @pulumi.getter
+    def email(self) -> str:
+        return pulumi.get(self, "email")
+
+    @email.setter
+    def email(self, value: str):
+        pulumi.set(self, "email", value)
+
+    @property
+    @pulumi.getter(name="firstName")
+    def first_name(self) -> str:
+        return pulumi.get(self, "first_name")
+
+    @first_name.setter
+    def first_name(self, value: str):
+        pulumi.set(self, "first_name", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: str):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="isAdmin")
+    def is_admin(self) -> bool:
+        return pulumi.get(self, "is_admin")
+
+    @is_admin.setter
+    def is_admin(self, value: bool):
+        pulumi.set(self, "is_admin", value)
+
+    @property
+    @pulumi.getter(name="lastName")
+    def last_name(self) -> str:
+        return pulumi.get(self, "last_name")
+
+    @last_name.setter
+    def last_name(self, value: str):
+        pulumi.set(self, "last_name", value)
+
+    @property
+    @pulumi.getter
+    def role(self) -> str:
+        return pulumi.get(self, "role")
+
+    @role.setter
+    def role(self, value: str):
+        pulumi.set(self, "role", value)
 
 

@@ -23,6 +23,7 @@ __all__ = [
     'GetTwingateResourcesResourceProtocolResult',
     'GetTwingateResourcesResourceProtocolTcpResult',
     'GetTwingateResourcesResourceProtocolUdpResult',
+    'GetTwingateUsersUserResult',
 ]
 
 @pulumi.output_type
@@ -339,5 +340,52 @@ class GetTwingateResourcesResourceProtocolUdpResult(dict):
     @pulumi.getter
     def ports(self) -> Sequence[str]:
         return pulumi.get(self, "ports")
+
+
+@pulumi.output_type
+class GetTwingateUsersUserResult(dict):
+    def __init__(__self__, *,
+                 email: str,
+                 first_name: str,
+                 id: str,
+                 is_admin: bool,
+                 last_name: str,
+                 role: str):
+        pulumi.set(__self__, "email", email)
+        pulumi.set(__self__, "first_name", first_name)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "is_admin", is_admin)
+        pulumi.set(__self__, "last_name", last_name)
+        pulumi.set(__self__, "role", role)
+
+    @property
+    @pulumi.getter
+    def email(self) -> str:
+        return pulumi.get(self, "email")
+
+    @property
+    @pulumi.getter(name="firstName")
+    def first_name(self) -> str:
+        return pulumi.get(self, "first_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="isAdmin")
+    def is_admin(self) -> bool:
+        return pulumi.get(self, "is_admin")
+
+    @property
+    @pulumi.getter(name="lastName")
+    def last_name(self) -> str:
+        return pulumi.get(self, "last_name")
+
+    @property
+    @pulumi.getter
+    def role(self) -> str:
+        return pulumi.get(self, "role")
 
 

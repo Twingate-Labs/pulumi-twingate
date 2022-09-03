@@ -12,6 +12,8 @@ export * from "./getTwingateGroups";
 export * from "./getTwingateRemoteNetwork";
 export * from "./getTwingateResource";
 export * from "./getTwingateResources";
+export * from "./getTwingateUser";
+export * from "./getTwingateUsers";
 export * from "./provider";
 export * from "./twingateConnector";
 export * from "./twingateConnectorTokens";

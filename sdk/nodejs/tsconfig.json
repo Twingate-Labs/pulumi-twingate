@@ -22,6 +22,8 @@
         "getTwingateRemoteNetwork.ts",
         "getTwingateResource.ts",
         "getTwingateResources.ts",
+        "getTwingateUser.ts",
+        "getTwingateUsers.ts",
         "index.ts",
         "provider.ts",
         "twingateConnector.ts",

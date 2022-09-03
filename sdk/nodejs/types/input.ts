@@ -110,6 +110,24 @@ export interface GetTwingateResourcesResourceProtocolUdpArgs {
     ports?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
+export interface GetTwingateUsersUserArgs {
+    email?: pulumi.Input<string>;
+    firstName?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
+    isAdmin?: pulumi.Input<boolean>;
+    lastName?: pulumi.Input<string>;
+    role?: pulumi.Input<string>;
+}
+
+export interface GetTwingateUsersUser {
+    email?: string;
+    firstName?: string;
+    id?: string;
+    isAdmin?: boolean;
+    lastName?: string;
+    role?: string;
+}
+
 export interface TwingateResourceProtocols {
     allowIcmp?: pulumi.Input<boolean>;
     tcp: pulumi.Input<inputs.TwingateResourceProtocolsTcp>;
@@ -125,3 +143,4 @@ export interface TwingateResourceProtocolsUdp {
     policy: pulumi.Input<string>;
     ports?: pulumi.Input<pulumi.Input<string>[]>;
 }
+

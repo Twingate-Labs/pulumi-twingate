@@ -1417,6 +1417,130 @@ func (o GetTwingateResourcesResourceProtocolUdpArrayOutput) Index(i pulumi.IntIn
 	}).(GetTwingateResourcesResourceProtocolUdpOutput)
 }
 
+type GetTwingateUsersUser struct {
+	Email     string `pulumi:"email"`
+	FirstName string `pulumi:"firstName"`
+	Id        string `pulumi:"id"`
+	IsAdmin   bool   `pulumi:"isAdmin"`
+	LastName  string `pulumi:"lastName"`
+	Role      string `pulumi:"role"`
+}
+
+// GetTwingateUsersUserInput is an input type that accepts GetTwingateUsersUserArgs and GetTwingateUsersUserOutput values.
+// You can construct a concrete instance of `GetTwingateUsersUserInput` via:
+//
+//	GetTwingateUsersUserArgs{...}
+type GetTwingateUsersUserInput interface {
+	pulumi.Input
+
+	ToGetTwingateUsersUserOutput() GetTwingateUsersUserOutput
+	ToGetTwingateUsersUserOutputWithContext(context.Context) GetTwingateUsersUserOutput
+}
+
+type GetTwingateUsersUserArgs struct {
+	Email     pulumi.StringInput `pulumi:"email"`
+	FirstName pulumi.StringInput `pulumi:"firstName"`
+	Id        pulumi.StringInput `pulumi:"id"`
+	IsAdmin   pulumi.BoolInput   `pulumi:"isAdmin"`
+	LastName  pulumi.StringInput `pulumi:"lastName"`
+	Role      pulumi.StringInput `pulumi:"role"`
+}
+
+func (GetTwingateUsersUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTwingateUsersUser)(nil)).Elem()
+}
+
+func (i GetTwingateUsersUserArgs) ToGetTwingateUsersUserOutput() GetTwingateUsersUserOutput {
+	return i.ToGetTwingateUsersUserOutputWithContext(context.Background())
+}
+
+func (i GetTwingateUsersUserArgs) ToGetTwingateUsersUserOutputWithContext(ctx context.Context) GetTwingateUsersUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTwingateUsersUserOutput)
+}
+
+// GetTwingateUsersUserArrayInput is an input type that accepts GetTwingateUsersUserArray and GetTwingateUsersUserArrayOutput values.
+// You can construct a concrete instance of `GetTwingateUsersUserArrayInput` via:
+//
+//	GetTwingateUsersUserArray{ GetTwingateUsersUserArgs{...} }
+type GetTwingateUsersUserArrayInput interface {
+	pulumi.Input
+
+	ToGetTwingateUsersUserArrayOutput() GetTwingateUsersUserArrayOutput
+	ToGetTwingateUsersUserArrayOutputWithContext(context.Context) GetTwingateUsersUserArrayOutput
+}
+
+type GetTwingateUsersUserArray []GetTwingateUsersUserInput
+
+func (GetTwingateUsersUserArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTwingateUsersUser)(nil)).Elem()
+}
+
+func (i GetTwingateUsersUserArray) ToGetTwingateUsersUserArrayOutput() GetTwingateUsersUserArrayOutput {
+	return i.ToGetTwingateUsersUserArrayOutputWithContext(context.Background())
+}
+
+func (i GetTwingateUsersUserArray) ToGetTwingateUsersUserArrayOutputWithContext(ctx context.Context) GetTwingateUsersUserArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTwingateUsersUserArrayOutput)
+}
+
+type GetTwingateUsersUserOutput struct{ *pulumi.OutputState }
+
+func (GetTwingateUsersUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTwingateUsersUser)(nil)).Elem()
+}
+
+func (o GetTwingateUsersUserOutput) ToGetTwingateUsersUserOutput() GetTwingateUsersUserOutput {
+	return o
+}
+
+func (o GetTwingateUsersUserOutput) ToGetTwingateUsersUserOutputWithContext(ctx context.Context) GetTwingateUsersUserOutput {
+	return o
+}
+
+func (o GetTwingateUsersUserOutput) Email() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTwingateUsersUser) string { return v.Email }).(pulumi.StringOutput)
+}
+
+func (o GetTwingateUsersUserOutput) FirstName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTwingateUsersUser) string { return v.FirstName }).(pulumi.StringOutput)
+}
+
+func (o GetTwingateUsersUserOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTwingateUsersUser) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetTwingateUsersUserOutput) IsAdmin() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetTwingateUsersUser) bool { return v.IsAdmin }).(pulumi.BoolOutput)
+}
+
+func (o GetTwingateUsersUserOutput) LastName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTwingateUsersUser) string { return v.LastName }).(pulumi.StringOutput)
+}
+
+func (o GetTwingateUsersUserOutput) Role() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTwingateUsersUser) string { return v.Role }).(pulumi.StringOutput)
+}
+
+type GetTwingateUsersUserArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTwingateUsersUserArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTwingateUsersUser)(nil)).Elem()
+}
+
+func (o GetTwingateUsersUserArrayOutput) ToGetTwingateUsersUserArrayOutput() GetTwingateUsersUserArrayOutput {
+	return o
+}
+
+func (o GetTwingateUsersUserArrayOutput) ToGetTwingateUsersUserArrayOutputWithContext(ctx context.Context) GetTwingateUsersUserArrayOutput {
+	return o
+}
+
+func (o GetTwingateUsersUserArrayOutput) Index(i pulumi.IntInput) GetTwingateUsersUserOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTwingateUsersUser {
+		return vs[0].([]GetTwingateUsersUser)[vs[1].(int)]
+	}).(GetTwingateUsersUserOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TwingateResourceProtocolsInput)(nil)).Elem(), TwingateResourceProtocolsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TwingateResourceProtocolsPtrInput)(nil)).Elem(), TwingateResourceProtocolsArgs{})
@@ -1442,6 +1566,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTwingateResourcesResourceProtocolTcpArrayInput)(nil)).Elem(), GetTwingateResourcesResourceProtocolTcpArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTwingateResourcesResourceProtocolUdpInput)(nil)).Elem(), GetTwingateResourcesResourceProtocolUdpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTwingateResourcesResourceProtocolUdpArrayInput)(nil)).Elem(), GetTwingateResourcesResourceProtocolUdpArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTwingateUsersUserInput)(nil)).Elem(), GetTwingateUsersUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTwingateUsersUserArrayInput)(nil)).Elem(), GetTwingateUsersUserArray{})
 	pulumi.RegisterOutputType(TwingateResourceProtocolsOutput{})
 	pulumi.RegisterOutputType(TwingateResourceProtocolsPtrOutput{})
 	pulumi.RegisterOutputType(TwingateResourceProtocolsTcpOutput{})
@@ -1466,4 +1592,6 @@ func init() {
 	pulumi.RegisterOutputType(GetTwingateResourcesResourceProtocolTcpArrayOutput{})
 	pulumi.RegisterOutputType(GetTwingateResourcesResourceProtocolUdpOutput{})
 	pulumi.RegisterOutputType(GetTwingateResourcesResourceProtocolUdpArrayOutput{})
+	pulumi.RegisterOutputType(GetTwingateUsersUserOutput{})
+	pulumi.RegisterOutputType(GetTwingateUsersUserArrayOutput{})
 }

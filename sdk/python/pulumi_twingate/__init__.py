@@ -12,6 +12,8 @@ from .get_twingate_groups import *
 from .get_twingate_remote_network import *
 from .get_twingate_resource import *
 from .get_twingate_resources import *
+from .get_twingate_user import *
+from .get_twingate_users import *
 from .provider import *
 from .twingate_connector import *
 from .twingate_connector_tokens import *

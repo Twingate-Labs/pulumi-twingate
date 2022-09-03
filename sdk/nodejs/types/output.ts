@@ -57,6 +57,15 @@ export interface GetTwingateResourcesResourceProtocolUdp {
     ports: string[];
 }
 
+export interface GetTwingateUsersUser {
+    email: string;
+    firstName: string;
+    id: string;
+    isAdmin: boolean;
+    lastName: string;
+    role: string;
+}
+
 export interface TwingateResourceProtocols {
     allowIcmp?: boolean;
     tcp: outputs.TwingateResourceProtocolsTcp;
@@ -72,4 +81,3 @@ export interface TwingateResourceProtocolsUdp {
     policy: string;
     ports?: string[];
 }
-
