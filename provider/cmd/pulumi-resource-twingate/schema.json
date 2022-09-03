@@ -530,6 +530,72 @@
                     "requiredInputs": []
                 }
             }
+        },
+        "twingate:index/getTwingateUsersUser:getTwingateUsersUser": {
+            "properties": {
+                "email": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "firstName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "id": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "isAdmin": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "lastName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "role": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "email",
+                "firstName",
+                "id",
+                "isAdmin",
+                "lastName",
+                "role"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         }
     },
     "provider": {
@@ -1124,6 +1190,85 @@
                 "type": "object",
                 "required": [
                     "name",
+                    "id"
+                ]
+            }
+        },
+        "twingate:index/getTwingateUser:getTwingateUser": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getTwingateUser.\n",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getTwingateUser.\n",
+                "properties": {
+                    "email": {
+                        "type": "string"
+                    },
+                    "firstName": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "isAdmin": {
+                        "type": "boolean"
+                    },
+                    "lastName": {
+                        "type": "string"
+                    },
+                    "role": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "email",
+                    "firstName",
+                    "id",
+                    "isAdmin",
+                    "lastName",
+                    "role"
+                ]
+            }
+        },
+        "twingate:index/getTwingateUsers:getTwingateUsers": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getTwingateUsers.\n",
+                "properties": {
+                    "users": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/twingate:index/getTwingateUsersUser:getTwingateUsersUser"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getTwingateUsers.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "users": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/twingate:index/getTwingateUsersUser:getTwingateUsersUser"
+                        }
+                    }
+                },
+                "type": "object",
+                "required": [
                     "id"
                 ]
             }
