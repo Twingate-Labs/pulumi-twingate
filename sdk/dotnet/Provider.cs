@@ -60,6 +60,10 @@ namespace TwingateLabs.Twingate
             {
                 Version = Utilities.Version,
                 PluginDownloadURL = "https://github.com/Twingate-Labs/pulumi-twingate/releases/download/v${VERSION}",
+                AdditionalSecretOutputs =
+                {
+                    "apiToken",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -70,13 +74,23 @@ namespace TwingateLabs.Twingate
 
     public sealed class ProviderArgs : global::Pulumi.ResourceArgs
     {
+        [Input("apiToken")]
+        private Input<string>? _apiToken;
+
         /// <summary>
         /// The access key for API operations. You can retrieve this from the Twingate Admin Console
         /// ([documentation](https://docs.twingate.com/docs/api-overview)). Alternatively, this can be specified using the
         /// TWINGATE_API_TOKEN environment variable.
         /// </summary>
-        [Input("apiToken")]
-        public Input<string>? ApiToken { get; set; }
+        public Input<string>? ApiToken
+        {
+            get => _apiToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _apiToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specifies a retry limit for the http requests made. This default value is 10. Alternatively, this can be specified using

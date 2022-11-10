@@ -13,10 +13,10 @@ namespace TwingateLabs.Twingate
     public static class GetTwingateRemoteNetwork
     {
         public static Task<GetTwingateRemoteNetworkResult> InvokeAsync(GetTwingateRemoteNetworkArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTwingateRemoteNetworkResult>("twingate:index/getTwingateRemoteNetwork:getTwingateRemoteNetwork", args ?? new GetTwingateRemoteNetworkArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTwingateRemoteNetworkResult>("twingate:index/getTwingateRemoteNetwork:getTwingateRemoteNetwork", args ?? new GetTwingateRemoteNetworkArgs(), options.WithDefaults());
 
         public static Output<GetTwingateRemoteNetworkResult> Invoke(GetTwingateRemoteNetworkInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTwingateRemoteNetworkResult>("twingate:index/getTwingateRemoteNetwork:getTwingateRemoteNetwork", args ?? new GetTwingateRemoteNetworkInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTwingateRemoteNetworkResult>("twingate:index/getTwingateRemoteNetwork:getTwingateRemoteNetwork", args ?? new GetTwingateRemoteNetworkInvokeArgs(), options.WithDefaults());
     }
 
 

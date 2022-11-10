@@ -78,6 +78,8 @@ export class TwingateConnectorTokens extends pulumi.CustomResource {
             resourceInputs["refreshToken"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["accessToken", "refreshToken"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(TwingateConnectorTokens.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -62,6 +62,11 @@ namespace TwingateLabs.Twingate
             {
                 Version = Utilities.Version,
                 PluginDownloadURL = "https://github.com/Twingate-Labs/pulumi-twingate/releases/download/v${VERSION}",
+                AdditionalSecretOutputs =
+                {
+                    "accessToken",
+                    "refreshToken",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -112,11 +117,21 @@ namespace TwingateLabs.Twingate
 
     public sealed class TwingateConnectorTokensState : global::Pulumi.ResourceArgs
     {
+        [Input("accessToken")]
+        private Input<string>? _accessToken;
+
         /// <summary>
         /// The Access Token of the parent Connector
         /// </summary>
-        [Input("accessToken")]
-        public Input<string>? AccessToken { get; set; }
+        public Input<string>? AccessToken
+        {
+            get => _accessToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _accessToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The ID of the parent Connector
@@ -137,11 +152,21 @@ namespace TwingateLabs.Twingate
             set => _keepers = value;
         }
 
+        [Input("refreshToken")]
+        private Input<string>? _refreshToken;
+
         /// <summary>
         /// The Refresh Token of the parent Connector
         /// </summary>
-        [Input("refreshToken")]
-        public Input<string>? RefreshToken { get; set; }
+        public Input<string>? RefreshToken
+        {
+            get => _refreshToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _refreshToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public TwingateConnectorTokensState()
         {

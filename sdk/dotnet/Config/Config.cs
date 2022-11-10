@@ -30,7 +30,7 @@ namespace TwingateLabs.Twingate
             }
         }
 
-        private static readonly Pulumi.Config __config = new Pulumi.Config("twingate");
+        private static readonly global::Pulumi.Config __config = new global::Pulumi.Config("twingate");
 
         private static readonly __Value<string?> _apiToken = new __Value<string?>(() => __config.Get("apiToken"));
         /// <summary>

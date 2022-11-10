@@ -182,6 +182,8 @@ class TwingateConnectorTokens(pulumi.CustomResource):
             __props__.__dict__["keepers"] = keepers
             __props__.__dict__["access_token"] = None
             __props__.__dict__["refresh_token"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["accessToken", "refreshToken"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(TwingateConnectorTokens, __self__).__init__(
             'twingate:index/twingateConnectorTokens:TwingateConnectorTokens',
             resource_name,

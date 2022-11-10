@@ -35,6 +35,11 @@ func NewTwingateConnectorTokens(ctx *pulumi.Context,
 	if args.ConnectorId == nil {
 		return nil, errors.New("invalid value for required argument 'ConnectorId'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"accessToken",
+		"refreshToken",
+	})
+	opts = append(opts, secrets)
 	opts = pkgResourceDefaultOpts(opts)
 	var resource TwingateConnectorTokens
 	err := ctx.RegisterResource("twingate:index/twingateConnectorTokens:TwingateConnectorTokens", name, args, &resource, opts...)

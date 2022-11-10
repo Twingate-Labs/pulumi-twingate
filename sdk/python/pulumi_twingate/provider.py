@@ -187,7 +187,7 @@ class Provider(pulumi.ProviderResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProviderArgs.__new__(ProviderArgs)
 
-            __props__.__dict__["api_token"] = api_token
+            __props__.__dict__["api_token"] = None if api_token is None else pulumi.Output.secret(api_token)
             if http_max_retry is None:
                 http_max_retry = 5
             __props__.__dict__["http_max_retry"] = pulumi.Output.from_input(http_max_retry).apply(pulumi.runtime.to_json) if http_max_retry is not None else None
@@ -196,6 +196,8 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["http_timeout"] = pulumi.Output.from_input(http_timeout).apply(pulumi.runtime.to_json) if http_timeout is not None else None
             __props__.__dict__["network"] = network
             __props__.__dict__["url"] = url
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["apiToken"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Provider, __self__).__init__(
             'twingate',
             resource_name,

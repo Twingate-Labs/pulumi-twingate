@@ -13,10 +13,10 @@ namespace TwingateLabs.Twingate
     public static class GetTwingateGroup
     {
         public static Task<GetTwingateGroupResult> InvokeAsync(GetTwingateGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTwingateGroupResult>("twingate:index/getTwingateGroup:getTwingateGroup", args ?? new GetTwingateGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTwingateGroupResult>("twingate:index/getTwingateGroup:getTwingateGroup", args ?? new GetTwingateGroupArgs(), options.WithDefaults());
 
         public static Output<GetTwingateGroupResult> Invoke(GetTwingateGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTwingateGroupResult>("twingate:index/getTwingateGroup:getTwingateGroup", args ?? new GetTwingateGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTwingateGroupResult>("twingate:index/getTwingateGroup:getTwingateGroup", args ?? new GetTwingateGroupInvokeArgs(), options.WithDefaults());
     }
 
 

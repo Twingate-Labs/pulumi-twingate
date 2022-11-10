@@ -42,6 +42,13 @@ func NewProvider(ctx *pulumi.Context,
 	if isZero(args.HttpTimeout) {
 		args.HttpTimeout = pulumi.IntPtr(10)
 	}
+	if args.ApiToken != nil {
+		args.ApiToken = pulumi.ToSecret(args.ApiToken).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"apiToken",
+	})
+	opts = append(opts, secrets)
 	opts = pkgResourceDefaultOpts(opts)
 	var resource Provider
 	err := ctx.RegisterResource("pulumi:providers:twingate", name, args, &resource, opts...)

@@ -57,7 +57,8 @@
         "variables": {
             "apiToken": {
                 "type": "string",
-                "description": "The access key for API operations. You can retrieve this from the Twingate Admin Console\n([documentation](https://docs.twingate.com/docs/api-overview)). Alternatively, this can be specified using the\nTWINGATE_API_TOKEN environment variable.\n"
+                "description": "The access key for API operations. You can retrieve this from the Twingate Admin Console\n([documentation](https://docs.twingate.com/docs/api-overview)). Alternatively, this can be specified using the\nTWINGATE_API_TOKEN environment variable.\n",
+                "secret": true
             },
             "httpMaxRetry": {
                 "type": "integer",
@@ -603,7 +604,8 @@
         "properties": {
             "apiToken": {
                 "type": "string",
-                "description": "The access key for API operations. You can retrieve this from the Twingate Admin Console\n([documentation](https://docs.twingate.com/docs/api-overview)). Alternatively, this can be specified using the\nTWINGATE_API_TOKEN environment variable.\n"
+                "description": "The access key for API operations. You can retrieve this from the Twingate Admin Console\n([documentation](https://docs.twingate.com/docs/api-overview)). Alternatively, this can be specified using the\nTWINGATE_API_TOKEN environment variable.\n",
+                "secret": true
             },
             "httpMaxRetry": {
                 "type": "integer",
@@ -625,7 +627,8 @@
         "inputProperties": {
             "apiToken": {
                 "type": "string",
-                "description": "The access key for API operations. You can retrieve this from the Twingate Admin Console\n([documentation](https://docs.twingate.com/docs/api-overview)). Alternatively, this can be specified using the\nTWINGATE_API_TOKEN environment variable.\n"
+                "description": "The access key for API operations. You can retrieve this from the Twingate Admin Console\n([documentation](https://docs.twingate.com/docs/api-overview)). Alternatively, this can be specified using the\nTWINGATE_API_TOKEN environment variable.\n",
+                "secret": true
             },
             "httpMaxRetry": {
                 "type": "integer",
@@ -697,7 +700,8 @@
             "properties": {
                 "accessToken": {
                     "type": "string",
-                    "description": "The Access Token of the parent Connector\n"
+                    "description": "The Access Token of the parent Connector\n",
+                    "secret": true
                 },
                 "connectorId": {
                     "type": "string",
@@ -712,7 +716,8 @@
                 },
                 "refreshToken": {
                     "type": "string",
-                    "description": "The Refresh Token of the parent Connector\n"
+                    "description": "The Refresh Token of the parent Connector\n",
+                    "secret": true
                 }
             },
             "required": [
@@ -743,7 +748,8 @@
                 "properties": {
                     "accessToken": {
                         "type": "string",
-                        "description": "The Access Token of the parent Connector\n"
+                        "description": "The Access Token of the parent Connector\n",
+                        "secret": true
                     },
                     "connectorId": {
                         "type": "string",
@@ -760,7 +766,8 @@
                     },
                     "refreshToken": {
                         "type": "string",
-                        "description": "The Refresh Token of the parent Connector\n"
+                        "description": "The Refresh Token of the parent Connector\n",
+                        "secret": true
                     }
                 },
                 "type": "object"

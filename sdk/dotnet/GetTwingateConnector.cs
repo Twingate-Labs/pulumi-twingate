@@ -13,10 +13,10 @@ namespace TwingateLabs.Twingate
     public static class GetTwingateConnector
     {
         public static Task<GetTwingateConnectorResult> InvokeAsync(GetTwingateConnectorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTwingateConnectorResult>("twingate:index/getTwingateConnector:getTwingateConnector", args ?? new GetTwingateConnectorArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTwingateConnectorResult>("twingate:index/getTwingateConnector:getTwingateConnector", args ?? new GetTwingateConnectorArgs(), options.WithDefaults());
 
         public static Output<GetTwingateConnectorResult> Invoke(GetTwingateConnectorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTwingateConnectorResult>("twingate:index/getTwingateConnector:getTwingateConnector", args ?? new GetTwingateConnectorInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTwingateConnectorResult>("twingate:index/getTwingateConnector:getTwingateConnector", args ?? new GetTwingateConnectorInvokeArgs(), options.WithDefaults());
     }
 
 
