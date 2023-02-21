@@ -7,13 +7,47 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// A Remote Network represents a single private network in Twingate that can have one or more Connectors and Resources assigned to it. You must create a Remote Network before creating Resources and Connectors that belong to it. For more information, see Twingate's [documentation](https://docs.twingate.com/docs/remote-networks).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/Twingate-Labs/pulumi-twingate/sdk/go/twingate"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := twingate.NewTwingateRemoteNetwork(ctx, "awsNetwork", nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// ```sh
+//
+//	$ pulumi import twingate:index/twingateRemoteNetwork:TwingateRemoteNetwork network UmVtb3RlTmV0d29zaipgMKIkNg==
+//
+// ```
 type TwingateRemoteNetwork struct {
 	pulumi.CustomResourceState
 
+	// The location of the Remote Network. Must be one of the following: AWS, AZURE, GOOGLE*CLOUD, ON*PREMISE, OTHER.
+	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// The name of the Remote Network
 	Name pulumi.StringOutput `pulumi:"name"`
 }
@@ -22,12 +56,9 @@ type TwingateRemoteNetwork struct {
 func NewTwingateRemoteNetwork(ctx *pulumi.Context,
 	name string, args *TwingateRemoteNetworkArgs, opts ...pulumi.ResourceOption) (*TwingateRemoteNetwork, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &TwingateRemoteNetworkArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	opts = pkgResourceDefaultOpts(opts)
 	var resource TwingateRemoteNetwork
 	err := ctx.RegisterResource("twingate:index/twingateRemoteNetwork:TwingateRemoteNetwork", name, args, &resource, opts...)
@@ -51,11 +82,15 @@ func GetTwingateRemoteNetwork(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TwingateRemoteNetwork resources.
 type twingateRemoteNetworkState struct {
+	// The location of the Remote Network. Must be one of the following: AWS, AZURE, GOOGLE*CLOUD, ON*PREMISE, OTHER.
+	Location *string `pulumi:"location"`
 	// The name of the Remote Network
 	Name *string `pulumi:"name"`
 }
 
 type TwingateRemoteNetworkState struct {
+	// The location of the Remote Network. Must be one of the following: AWS, AZURE, GOOGLE*CLOUD, ON*PREMISE, OTHER.
+	Location pulumi.StringPtrInput
 	// The name of the Remote Network
 	Name pulumi.StringPtrInput
 }
@@ -65,14 +100,18 @@ func (TwingateRemoteNetworkState) ElementType() reflect.Type {
 }
 
 type twingateRemoteNetworkArgs struct {
+	// The location of the Remote Network. Must be one of the following: AWS, AZURE, GOOGLE*CLOUD, ON*PREMISE, OTHER.
+	Location *string `pulumi:"location"`
 	// The name of the Remote Network
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a TwingateRemoteNetwork resource.
 type TwingateRemoteNetworkArgs struct {
+	// The location of the Remote Network. Must be one of the following: AWS, AZURE, GOOGLE*CLOUD, ON*PREMISE, OTHER.
+	Location pulumi.StringPtrInput
 	// The name of the Remote Network
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 }
 
 func (TwingateRemoteNetworkArgs) ElementType() reflect.Type {
@@ -160,6 +199,11 @@ func (o TwingateRemoteNetworkOutput) ToTwingateRemoteNetworkOutput() TwingateRem
 
 func (o TwingateRemoteNetworkOutput) ToTwingateRemoteNetworkOutputWithContext(ctx context.Context) TwingateRemoteNetworkOutput {
 	return o
+}
+
+// The location of the Remote Network. Must be one of the following: AWS, AZURE, GOOGLE*CLOUD, ON*PREMISE, OTHER.
+func (o TwingateRemoteNetworkOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TwingateRemoteNetwork) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
 }
 
 // The name of the Remote Network

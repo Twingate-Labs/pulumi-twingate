@@ -10,6 +10,29 @@ using Pulumi;
 
 namespace TwingateLabs.Twingate
 {
+    /// <summary>
+    /// Groups are how users are authorized to access Resources. For more information, see Twingate's [documentation](https://docs.twingate.com/docs/groups).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Twingate = TwingateLabs.Twingate;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var aws = new Twingate.TwingateGroup("aws");
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// ```sh
+    ///  $ pulumi import twingate:index/twingateGroup:TwingateGroup aws R3JvdXA6MzQ4OTE=
+    /// ```
+    /// </summary>
     [TwingateResourceType("twingate:index/twingateGroup:TwingateGroup")]
     public partial class TwingateGroup : global::Pulumi.CustomResource
     {
@@ -27,7 +50,7 @@ namespace TwingateLabs.Twingate
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public TwingateGroup(string name, TwingateGroupArgs args, CustomResourceOptions? options = null)
+        public TwingateGroup(string name, TwingateGroupArgs? args = null, CustomResourceOptions? options = null)
             : base("twingate:index/twingateGroup:TwingateGroup", name, args ?? new TwingateGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -69,8 +92,8 @@ namespace TwingateLabs.Twingate
         /// <summary>
         /// The name of the group
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         public TwingateGroupArgs()
         {

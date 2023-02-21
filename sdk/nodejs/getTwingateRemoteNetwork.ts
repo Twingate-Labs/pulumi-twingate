@@ -4,6 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * A Remote Network represents a single private network in Twingate that can have one or more Connectors and Resources assigned to it. You must create a Remote Network before creating Resources and Connectors that belong to it. For more information, see Twingate's [documentation](https://docs.twingate.com/docs/remote-networks).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as twingate from "@pulumi/twingate";
+ *
+ * const foo = pulumi.output(twingate.getTwingateRemoteNetwork({
+ *     name: "<your network's name>",
+ * }));
+ * ```
+ */
 export function getTwingateRemoteNetwork(args?: GetTwingateRemoteNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetTwingateRemoteNetworkResult> {
     args = args || {};
     if (!opts) {
@@ -21,7 +35,13 @@ export function getTwingateRemoteNetwork(args?: GetTwingateRemoteNetworkArgs, op
  * A collection of arguments for invoking getTwingateRemoteNetwork.
  */
 export interface GetTwingateRemoteNetworkArgs {
+    /**
+     * The ID of the Remote Network
+     */
     id?: string;
+    /**
+     * The name of the Remote Network
+     */
     name?: string;
 }
 
@@ -29,7 +49,17 @@ export interface GetTwingateRemoteNetworkArgs {
  * A collection of values returned by getTwingateRemoteNetwork.
  */
 export interface GetTwingateRemoteNetworkResult {
+    /**
+     * The ID of the Remote Network
+     */
     readonly id?: string;
+    /**
+     * The location of the Remote Network. Must be one of the following: AWS, AZURE, GOOGLE*CLOUD, ON*PREMISE, OTHER.
+     */
+    readonly location: string;
+    /**
+     * The name of the Remote Network
+     */
     readonly name?: string;
 }
 
@@ -41,6 +71,12 @@ export function getTwingateRemoteNetworkOutput(args?: GetTwingateRemoteNetworkOu
  * A collection of arguments for invoking getTwingateRemoteNetwork.
  */
 export interface GetTwingateRemoteNetworkOutputArgs {
+    /**
+     * The ID of the Remote Network
+     */
     id?: pulumi.Input<string>;
+    /**
+     * The name of the Remote Network
+     */
     name?: pulumi.Input<string>;
 }

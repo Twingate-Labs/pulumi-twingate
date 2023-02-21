@@ -6,6 +6,20 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Groups are how users are authorized to access Resources. For more information, see Twingate's [documentation](https://docs.twingate.com/docs/groups).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as twingate from "@pulumi/twingate";
+ *
+ * const foo = pulumi.output(twingate.getTwingateGroups({
+ *     name: "<your group's name>",
+ * }));
+ * ```
+ */
 export function getTwingateGroups(args?: GetTwingateGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetTwingateGroupsResult> {
     args = args || {};
     if (!opts) {
@@ -25,9 +39,21 @@ export function getTwingateGroups(args?: GetTwingateGroupsArgs, opts?: pulumi.In
  * A collection of arguments for invoking getTwingateGroups.
  */
 export interface GetTwingateGroupsArgs {
+    /**
+     * List of Groups
+     */
     groups?: inputs.GetTwingateGroupsGroup[];
+    /**
+     * Returns only Groups matching the specified state.
+     */
     isActive?: boolean;
+    /**
+     * Returns only Groups that exactly match this name.
+     */
     name?: string;
+    /**
+     * Returns only Groups of the specified type (valid: `MANUAL`, `SYNCED`, `SYSTEM`).
+     */
     type?: string;
 }
 
@@ -35,13 +61,25 @@ export interface GetTwingateGroupsArgs {
  * A collection of values returned by getTwingateGroups.
  */
 export interface GetTwingateGroupsResult {
+    /**
+     * List of Groups
+     */
     readonly groups?: outputs.GetTwingateGroupsGroup[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Returns only Groups matching the specified state.
+     */
     readonly isActive?: boolean;
+    /**
+     * Returns only Groups that exactly match this name.
+     */
     readonly name?: string;
+    /**
+     * Returns only Groups of the specified type (valid: `MANUAL`, `SYNCED`, `SYSTEM`).
+     */
     readonly type?: string;
 }
 
@@ -53,8 +91,20 @@ export function getTwingateGroupsOutput(args?: GetTwingateGroupsOutputArgs, opts
  * A collection of arguments for invoking getTwingateGroups.
  */
 export interface GetTwingateGroupsOutputArgs {
+    /**
+     * List of Groups
+     */
     groups?: pulumi.Input<pulumi.Input<inputs.GetTwingateGroupsGroupArgs>[]>;
+    /**
+     * Returns only Groups matching the specified state.
+     */
     isActive?: pulumi.Input<boolean>;
+    /**
+     * Returns only Groups that exactly match this name.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Returns only Groups of the specified type (valid: `MANUAL`, `SYNCED`, `SYSTEM`).
+     */
     type?: pulumi.Input<string>;
 }

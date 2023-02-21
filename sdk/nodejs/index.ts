@@ -30,6 +30,11 @@ export const getTwingateRemoteNetwork: typeof import("./getTwingateRemoteNetwork
 export const getTwingateRemoteNetworkOutput: typeof import("./getTwingateRemoteNetwork").getTwingateRemoteNetworkOutput = null as any;
 utilities.lazyLoad(exports, ["getTwingateRemoteNetwork","getTwingateRemoteNetworkOutput"], () => require("./getTwingateRemoteNetwork"));
 
+export { GetTwingateRemoteNetworksArgs, GetTwingateRemoteNetworksResult, GetTwingateRemoteNetworksOutputArgs } from "./getTwingateRemoteNetworks";
+export const getTwingateRemoteNetworks: typeof import("./getTwingateRemoteNetworks").getTwingateRemoteNetworks = null as any;
+export const getTwingateRemoteNetworksOutput: typeof import("./getTwingateRemoteNetworks").getTwingateRemoteNetworksOutput = null as any;
+utilities.lazyLoad(exports, ["getTwingateRemoteNetworks","getTwingateRemoteNetworksOutput"], () => require("./getTwingateRemoteNetworks"));
+
 export { GetTwingateResourceArgs, GetTwingateResourceResult, GetTwingateResourceOutputArgs } from "./getTwingateResource";
 export const getTwingateResource: typeof import("./getTwingateResource").getTwingateResource = null as any;
 export const getTwingateResourceOutput: typeof import("./getTwingateResource").getTwingateResourceOutput = null as any;
@@ -39,6 +44,21 @@ export { GetTwingateResourcesArgs, GetTwingateResourcesResult, GetTwingateResour
 export const getTwingateResources: typeof import("./getTwingateResources").getTwingateResources = null as any;
 export const getTwingateResourcesOutput: typeof import("./getTwingateResources").getTwingateResourcesOutput = null as any;
 utilities.lazyLoad(exports, ["getTwingateResources","getTwingateResourcesOutput"], () => require("./getTwingateResources"));
+
+export { GetTwingateSecurityPoliciesArgs, GetTwingateSecurityPoliciesResult, GetTwingateSecurityPoliciesOutputArgs } from "./getTwingateSecurityPolicies";
+export const getTwingateSecurityPolicies: typeof import("./getTwingateSecurityPolicies").getTwingateSecurityPolicies = null as any;
+export const getTwingateSecurityPoliciesOutput: typeof import("./getTwingateSecurityPolicies").getTwingateSecurityPoliciesOutput = null as any;
+utilities.lazyLoad(exports, ["getTwingateSecurityPolicies","getTwingateSecurityPoliciesOutput"], () => require("./getTwingateSecurityPolicies"));
+
+export { GetTwingateSecurityPolicyArgs, GetTwingateSecurityPolicyResult, GetTwingateSecurityPolicyOutputArgs } from "./getTwingateSecurityPolicy";
+export const getTwingateSecurityPolicy: typeof import("./getTwingateSecurityPolicy").getTwingateSecurityPolicy = null as any;
+export const getTwingateSecurityPolicyOutput: typeof import("./getTwingateSecurityPolicy").getTwingateSecurityPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getTwingateSecurityPolicy","getTwingateSecurityPolicyOutput"], () => require("./getTwingateSecurityPolicy"));
+
+export { GetTwingateServiceAccountsArgs, GetTwingateServiceAccountsResult, GetTwingateServiceAccountsOutputArgs } from "./getTwingateServiceAccounts";
+export const getTwingateServiceAccounts: typeof import("./getTwingateServiceAccounts").getTwingateServiceAccounts = null as any;
+export const getTwingateServiceAccountsOutput: typeof import("./getTwingateServiceAccounts").getTwingateServiceAccountsOutput = null as any;
+utilities.lazyLoad(exports, ["getTwingateServiceAccounts","getTwingateServiceAccountsOutput"], () => require("./getTwingateServiceAccounts"));
 
 export { GetTwingateUserArgs, GetTwingateUserResult, GetTwingateUserOutputArgs } from "./getTwingateUser";
 export const getTwingateUser: typeof import("./getTwingateUser").getTwingateUser = null as any;
@@ -80,6 +100,16 @@ export type TwingateResource = import("./twingateResource").TwingateResource;
 export const TwingateResource: typeof import("./twingateResource").TwingateResource = null as any;
 utilities.lazyLoad(exports, ["TwingateResource"], () => require("./twingateResource"));
 
+export { TwingateServiceAccountArgs, TwingateServiceAccountState } from "./twingateServiceAccount";
+export type TwingateServiceAccount = import("./twingateServiceAccount").TwingateServiceAccount;
+export const TwingateServiceAccount: typeof import("./twingateServiceAccount").TwingateServiceAccount = null as any;
+utilities.lazyLoad(exports, ["TwingateServiceAccount"], () => require("./twingateServiceAccount"));
+
+export { TwingateServiceAccountKeyArgs, TwingateServiceAccountKeyState } from "./twingateServiceAccountKey";
+export type TwingateServiceAccountKey = import("./twingateServiceAccountKey").TwingateServiceAccountKey;
+export const TwingateServiceAccountKey: typeof import("./twingateServiceAccountKey").TwingateServiceAccountKey = null as any;
+utilities.lazyLoad(exports, ["TwingateServiceAccountKey"], () => require("./twingateServiceAccountKey"));
+
 
 // Export sub-modules:
 import * as config from "./config";
@@ -104,6 +134,10 @@ const _module = {
                 return new TwingateRemoteNetwork(name, <any>undefined, { urn })
             case "twingate:index/twingateResource:TwingateResource":
                 return new TwingateResource(name, <any>undefined, { urn })
+            case "twingate:index/twingateServiceAccount:TwingateServiceAccount":
+                return new TwingateServiceAccount(name, <any>undefined, { urn })
+            case "twingate:index/twingateServiceAccountKey:TwingateServiceAccountKey":
+                return new TwingateServiceAccountKey(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -114,6 +148,8 @@ pulumi.runtime.registerResourceModule("twingate", "index/twingateConnectorTokens
 pulumi.runtime.registerResourceModule("twingate", "index/twingateGroup", _module)
 pulumi.runtime.registerResourceModule("twingate", "index/twingateRemoteNetwork", _module)
 pulumi.runtime.registerResourceModule("twingate", "index/twingateResource", _module)
+pulumi.runtime.registerResourceModule("twingate", "index/twingateServiceAccount", _module)
+pulumi.runtime.registerResourceModule("twingate", "index/twingateServiceAccountKey", _module)
 pulumi.runtime.registerResourcePackage("twingate", {
     version: utilities.getVersion(),
     constructProvider: (name: string, type: string, urn: string): pulumi.ProviderResource => {

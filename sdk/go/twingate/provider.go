@@ -63,7 +63,7 @@ type providerArgs struct {
 	// ([documentation](https://docs.twingate.com/docs/api-overview)). Alternatively, this can be specified using the
 	// TWINGATE_API_TOKEN environment variable.
 	ApiToken *string `pulumi:"apiToken"`
-	// Specifies a retry limit for the http requests made. This default value is 10. Alternatively, this can be specified using
+	// Specifies a retry limit for the http requests made. The default value is 10. Alternatively, this can be specified using
 	// the TWINGATE_HTTP_MAX_RETRY environment variable
 	HttpMaxRetry *int `pulumi:"httpMaxRetry"`
 	// Specifies a time limit in seconds for the http requests made. The default value is 10 seconds. Alternatively, this can
@@ -83,7 +83,7 @@ type ProviderArgs struct {
 	// ([documentation](https://docs.twingate.com/docs/api-overview)). Alternatively, this can be specified using the
 	// TWINGATE_API_TOKEN environment variable.
 	ApiToken pulumi.StringPtrInput
-	// Specifies a retry limit for the http requests made. This default value is 10. Alternatively, this can be specified using
+	// Specifies a retry limit for the http requests made. The default value is 10. Alternatively, this can be specified using
 	// the TWINGATE_HTTP_MAX_RETRY environment variable
 	HttpMaxRetry pulumi.IntPtrInput
 	// Specifies a time limit in seconds for the http requests made. The default value is 10 seconds. Alternatively, this can

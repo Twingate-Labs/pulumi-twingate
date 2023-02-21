@@ -4,6 +4,24 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Groups are how users are authorized to access Resources. For more information, see Twingate's [documentation](https://docs.twingate.com/docs/groups).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as twingate from "@pulumi/twingate";
+ *
+ * const aws = new twingate.TwingateGroup("aws", {});
+ * ```
+ *
+ * ## Import
+ *
+ * ```sh
+ *  $ pulumi import twingate:index/twingateGroup:TwingateGroup aws R3JvdXA6MzQ4OTE=
+ * ```
+ */
 export class TwingateGroup extends pulumi.CustomResource {
     /**
      * Get an existing TwingateGroup resource's state with the given name, ID, and optional extra
@@ -44,7 +62,7 @@ export class TwingateGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: TwingateGroupArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: TwingateGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TwingateGroupArgs | TwingateGroupState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -53,9 +71,6 @@ export class TwingateGroup extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as TwingateGroupArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             resourceInputs["name"] = args ? args.name : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -80,5 +95,5 @@ export interface TwingateGroupArgs {
     /**
      * The name of the group
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }

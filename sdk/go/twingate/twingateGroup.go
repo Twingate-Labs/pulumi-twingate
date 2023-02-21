@@ -7,10 +7,42 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Groups are how users are authorized to access Resources. For more information, see Twingate's [documentation](https://docs.twingate.com/docs/groups).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/Twingate-Labs/pulumi-twingate/sdk/go/twingate"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := twingate.NewTwingateGroup(ctx, "aws", nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// ```sh
+//
+//	$ pulumi import twingate:index/twingateGroup:TwingateGroup aws R3JvdXA6MzQ4OTE=
+//
+// ```
 type TwingateGroup struct {
 	pulumi.CustomResourceState
 
@@ -22,12 +54,9 @@ type TwingateGroup struct {
 func NewTwingateGroup(ctx *pulumi.Context,
 	name string, args *TwingateGroupArgs, opts ...pulumi.ResourceOption) (*TwingateGroup, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &TwingateGroupArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	opts = pkgResourceDefaultOpts(opts)
 	var resource TwingateGroup
 	err := ctx.RegisterResource("twingate:index/twingateGroup:TwingateGroup", name, args, &resource, opts...)
@@ -66,13 +95,13 @@ func (TwingateGroupState) ElementType() reflect.Type {
 
 type twingateGroupArgs struct {
 	// The name of the group
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a TwingateGroup resource.
 type TwingateGroupArgs struct {
 	// The name of the group
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 }
 
 func (TwingateGroupArgs) ElementType() reflect.Type {

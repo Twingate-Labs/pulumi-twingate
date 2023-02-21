@@ -14,23 +14,24 @@ __all__ = ['TwingateGroupArgs', 'TwingateGroup']
 @pulumi.input_type
 class TwingateGroupArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str]):
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a TwingateGroup resource.
         :param pulumi.Input[str] name: The name of the group
         """
-        pulumi.set(__self__, "name", name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the group
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
 
@@ -66,7 +67,23 @@ class TwingateGroup(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a TwingateGroup resource with the given unique name, props, and options.
+        Groups are how users are authorized to access Resources. For more information, see Twingate's [documentation](https://docs.twingate.com/docs/groups).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_twingate as twingate
+
+        aws = twingate.TwingateGroup("aws")
+        ```
+
+        ## Import
+
+        ```sh
+         $ pulumi import twingate:index/twingateGroup:TwingateGroup aws R3JvdXA6MzQ4OTE=
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the group
@@ -75,10 +92,26 @@ class TwingateGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: TwingateGroupArgs,
+                 args: Optional[TwingateGroupArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a TwingateGroup resource with the given unique name, props, and options.
+        Groups are how users are authorized to access Resources. For more information, see Twingate's [documentation](https://docs.twingate.com/docs/groups).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_twingate as twingate
+
+        aws = twingate.TwingateGroup("aws")
+        ```
+
+        ## Import
+
+        ```sh
+         $ pulumi import twingate:index/twingateGroup:TwingateGroup aws R3JvdXA6MzQ4OTE=
+        ```
+
         :param str resource_name: The name of the resource.
         :param TwingateGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -104,8 +137,6 @@ class TwingateGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TwingateGroupArgs.__new__(TwingateGroupArgs)
 
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
         super(TwingateGroup, __self__).__init__(
             'twingate:index/twingateGroup:TwingateGroup',

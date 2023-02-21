@@ -10,8 +10,12 @@ from .get_twingate_connectors import *
 from .get_twingate_group import *
 from .get_twingate_groups import *
 from .get_twingate_remote_network import *
+from .get_twingate_remote_networks import *
 from .get_twingate_resource import *
 from .get_twingate_resources import *
+from .get_twingate_security_policies import *
+from .get_twingate_security_policy import *
+from .get_twingate_service_accounts import *
 from .get_twingate_user import *
 from .get_twingate_users import *
 from .provider import *
@@ -20,6 +24,8 @@ from .twingate_connector_tokens import *
 from .twingate_group import *
 from .twingate_remote_network import *
 from .twingate_resource import *
+from .twingate_service_account import *
+from .twingate_service_account_key import *
 from ._inputs import *
 from . import outputs
 
@@ -71,6 +77,22 @@ _utilities.register(
   "fqn": "pulumi_twingate",
   "classes": {
    "twingate:index/twingateResource:TwingateResource": "TwingateResource"
+  }
+ },
+ {
+  "pkg": "twingate",
+  "mod": "index/twingateServiceAccount",
+  "fqn": "pulumi_twingate",
+  "classes": {
+   "twingate:index/twingateServiceAccount:TwingateServiceAccount": "TwingateServiceAccount"
+  }
+ },
+ {
+  "pkg": "twingate",
+  "mod": "index/twingateServiceAccountKey",
+  "fqn": "pulumi_twingate",
+  "classes": {
+   "twingate:index/twingateServiceAccountKey:TwingateServiceAccountKey": "TwingateServiceAccountKey"
   }
  }
 ]

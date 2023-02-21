@@ -6,6 +6,18 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Users in Twingate can be given access to Twingate Resources and may either be added manually or automatically synchronized with a 3rd party identity provider. For more information, see Twingate's [documentation](https://docs.twingate.com/docs/users).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as twingate from "@pulumi/twingate";
+ *
+ * const all = pulumi.output(twingate.getTwingateUsers());
+ * ```
+ */
 export function getTwingateUsers(args?: GetTwingateUsersArgs, opts?: pulumi.InvokeOptions): Promise<GetTwingateUsersResult> {
     args = args || {};
     if (!opts) {

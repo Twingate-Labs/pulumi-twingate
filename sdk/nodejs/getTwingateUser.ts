@@ -4,6 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Users in Twingate can be given access to Twingate Resources and may either be added manually or automatically synchronized with a 3rd party identity provider. For more information, see Twingate's [documentation](https://docs.twingate.com/docs/users).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as twingate from "@pulumi/twingate";
+ *
+ * const foo = pulumi.output(twingate.getTwingateUser({
+ *     id: "<your user's id>",
+ * }));
+ * ```
+ */
 export function getTwingateUser(args: GetTwingateUserArgs, opts?: pulumi.InvokeOptions): Promise<GetTwingateUserResult> {
     if (!opts) {
         opts = {}
@@ -19,6 +33,9 @@ export function getTwingateUser(args: GetTwingateUserArgs, opts?: pulumi.InvokeO
  * A collection of arguments for invoking getTwingateUser.
  */
 export interface GetTwingateUserArgs {
+    /**
+     * The ID of the User. The ID for the User must be obtained from the Admin API.
+     */
     id: string;
 }
 
@@ -26,11 +43,29 @@ export interface GetTwingateUserArgs {
  * A collection of values returned by getTwingateUser.
  */
 export interface GetTwingateUserResult {
+    /**
+     * The email address of the User
+     */
     readonly email: string;
+    /**
+     * The first name of the User
+     */
     readonly firstName: string;
+    /**
+     * The ID of the User. The ID for the User must be obtained from the Admin API.
+     */
     readonly id: string;
+    /**
+     * Indicates whether the User is an admin
+     */
     readonly isAdmin: boolean;
+    /**
+     * The last name of the User
+     */
     readonly lastName: string;
+    /**
+     * Indicates the User's role. Either ADMIN, DEVOPS, SUPPORT, or MEMBER
+     */
     readonly role: string;
 }
 
@@ -42,5 +77,8 @@ export function getTwingateUserOutput(args: GetTwingateUserOutputArgs, opts?: pu
  * A collection of arguments for invoking getTwingateUser.
  */
 export interface GetTwingateUserOutputArgs {
+    /**
+     * The ID of the User. The ID for the User must be obtained from the Admin API.
+     */
     id: pulumi.Input<string>;
 }

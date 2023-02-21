@@ -10,9 +10,38 @@ using Pulumi;
 
 namespace TwingateLabs.Twingate
 {
+    /// <summary>
+    /// A Remote Network represents a single private network in Twingate that can have one or more Connectors and Resources assigned to it. You must create a Remote Network before creating Resources and Connectors that belong to it. For more information, see Twingate's [documentation](https://docs.twingate.com/docs/remote-networks).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Twingate = TwingateLabs.Twingate;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var awsNetwork = new Twingate.TwingateRemoteNetwork("awsNetwork");
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// ```sh
+    ///  $ pulumi import twingate:index/twingateRemoteNetwork:TwingateRemoteNetwork network UmVtb3RlTmV0d29zaipgMKIkNg==
+    /// ```
+    /// </summary>
     [TwingateResourceType("twingate:index/twingateRemoteNetwork:TwingateRemoteNetwork")]
     public partial class TwingateRemoteNetwork : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The location of the Remote Network. Must be one of the following: AWS, AZURE, GOOGLE*CLOUD, ON*PREMISE, OTHER.
+        /// </summary>
+        [Output("location")]
+        public Output<string?> Location { get; private set; } = null!;
+
         /// <summary>
         /// The name of the Remote Network
         /// </summary>
@@ -27,7 +56,7 @@ namespace TwingateLabs.Twingate
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public TwingateRemoteNetwork(string name, TwingateRemoteNetworkArgs args, CustomResourceOptions? options = null)
+        public TwingateRemoteNetwork(string name, TwingateRemoteNetworkArgs? args = null, CustomResourceOptions? options = null)
             : base("twingate:index/twingateRemoteNetwork:TwingateRemoteNetwork", name, args ?? new TwingateRemoteNetworkArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -67,10 +96,16 @@ namespace TwingateLabs.Twingate
     public sealed class TwingateRemoteNetworkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The location of the Remote Network. Must be one of the following: AWS, AZURE, GOOGLE*CLOUD, ON*PREMISE, OTHER.
+        /// </summary>
+        [Input("location")]
+        public Input<string>? Location { get; set; }
+
+        /// <summary>
         /// The name of the Remote Network
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         public TwingateRemoteNetworkArgs()
         {
@@ -80,6 +115,12 @@ namespace TwingateLabs.Twingate
 
     public sealed class TwingateRemoteNetworkState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The location of the Remote Network. Must be one of the following: AWS, AZURE, GOOGLE*CLOUD, ON*PREMISE, OTHER.
+        /// </summary>
+        [Input("location")]
+        public Input<string>? Location { get; set; }
+
         /// <summary>
         /// The name of the Remote Network
         /// </summary>
