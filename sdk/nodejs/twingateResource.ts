@@ -15,10 +15,11 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as twingate from "@twingate-labs/pulumi-twingate";
  *
- * const awsNetwork = new twingate.TwingateRemoteNetwork("awsNetwork", {});
- * const aws = new twingate.TwingateGroup("aws", {});
- * const githubActionsProd = new twingate.TwingateServiceAccount("githubActionsProd", {});
+ * const awsNetwork = new twingate.TwingateRemoteNetwork("awsNetwork", {name: "aws_remote_network"});
+ * const aws = new twingate.TwingateGroup("aws", {name: "aws_group"});
+ * const githubActionsProd = new twingate.TwingateServiceAccount("githubActionsProd", {name: "Github Actions PROD"});
  * const resource = new twingate.TwingateResource("resource", {
+ *     name: "network",
  *     address: "internal.int",
  *     remoteNetworkId: awsNetwork.id,
  *     protocols: {
@@ -143,6 +144,9 @@ export class TwingateResource extends pulumi.CustomResource {
             if ((!args || args.address === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'address'");
             }
+            if ((!args || args.name === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'name'");
+            }
             if ((!args || args.remoteNetworkId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'remoteNetworkId'");
             }
@@ -242,7 +246,7 @@ export interface TwingateResourceArgs {
     /**
      * The name of the Resource
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no restriction, and all protocols and ports are allowed.
      */

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,11 +27,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			githubActionsProd, err := twingate.NewTwingateServiceAccount(ctx, "githubActionsProd", nil)
+//			githubActionsProd, err := twingate.NewTwingateServiceAccount(ctx, "githubActionsProd", &twingate.TwingateServiceAccountArgs{
+//				Name: pulumi.String("Github Actions PROD"),
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = twingate.NewTwingateServiceAccountKey(ctx, "githubKey", &twingate.TwingateServiceAccountKeyArgs{
+//				Name:             pulumi.String("Github Actions PROD key"),
 //				ServiceAccountId: githubActionsProd.ID(),
 //			})
 //			if err != nil {

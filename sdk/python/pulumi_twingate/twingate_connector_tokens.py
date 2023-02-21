@@ -139,7 +139,7 @@ class TwingateConnectorTokens(pulumi.CustomResource):
         import pulumi
         import pulumi_twingate as twingate
 
-        aws_network = twingate.TwingateRemoteNetwork("awsNetwork")
+        aws_network = twingate.TwingateRemoteNetwork("awsNetwork", name="aws_remote_network")
         aws_connector = twingate.TwingateConnector("awsConnector", remote_network_id=aws_network.id)
         aws_connector_tokens = twingate.TwingateConnectorTokens("awsConnectorTokens", connector_id=aws_connector.id)
         ```
@@ -164,7 +164,7 @@ class TwingateConnectorTokens(pulumi.CustomResource):
         import pulumi
         import pulumi_twingate as twingate
 
-        aws_network = twingate.TwingateRemoteNetwork("awsNetwork")
+        aws_network = twingate.TwingateRemoteNetwork("awsNetwork", name="aws_remote_network")
         aws_connector = twingate.TwingateConnector("awsConnector", remote_network_id=aws_network.id)
         aws_connector_tokens = twingate.TwingateConnectorTokens("awsConnectorTokens", connector_id=aws_connector.id)
         ```

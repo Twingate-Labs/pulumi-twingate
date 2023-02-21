@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -26,7 +27,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := twingate.NewTwingateServiceAccount(ctx, "githubActionsProd", nil)
+//			_, err := twingate.NewTwingateServiceAccount(ctx, "githubActionsProd", &twingate.TwingateServiceAccountArgs{
+//				Name: pulumi.String("Github Actions PROD"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -46,9 +49,12 @@ type TwingateServiceAccount struct {
 func NewTwingateServiceAccount(ctx *pulumi.Context,
 	name string, args *TwingateServiceAccountArgs, opts ...pulumi.ResourceOption) (*TwingateServiceAccount, error) {
 	if args == nil {
-		args = &TwingateServiceAccountArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
 	opts = pkgResourceDefaultOpts(opts)
 	var resource TwingateServiceAccount
 	err := ctx.RegisterResource("twingate:index/twingateServiceAccount:TwingateServiceAccount", name, args, &resource, opts...)
@@ -87,13 +93,13 @@ func (TwingateServiceAccountState) ElementType() reflect.Type {
 
 type twingateServiceAccountArgs struct {
 	// The name of the Service Account in Twingate
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a TwingateServiceAccount resource.
 type TwingateServiceAccountArgs struct {
 	// The name of the Service Account in Twingate
-	Name pulumi.StringPtrInput
+	Name pulumi.StringInput
 }
 
 func (TwingateServiceAccountArgs) ElementType() reflect.Type {

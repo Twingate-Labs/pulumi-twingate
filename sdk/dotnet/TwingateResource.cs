@@ -22,14 +22,24 @@ namespace TwingateLabs.Twingate
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var awsNetwork = new Twingate.TwingateRemoteNetwork("awsNetwork");
+    ///     var awsNetwork = new Twingate.TwingateRemoteNetwork("awsNetwork", new()
+    ///     {
+    ///         Name = "aws_remote_network",
+    ///     });
     /// 
-    ///     var aws = new Twingate.TwingateGroup("aws");
+    ///     var aws = new Twingate.TwingateGroup("aws", new()
+    ///     {
+    ///         Name = "aws_group",
+    ///     });
     /// 
-    ///     var githubActionsProd = new Twingate.TwingateServiceAccount("githubActionsProd");
+    ///     var githubActionsProd = new Twingate.TwingateServiceAccount("githubActionsProd", new()
+    ///     {
+    ///         Name = "Github Actions PROD",
+    ///     });
     /// 
     ///     var resource = new Twingate.TwingateResource("resource", new()
     ///     {
+    ///         Name = "network",
     ///         Address = "internal.int",
     ///         RemoteNetworkId = awsNetwork.Id,
     ///         Protocols = new Twingate.Inputs.TwingateResourceProtocolsArgs
@@ -225,8 +235,8 @@ namespace TwingateLabs.Twingate
         /// <summary>
         /// The name of the Resource
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no restriction, and all protocols and ports are allowed.

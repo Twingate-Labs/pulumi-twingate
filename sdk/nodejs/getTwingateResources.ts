@@ -15,17 +15,14 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as twingate from "@pulumi/twingate";
  *
- * const foo = pulumi.output(twingate.getTwingateResources({
+ * const foo = twingate.getTwingateResources({
  *     name: "<your resource's name>",
- * }));
+ * });
  * ```
  */
 export function getTwingateResources(args: GetTwingateResourcesArgs, opts?: pulumi.InvokeOptions): Promise<GetTwingateResourcesResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("twingate:index/getTwingateResources:getTwingateResources", {
         "name": args.name,
         "resources": args.resources,
@@ -63,9 +60,22 @@ export interface GetTwingateResourcesResult {
      */
     readonly resources?: outputs.GetTwingateResourcesResource[];
 }
-
+/**
+ * Resources in Twingate represent servers on the private network that clients can connect to. Resources can be defined by IP, CIDR range, FQDN, or DNS zone. For more information, see the Twingate [documentation](https://docs.twingate.com/docs/resources-and-access-nodes).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as twingate from "@pulumi/twingate";
+ *
+ * const foo = twingate.getTwingateResources({
+ *     name: "<your resource's name>",
+ * });
+ * ```
+ */
 export function getTwingateResourcesOutput(args: GetTwingateResourcesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTwingateResourcesResult> {
-    return pulumi.output(args).apply(a => getTwingateResources(a, opts))
+    return pulumi.output(args).apply((a: any) => getTwingateResources(a, opts))
 }
 
 /**

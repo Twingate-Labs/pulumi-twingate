@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = twingate.GetTwingateResources(ctx, &GetTwingateResourcesArgs{
+//			_, err := twingate.GetTwingateResources(ctx, &twingate.GetTwingateResourcesArgs{
 //				Name: "<your resource's name>",
 //			}, nil)
 //			if err != nil {

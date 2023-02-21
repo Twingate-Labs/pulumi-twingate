@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = twingate.GetTwingateUser(ctx, &GetTwingateUserArgs{
+//			_, err := twingate.GetTwingateUser(ctx, &twingate.GetTwingateUserArgs{
 //				Id: "<your user's id>",
 //			}, nil)
 //			if err != nil {

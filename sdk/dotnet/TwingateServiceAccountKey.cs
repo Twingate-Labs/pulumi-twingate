@@ -22,10 +22,14 @@ namespace TwingateLabs.Twingate
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var githubActionsProd = new Twingate.TwingateServiceAccount("githubActionsProd");
+    ///     var githubActionsProd = new Twingate.TwingateServiceAccount("githubActionsProd", new()
+    ///     {
+    ///         Name = "Github Actions PROD",
+    ///     });
     /// 
     ///     var githubKey = new Twingate.TwingateServiceAccountKey("githubKey", new()
     ///     {
+    ///         Name = "Github Actions PROD key",
     ///         ServiceAccountId = githubActionsProd.Id,
     ///     });
     /// 

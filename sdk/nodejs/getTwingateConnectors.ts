@@ -15,16 +15,13 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as twingate from "@pulumi/twingate";
  *
- * const all = pulumi.output(twingate.getTwingateConnectors());
+ * const all = twingate.getTwingateConnectors({});
  * ```
  */
 export function getTwingateConnectors(args?: GetTwingateConnectorsArgs, opts?: pulumi.InvokeOptions): Promise<GetTwingateConnectorsResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("twingate:index/getTwingateConnectors:getTwingateConnectors", {
         "connectors": args.connectors,
     }, opts);
@@ -53,9 +50,20 @@ export interface GetTwingateConnectorsResult {
      */
     readonly id: string;
 }
-
+/**
+ * Connectors provide connectivity to Remote Networks. For more information, see Twingate's [documentation](https://docs.twingate.com/docs/understanding-access-nodes).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as twingate from "@pulumi/twingate";
+ *
+ * const all = twingate.getTwingateConnectors({});
+ * ```
+ */
 export function getTwingateConnectorsOutput(args?: GetTwingateConnectorsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTwingateConnectorsResult> {
-    return pulumi.output(args).apply(a => getTwingateConnectors(a, opts))
+    return pulumi.output(args).apply((a: any) => getTwingateConnectors(a, opts))
 }
 
 /**

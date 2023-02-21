@@ -11,9 +11,9 @@ import * as utilities from "./utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as twingate from "@pulumi/twingate";
+ * import * as twingate from "@twingate-labs/pulumi-twingate";
  *
- * const githubActionsProd = new twingate.TwingateServiceAccount("github_actions_prod", {});
+ * const githubActionsProd = new twingate.TwingateServiceAccount("githubActionsProd", {name: "Github Actions PROD"});
  * ```
  */
 export class TwingateServiceAccount extends pulumi.CustomResource {
@@ -56,7 +56,7 @@ export class TwingateServiceAccount extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: TwingateServiceAccountArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: TwingateServiceAccountArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TwingateServiceAccountArgs | TwingateServiceAccountState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -65,6 +65,9 @@ export class TwingateServiceAccount extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as TwingateServiceAccountArgs | undefined;
+            if ((!args || args.name === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'name'");
+            }
             resourceInputs["name"] = args ? args.name : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -89,5 +92,5 @@ export interface TwingateServiceAccountArgs {
     /**
      * The name of the Service Account in Twingate
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
 }

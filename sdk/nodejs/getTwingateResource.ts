@@ -15,17 +15,14 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as twingate from "@pulumi/twingate";
  *
- * const foo = pulumi.output(twingate.getTwingateResource({
+ * const foo = twingate.getTwingateResource({
  *     id: "<your resource's id>",
- * }));
+ * });
  * ```
  */
 export function getTwingateResource(args: GetTwingateResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetTwingateResourceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("twingate:index/getTwingateResource:getTwingateResource", {
         "id": args.id,
         "protocols": args.protocols,
@@ -71,9 +68,22 @@ export interface GetTwingateResourceResult {
      */
     readonly remoteNetworkId: string;
 }
-
+/**
+ * Resources in Twingate represent any network destination address that you wish to provide private access to for users authorized via the Twingate Client application. Resources can be defined by either IP or DNS address, and all private DNS addresses will be automatically resolved with no client configuration changes. For more information, see the Twingate [documentation](https://docs.twingate.com/docs/resources-and-access-nodes).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as twingate from "@pulumi/twingate";
+ *
+ * const foo = twingate.getTwingateResource({
+ *     id: "<your resource's id>",
+ * });
+ * ```
+ */
 export function getTwingateResourceOutput(args: GetTwingateResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTwingateResourceResult> {
-    return pulumi.output(args).apply(a => getTwingateResource(a, opts))
+    return pulumi.output(args).apply((a: any) => getTwingateResource(a, opts))
 }
 
 /**

@@ -14,24 +14,23 @@ __all__ = ['TwingateGroupArgs', 'TwingateGroup']
 @pulumi.input_type
 class TwingateGroupArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: pulumi.Input[str]):
         """
         The set of arguments for constructing a TwingateGroup resource.
         :param pulumi.Input[str] name: The name of the group
         """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
+    def name(self) -> pulumi.Input[str]:
         """
         The name of the group
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
+    def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
 
@@ -75,7 +74,7 @@ class TwingateGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_twingate as twingate
 
-        aws = twingate.TwingateGroup("aws")
+        aws = twingate.TwingateGroup("aws", name="aws_group")
         ```
 
         ## Import
@@ -92,7 +91,7 @@ class TwingateGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[TwingateGroupArgs] = None,
+                 args: TwingateGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Groups are how users are authorized to access Resources. For more information, see Twingate's [documentation](https://docs.twingate.com/docs/groups).
@@ -103,7 +102,7 @@ class TwingateGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_twingate as twingate
 
-        aws = twingate.TwingateGroup("aws")
+        aws = twingate.TwingateGroup("aws", name="aws_group")
         ```
 
         ## Import
@@ -137,6 +136,8 @@ class TwingateGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TwingateGroupArgs.__new__(TwingateGroupArgs)
 
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
         super(TwingateGroup, __self__).__init__(
             'twingate:index/twingateGroup:TwingateGroup',

@@ -15,16 +15,13 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as twingate from "@pulumi/twingate";
  *
- * const all = pulumi.output(twingate.getTwingateSecurityPolicies());
+ * const all = twingate.getTwingateSecurityPolicies({});
  * ```
  */
 export function getTwingateSecurityPolicies(args?: GetTwingateSecurityPoliciesArgs, opts?: pulumi.InvokeOptions): Promise<GetTwingateSecurityPoliciesResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("twingate:index/getTwingateSecurityPolicies:getTwingateSecurityPolicies", {
         "securityPolicies": args.securityPolicies,
     }, opts);
@@ -47,9 +44,20 @@ export interface GetTwingateSecurityPoliciesResult {
     readonly id: string;
     readonly securityPolicies?: outputs.GetTwingateSecurityPoliciesSecurityPolicy[];
 }
-
+/**
+ * Security Policies are defined in the Twingate Admin Console and determine user and device authentication requirements for Resources.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as twingate from "@pulumi/twingate";
+ *
+ * const all = twingate.getTwingateSecurityPolicies({});
+ * ```
+ */
 export function getTwingateSecurityPoliciesOutput(args?: GetTwingateSecurityPoliciesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTwingateSecurityPoliciesResult> {
-    return pulumi.output(args).apply(a => getTwingateSecurityPolicies(a, opts))
+    return pulumi.output(args).apply((a: any) => getTwingateSecurityPolicies(a, opts))
 }
 
 /**

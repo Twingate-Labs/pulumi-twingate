@@ -15,18 +15,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as twingate from "@pulumi/twingate";
  *
- * const foo = pulumi.output(twingate.getTwingateServiceAccounts({
+ * const foo = twingate.getTwingateServiceAccounts({
  *     name: "<your service account's name>",
- * }));
+ * });
  * ```
  */
 export function getTwingateServiceAccounts(args?: GetTwingateServiceAccountsArgs, opts?: pulumi.InvokeOptions): Promise<GetTwingateServiceAccountsResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("twingate:index/getTwingateServiceAccounts:getTwingateServiceAccounts", {
         "name": args.name,
         "serviceAccounts": args.serviceAccounts,
@@ -64,9 +61,22 @@ export interface GetTwingateServiceAccountsResult {
      */
     readonly serviceAccounts?: outputs.GetTwingateServiceAccountsServiceAccount[];
 }
-
+/**
+ * Service Accounts offer a way to provide programmatic, centrally-controlled, and consistent access controls.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as twingate from "@pulumi/twingate";
+ *
+ * const foo = twingate.getTwingateServiceAccounts({
+ *     name: "<your service account's name>",
+ * });
+ * ```
+ */
 export function getTwingateServiceAccountsOutput(args?: GetTwingateServiceAccountsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTwingateServiceAccountsResult> {
-    return pulumi.output(args).apply(a => getTwingateServiceAccounts(a, opts))
+    return pulumi.output(args).apply((a: any) => getTwingateServiceAccounts(a, opts))
 }
 
 /**

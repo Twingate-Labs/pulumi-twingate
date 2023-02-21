@@ -11,9 +11,9 @@ import * as utilities from "./utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as twingate from "@pulumi/twingate";
+ * import * as twingate from "@twingate-labs/pulumi-twingate";
  *
- * const aws = new twingate.TwingateGroup("aws", {});
+ * const aws = new twingate.TwingateGroup("aws", {name: "aws_group"});
  * ```
  *
  * ## Import
@@ -62,7 +62,7 @@ export class TwingateGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: TwingateGroupArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: TwingateGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TwingateGroupArgs | TwingateGroupState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -71,6 +71,9 @@ export class TwingateGroup extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as TwingateGroupArgs | undefined;
+            if ((!args || args.name === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'name'");
+            }
             resourceInputs["name"] = args ? args.name : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -95,5 +98,5 @@ export interface TwingateGroupArgs {
     /**
      * The name of the group
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
 }

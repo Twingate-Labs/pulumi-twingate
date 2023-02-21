@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = twingate.GetTwingateServiceAccounts(ctx, &GetTwingateServiceAccountsArgs{
+//			_, err := twingate.GetTwingateServiceAccounts(ctx, &twingate.GetTwingateServiceAccountsArgs{
 //				Name: pulumi.StringRef("<your service account's name>"),
 //			}, nil)
 //			if err != nil {

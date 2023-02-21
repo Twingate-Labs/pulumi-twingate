@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as twingate from "@twingate-labs/pulumi-twingate";
  *
- * const awsNetwork = new twingate.TwingateRemoteNetwork("awsNetwork", {});
+ * const awsNetwork = new twingate.TwingateRemoteNetwork("awsNetwork", {name: "aws_remote_network"});
  * const awsConnector = new twingate.TwingateConnector("awsConnector", {remoteNetworkId: awsNetwork.id});
  * ```
  *

@@ -123,8 +123,10 @@ class TwingateServiceAccountKey(pulumi.CustomResource):
         import pulumi
         import pulumi_twingate as twingate
 
-        github_actions_prod = twingate.TwingateServiceAccount("githubActionsProd")
-        github_key = twingate.TwingateServiceAccountKey("githubKey", service_account_id=github_actions_prod.id)
+        github_actions_prod = twingate.TwingateServiceAccount("githubActionsProd", name="Github Actions PROD")
+        github_key = twingate.TwingateServiceAccountKey("githubKey",
+            name="Github Actions PROD key",
+            service_account_id=github_actions_prod.id)
         ```
 
         :param str resource_name: The name of the resource.
@@ -147,8 +149,10 @@ class TwingateServiceAccountKey(pulumi.CustomResource):
         import pulumi
         import pulumi_twingate as twingate
 
-        github_actions_prod = twingate.TwingateServiceAccount("githubActionsProd")
-        github_key = twingate.TwingateServiceAccountKey("githubKey", service_account_id=github_actions_prod.id)
+        github_actions_prod = twingate.TwingateServiceAccount("githubActionsProd", name="Github Actions PROD")
+        github_key = twingate.TwingateServiceAccountKey("githubKey",
+            name="Github Actions PROD key",
+            service_account_id=github_actions_prod.id)
         ```
 
         :param str resource_name: The name of the resource.

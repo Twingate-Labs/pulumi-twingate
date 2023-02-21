@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = twingate.LookupTwingateRemoteNetwork(ctx, &GetTwingateRemoteNetworkArgs{
+//			_, err := twingate.LookupTwingateRemoteNetwork(ctx, &twingate.LookupTwingateRemoteNetworkArgs{
 //				Name: pulumi.StringRef("<your network's name>"),
 //			}, nil)
 //			if err != nil {

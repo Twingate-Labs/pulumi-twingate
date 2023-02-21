@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,7 +27,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			awsNetwork, err := twingate.NewTwingateRemoteNetwork(ctx, "awsNetwork", nil)
+//			awsNetwork, err := twingate.NewTwingateRemoteNetwork(ctx, "awsNetwork", &twingate.TwingateRemoteNetworkArgs{
+//				Name: pulumi.String("aws_remote_network"),
+//			})
 //			if err != nil {
 //				return err
 //			}

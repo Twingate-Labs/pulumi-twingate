@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -26,7 +27,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := twingate.NewTwingateGroup(ctx, "aws", nil)
+//			_, err := twingate.NewTwingateGroup(ctx, "aws", &twingate.TwingateGroupArgs{
+//				Name: pulumi.String("aws_group"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -54,9 +57,12 @@ type TwingateGroup struct {
 func NewTwingateGroup(ctx *pulumi.Context,
 	name string, args *TwingateGroupArgs, opts ...pulumi.ResourceOption) (*TwingateGroup, error) {
 	if args == nil {
-		args = &TwingateGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
 	opts = pkgResourceDefaultOpts(opts)
 	var resource TwingateGroup
 	err := ctx.RegisterResource("twingate:index/twingateGroup:TwingateGroup", name, args, &resource, opts...)
@@ -95,13 +101,13 @@ func (TwingateGroupState) ElementType() reflect.Type {
 
 type twingateGroupArgs struct {
 	// The name of the group
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a TwingateGroup resource.
 type TwingateGroupArgs struct {
 	// The name of the group
-	Name pulumi.StringPtrInput
+	Name pulumi.StringInput
 }
 
 func (TwingateGroupArgs) ElementType() reflect.Type {

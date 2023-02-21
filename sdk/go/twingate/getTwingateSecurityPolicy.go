@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = twingate.GetTwingateSecurityPolicy(ctx, &GetTwingateSecurityPolicyArgs{
+//			_, err := twingate.GetTwingateSecurityPolicy(ctx, &twingate.GetTwingateSecurityPolicyArgs{
 //				Name: pulumi.StringRef("<your security policy name>"),
 //			}, nil)
 //			if err != nil {

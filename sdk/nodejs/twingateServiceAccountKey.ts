@@ -13,8 +13,11 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as twingate from "@twingate-labs/pulumi-twingate";
  *
- * const githubActionsProd = new twingate.TwingateServiceAccount("githubActionsProd", {});
- * const githubKey = new twingate.TwingateServiceAccountKey("githubKey", {serviceAccountId: githubActionsProd.id});
+ * const githubActionsProd = new twingate.TwingateServiceAccount("githubActionsProd", {name: "Github Actions PROD"});
+ * const githubKey = new twingate.TwingateServiceAccountKey("githubKey", {
+ *     name: "Github Actions PROD key",
+ *     serviceAccountId: githubActionsProd.id,
+ * });
  * ```
  */
 export class TwingateServiceAccountKey extends pulumi.CustomResource {

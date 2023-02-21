@@ -13,17 +13,14 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as twingate from "@pulumi/twingate";
  *
- * const foo = pulumi.output(twingate.getTwingateUser({
+ * const foo = twingate.getTwingateUser({
  *     id: "<your user's id>",
- * }));
+ * });
  * ```
  */
 export function getTwingateUser(args: GetTwingateUserArgs, opts?: pulumi.InvokeOptions): Promise<GetTwingateUserResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("twingate:index/getTwingateUser:getTwingateUser", {
         "id": args.id,
     }, opts);
@@ -68,9 +65,22 @@ export interface GetTwingateUserResult {
      */
     readonly role: string;
 }
-
+/**
+ * Users in Twingate can be given access to Twingate Resources and may either be added manually or automatically synchronized with a 3rd party identity provider. For more information, see Twingate's [documentation](https://docs.twingate.com/docs/users).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as twingate from "@pulumi/twingate";
+ *
+ * const foo = twingate.getTwingateUser({
+ *     id: "<your user's id>",
+ * });
+ * ```
+ */
 export function getTwingateUserOutput(args: GetTwingateUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTwingateUserResult> {
-    return pulumi.output(args).apply(a => getTwingateUser(a, opts))
+    return pulumi.output(args).apply((a: any) => getTwingateUser(a, opts))
 }
 
 /**

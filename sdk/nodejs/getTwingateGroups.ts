@@ -15,18 +15,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as twingate from "@pulumi/twingate";
  *
- * const foo = pulumi.output(twingate.getTwingateGroups({
+ * const foo = twingate.getTwingateGroups({
  *     name: "<your group's name>",
- * }));
+ * });
  * ```
  */
 export function getTwingateGroups(args?: GetTwingateGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetTwingateGroupsResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("twingate:index/getTwingateGroups:getTwingateGroups", {
         "groups": args.groups,
         "isActive": args.isActive,
@@ -82,9 +79,22 @@ export interface GetTwingateGroupsResult {
      */
     readonly type?: string;
 }
-
+/**
+ * Groups are how users are authorized to access Resources. For more information, see Twingate's [documentation](https://docs.twingate.com/docs/groups).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as twingate from "@pulumi/twingate";
+ *
+ * const foo = twingate.getTwingateGroups({
+ *     name: "<your group's name>",
+ * });
+ * ```
+ */
 export function getTwingateGroupsOutput(args?: GetTwingateGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTwingateGroupsResult> {
-    return pulumi.output(args).apply(a => getTwingateGroups(a, opts))
+    return pulumi.output(args).apply((a: any) => getTwingateGroups(a, opts))
 }
 
 /**
