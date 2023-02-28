@@ -59,7 +59,7 @@ func Provider() tfbridge.ProviderInfo {
 		// category/cloud tag helps with categorizing the package in the Pulumi Registry.
 		// For all available categories, see `Keywords` in
 		// https://www.pulumi.com/docs/guides/pulumi-packages/schema/#package.
-		Keywords:   []string{"pulumi", "twingate", "category/Infrastructure"},
+		Keywords:   []string{"pulumi", "twingate", "category/infrastructure"},
 		License:    "Apache-2.0",
 		Homepage:   "https://www.twingate.com",
 		Repository: "https://github.com/Twingate-Labs/pulumi-twingate",

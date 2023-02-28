@@ -15,12 +15,10 @@ def get_group_id(group_name):
     return group.id
 
 
-group_id = get_group_id("Everyone")
-
 twingate_resource = tg.TwingateResource("test_resource",
                                         name="Twingate Home Page",
                                         address="www.twingate.com",
                                         remote_network_id=remote_network.id,
-                                        access={"group_ids": [group_id],
+                                        access={"group_ids": [get_group_id("Everyone")],
                                                 "service_account_ids": [service_account.id]}
                                         )

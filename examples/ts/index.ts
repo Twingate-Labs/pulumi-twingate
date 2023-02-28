@@ -14,14 +14,12 @@ function getGroupId(groupName: string){
     return groups[0].id
 }
 
-const groupId = getGroupId("Everyone")
-
 new tg.TwingateResource("test_resource", {
     name: "Twingate Home Page",
     address: "www.twingate.com",
     remoteNetworkId: remoteNetwork.id,
     access: {
-        groupIds: [groupId],
+        groupIds: [getGroupId("Everyone")],
         serviceAccountIds: [serviceAccount.id]
     }
 })

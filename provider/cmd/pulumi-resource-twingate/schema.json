@@ -5,7 +5,7 @@
     "keywords": [
         "pulumi",
         "twingate",
-        "category/Infrastructure"
+        "category/infrastructure"
     ],
     "homepage": "https://www.twingate.com",
     "license": "Apache-2.0",
