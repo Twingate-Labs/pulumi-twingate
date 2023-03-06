@@ -10,31 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A Remote Network represents a single private network in Twingate that can have one or more Connectors and Resources assigned to it. You must create a Remote Network before creating Resources and Connectors that belong to it. For more information, see Twingate's [documentation](https://docs.twingate.com/docs/remote-networks).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/Twingate-Labs/pulumi-twingate/sdk/go/twingate"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := twingate.GetTwingateRemoteNetworks(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetTwingateRemoteNetworks(ctx *pulumi.Context, args *GetTwingateRemoteNetworksArgs, opts ...pulumi.InvokeOption) (*GetTwingateRemoteNetworksResult, error) {
 	opts = pkgInvokeDefaultOpts(opts)
 	var rv GetTwingateRemoteNetworksResult
@@ -47,15 +22,13 @@ func GetTwingateRemoteNetworks(ctx *pulumi.Context, args *GetTwingateRemoteNetwo
 
 // A collection of arguments for invoking getTwingateRemoteNetworks.
 type GetTwingateRemoteNetworksArgs struct {
-	// List of Remote Networks
 	RemoteNetworks []GetTwingateRemoteNetworksRemoteNetwork `pulumi:"remoteNetworks"`
 }
 
 // A collection of values returned by getTwingateRemoteNetworks.
 type GetTwingateRemoteNetworksResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// List of Remote Networks
+	Id             string                                   `pulumi:"id"`
 	RemoteNetworks []GetTwingateRemoteNetworksRemoteNetwork `pulumi:"remoteNetworks"`
 }
 
@@ -74,7 +47,6 @@ func GetTwingateRemoteNetworksOutput(ctx *pulumi.Context, args GetTwingateRemote
 
 // A collection of arguments for invoking getTwingateRemoteNetworks.
 type GetTwingateRemoteNetworksOutputArgs struct {
-	// List of Remote Networks
 	RemoteNetworks GetTwingateRemoteNetworksRemoteNetworkArrayInput `pulumi:"remoteNetworks"`
 }
 
@@ -102,7 +74,6 @@ func (o GetTwingateRemoteNetworksResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTwingateRemoteNetworksResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// List of Remote Networks
 func (o GetTwingateRemoteNetworksResultOutput) RemoteNetworks() GetTwingateRemoteNetworksRemoteNetworkArrayOutput {
 	return o.ApplyT(func(v GetTwingateRemoteNetworksResult) []GetTwingateRemoteNetworksRemoteNetwork {
 		return v.RemoteNetworks

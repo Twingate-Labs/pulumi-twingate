@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * Security Policies are defined in the Twingate Admin Console and determine user and device authentication requirements for Resources.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as twingate from "@pulumi/twingate";
- *
- * const foo = twingate.getTwingateSecurityPolicy({
- *     name: "<your security policy name>",
- * });
- * ```
- */
 export function getTwingateSecurityPolicy(args?: GetTwingateSecurityPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetTwingateSecurityPolicyResult> {
     args = args || {};
 
@@ -32,13 +18,7 @@ export function getTwingateSecurityPolicy(args?: GetTwingateSecurityPolicyArgs, 
  * A collection of arguments for invoking getTwingateSecurityPolicy.
  */
 export interface GetTwingateSecurityPolicyArgs {
-    /**
-     * Return a Security Policy by its ID. The ID for the Security Policy must be obtained from the Admin API.
-     */
     id?: string;
-    /**
-     * Return a Security Policy that exactly matches this name.
-     */
     name?: string;
 }
 
@@ -46,29 +26,9 @@ export interface GetTwingateSecurityPolicyArgs {
  * A collection of values returned by getTwingateSecurityPolicy.
  */
 export interface GetTwingateSecurityPolicyResult {
-    /**
-     * Return a Security Policy by its ID. The ID for the Security Policy must be obtained from the Admin API.
-     */
     readonly id?: string;
-    /**
-     * Return a Security Policy that exactly matches this name.
-     */
     readonly name?: string;
 }
-/**
- * Security Policies are defined in the Twingate Admin Console and determine user and device authentication requirements for Resources.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as twingate from "@pulumi/twingate";
- *
- * const foo = twingate.getTwingateSecurityPolicy({
- *     name: "<your security policy name>",
- * });
- * ```
- */
 export function getTwingateSecurityPolicyOutput(args?: GetTwingateSecurityPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTwingateSecurityPolicyResult> {
     return pulumi.output(args).apply((a: any) => getTwingateSecurityPolicy(a, opts))
 }
@@ -77,12 +37,6 @@ export function getTwingateSecurityPolicyOutput(args?: GetTwingateSecurityPolicy
  * A collection of arguments for invoking getTwingateSecurityPolicy.
  */
 export interface GetTwingateSecurityPolicyOutputArgs {
-    /**
-     * Return a Security Policy by its ID. The ID for the Security Policy must be obtained from the Admin API.
-     */
     id?: pulumi.Input<string>;
-    /**
-     * Return a Security Policy that exactly matches this name.
-     */
     name?: pulumi.Input<string>;
 }

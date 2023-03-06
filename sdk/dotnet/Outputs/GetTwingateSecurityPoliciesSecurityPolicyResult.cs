@@ -14,13 +14,7 @@ namespace TwingateLabs.Twingate.Outputs
     [OutputType]
     public sealed class GetTwingateSecurityPoliciesSecurityPolicyResult
     {
-        /// <summary>
-        /// Return a matching Security Policy by its ID. The ID for the Security Policy must be obtained from the Admin API.
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Return a Security Policy that exactly matches this name.
-        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

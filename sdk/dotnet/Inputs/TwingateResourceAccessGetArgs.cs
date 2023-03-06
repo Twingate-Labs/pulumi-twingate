@@ -15,10 +15,6 @@ namespace TwingateLabs.Twingate.Inputs
     {
         [Input("groupIds")]
         private InputList<string>? _groupIds;
-
-        /// <summary>
-        /// List of Group IDs that will have permission to access the Resource.
-        /// </summary>
         public InputList<string> GroupIds
         {
             get => _groupIds ?? (_groupIds = new InputList<string>());
@@ -27,10 +23,6 @@ namespace TwingateLabs.Twingate.Inputs
 
         [Input("serviceAccountIds")]
         private InputList<string>? _serviceAccountIds;
-
-        /// <summary>
-        /// List of Service Account IDs that will have permission to access the Resource.
-        /// </summary>
         public InputList<string> ServiceAccountIds
         {
             get => _serviceAccountIds ?? (_serviceAccountIds = new InputList<string>());

@@ -131,7 +131,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			RootNamespace: "TwingateLabs",
 		},
-		GitHubOrg: "Twingate",
+		GitHubOrg: "Twingate-Labs",
 	}
 
 	//prov.SetAutonaming(255, "-")

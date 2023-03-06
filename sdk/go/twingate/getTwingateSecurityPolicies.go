@@ -10,31 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Security Policies are defined in the Twingate Admin Console and determine user and device authentication requirements for Resources.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/Twingate-Labs/pulumi-twingate/sdk/go/twingate"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := twingate.GetTwingateSecurityPolicies(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetTwingateSecurityPolicies(ctx *pulumi.Context, args *GetTwingateSecurityPoliciesArgs, opts ...pulumi.InvokeOption) (*GetTwingateSecurityPoliciesResult, error) {
 	opts = pkgInvokeDefaultOpts(opts)
 	var rv GetTwingateSecurityPoliciesResult

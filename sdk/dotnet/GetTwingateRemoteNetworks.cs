@@ -12,51 +12,9 @@ namespace TwingateLabs.Twingate
 {
     public static class GetTwingateRemoteNetworks
     {
-        /// <summary>
-        /// A Remote Network represents a single private network in Twingate that can have one or more Connectors and Resources assigned to it. You must create a Remote Network before creating Resources and Connectors that belong to it. For more information, see Twingate's [documentation](https://docs.twingate.com/docs/remote-networks).
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Twingate = Pulumi.Twingate;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var all = Twingate.GetTwingateRemoteNetworks.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetTwingateRemoteNetworksResult> InvokeAsync(GetTwingateRemoteNetworksArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTwingateRemoteNetworksResult>("twingate:index/getTwingateRemoteNetworks:getTwingateRemoteNetworks", args ?? new GetTwingateRemoteNetworksArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// A Remote Network represents a single private network in Twingate that can have one or more Connectors and Resources assigned to it. You must create a Remote Network before creating Resources and Connectors that belong to it. For more information, see Twingate's [documentation](https://docs.twingate.com/docs/remote-networks).
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Twingate = Pulumi.Twingate;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var all = Twingate.GetTwingateRemoteNetworks.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetTwingateRemoteNetworksResult> Invoke(GetTwingateRemoteNetworksInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTwingateRemoteNetworksResult>("twingate:index/getTwingateRemoteNetworks:getTwingateRemoteNetworks", args ?? new GetTwingateRemoteNetworksInvokeArgs(), options.WithDefaults());
     }
@@ -66,10 +24,6 @@ namespace TwingateLabs.Twingate
     {
         [Input("remoteNetworks")]
         private List<Inputs.GetTwingateRemoteNetworksRemoteNetworkArgs>? _remoteNetworks;
-
-        /// <summary>
-        /// List of Remote Networks
-        /// </summary>
         public List<Inputs.GetTwingateRemoteNetworksRemoteNetworkArgs> RemoteNetworks
         {
             get => _remoteNetworks ?? (_remoteNetworks = new List<Inputs.GetTwingateRemoteNetworksRemoteNetworkArgs>());
@@ -86,10 +40,6 @@ namespace TwingateLabs.Twingate
     {
         [Input("remoteNetworks")]
         private InputList<Inputs.GetTwingateRemoteNetworksRemoteNetworkInputArgs>? _remoteNetworks;
-
-        /// <summary>
-        /// List of Remote Networks
-        /// </summary>
         public InputList<Inputs.GetTwingateRemoteNetworksRemoteNetworkInputArgs> RemoteNetworks
         {
             get => _remoteNetworks ?? (_remoteNetworks = new InputList<Inputs.GetTwingateRemoteNetworksRemoteNetworkInputArgs>());
@@ -110,9 +60,6 @@ namespace TwingateLabs.Twingate
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// List of Remote Networks
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetTwingateRemoteNetworksRemoteNetworkResult> RemoteNetworks;
 
         [OutputConstructor]

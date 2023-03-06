@@ -12,51 +12,9 @@ namespace TwingateLabs.Twingate
 {
     public static class GetTwingateSecurityPolicies
     {
-        /// <summary>
-        /// Security Policies are defined in the Twingate Admin Console and determine user and device authentication requirements for Resources.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Twingate = Pulumi.Twingate;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var all = Twingate.GetTwingateSecurityPolicies.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetTwingateSecurityPoliciesResult> InvokeAsync(GetTwingateSecurityPoliciesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTwingateSecurityPoliciesResult>("twingate:index/getTwingateSecurityPolicies:getTwingateSecurityPolicies", args ?? new GetTwingateSecurityPoliciesArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Security Policies are defined in the Twingate Admin Console and determine user and device authentication requirements for Resources.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Twingate = Pulumi.Twingate;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var all = Twingate.GetTwingateSecurityPolicies.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetTwingateSecurityPoliciesResult> Invoke(GetTwingateSecurityPoliciesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTwingateSecurityPoliciesResult>("twingate:index/getTwingateSecurityPolicies:getTwingateSecurityPolicies", args ?? new GetTwingateSecurityPoliciesInvokeArgs(), options.WithDefaults());
     }

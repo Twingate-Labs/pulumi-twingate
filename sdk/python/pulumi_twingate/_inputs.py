@@ -34,10 +34,6 @@ class TwingateResourceAccessArgs:
     def __init__(__self__, *,
                  group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  service_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_ids: List of Group IDs that will have permission to access the Resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] service_account_ids: List of Service Account IDs that will have permission to access the Resource.
-        """
         if group_ids is not None:
             pulumi.set(__self__, "group_ids", group_ids)
         if service_account_ids is not None:
@@ -46,9 +42,6 @@ class TwingateResourceAccessArgs:
     @property
     @pulumi.getter(name="groupIds")
     def group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of Group IDs that will have permission to access the Resource.
-        """
         return pulumi.get(self, "group_ids")
 
     @group_ids.setter
@@ -58,9 +51,6 @@ class TwingateResourceAccessArgs:
     @property
     @pulumi.getter(name="serviceAccountIds")
     def service_account_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of Service Account IDs that will have permission to access the Resource.
-        """
         return pulumi.get(self, "service_account_ids")
 
     @service_account_ids.setter
@@ -74,9 +64,6 @@ class TwingateResourceProtocolsArgs:
                  tcp: pulumi.Input['TwingateResourceProtocolsTcpArgs'],
                  udp: pulumi.Input['TwingateResourceProtocolsUdpArgs'],
                  allow_icmp: Optional[pulumi.Input[bool]] = None):
-        """
-        :param pulumi.Input[bool] allow_icmp: Whether to allow ICMP (ping) traffic
-        """
         pulumi.set(__self__, "tcp", tcp)
         pulumi.set(__self__, "udp", udp)
         if allow_icmp is not None:
@@ -103,9 +90,6 @@ class TwingateResourceProtocolsArgs:
     @property
     @pulumi.getter(name="allowIcmp")
     def allow_icmp(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether to allow ICMP (ping) traffic
-        """
         return pulumi.get(self, "allow_icmp")
 
     @allow_icmp.setter
@@ -175,11 +159,6 @@ class GetTwingateConnectorsConnectorArgs:
                  id: str,
                  name: str,
                  remote_network_id: str):
-        """
-        :param str id: The ID of the Connector
-        :param str name: The Name of the Connector
-        :param str remote_network_id: The ID of the Remote Network attached to the Connector
-        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "remote_network_id", remote_network_id)
@@ -187,9 +166,6 @@ class GetTwingateConnectorsConnectorArgs:
     @property
     @pulumi.getter
     def id(self) -> str:
-        """
-        The ID of the Connector
-        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -199,9 +175,6 @@ class GetTwingateConnectorsConnectorArgs:
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        The Name of the Connector
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -211,9 +184,6 @@ class GetTwingateConnectorsConnectorArgs:
     @property
     @pulumi.getter(name="remoteNetworkId")
     def remote_network_id(self) -> str:
-        """
-        The ID of the Remote Network attached to the Connector
-        """
         return pulumi.get(self, "remote_network_id")
 
     @remote_network_id.setter
@@ -228,12 +198,6 @@ class GetTwingateGroupsGroupArgs:
                  is_active: bool,
                  name: str,
                  type: str):
-        """
-        :param str id: The ID of the Group
-        :param bool is_active: Indicates if the Group is active
-        :param str name: The name of the Group
-        :param str type: The type of the Group
-        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "is_active", is_active)
         pulumi.set(__self__, "name", name)
@@ -242,9 +206,6 @@ class GetTwingateGroupsGroupArgs:
     @property
     @pulumi.getter
     def id(self) -> str:
-        """
-        The ID of the Group
-        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -254,9 +215,6 @@ class GetTwingateGroupsGroupArgs:
     @property
     @pulumi.getter(name="isActive")
     def is_active(self) -> bool:
-        """
-        Indicates if the Group is active
-        """
         return pulumi.get(self, "is_active")
 
     @is_active.setter
@@ -266,9 +224,6 @@ class GetTwingateGroupsGroupArgs:
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        The name of the Group
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -278,9 +233,6 @@ class GetTwingateGroupsGroupArgs:
     @property
     @pulumi.getter
     def type(self) -> str:
-        """
-        The type of the Group
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -294,11 +246,6 @@ class GetTwingateRemoteNetworksRemoteNetworkArgs:
                  id: str,
                  location: str,
                  name: str):
-        """
-        :param str id: The ID of the Remote Network
-        :param str location: The location of the Remote Network. Must be one of the following: AWS, AZURE, GOOGLE*CLOUD, ON*PREMISE, OTHER.
-        :param str name: The name of the Remote Network
-        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "location", location)
         pulumi.set(__self__, "name", name)
@@ -306,9 +253,6 @@ class GetTwingateRemoteNetworksRemoteNetworkArgs:
     @property
     @pulumi.getter
     def id(self) -> str:
-        """
-        The ID of the Remote Network
-        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -318,9 +262,6 @@ class GetTwingateRemoteNetworksRemoteNetworkArgs:
     @property
     @pulumi.getter
     def location(self) -> str:
-        """
-        The location of the Remote Network. Must be one of the following: AWS, AZURE, GOOGLE*CLOUD, ON*PREMISE, OTHER.
-        """
         return pulumi.get(self, "location")
 
     @location.setter
@@ -330,9 +271,6 @@ class GetTwingateRemoteNetworksRemoteNetworkArgs:
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        The name of the Remote Network
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -346,9 +284,6 @@ class GetTwingateResourceProtocolArgs:
                  allow_icmp: bool,
                  tcps: Optional[Sequence['GetTwingateResourceProtocolTcpArgs']] = None,
                  udps: Optional[Sequence['GetTwingateResourceProtocolUdpArgs']] = None):
-        """
-        :param bool allow_icmp: Whether to allow ICMP (ping) traffic
-        """
         pulumi.set(__self__, "allow_icmp", allow_icmp)
         if tcps is not None:
             pulumi.set(__self__, "tcps", tcps)
@@ -358,9 +293,6 @@ class GetTwingateResourceProtocolArgs:
     @property
     @pulumi.getter(name="allowIcmp")
     def allow_icmp(self) -> bool:
-        """
-        Whether to allow ICMP (ping) traffic
-        """
         return pulumi.get(self, "allow_icmp")
 
     @allow_icmp.setter
@@ -448,13 +380,6 @@ class GetTwingateResourcesResourceArgs:
                  name: str,
                  remote_network_id: str,
                  protocols: Optional[Sequence['GetTwingateResourcesResourceProtocolArgs']] = None):
-        """
-        :param str address: The Resource's IP/CIDR or FQDN/DNS zone
-        :param str id: The id of the Resource
-        :param str name: The name of the Resource
-        :param str remote_network_id: Remote Network ID where the Resource lives
-        :param Sequence['GetTwingateResourcesResourceProtocolArgs'] protocols: Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no restriction, and all protocols and ports are allowed.
-        """
         pulumi.set(__self__, "address", address)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -465,9 +390,6 @@ class GetTwingateResourcesResourceArgs:
     @property
     @pulumi.getter
     def address(self) -> str:
-        """
-        The Resource's IP/CIDR or FQDN/DNS zone
-        """
         return pulumi.get(self, "address")
 
     @address.setter
@@ -477,9 +399,6 @@ class GetTwingateResourcesResourceArgs:
     @property
     @pulumi.getter
     def id(self) -> str:
-        """
-        The id of the Resource
-        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -489,9 +408,6 @@ class GetTwingateResourcesResourceArgs:
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        The name of the Resource
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -501,9 +417,6 @@ class GetTwingateResourcesResourceArgs:
     @property
     @pulumi.getter(name="remoteNetworkId")
     def remote_network_id(self) -> str:
-        """
-        Remote Network ID where the Resource lives
-        """
         return pulumi.get(self, "remote_network_id")
 
     @remote_network_id.setter
@@ -513,9 +426,6 @@ class GetTwingateResourcesResourceArgs:
     @property
     @pulumi.getter
     def protocols(self) -> Optional[Sequence['GetTwingateResourcesResourceProtocolArgs']]:
-        """
-        Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no restriction, and all protocols and ports are allowed.
-        """
         return pulumi.get(self, "protocols")
 
     @protocols.setter
@@ -622,19 +532,12 @@ class GetTwingateSecurityPoliciesSecurityPolicyArgs:
     def __init__(__self__, *,
                  id: str,
                  name: str):
-        """
-        :param str id: Return a matching Security Policy by its ID. The ID for the Security Policy must be obtained from the Admin API.
-        :param str name: Return a Security Policy that exactly matches this name.
-        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
     def id(self) -> str:
-        """
-        Return a matching Security Policy by its ID. The ID for the Security Policy must be obtained from the Admin API.
-        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -644,9 +547,6 @@ class GetTwingateSecurityPoliciesSecurityPolicyArgs:
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Return a Security Policy that exactly matches this name.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -661,12 +561,6 @@ class GetTwingateServiceAccountsServiceAccountArgs:
                  key_ids: Sequence[str],
                  name: str,
                  resource_ids: Sequence[str]):
-        """
-        :param str id: ID of the Service Account resource
-        :param Sequence[str] key_ids: List of twingate*service*account_key IDs that are assigned to the Service Account.
-        :param str name: Name of the Service Account
-        :param Sequence[str] resource_ids: List of TwingateResource IDs that the Service Account is assigned to.
-        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "key_ids", key_ids)
         pulumi.set(__self__, "name", name)
@@ -675,9 +569,6 @@ class GetTwingateServiceAccountsServiceAccountArgs:
     @property
     @pulumi.getter
     def id(self) -> str:
-        """
-        ID of the Service Account resource
-        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -687,9 +578,6 @@ class GetTwingateServiceAccountsServiceAccountArgs:
     @property
     @pulumi.getter(name="keyIds")
     def key_ids(self) -> Sequence[str]:
-        """
-        List of twingate*service*account_key IDs that are assigned to the Service Account.
-        """
         return pulumi.get(self, "key_ids")
 
     @key_ids.setter
@@ -699,9 +587,6 @@ class GetTwingateServiceAccountsServiceAccountArgs:
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the Service Account
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -711,9 +596,6 @@ class GetTwingateServiceAccountsServiceAccountArgs:
     @property
     @pulumi.getter(name="resourceIds")
     def resource_ids(self) -> Sequence[str]:
-        """
-        List of TwingateResource IDs that the Service Account is assigned to.
-        """
         return pulumi.get(self, "resource_ids")
 
     @resource_ids.setter
@@ -730,14 +612,6 @@ class GetTwingateUsersUserArgs:
                  is_admin: bool,
                  last_name: str,
                  role: str):
-        """
-        :param str email: The email address of the User
-        :param str first_name: The first name of the User
-        :param str id: The ID of the User
-        :param bool is_admin: Indicates whether the User is an admin
-        :param str last_name: The last name of the User
-        :param str role: Indicates the User's role. Either ADMIN, DEVOPS, SUPPORT, or MEMBER.
-        """
         pulumi.set(__self__, "email", email)
         pulumi.set(__self__, "first_name", first_name)
         pulumi.set(__self__, "id", id)
@@ -748,9 +622,6 @@ class GetTwingateUsersUserArgs:
     @property
     @pulumi.getter
     def email(self) -> str:
-        """
-        The email address of the User
-        """
         return pulumi.get(self, "email")
 
     @email.setter
@@ -760,9 +631,6 @@ class GetTwingateUsersUserArgs:
     @property
     @pulumi.getter(name="firstName")
     def first_name(self) -> str:
-        """
-        The first name of the User
-        """
         return pulumi.get(self, "first_name")
 
     @first_name.setter
@@ -772,9 +640,6 @@ class GetTwingateUsersUserArgs:
     @property
     @pulumi.getter
     def id(self) -> str:
-        """
-        The ID of the User
-        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -784,9 +649,6 @@ class GetTwingateUsersUserArgs:
     @property
     @pulumi.getter(name="isAdmin")
     def is_admin(self) -> bool:
-        """
-        Indicates whether the User is an admin
-        """
         return pulumi.get(self, "is_admin")
 
     @is_admin.setter
@@ -796,9 +658,6 @@ class GetTwingateUsersUserArgs:
     @property
     @pulumi.getter(name="lastName")
     def last_name(self) -> str:
-        """
-        The last name of the User
-        """
         return pulumi.get(self, "last_name")
 
     @last_name.setter
@@ -808,9 +667,6 @@ class GetTwingateUsersUserArgs:
     @property
     @pulumi.getter
     def role(self) -> str:
-        """
-        Indicates the User's role. Either ADMIN, DEVOPS, SUPPORT, or MEMBER.
-        """
         return pulumi.get(self, "role")
 
     @role.setter

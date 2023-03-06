@@ -10,33 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Service Accounts offer a way to provide programmatic, centrally-controlled, and consistent access controls.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/Twingate-Labs/pulumi-twingate/sdk/go/twingate"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := twingate.GetTwingateServiceAccounts(ctx, &twingate.GetTwingateServiceAccountsArgs{
-//				Name: pulumi.StringRef("<your service account's name>"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetTwingateServiceAccounts(ctx *pulumi.Context, args *GetTwingateServiceAccountsArgs, opts ...pulumi.InvokeOption) (*GetTwingateServiceAccountsResult, error) {
 	opts = pkgInvokeDefaultOpts(opts)
 	var rv GetTwingateServiceAccountsResult
@@ -49,19 +22,15 @@ func GetTwingateServiceAccounts(ctx *pulumi.Context, args *GetTwingateServiceAcc
 
 // A collection of arguments for invoking getTwingateServiceAccounts.
 type GetTwingateServiceAccountsArgs struct {
-	// Filter results by the name of the Service Account.
-	Name *string `pulumi:"name"`
-	// List of Service Accounts
+	Name            *string                                    `pulumi:"name"`
 	ServiceAccounts []GetTwingateServiceAccountsServiceAccount `pulumi:"serviceAccounts"`
 }
 
 // A collection of values returned by getTwingateServiceAccounts.
 type GetTwingateServiceAccountsResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Filter results by the name of the Service Account.
-	Name *string `pulumi:"name"`
-	// List of Service Accounts
+	Id              string                                     `pulumi:"id"`
+	Name            *string                                    `pulumi:"name"`
 	ServiceAccounts []GetTwingateServiceAccountsServiceAccount `pulumi:"serviceAccounts"`
 }
 
@@ -80,9 +49,7 @@ func GetTwingateServiceAccountsOutput(ctx *pulumi.Context, args GetTwingateServi
 
 // A collection of arguments for invoking getTwingateServiceAccounts.
 type GetTwingateServiceAccountsOutputArgs struct {
-	// Filter results by the name of the Service Account.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// List of Service Accounts
+	Name            pulumi.StringPtrInput                              `pulumi:"name"`
 	ServiceAccounts GetTwingateServiceAccountsServiceAccountArrayInput `pulumi:"serviceAccounts"`
 }
 
@@ -110,12 +77,10 @@ func (o GetTwingateServiceAccountsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTwingateServiceAccountsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Filter results by the name of the Service Account.
 func (o GetTwingateServiceAccountsResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTwingateServiceAccountsResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// List of Service Accounts
 func (o GetTwingateServiceAccountsResultOutput) ServiceAccounts() GetTwingateServiceAccountsServiceAccountArrayOutput {
 	return o.ApplyT(func(v GetTwingateServiceAccountsResult) []GetTwingateServiceAccountsServiceAccount {
 		return v.ServiceAccounts

@@ -66,17 +66,7 @@ class TwingateServiceAccount(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Service Accounts offer a way to provide programmatic, centrally-controlled, and consistent access controls.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_twingate as twingate
-
-        github_actions_prod = twingate.TwingateServiceAccount("githubActionsProd", name="Github Actions PROD")
-        ```
-
+        Create a TwingateServiceAccount resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the Service Account in Twingate
@@ -88,17 +78,7 @@ class TwingateServiceAccount(pulumi.CustomResource):
                  args: TwingateServiceAccountArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Service Accounts offer a way to provide programmatic, centrally-controlled, and consistent access controls.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_twingate as twingate
-
-        github_actions_prod = twingate.TwingateServiceAccount("githubActionsProd", name="Github Actions PROD")
-        ```
-
+        Create a TwingateServiceAccount resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param TwingateServiceAccountArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

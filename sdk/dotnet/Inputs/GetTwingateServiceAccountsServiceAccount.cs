@@ -13,36 +13,22 @@ namespace TwingateLabs.Twingate.Inputs
 
     public sealed class GetTwingateServiceAccountsServiceAccountArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ID of the Service Account resource
-        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
         [Input("keyIds", required: true)]
         private List<string>? _keyIds;
-
-        /// <summary>
-        /// List of twingate*service*account_key IDs that are assigned to the Service Account.
-        /// </summary>
         public List<string> KeyIds
         {
             get => _keyIds ?? (_keyIds = new List<string>());
             set => _keyIds = value;
         }
 
-        /// <summary>
-        /// Name of the Service Account
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         [Input("resourceIds", required: true)]
         private List<string>? _resourceIds;
-
-        /// <summary>
-        /// List of twingate.TwingateResource IDs that the Service Account is assigned to.
-        /// </summary>
         public List<string> ResourceIds
         {
             get => _resourceIds ?? (_resourceIds = new List<string>());

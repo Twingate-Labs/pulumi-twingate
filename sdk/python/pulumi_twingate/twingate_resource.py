@@ -37,7 +37,8 @@ class TwingateResourceArgs:
                `false`, assignments made outside of Terraform will be ignored.
         :param pulumi.Input[bool] is_browser_shortcut_enabled: Controls whether an "Open in Browser" shortcut will be shown for this Resource in the Twingate Client.
         :param pulumi.Input[bool] is_visible: Controls whether this Resource will be visible in the main Resource list in the Twingate Client.
-        :param pulumi.Input['TwingateResourceProtocolsArgs'] protocols: Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no restriction, and all protocols and ports are allowed.
+        :param pulumi.Input['TwingateResourceProtocolsArgs'] protocols: Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no
+               restriction, and all protocols and ports are allowed.
         """
         pulumi.set(__self__, "address", address)
         pulumi.set(__self__, "name", name)
@@ -160,7 +161,8 @@ class TwingateResourceArgs:
     @pulumi.getter
     def protocols(self) -> Optional[pulumi.Input['TwingateResourceProtocolsArgs']]:
         """
-        Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no restriction, and all protocols and ports are allowed.
+        Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no
+        restriction, and all protocols and ports are allowed.
         """
         return pulumi.get(self, "protocols")
 
@@ -192,7 +194,8 @@ class _TwingateResourceState:
         :param pulumi.Input[bool] is_browser_shortcut_enabled: Controls whether an "Open in Browser" shortcut will be shown for this Resource in the Twingate Client.
         :param pulumi.Input[bool] is_visible: Controls whether this Resource will be visible in the main Resource list in the Twingate Client.
         :param pulumi.Input[str] name: The name of the Resource
-        :param pulumi.Input['TwingateResourceProtocolsArgs'] protocols: Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no restriction, and all protocols and ports are allowed.
+        :param pulumi.Input['TwingateResourceProtocolsArgs'] protocols: Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no
+               restriction, and all protocols and ports are allowed.
         :param pulumi.Input[str] remote_network_id: Remote Network ID where the Resource lives
         """
         if access is not None:
@@ -307,7 +310,8 @@ class _TwingateResourceState:
     @pulumi.getter
     def protocols(self) -> Optional[pulumi.Input['TwingateResourceProtocolsArgs']]:
         """
-        Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no restriction, and all protocols and ports are allowed.
+        Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no
+        restriction, and all protocols and ports are allowed.
         """
         return pulumi.get(self, "protocols")
 
@@ -344,46 +348,7 @@ class TwingateResource(pulumi.CustomResource):
                  remote_network_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resources in Twingate represent servers on the private network that clients can connect to. Resources can be defined by IP, CIDR range, FQDN, or DNS zone. For more information, see the Twingate [documentation](https://docs.twingate.com/docs/resources-and-access-nodes).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_twingate as twingate
-
-        aws_network = twingate.TwingateRemoteNetwork("awsNetwork", name="aws_remote_network")
-        aws = twingate.TwingateGroup("aws", name="aws_group")
-        github_actions_prod = twingate.TwingateServiceAccount("githubActionsProd", name="Github Actions PROD")
-        resource = twingate.TwingateResource("resource",
-            name="network",
-            address="internal.int",
-            remote_network_id=aws_network.id,
-            protocols=twingate.TwingateResourceProtocolsArgs(
-                allow_icmp=True,
-                tcp=twingate.TwingateResourceProtocolsTcpArgs(
-                    policy="RESTRICTED",
-                    ports=[
-                        "80",
-                        "82-83",
-                    ],
-                ),
-                udp=twingate.TwingateResourceProtocolsUdpArgs(
-                    policy="ALLOW_ALL",
-                ),
-            ),
-            access=twingate.TwingateResourceAccessArgs(
-                group_ids=[aws.id],
-                service_account_ids=[github_actions_prod.id],
-            ))
-        ```
-
-        ## Import
-
-        ```sh
-         $ pulumi import twingate:index/twingateResource:TwingateResource resource UmVzb3VyY2U6MzQwNDQ3
-        ```
-
+        Create a TwingateResource resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['TwingateResourceAccessArgs']] access: Restrict access to certain groups or service accounts
@@ -395,7 +360,8 @@ class TwingateResource(pulumi.CustomResource):
         :param pulumi.Input[bool] is_browser_shortcut_enabled: Controls whether an "Open in Browser" shortcut will be shown for this Resource in the Twingate Client.
         :param pulumi.Input[bool] is_visible: Controls whether this Resource will be visible in the main Resource list in the Twingate Client.
         :param pulumi.Input[str] name: The name of the Resource
-        :param pulumi.Input[pulumi.InputType['TwingateResourceProtocolsArgs']] protocols: Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no restriction, and all protocols and ports are allowed.
+        :param pulumi.Input[pulumi.InputType['TwingateResourceProtocolsArgs']] protocols: Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no
+               restriction, and all protocols and ports are allowed.
         :param pulumi.Input[str] remote_network_id: Remote Network ID where the Resource lives
         """
         ...
@@ -405,46 +371,7 @@ class TwingateResource(pulumi.CustomResource):
                  args: TwingateResourceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resources in Twingate represent servers on the private network that clients can connect to. Resources can be defined by IP, CIDR range, FQDN, or DNS zone. For more information, see the Twingate [documentation](https://docs.twingate.com/docs/resources-and-access-nodes).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_twingate as twingate
-
-        aws_network = twingate.TwingateRemoteNetwork("awsNetwork", name="aws_remote_network")
-        aws = twingate.TwingateGroup("aws", name="aws_group")
-        github_actions_prod = twingate.TwingateServiceAccount("githubActionsProd", name="Github Actions PROD")
-        resource = twingate.TwingateResource("resource",
-            name="network",
-            address="internal.int",
-            remote_network_id=aws_network.id,
-            protocols=twingate.TwingateResourceProtocolsArgs(
-                allow_icmp=True,
-                tcp=twingate.TwingateResourceProtocolsTcpArgs(
-                    policy="RESTRICTED",
-                    ports=[
-                        "80",
-                        "82-83",
-                    ],
-                ),
-                udp=twingate.TwingateResourceProtocolsUdpArgs(
-                    policy="ALLOW_ALL",
-                ),
-            ),
-            access=twingate.TwingateResourceAccessArgs(
-                group_ids=[aws.id],
-                service_account_ids=[github_actions_prod.id],
-            ))
-        ```
-
-        ## Import
-
-        ```sh
-         $ pulumi import twingate:index/twingateResource:TwingateResource resource UmVzb3VyY2U6MzQwNDQ3
-        ```
-
+        Create a TwingateResource resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param TwingateResourceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -531,7 +458,8 @@ class TwingateResource(pulumi.CustomResource):
         :param pulumi.Input[bool] is_browser_shortcut_enabled: Controls whether an "Open in Browser" shortcut will be shown for this Resource in the Twingate Client.
         :param pulumi.Input[bool] is_visible: Controls whether this Resource will be visible in the main Resource list in the Twingate Client.
         :param pulumi.Input[str] name: The name of the Resource
-        :param pulumi.Input[pulumi.InputType['TwingateResourceProtocolsArgs']] protocols: Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no restriction, and all protocols and ports are allowed.
+        :param pulumi.Input[pulumi.InputType['TwingateResourceProtocolsArgs']] protocols: Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no
+               restriction, and all protocols and ports are allowed.
         :param pulumi.Input[str] remote_network_id: Remote Network ID where the Resource lives
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -611,7 +539,8 @@ class TwingateResource(pulumi.CustomResource):
     @pulumi.getter
     def protocols(self) -> pulumi.Output[Optional['outputs.TwingateResourceProtocols']]:
         """
-        Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no restriction, and all protocols and ports are allowed.
+        Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no
+        restriction, and all protocols and ports are allowed.
         """
         return pulumi.get(self, "protocols")
 

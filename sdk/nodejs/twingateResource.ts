@@ -6,48 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * Resources in Twingate represent servers on the private network that clients can connect to. Resources can be defined by IP, CIDR range, FQDN, or DNS zone. For more information, see the Twingate [documentation](https://docs.twingate.com/docs/resources-and-access-nodes).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as twingate from "@twingate-labs/pulumi-twingate";
- *
- * const awsNetwork = new twingate.TwingateRemoteNetwork("awsNetwork", {name: "aws_remote_network"});
- * const aws = new twingate.TwingateGroup("aws", {name: "aws_group"});
- * const githubActionsProd = new twingate.TwingateServiceAccount("githubActionsProd", {name: "Github Actions PROD"});
- * const resource = new twingate.TwingateResource("resource", {
- *     name: "network",
- *     address: "internal.int",
- *     remoteNetworkId: awsNetwork.id,
- *     protocols: {
- *         allowIcmp: true,
- *         tcp: {
- *             policy: "RESTRICTED",
- *             ports: [
- *                 "80",
- *                 "82-83",
- *             ],
- *         },
- *         udp: {
- *             policy: "ALLOW_ALL",
- *         },
- *     },
- *     access: {
- *         groupIds: [aws.id],
- *         serviceAccountIds: [githubActionsProd.id],
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * ```sh
- *  $ pulumi import twingate:index/twingateResource:TwingateResource resource UmVzb3VyY2U6MzQwNDQ3
- * ```
- */
 export class TwingateResource extends pulumi.CustomResource {
     /**
      * Get an existing TwingateResource resource's state with the given name, ID, and optional extra
@@ -109,7 +67,8 @@ export class TwingateResource extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no restriction, and all protocols and ports are allowed.
+     * Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no
+     * restriction, and all protocols and ports are allowed.
      */
     public readonly protocols!: pulumi.Output<outputs.TwingateResourceProtocols | undefined>;
     /**
@@ -202,7 +161,8 @@ export interface TwingateResourceState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no restriction, and all protocols and ports are allowed.
+     * Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no
+     * restriction, and all protocols and ports are allowed.
      */
     protocols?: pulumi.Input<inputs.TwingateResourceProtocols>;
     /**
@@ -248,7 +208,8 @@ export interface TwingateResourceArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no restriction, and all protocols and ports are allowed.
+     * Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no
+     * restriction, and all protocols and ports are allowed.
      */
     protocols?: pulumi.Input<inputs.TwingateResourceProtocols>;
     /**

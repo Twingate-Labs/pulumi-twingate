@@ -12,57 +12,9 @@ namespace TwingateLabs.Twingate
 {
     public static class GetTwingateServiceAccounts
     {
-        /// <summary>
-        /// Service Accounts offer a way to provide programmatic, centrally-controlled, and consistent access controls.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Twingate = Pulumi.Twingate;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var foo = Twingate.GetTwingateServiceAccounts.Invoke(new()
-        ///     {
-        ///         Name = "&lt;your service account's name&gt;",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetTwingateServiceAccountsResult> InvokeAsync(GetTwingateServiceAccountsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTwingateServiceAccountsResult>("twingate:index/getTwingateServiceAccounts:getTwingateServiceAccounts", args ?? new GetTwingateServiceAccountsArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Service Accounts offer a way to provide programmatic, centrally-controlled, and consistent access controls.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Twingate = Pulumi.Twingate;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var foo = Twingate.GetTwingateServiceAccounts.Invoke(new()
-        ///     {
-        ///         Name = "&lt;your service account's name&gt;",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetTwingateServiceAccountsResult> Invoke(GetTwingateServiceAccountsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTwingateServiceAccountsResult>("twingate:index/getTwingateServiceAccounts:getTwingateServiceAccounts", args ?? new GetTwingateServiceAccountsInvokeArgs(), options.WithDefaults());
     }
@@ -70,18 +22,11 @@ namespace TwingateLabs.Twingate
 
     public sealed class GetTwingateServiceAccountsArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Filter results by the name of the Service Account.
-        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
         [Input("serviceAccounts")]
         private List<Inputs.GetTwingateServiceAccountsServiceAccountArgs>? _serviceAccounts;
-
-        /// <summary>
-        /// List of Service Accounts
-        /// </summary>
         public List<Inputs.GetTwingateServiceAccountsServiceAccountArgs> ServiceAccounts
         {
             get => _serviceAccounts ?? (_serviceAccounts = new List<Inputs.GetTwingateServiceAccountsServiceAccountArgs>());
@@ -96,18 +41,11 @@ namespace TwingateLabs.Twingate
 
     public sealed class GetTwingateServiceAccountsInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Filter results by the name of the Service Account.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("serviceAccounts")]
         private InputList<Inputs.GetTwingateServiceAccountsServiceAccountInputArgs>? _serviceAccounts;
-
-        /// <summary>
-        /// List of Service Accounts
-        /// </summary>
         public InputList<Inputs.GetTwingateServiceAccountsServiceAccountInputArgs> ServiceAccounts
         {
             get => _serviceAccounts ?? (_serviceAccounts = new InputList<Inputs.GetTwingateServiceAccountsServiceAccountInputArgs>());
@@ -128,13 +66,7 @@ namespace TwingateLabs.Twingate
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Filter results by the name of the Service Account.
-        /// </summary>
         public readonly string? Name;
-        /// <summary>
-        /// List of Service Accounts
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetTwingateServiceAccountsServiceAccountResult> ServiceAccounts;
 
         [OutputConstructor]

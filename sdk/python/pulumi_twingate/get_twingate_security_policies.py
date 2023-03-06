@@ -58,16 +58,7 @@ class AwaitableGetTwingateSecurityPoliciesResult(GetTwingateSecurityPoliciesResu
 def get_twingate_security_policies(security_policies: Optional[Sequence[pulumi.InputType['GetTwingateSecurityPoliciesSecurityPolicyArgs']]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTwingateSecurityPoliciesResult:
     """
-    Security Policies are defined in the Twingate Admin Console and determine user and device authentication requirements for Resources.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_twingate as twingate
-
-    all = twingate.get_twingate_security_policies()
-    ```
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['securityPolicies'] = security_policies
@@ -83,15 +74,6 @@ def get_twingate_security_policies(security_policies: Optional[Sequence[pulumi.I
 def get_twingate_security_policies_output(security_policies: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetTwingateSecurityPoliciesSecurityPolicyArgs']]]]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTwingateSecurityPoliciesResult]:
     """
-    Security Policies are defined in the Twingate Admin Console and determine user and device authentication requirements for Resources.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_twingate as twingate
-
-    all = twingate.get_twingate_security_policies()
-    ```
+    Use this data source to access information about an existing resource.
     """
     ...

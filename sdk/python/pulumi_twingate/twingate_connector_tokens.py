@@ -19,7 +19,8 @@ class TwingateConnectorTokensArgs:
         """
         The set of arguments for constructing a TwingateConnectorTokens resource.
         :param pulumi.Input[str] connector_id: The ID of the parent Connector
-        :param pulumi.Input[Mapping[str, Any]] keepers: Arbitrary map of values that, when changed, will trigger recreation of resource. Use this to automatically rotate Connector tokens on a schedule.
+        :param pulumi.Input[Mapping[str, Any]] keepers: Arbitrary map of values that, when changed, will trigger recreation of resource. Use this to automatically rotate
+               Connector tokens on a schedule.
         """
         pulumi.set(__self__, "connector_id", connector_id)
         if keepers is not None:
@@ -41,7 +42,8 @@ class TwingateConnectorTokensArgs:
     @pulumi.getter
     def keepers(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         """
-        Arbitrary map of values that, when changed, will trigger recreation of resource. Use this to automatically rotate Connector tokens on a schedule.
+        Arbitrary map of values that, when changed, will trigger recreation of resource. Use this to automatically rotate
+        Connector tokens on a schedule.
         """
         return pulumi.get(self, "keepers")
 
@@ -61,7 +63,8 @@ class _TwingateConnectorTokensState:
         Input properties used for looking up and filtering TwingateConnectorTokens resources.
         :param pulumi.Input[str] access_token: The Access Token of the parent Connector
         :param pulumi.Input[str] connector_id: The ID of the parent Connector
-        :param pulumi.Input[Mapping[str, Any]] keepers: Arbitrary map of values that, when changed, will trigger recreation of resource. Use this to automatically rotate Connector tokens on a schedule.
+        :param pulumi.Input[Mapping[str, Any]] keepers: Arbitrary map of values that, when changed, will trigger recreation of resource. Use this to automatically rotate
+               Connector tokens on a schedule.
         :param pulumi.Input[str] refresh_token: The Refresh Token of the parent Connector
         """
         if access_token is not None:
@@ -101,7 +104,8 @@ class _TwingateConnectorTokensState:
     @pulumi.getter
     def keepers(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         """
-        Arbitrary map of values that, when changed, will trigger recreation of resource. Use this to automatically rotate Connector tokens on a schedule.
+        Arbitrary map of values that, when changed, will trigger recreation of resource. Use this to automatically rotate
+        Connector tokens on a schedule.
         """
         return pulumi.get(self, "keepers")
 
@@ -131,23 +135,12 @@ class TwingateConnectorTokens(pulumi.CustomResource):
                  keepers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  __props__=None):
         """
-        This resource type will generate tokens for a Connector, which are needed to successfully provision one on your network. The Connector itself has its own resource type and must be created before you can provision tokens.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_twingate as twingate
-
-        aws_network = twingate.TwingateRemoteNetwork("awsNetwork", name="aws_remote_network")
-        aws_connector = twingate.TwingateConnector("awsConnector", remote_network_id=aws_network.id)
-        aws_connector_tokens = twingate.TwingateConnectorTokens("awsConnectorTokens", connector_id=aws_connector.id)
-        ```
-
+        Create a TwingateConnectorTokens resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connector_id: The ID of the parent Connector
-        :param pulumi.Input[Mapping[str, Any]] keepers: Arbitrary map of values that, when changed, will trigger recreation of resource. Use this to automatically rotate Connector tokens on a schedule.
+        :param pulumi.Input[Mapping[str, Any]] keepers: Arbitrary map of values that, when changed, will trigger recreation of resource. Use this to automatically rotate
+               Connector tokens on a schedule.
         """
         ...
     @overload
@@ -156,19 +149,7 @@ class TwingateConnectorTokens(pulumi.CustomResource):
                  args: TwingateConnectorTokensArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        This resource type will generate tokens for a Connector, which are needed to successfully provision one on your network. The Connector itself has its own resource type and must be created before you can provision tokens.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_twingate as twingate
-
-        aws_network = twingate.TwingateRemoteNetwork("awsNetwork", name="aws_remote_network")
-        aws_connector = twingate.TwingateConnector("awsConnector", remote_network_id=aws_network.id)
-        aws_connector_tokens = twingate.TwingateConnectorTokens("awsConnectorTokens", connector_id=aws_connector.id)
-        ```
-
+        Create a TwingateConnectorTokens resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param TwingateConnectorTokensArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -226,7 +207,8 @@ class TwingateConnectorTokens(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_token: The Access Token of the parent Connector
         :param pulumi.Input[str] connector_id: The ID of the parent Connector
-        :param pulumi.Input[Mapping[str, Any]] keepers: Arbitrary map of values that, when changed, will trigger recreation of resource. Use this to automatically rotate Connector tokens on a schedule.
+        :param pulumi.Input[Mapping[str, Any]] keepers: Arbitrary map of values that, when changed, will trigger recreation of resource. Use this to automatically rotate
+               Connector tokens on a schedule.
         :param pulumi.Input[str] refresh_token: The Refresh Token of the parent Connector
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -259,7 +241,8 @@ class TwingateConnectorTokens(pulumi.CustomResource):
     @pulumi.getter
     def keepers(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
-        Arbitrary map of values that, when changed, will trigger recreation of resource. Use this to automatically rotate Connector tokens on a schedule.
+        Arbitrary map of values that, when changed, will trigger recreation of resource. Use this to automatically rotate
+        Connector tokens on a schedule.
         """
         return pulumi.get(self, "keepers")
 

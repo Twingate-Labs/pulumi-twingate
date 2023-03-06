@@ -11,82 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resources in Twingate represent servers on the private network that clients can connect to. Resources can be defined by IP, CIDR range, FQDN, or DNS zone. For more information, see the Twingate [documentation](https://docs.twingate.com/docs/resources-and-access-nodes).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/Twingate-Labs/pulumi-twingate/sdk/go/twingate"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			awsNetwork, err := twingate.NewTwingateRemoteNetwork(ctx, "awsNetwork", &twingate.TwingateRemoteNetworkArgs{
-//				Name: pulumi.String("aws_remote_network"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			aws, err := twingate.NewTwingateGroup(ctx, "aws", &twingate.TwingateGroupArgs{
-//				Name: pulumi.String("aws_group"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			githubActionsProd, err := twingate.NewTwingateServiceAccount(ctx, "githubActionsProd", &twingate.TwingateServiceAccountArgs{
-//				Name: pulumi.String("Github Actions PROD"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = twingate.NewTwingateResource(ctx, "resource", &twingate.TwingateResourceArgs{
-//				Name:            pulumi.String("network"),
-//				Address:         pulumi.String("internal.int"),
-//				RemoteNetworkId: awsNetwork.ID(),
-//				Protocols: &twingate.TwingateResourceProtocolsArgs{
-//					AllowIcmp: pulumi.Bool(true),
-//					Tcp: &twingate.TwingateResourceProtocolsTcpArgs{
-//						Policy: pulumi.String("RESTRICTED"),
-//						Ports: pulumi.StringArray{
-//							pulumi.String("80"),
-//							pulumi.String("82-83"),
-//						},
-//					},
-//					Udp: &twingate.TwingateResourceProtocolsUdpArgs{
-//						Policy: pulumi.String("ALLOW_ALL"),
-//					},
-//				},
-//				Access: &twingate.TwingateResourceAccessArgs{
-//					GroupIds: pulumi.StringArray{
-//						aws.ID(),
-//					},
-//					ServiceAccountIds: pulumi.StringArray{
-//						githubActionsProd.ID(),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ```sh
-//
-//	$ pulumi import twingate:index/twingateResource:TwingateResource resource UmVzb3VyY2U6MzQwNDQ3
-//
-// ```
 type TwingateResource struct {
 	pulumi.CustomResourceState
 
@@ -108,7 +32,8 @@ type TwingateResource struct {
 	IsVisible pulumi.BoolOutput `pulumi:"isVisible"`
 	// The name of the Resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no restriction, and all protocols and ports are allowed.
+	// Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no
+	// restriction, and all protocols and ports are allowed.
 	Protocols TwingateResourceProtocolsPtrOutput `pulumi:"protocols"`
 	// Remote Network ID where the Resource lives
 	RemoteNetworkId pulumi.StringOutput `pulumi:"remoteNetworkId"`
@@ -171,7 +96,8 @@ type twingateResourceState struct {
 	IsVisible *bool `pulumi:"isVisible"`
 	// The name of the Resource
 	Name *string `pulumi:"name"`
-	// Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no restriction, and all protocols and ports are allowed.
+	// Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no
+	// restriction, and all protocols and ports are allowed.
 	Protocols *TwingateResourceProtocols `pulumi:"protocols"`
 	// Remote Network ID where the Resource lives
 	RemoteNetworkId *string `pulumi:"remoteNetworkId"`
@@ -196,7 +122,8 @@ type TwingateResourceState struct {
 	IsVisible pulumi.BoolPtrInput
 	// The name of the Resource
 	Name pulumi.StringPtrInput
-	// Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no restriction, and all protocols and ports are allowed.
+	// Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no
+	// restriction, and all protocols and ports are allowed.
 	Protocols TwingateResourceProtocolsPtrInput
 	// Remote Network ID where the Resource lives
 	RemoteNetworkId pulumi.StringPtrInput
@@ -225,7 +152,8 @@ type twingateResourceArgs struct {
 	IsVisible *bool `pulumi:"isVisible"`
 	// The name of the Resource
 	Name string `pulumi:"name"`
-	// Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no restriction, and all protocols and ports are allowed.
+	// Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no
+	// restriction, and all protocols and ports are allowed.
 	Protocols *TwingateResourceProtocols `pulumi:"protocols"`
 	// Remote Network ID where the Resource lives
 	RemoteNetworkId string `pulumi:"remoteNetworkId"`
@@ -251,7 +179,8 @@ type TwingateResourceArgs struct {
 	IsVisible pulumi.BoolPtrInput
 	// The name of the Resource
 	Name pulumi.StringInput
-	// Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no restriction, and all protocols and ports are allowed.
+	// Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no
+	// restriction, and all protocols and ports are allowed.
 	Protocols TwingateResourceProtocolsPtrInput
 	// Remote Network ID where the Resource lives
 	RemoteNetworkId pulumi.StringInput
@@ -383,7 +312,8 @@ func (o TwingateResourceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TwingateResource) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no restriction, and all protocols and ports are allowed.
+// Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no
+// restriction, and all protocols and ports are allowed.
 func (o TwingateResourceOutput) Protocols() TwingateResourceProtocolsPtrOutput {
 	return o.ApplyT(func(v *TwingateResource) TwingateResourceProtocolsPtrOutput { return v.Protocols }).(TwingateResourceProtocolsPtrOutput)
 }

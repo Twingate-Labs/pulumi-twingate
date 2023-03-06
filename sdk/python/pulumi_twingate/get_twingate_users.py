@@ -58,16 +58,7 @@ class AwaitableGetTwingateUsersResult(GetTwingateUsersResult):
 def get_twingate_users(users: Optional[Sequence[pulumi.InputType['GetTwingateUsersUserArgs']]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTwingateUsersResult:
     """
-    Users in Twingate can be given access to Twingate Resources and may either be added manually or automatically synchronized with a 3rd party identity provider. For more information, see Twingate's [documentation](https://docs.twingate.com/docs/users).
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_twingate as twingate
-
-    all = twingate.get_twingate_users()
-    ```
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['users'] = users
@@ -83,15 +74,6 @@ def get_twingate_users(users: Optional[Sequence[pulumi.InputType['GetTwingateUse
 def get_twingate_users_output(users: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetTwingateUsersUserArgs']]]]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTwingateUsersResult]:
     """
-    Users in Twingate can be given access to Twingate Resources and may either be added manually or automatically synchronized with a 3rd party identity provider. For more information, see Twingate's [documentation](https://docs.twingate.com/docs/users).
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_twingate as twingate
-
-    all = twingate.get_twingate_users()
-    ```
+    Use this data source to access information about an existing resource.
     """
     ...

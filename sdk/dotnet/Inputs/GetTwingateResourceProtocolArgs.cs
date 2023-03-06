@@ -13,9 +13,6 @@ namespace TwingateLabs.Twingate.Inputs
 
     public sealed class GetTwingateResourceProtocolInputArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether to allow ICMP (ping) traffic
-        /// </summary>
         [Input("allowIcmp", required: true)]
         public Input<bool> AllowIcmp { get; set; } = null!;
 

@@ -35,25 +35,16 @@ class GetTwingateRemoteNetworkResult:
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
-        """
-        The ID of the Remote Network
-        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def location(self) -> str:
-        """
-        The location of the Remote Network. Must be one of the following: AWS, AZURE, GOOGLE*CLOUD, ON*PREMISE, OTHER.
-        """
         return pulumi.get(self, "location")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
-        """
-        The name of the Remote Network
-        """
         return pulumi.get(self, "name")
 
 
@@ -72,20 +63,7 @@ def get_twingate_remote_network(id: Optional[str] = None,
                                 name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTwingateRemoteNetworkResult:
     """
-    A Remote Network represents a single private network in Twingate that can have one or more Connectors and Resources assigned to it. You must create a Remote Network before creating Resources and Connectors that belong to it. For more information, see Twingate's [documentation](https://docs.twingate.com/docs/remote-networks).
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_twingate as twingate
-
-    foo = twingate.get_twingate_remote_network(name="<your network's name>")
-    ```
-
-
-    :param str id: The ID of the Remote Network
-    :param str name: The name of the Remote Network
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -104,19 +82,6 @@ def get_twingate_remote_network_output(id: Optional[pulumi.Input[Optional[str]]]
                                        name: Optional[pulumi.Input[Optional[str]]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTwingateRemoteNetworkResult]:
     """
-    A Remote Network represents a single private network in Twingate that can have one or more Connectors and Resources assigned to it. You must create a Remote Network before creating Resources and Connectors that belong to it. For more information, see Twingate's [documentation](https://docs.twingate.com/docs/remote-networks).
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_twingate as twingate
-
-    foo = twingate.get_twingate_remote_network(name="<your network's name>")
-    ```
-
-
-    :param str id: The ID of the Remote Network
-    :param str name: The name of the Remote Network
+    Use this data source to access information about an existing resource.
     """
     ...

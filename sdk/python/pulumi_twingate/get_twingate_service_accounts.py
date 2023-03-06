@@ -45,17 +45,11 @@ class GetTwingateServiceAccountsResult:
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
-        """
-        Filter results by the name of the Service Account.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="serviceAccounts")
     def service_accounts(self) -> Optional[Sequence['outputs.GetTwingateServiceAccountsServiceAccountResult']]:
-        """
-        List of Service Accounts
-        """
         return pulumi.get(self, "service_accounts")
 
 
@@ -74,20 +68,7 @@ def get_twingate_service_accounts(name: Optional[str] = None,
                                   service_accounts: Optional[Sequence[pulumi.InputType['GetTwingateServiceAccountsServiceAccountArgs']]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTwingateServiceAccountsResult:
     """
-    Service Accounts offer a way to provide programmatic, centrally-controlled, and consistent access controls.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_twingate as twingate
-
-    foo = twingate.get_twingate_service_accounts(name="<your service account's name>")
-    ```
-
-
-    :param str name: Filter results by the name of the Service Account.
-    :param Sequence[pulumi.InputType['GetTwingateServiceAccountsServiceAccountArgs']] service_accounts: List of Service Accounts
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -106,19 +87,6 @@ def get_twingate_service_accounts_output(name: Optional[pulumi.Input[Optional[st
                                          service_accounts: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetTwingateServiceAccountsServiceAccountArgs']]]]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTwingateServiceAccountsResult]:
     """
-    Service Accounts offer a way to provide programmatic, centrally-controlled, and consistent access controls.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_twingate as twingate
-
-    foo = twingate.get_twingate_service_accounts(name="<your service account's name>")
-    ```
-
-
-    :param str name: Filter results by the name of the Service Account.
-    :param Sequence[pulumi.InputType['GetTwingateServiceAccountsServiceAccountArgs']] service_accounts: List of Service Accounts
+    Use this data source to access information about an existing resource.
     """
     ...

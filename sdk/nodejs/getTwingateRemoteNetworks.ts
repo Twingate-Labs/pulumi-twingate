@@ -6,18 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * A Remote Network represents a single private network in Twingate that can have one or more Connectors and Resources assigned to it. You must create a Remote Network before creating Resources and Connectors that belong to it. For more information, see Twingate's [documentation](https://docs.twingate.com/docs/remote-networks).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as twingate from "@pulumi/twingate";
- *
- * const all = twingate.getTwingateRemoteNetworks({});
- * ```
- */
 export function getTwingateRemoteNetworks(args?: GetTwingateRemoteNetworksArgs, opts?: pulumi.InvokeOptions): Promise<GetTwingateRemoteNetworksResult> {
     args = args || {};
 
@@ -31,9 +19,6 @@ export function getTwingateRemoteNetworks(args?: GetTwingateRemoteNetworksArgs, 
  * A collection of arguments for invoking getTwingateRemoteNetworks.
  */
 export interface GetTwingateRemoteNetworksArgs {
-    /**
-     * List of Remote Networks
-     */
     remoteNetworks?: inputs.GetTwingateRemoteNetworksRemoteNetwork[];
 }
 
@@ -45,23 +30,8 @@ export interface GetTwingateRemoteNetworksResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * List of Remote Networks
-     */
     readonly remoteNetworks?: outputs.GetTwingateRemoteNetworksRemoteNetwork[];
 }
-/**
- * A Remote Network represents a single private network in Twingate that can have one or more Connectors and Resources assigned to it. You must create a Remote Network before creating Resources and Connectors that belong to it. For more information, see Twingate's [documentation](https://docs.twingate.com/docs/remote-networks).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as twingate from "@pulumi/twingate";
- *
- * const all = twingate.getTwingateRemoteNetworks({});
- * ```
- */
 export function getTwingateRemoteNetworksOutput(args?: GetTwingateRemoteNetworksOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTwingateRemoteNetworksResult> {
     return pulumi.output(args).apply((a: any) => getTwingateRemoteNetworks(a, opts))
 }
@@ -70,8 +40,5 @@ export function getTwingateRemoteNetworksOutput(args?: GetTwingateRemoteNetworks
  * A collection of arguments for invoking getTwingateRemoteNetworks.
  */
 export interface GetTwingateRemoteNetworksOutputArgs {
-    /**
-     * List of Remote Networks
-     */
     remoteNetworks?: pulumi.Input<pulumi.Input<inputs.GetTwingateRemoteNetworksRemoteNetworkArgs>[]>;
 }

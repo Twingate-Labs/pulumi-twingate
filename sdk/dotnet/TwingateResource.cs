@@ -10,77 +10,6 @@ using Pulumi;
 
 namespace TwingateLabs.Twingate
 {
-    /// <summary>
-    /// Resources in Twingate represent servers on the private network that clients can connect to. Resources can be defined by IP, CIDR range, FQDN, or DNS zone. For more information, see the Twingate [documentation](https://docs.twingate.com/docs/resources-and-access-nodes).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Twingate = TwingateLabs.Twingate;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var awsNetwork = new Twingate.TwingateRemoteNetwork("awsNetwork", new()
-    ///     {
-    ///         Name = "aws_remote_network",
-    ///     });
-    /// 
-    ///     var aws = new Twingate.TwingateGroup("aws", new()
-    ///     {
-    ///         Name = "aws_group",
-    ///     });
-    /// 
-    ///     var githubActionsProd = new Twingate.TwingateServiceAccount("githubActionsProd", new()
-    ///     {
-    ///         Name = "Github Actions PROD",
-    ///     });
-    /// 
-    ///     var resource = new Twingate.TwingateResource("resource", new()
-    ///     {
-    ///         Name = "network",
-    ///         Address = "internal.int",
-    ///         RemoteNetworkId = awsNetwork.Id,
-    ///         Protocols = new Twingate.Inputs.TwingateResourceProtocolsArgs
-    ///         {
-    ///             AllowIcmp = true,
-    ///             Tcp = new Twingate.Inputs.TwingateResourceProtocolsTcpArgs
-    ///             {
-    ///                 Policy = "RESTRICTED",
-    ///                 Ports = new[]
-    ///                 {
-    ///                     "80",
-    ///                     "82-83",
-    ///                 },
-    ///             },
-    ///             Udp = new Twingate.Inputs.TwingateResourceProtocolsUdpArgs
-    ///             {
-    ///                 Policy = "ALLOW_ALL",
-    ///             },
-    ///         },
-    ///         Access = new Twingate.Inputs.TwingateResourceAccessArgs
-    ///         {
-    ///             GroupIds = new[]
-    ///             {
-    ///                 aws.Id,
-    ///             },
-    ///             ServiceAccountIds = new[]
-    ///             {
-    ///                 githubActionsProd.Id,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// ```sh
-    ///  $ pulumi import twingate:index/twingateResource:TwingateResource resource UmVzb3VyY2U6MzQwNDQ3
-    /// ```
-    /// </summary>
     [TwingateResourceType("twingate:index/twingateResource:TwingateResource")]
     public partial class TwingateResource : global::Pulumi.CustomResource
     {
@@ -129,7 +58,8 @@ namespace TwingateLabs.Twingate
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no restriction, and all protocols and ports are allowed.
+        /// Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no
+        /// restriction, and all protocols and ports are allowed.
         /// </summary>
         [Output("protocols")]
         public Output<Outputs.TwingateResourceProtocols?> Protocols { get; private set; } = null!;
@@ -239,7 +169,8 @@ namespace TwingateLabs.Twingate
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no restriction, and all protocols and ports are allowed.
+        /// Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no
+        /// restriction, and all protocols and ports are allowed.
         /// </summary>
         [Input("protocols")]
         public Input<Inputs.TwingateResourceProtocolsArgs>? Protocols { get; set; }
@@ -310,7 +241,8 @@ namespace TwingateLabs.Twingate
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no restriction, and all protocols and ports are allowed.
+        /// Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no
+        /// restriction, and all protocols and ports are allowed.
         /// </summary>
         [Input("protocols")]
         public Input<Inputs.TwingateResourceProtocolsGetArgs>? Protocols { get; set; }

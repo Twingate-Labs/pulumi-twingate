@@ -4,22 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * A Service Key authorizes access to all Resources assigned to a Service Account.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as twingate from "@twingate-labs/pulumi-twingate";
- *
- * const githubActionsProd = new twingate.TwingateServiceAccount("githubActionsProd", {name: "Github Actions PROD"});
- * const githubKey = new twingate.TwingateServiceAccountKey("githubKey", {
- *     name: "Github Actions PROD key",
- *     serviceAccountId: githubActionsProd.id,
- * });
- * ```
- */
 export class TwingateServiceAccountKey extends pulumi.CustomResource {
     /**
      * Get an existing TwingateServiceAccountKey resource's state with the given name, ID, and optional extra

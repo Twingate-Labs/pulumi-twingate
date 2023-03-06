@@ -14,13 +14,7 @@ namespace TwingateLabs.Twingate.Outputs
     [OutputType]
     public sealed class TwingateResourceAccess
     {
-        /// <summary>
-        /// List of Group IDs that will have permission to access the Resource.
-        /// </summary>
         public readonly ImmutableArray<string> GroupIds;
-        /// <summary>
-        /// List of Service Account IDs that will have permission to access the Resource.
-        /// </summary>
         public readonly ImmutableArray<string> ServiceAccountIds;
 
         [OutputConstructor]

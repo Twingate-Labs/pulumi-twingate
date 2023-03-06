@@ -45,17 +45,11 @@ class GetTwingateResourcesResult:
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        The name of the Resource
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def resources(self) -> Optional[Sequence['outputs.GetTwingateResourcesResourceResult']]:
-        """
-        List of Resources
-        """
         return pulumi.get(self, "resources")
 
 
@@ -74,20 +68,7 @@ def get_twingate_resources(name: Optional[str] = None,
                            resources: Optional[Sequence[pulumi.InputType['GetTwingateResourcesResourceArgs']]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTwingateResourcesResult:
     """
-    Resources in Twingate represent servers on the private network that clients can connect to. Resources can be defined by IP, CIDR range, FQDN, or DNS zone. For more information, see the Twingate [documentation](https://docs.twingate.com/docs/resources-and-access-nodes).
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_twingate as twingate
-
-    foo = twingate.get_twingate_resources(name="<your resource's name>")
-    ```
-
-
-    :param str name: The name of the Resource
-    :param Sequence[pulumi.InputType['GetTwingateResourcesResourceArgs']] resources: List of Resources
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -106,19 +87,6 @@ def get_twingate_resources_output(name: Optional[pulumi.Input[str]] = None,
                                   resources: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetTwingateResourcesResourceArgs']]]]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTwingateResourcesResult]:
     """
-    Resources in Twingate represent servers on the private network that clients can connect to. Resources can be defined by IP, CIDR range, FQDN, or DNS zone. For more information, see the Twingate [documentation](https://docs.twingate.com/docs/resources-and-access-nodes).
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_twingate as twingate
-
-    foo = twingate.get_twingate_resources(name="<your resource's name>")
-    ```
-
-
-    :param str name: The name of the Resource
-    :param Sequence[pulumi.InputType['GetTwingateResourcesResourceArgs']] resources: List of Resources
+    Use this data source to access information about an existing resource.
     """
     ...

@@ -42,9 +42,6 @@ class GetTwingateRemoteNetworksResult:
     @property
     @pulumi.getter(name="remoteNetworks")
     def remote_networks(self) -> Optional[Sequence['outputs.GetTwingateRemoteNetworksRemoteNetworkResult']]:
-        """
-        List of Remote Networks
-        """
         return pulumi.get(self, "remote_networks")
 
 
@@ -61,19 +58,7 @@ class AwaitableGetTwingateRemoteNetworksResult(GetTwingateRemoteNetworksResult):
 def get_twingate_remote_networks(remote_networks: Optional[Sequence[pulumi.InputType['GetTwingateRemoteNetworksRemoteNetworkArgs']]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTwingateRemoteNetworksResult:
     """
-    A Remote Network represents a single private network in Twingate that can have one or more Connectors and Resources assigned to it. You must create a Remote Network before creating Resources and Connectors that belong to it. For more information, see Twingate's [documentation](https://docs.twingate.com/docs/remote-networks).
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_twingate as twingate
-
-    all = twingate.get_twingate_remote_networks()
-    ```
-
-
-    :param Sequence[pulumi.InputType['GetTwingateRemoteNetworksRemoteNetworkArgs']] remote_networks: List of Remote Networks
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['remoteNetworks'] = remote_networks
@@ -89,18 +74,6 @@ def get_twingate_remote_networks(remote_networks: Optional[Sequence[pulumi.Input
 def get_twingate_remote_networks_output(remote_networks: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetTwingateRemoteNetworksRemoteNetworkArgs']]]]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTwingateRemoteNetworksResult]:
     """
-    A Remote Network represents a single private network in Twingate that can have one or more Connectors and Resources assigned to it. You must create a Remote Network before creating Resources and Connectors that belong to it. For more information, see Twingate's [documentation](https://docs.twingate.com/docs/remote-networks).
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_twingate as twingate
-
-    all = twingate.get_twingate_remote_networks()
-    ```
-
-
-    :param Sequence[pulumi.InputType['GetTwingateRemoteNetworksRemoteNetworkArgs']] remote_networks: List of Remote Networks
+    Use this data source to access information about an existing resource.
     """
     ...

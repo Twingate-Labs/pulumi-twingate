@@ -10,33 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Security Policies are defined in the Twingate Admin Console and determine user and device authentication requirements for Resources.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/Twingate-Labs/pulumi-twingate/sdk/go/twingate"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := twingate.GetTwingateSecurityPolicy(ctx, &twingate.GetTwingateSecurityPolicyArgs{
-//				Name: pulumi.StringRef("<your security policy name>"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetTwingateSecurityPolicy(ctx *pulumi.Context, args *GetTwingateSecurityPolicyArgs, opts ...pulumi.InvokeOption) (*GetTwingateSecurityPolicyResult, error) {
 	opts = pkgInvokeDefaultOpts(opts)
 	var rv GetTwingateSecurityPolicyResult
@@ -49,17 +22,13 @@ func GetTwingateSecurityPolicy(ctx *pulumi.Context, args *GetTwingateSecurityPol
 
 // A collection of arguments for invoking getTwingateSecurityPolicy.
 type GetTwingateSecurityPolicyArgs struct {
-	// Return a Security Policy by its ID. The ID for the Security Policy must be obtained from the Admin API.
-	Id *string `pulumi:"id"`
-	// Return a Security Policy that exactly matches this name.
+	Id   *string `pulumi:"id"`
 	Name *string `pulumi:"name"`
 }
 
 // A collection of values returned by getTwingateSecurityPolicy.
 type GetTwingateSecurityPolicyResult struct {
-	// Return a Security Policy by its ID. The ID for the Security Policy must be obtained from the Admin API.
-	Id *string `pulumi:"id"`
-	// Return a Security Policy that exactly matches this name.
+	Id   *string `pulumi:"id"`
 	Name *string `pulumi:"name"`
 }
 
@@ -78,9 +47,7 @@ func GetTwingateSecurityPolicyOutput(ctx *pulumi.Context, args GetTwingateSecuri
 
 // A collection of arguments for invoking getTwingateSecurityPolicy.
 type GetTwingateSecurityPolicyOutputArgs struct {
-	// Return a Security Policy by its ID. The ID for the Security Policy must be obtained from the Admin API.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Return a Security Policy that exactly matches this name.
+	Id   pulumi.StringPtrInput `pulumi:"id"`
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -103,12 +70,10 @@ func (o GetTwingateSecurityPolicyResultOutput) ToGetTwingateSecurityPolicyResult
 	return o
 }
 
-// Return a Security Policy by its ID. The ID for the Security Policy must be obtained from the Admin API.
 func (o GetTwingateSecurityPolicyResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTwingateSecurityPolicyResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Return a Security Policy that exactly matches this name.
 func (o GetTwingateSecurityPolicyResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTwingateSecurityPolicyResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }

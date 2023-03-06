@@ -32,17 +32,11 @@ class GetTwingateSecurityPolicyResult:
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
-        """
-        Return a Security Policy by its ID. The ID for the Security Policy must be obtained from the Admin API.
-        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
-        """
-        Return a Security Policy that exactly matches this name.
-        """
         return pulumi.get(self, "name")
 
 
@@ -60,20 +54,7 @@ def get_twingate_security_policy(id: Optional[str] = None,
                                  name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTwingateSecurityPolicyResult:
     """
-    Security Policies are defined in the Twingate Admin Console and determine user and device authentication requirements for Resources.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_twingate as twingate
-
-    foo = twingate.get_twingate_security_policy(name="<your security policy name>")
-    ```
-
-
-    :param str id: Return a Security Policy by its ID. The ID for the Security Policy must be obtained from the Admin API.
-    :param str name: Return a Security Policy that exactly matches this name.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -91,19 +72,6 @@ def get_twingate_security_policy_output(id: Optional[pulumi.Input[Optional[str]]
                                         name: Optional[pulumi.Input[Optional[str]]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTwingateSecurityPolicyResult]:
     """
-    Security Policies are defined in the Twingate Admin Console and determine user and device authentication requirements for Resources.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_twingate as twingate
-
-    foo = twingate.get_twingate_security_policy(name="<your security policy name>")
-    ```
-
-
-    :param str id: Return a Security Policy by its ID. The ID for the Security Policy must be obtained from the Admin API.
-    :param str name: Return a Security Policy that exactly matches this name.
+    Use this data source to access information about an existing resource.
     """
     ...

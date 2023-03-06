@@ -115,20 +115,7 @@ class TwingateServiceAccountKey(pulumi.CustomResource):
                  service_account_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        A Service Key authorizes access to all Resources assigned to a Service Account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_twingate as twingate
-
-        github_actions_prod = twingate.TwingateServiceAccount("githubActionsProd", name="Github Actions PROD")
-        github_key = twingate.TwingateServiceAccountKey("githubKey",
-            name="Github Actions PROD key",
-            service_account_id=github_actions_prod.id)
-        ```
-
+        Create a TwingateServiceAccountKey resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the Service Key
@@ -141,20 +128,7 @@ class TwingateServiceAccountKey(pulumi.CustomResource):
                  args: TwingateServiceAccountKeyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        A Service Key authorizes access to all Resources assigned to a Service Account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_twingate as twingate
-
-        github_actions_prod = twingate.TwingateServiceAccount("githubActionsProd", name="Github Actions PROD")
-        github_key = twingate.TwingateServiceAccountKey("githubKey",
-            name="Github Actions PROD key",
-            service_account_id=github_actions_prod.id)
-        ```
-
+        Create a TwingateServiceAccountKey resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param TwingateServiceAccountKeyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

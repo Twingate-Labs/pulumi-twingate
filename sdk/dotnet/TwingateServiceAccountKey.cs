@@ -10,32 +10,6 @@ using Pulumi;
 
 namespace TwingateLabs.Twingate
 {
-    /// <summary>
-    /// A Service Key authorizes access to all Resources assigned to a Service Account.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Twingate = TwingateLabs.Twingate;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var githubActionsProd = new Twingate.TwingateServiceAccount("githubActionsProd", new()
-    ///     {
-    ///         Name = "Github Actions PROD",
-    ///     });
-    /// 
-    ///     var githubKey = new Twingate.TwingateServiceAccountKey("githubKey", new()
-    ///     {
-    ///         Name = "Github Actions PROD key",
-    ///         ServiceAccountId = githubActionsProd.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [TwingateResourceType("twingate:index/twingateServiceAccountKey:TwingateServiceAccountKey")]
     public partial class TwingateServiceAccountKey : global::Pulumi.CustomResource
     {

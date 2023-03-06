@@ -10,33 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resources in Twingate represent servers on the private network that clients can connect to. Resources can be defined by IP, CIDR range, FQDN, or DNS zone. For more information, see the Twingate [documentation](https://docs.twingate.com/docs/resources-and-access-nodes).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/Twingate-Labs/pulumi-twingate/sdk/go/twingate"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := twingate.GetTwingateResources(ctx, &twingate.GetTwingateResourcesArgs{
-//				Name: "<your resource's name>",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetTwingateResources(ctx *pulumi.Context, args *GetTwingateResourcesArgs, opts ...pulumi.InvokeOption) (*GetTwingateResourcesResult, error) {
 	opts = pkgInvokeDefaultOpts(opts)
 	var rv GetTwingateResourcesResult
@@ -49,19 +22,15 @@ func GetTwingateResources(ctx *pulumi.Context, args *GetTwingateResourcesArgs, o
 
 // A collection of arguments for invoking getTwingateResources.
 type GetTwingateResourcesArgs struct {
-	// The name of the Resource
-	Name string `pulumi:"name"`
-	// List of Resources
+	Name      string                         `pulumi:"name"`
 	Resources []GetTwingateResourcesResource `pulumi:"resources"`
 }
 
 // A collection of values returned by getTwingateResources.
 type GetTwingateResourcesResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// The name of the Resource
-	Name string `pulumi:"name"`
-	// List of Resources
+	Id        string                         `pulumi:"id"`
+	Name      string                         `pulumi:"name"`
 	Resources []GetTwingateResourcesResource `pulumi:"resources"`
 }
 
@@ -80,9 +49,7 @@ func GetTwingateResourcesOutput(ctx *pulumi.Context, args GetTwingateResourcesOu
 
 // A collection of arguments for invoking getTwingateResources.
 type GetTwingateResourcesOutputArgs struct {
-	// The name of the Resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// List of Resources
+	Name      pulumi.StringInput                     `pulumi:"name"`
 	Resources GetTwingateResourcesResourceArrayInput `pulumi:"resources"`
 }
 
@@ -110,12 +77,10 @@ func (o GetTwingateResourcesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTwingateResourcesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the Resource
 func (o GetTwingateResourcesResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTwingateResourcesResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// List of Resources
 func (o GetTwingateResourcesResultOutput) Resources() GetTwingateResourcesResourceArrayOutput {
 	return o.ApplyT(func(v GetTwingateResourcesResult) []GetTwingateResourcesResource { return v.Resources }).(GetTwingateResourcesResourceArrayOutput)
 }

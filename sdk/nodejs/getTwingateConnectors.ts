@@ -6,18 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * Connectors provide connectivity to Remote Networks. For more information, see Twingate's [documentation](https://docs.twingate.com/docs/understanding-access-nodes).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as twingate from "@pulumi/twingate";
- *
- * const all = twingate.getTwingateConnectors({});
- * ```
- */
 export function getTwingateConnectors(args?: GetTwingateConnectorsArgs, opts?: pulumi.InvokeOptions): Promise<GetTwingateConnectorsResult> {
     args = args || {};
 
@@ -31,9 +19,6 @@ export function getTwingateConnectors(args?: GetTwingateConnectorsArgs, opts?: p
  * A collection of arguments for invoking getTwingateConnectors.
  */
 export interface GetTwingateConnectorsArgs {
-    /**
-     * List of Connectors
-     */
     connectors?: inputs.GetTwingateConnectorsConnector[];
 }
 
@@ -41,27 +26,12 @@ export interface GetTwingateConnectorsArgs {
  * A collection of values returned by getTwingateConnectors.
  */
 export interface GetTwingateConnectorsResult {
-    /**
-     * List of Connectors
-     */
     readonly connectors?: outputs.GetTwingateConnectorsConnector[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }
-/**
- * Connectors provide connectivity to Remote Networks. For more information, see Twingate's [documentation](https://docs.twingate.com/docs/understanding-access-nodes).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as twingate from "@pulumi/twingate";
- *
- * const all = twingate.getTwingateConnectors({});
- * ```
- */
 export function getTwingateConnectorsOutput(args?: GetTwingateConnectorsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTwingateConnectorsResult> {
     return pulumi.output(args).apply((a: any) => getTwingateConnectors(a, opts))
 }
@@ -70,8 +40,5 @@ export function getTwingateConnectorsOutput(args?: GetTwingateConnectorsOutputAr
  * A collection of arguments for invoking getTwingateConnectors.
  */
 export interface GetTwingateConnectorsOutputArgs {
-    /**
-     * List of Connectors
-     */
     connectors?: pulumi.Input<pulumi.Input<inputs.GetTwingateConnectorsConnectorArgs>[]>;
 }

@@ -13,15 +13,9 @@ namespace TwingateLabs.Twingate.Inputs
 
     public sealed class GetTwingateSecurityPoliciesSecurityPolicyArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Return a matching Security Policy by its ID. The ID for the Security Policy must be obtained from the Admin API.
-        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
-        /// <summary>
-        /// Return a Security Policy that exactly matches this name.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 

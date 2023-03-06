@@ -14,17 +14,8 @@ namespace TwingateLabs.Twingate.Outputs
     [OutputType]
     public sealed class GetTwingateRemoteNetworksRemoteNetworkResult
     {
-        /// <summary>
-        /// The ID of the Remote Network
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The location of the Remote Network. Must be one of the following: AWS, AZURE, GOOGLE*CLOUD, ON*PREMISE, OTHER.
-        /// </summary>
         public readonly string Location;
-        /// <summary>
-        /// The name of the Remote Network
-        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

@@ -11,40 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A Service Key authorizes access to all Resources assigned to a Service Account.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/Twingate-Labs/pulumi-twingate/sdk/go/twingate"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			githubActionsProd, err := twingate.NewTwingateServiceAccount(ctx, "githubActionsProd", &twingate.TwingateServiceAccountArgs{
-//				Name: pulumi.String("Github Actions PROD"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = twingate.NewTwingateServiceAccountKey(ctx, "githubKey", &twingate.TwingateServiceAccountKeyArgs{
-//				Name:             pulumi.String("Github Actions PROD key"),
-//				ServiceAccountId: githubActionsProd.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type TwingateServiceAccountKey struct {
 	pulumi.CustomResourceState
 

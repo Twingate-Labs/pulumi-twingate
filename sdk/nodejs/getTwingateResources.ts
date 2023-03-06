@@ -6,20 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * Resources in Twingate represent servers on the private network that clients can connect to. Resources can be defined by IP, CIDR range, FQDN, or DNS zone. For more information, see the Twingate [documentation](https://docs.twingate.com/docs/resources-and-access-nodes).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as twingate from "@pulumi/twingate";
- *
- * const foo = twingate.getTwingateResources({
- *     name: "<your resource's name>",
- * });
- * ```
- */
 export function getTwingateResources(args: GetTwingateResourcesArgs, opts?: pulumi.InvokeOptions): Promise<GetTwingateResourcesResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -33,13 +19,7 @@ export function getTwingateResources(args: GetTwingateResourcesArgs, opts?: pulu
  * A collection of arguments for invoking getTwingateResources.
  */
 export interface GetTwingateResourcesArgs {
-    /**
-     * The name of the Resource
-     */
     name: string;
-    /**
-     * List of Resources
-     */
     resources?: inputs.GetTwingateResourcesResource[];
 }
 
@@ -51,29 +31,9 @@ export interface GetTwingateResourcesResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * The name of the Resource
-     */
     readonly name: string;
-    /**
-     * List of Resources
-     */
     readonly resources?: outputs.GetTwingateResourcesResource[];
 }
-/**
- * Resources in Twingate represent servers on the private network that clients can connect to. Resources can be defined by IP, CIDR range, FQDN, or DNS zone. For more information, see the Twingate [documentation](https://docs.twingate.com/docs/resources-and-access-nodes).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as twingate from "@pulumi/twingate";
- *
- * const foo = twingate.getTwingateResources({
- *     name: "<your resource's name>",
- * });
- * ```
- */
 export function getTwingateResourcesOutput(args: GetTwingateResourcesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTwingateResourcesResult> {
     return pulumi.output(args).apply((a: any) => getTwingateResources(a, opts))
 }
@@ -82,12 +42,6 @@ export function getTwingateResourcesOutput(args: GetTwingateResourcesOutputArgs,
  * A collection of arguments for invoking getTwingateResources.
  */
 export interface GetTwingateResourcesOutputArgs {
-    /**
-     * The name of the Resource
-     */
     name: pulumi.Input<string>;
-    /**
-     * List of Resources
-     */
     resources?: pulumi.Input<pulumi.Input<inputs.GetTwingateResourcesResourceArgs>[]>;
 }
