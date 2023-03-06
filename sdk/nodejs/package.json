@@ -25,6 +25,6 @@
     "pulumi": {
         "resource": true,
         "name": "twingate",
-        "server": "https://github.com/Twingate-Labs/pulumi-twingate/releases/download/v${VERSION}"
+        "server": "github://api.github.com/twingate-labs"
     }
 }
