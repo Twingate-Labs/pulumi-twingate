@@ -5,7 +5,7 @@ Summary: A Pulumi package for creating and managing Twingate cloud resources.
 Home-page: https://www.twingate.com
 License: Apache-2.0
 Project-URL: Repository, https://github.com/Twingate-Labs/pulumi-twingate
-Keywords: pulumi twingate category/Infrastructure
+Keywords: pulumi twingate category/infrastructure
 Platform: UNKNOWN
 Description-Content-Type: text/markdown
 
