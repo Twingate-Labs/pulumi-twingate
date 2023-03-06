@@ -53,7 +53,7 @@ namespace TwingateLabs.Twingate
         {
             var dst = src ?? new global::Pulumi.InvokeOptions{};
             dst.Version = src?.Version ?? Version;
-            dst.PluginDownloadURL = src?.PluginDownloadURL ?? "https://github.com/Twingate-Labs/pulumi-twingate/releases/download/v0.0.37-alpha.1678127296+e1ed54d9.dirty";
+            dst.PluginDownloadURL = src?.PluginDownloadURL ?? "https://github.com/Twingate-Labs/pulumi-twingate/releases/download/v${version}";
             return dst;
         }
 

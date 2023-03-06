@@ -15,7 +15,7 @@ class InstallPluginCommand(install):
     def run(self):
         install.run(self)
         try:
-            check_call(['pulumi', 'plugin', 'install', 'resource', 'twingate', PLUGIN_VERSION, '--server', 'https://github.com/Twingate-Labs/pulumi-twingate/releases/download/v0.0.37-alpha.1678127296+e1ed54d9.dirty'])
+            check_call(['pulumi', 'plugin', 'install', 'resource', 'twingate', PLUGIN_VERSION, '--server', 'https://github.com/Twingate-Labs/pulumi-twingate/releases/download/v${version}'])
         except OSError as error:
             if error.errno == errno.ENOENT:
                 print(f"""

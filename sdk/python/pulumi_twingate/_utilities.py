@@ -247,4 +247,4 @@ def lift_output_func(func: typing.Any) -> typing.Callable[[_F], _F]:
     return (lambda _: lifted_func)
 
 def get_plugin_download_url():
-	return "https://github.com/Twingate-Labs/pulumi-twingate/releases/download/v0.0.37-alpha.1678127296+e1ed54d9.dirty"
+	return "https://github.com/Twingate-Labs/pulumi-twingate/releases/download/v${version}"
