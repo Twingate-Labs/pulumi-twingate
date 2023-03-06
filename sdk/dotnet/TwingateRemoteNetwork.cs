@@ -48,7 +48,7 @@ namespace TwingateLabs.Twingate
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                PluginDownloadURL = "https://github.com/Twingate-Labs/pulumi-twingate/releases/download/v${VERSION}",
+                PluginDownloadURL = "https://github.com/Twingate-Labs/pulumi-twingate/releases/download/v0.0.37-alpha.1678125506+1bd51489.dirty",
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

@@ -50,7 +50,7 @@ export function getVersion(): string {
 
 /** @internal */
 export function resourceOptsDefaults(): any {
-    return { version: getVersion(), pluginDownloadURL: "https://github.com/Twingate-Labs/pulumi-twingate/releases/download/v${VERSION}" };
+    return { version: getVersion(), pluginDownloadURL: "https://github.com/Twingate-Labs/pulumi-twingate/releases/download/v0.0.37-alpha.1678125506+1bd51489.dirty" };
 }
 
 /** @internal */
