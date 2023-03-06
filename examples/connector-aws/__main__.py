@@ -3,7 +3,6 @@ import pulumi_aws as aws
 import pulumi_twingate as tg
 import os
 
-
 config = pulumi.Config()
 data = config.require_object("data")
 
@@ -26,7 +25,7 @@ private_subnet = aws.ec2.Subnet(data.get("prv_subnet_name"),
                                 cidr_block=data.get("prv_cidr"),
                                 map_public_ip_on_launch=False,
                                 tags={
-                                   "Name": data.get("prv_subnet_name"),
+                                    "Name": data.get("prv_subnet_name"),
                                 })
 
 # Create a Public Subnet
@@ -35,8 +34,8 @@ public_subnet = aws.ec2.Subnet(data.get("pub_subnet_name"),
                                cidr_block=data.get("pub_cidr"),
                                map_public_ip_on_launch=True,
                                tags={
-                                  "Name": data.get("pub_subnet_name"),
-                                })
+                                   "Name": data.get("pub_subnet_name"),
+                               })
 
 # Create an Elastic IP
 eip = aws.ec2.Eip(data.get("eip_name"),
@@ -58,32 +57,31 @@ nat_gateway = aws.ec2.NatGateway(data.get("natgw_name"),
                                  },
                                  opts=pulumi.ResourceOptions(depends_on=[igw]))
 
-
 # Create a Public Route Table
 pub_route_table = aws.ec2.RouteTable(data.get("pubrttable_name"),
-                                   vpc_id=vpc.id,
-                                   routes=[
-                                       aws.ec2.RouteTableRouteArgs(
-                                           cidr_block="0.0.0.0/0",
-                                           gateway_id=igw.id,
-                                       )
-                                   ],
-                                   tags={
-                                       "Name": data.get("pubrttable_name"),
-                                   })
+                                     vpc_id=vpc.id,
+                                     routes=[
+                                         aws.ec2.RouteTableRouteArgs(
+                                             cidr_block="0.0.0.0/0",
+                                             gateway_id=igw.id,
+                                         )
+                                     ],
+                                     tags={
+                                         "Name": data.get("pubrttable_name"),
+                                     })
 
 # Create a private Route Table
 prv_route_table = aws.ec2.RouteTable(data.get("prvrttable_name"),
-                                   vpc_id=vpc.id,
-                                   routes=[
-                                       aws.ec2.RouteTableRouteArgs(
-                                           cidr_block="0.0.0.0/0",
-                                           gateway_id=nat_gateway.id,
-                                       )
-                                   ],
-                                   tags={
-                                       "Name": data.get("prvrttable_name"),
-                                   })
+                                     vpc_id=vpc.id,
+                                     routes=[
+                                         aws.ec2.RouteTableRouteArgs(
+                                             cidr_block="0.0.0.0/0",
+                                             gateway_id=nat_gateway.id,
+                                         )
+                                     ],
+                                     tags={
+                                         "Name": data.get("prvrttable_name"),
+                                     })
 
 # Create a Public Route Association
 pub_route_association = aws.ec2.RouteTableAssociation(
@@ -98,7 +96,6 @@ prv_route_association = aws.ec2.RouteTableAssociation(
     route_table_id=prv_route_table.id,
     subnet_id=private_subnet.id
 )
-
 
 # Create a Security Group
 sg = aws.ec2.SecurityGroup(
@@ -137,7 +134,7 @@ remote_network = tg.TwingateRemoteNetwork(data.get("tg_remote_network"), name=da
 connectors = data.get("connectors")
 
 # Create EC2 Instance For Each Connector
-for i in range(1, connectors+1):
+for i in range(1, connectors + 1):
     connector = tg.TwingateConnector(f"demo_connector_{i}", remote_network_id=remote_network.id)
     connector_token = tg.TwingateConnectorTokens(f"demo_token_{i}", connector_id=connector.id)
     user_data = pulumi.Output.all(connector_token.access_token, connector_token.refresh_token).apply(lambda v: f'''#!/bin/bash
