@@ -11,7 +11,7 @@
     "license": "Apache-2.0",
     "attribution": "This Pulumi package is based on the [`twingate` Terraform Provider](https://github.com/Twingate-Labs/terraform-provider-twingate).",
     "repository": "https://github.com/Twingate-Labs/pulumi-twingate",
-    "pluginDownloadURL": "https://github.com/Twingate-Labs/pulumi-twingate/releases/download/v${version}",
+    "pluginDownloadURL": "https://github.com/Twingate-Labs/pulumi-twingate/releases/download/v${VERSION}",
     "publisher": "Twingate",
     "meta": {
         "moduleFormat": "(.*)(?:/[^/]*)"

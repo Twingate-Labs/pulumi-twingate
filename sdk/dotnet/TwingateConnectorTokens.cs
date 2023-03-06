@@ -61,7 +61,7 @@ namespace TwingateLabs.Twingate
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                PluginDownloadURL = "https://github.com/Twingate-Labs/pulumi-twingate/releases/download/v${version}",
+                PluginDownloadURL = "https://github.com/Twingate-Labs/pulumi-twingate/releases/download/v${VERSION}",
                 AdditionalSecretOutputs =
                 {
                     "accessToken",
