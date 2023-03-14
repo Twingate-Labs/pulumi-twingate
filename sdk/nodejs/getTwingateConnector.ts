@@ -26,6 +26,7 @@ export interface GetTwingateConnectorResult {
     readonly id: string;
     readonly name: string;
     readonly remoteNetworkId: string;
+    readonly statusUpdatesEnabled: boolean;
 }
 export function getTwingateConnectorOutput(args: GetTwingateConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTwingateConnectorResult> {
     return pulumi.output(args).apply((a: any) => getTwingateConnector(a, opts))

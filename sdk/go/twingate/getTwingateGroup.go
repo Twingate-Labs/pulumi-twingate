@@ -27,10 +27,11 @@ type LookupTwingateGroupArgs struct {
 
 // A collection of values returned by getTwingateGroup.
 type LookupTwingateGroupResult struct {
-	Id       string `pulumi:"id"`
-	IsActive bool   `pulumi:"isActive"`
-	Name     string `pulumi:"name"`
-	Type     string `pulumi:"type"`
+	Id               string `pulumi:"id"`
+	IsActive         bool   `pulumi:"isActive"`
+	Name             string `pulumi:"name"`
+	SecurityPolicyId string `pulumi:"securityPolicyId"`
+	Type             string `pulumi:"type"`
 }
 
 func LookupTwingateGroupOutput(ctx *pulumi.Context, args LookupTwingateGroupOutputArgs, opts ...pulumi.InvokeOption) LookupTwingateGroupResultOutput {
@@ -80,6 +81,10 @@ func (o LookupTwingateGroupResultOutput) IsActive() pulumi.BoolOutput {
 
 func (o LookupTwingateGroupResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTwingateGroupResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupTwingateGroupResultOutput) SecurityPolicyId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTwingateGroupResult) string { return v.SecurityPolicyId }).(pulumi.StringOutput)
 }
 
 func (o LookupTwingateGroupResultOutput) Type() pulumi.StringOutput {

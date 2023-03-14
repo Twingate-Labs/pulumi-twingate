@@ -14,10 +14,12 @@ import (
 type TwingateConnector struct {
 	pulumi.CustomResourceState
 
-	// Name of the Connector, if not provided one will be generated
+	// Name of the Connector, if not provided one will be generated.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The ID of the Remote Network the Connector is attached to
+	// The ID of the Remote Network the Connector is attached to.
 	RemoteNetworkId pulumi.StringOutput `pulumi:"remoteNetworkId"`
+	// Determines whether status notifications are enabled for the Connector.
+	StatusUpdatesEnabled pulumi.BoolOutput `pulumi:"statusUpdatesEnabled"`
 }
 
 // NewTwingateConnector registers a new resource with the given unique name, arguments, and options.
@@ -53,17 +55,21 @@ func GetTwingateConnector(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TwingateConnector resources.
 type twingateConnectorState struct {
-	// Name of the Connector, if not provided one will be generated
+	// Name of the Connector, if not provided one will be generated.
 	Name *string `pulumi:"name"`
-	// The ID of the Remote Network the Connector is attached to
+	// The ID of the Remote Network the Connector is attached to.
 	RemoteNetworkId *string `pulumi:"remoteNetworkId"`
+	// Determines whether status notifications are enabled for the Connector.
+	StatusUpdatesEnabled *bool `pulumi:"statusUpdatesEnabled"`
 }
 
 type TwingateConnectorState struct {
-	// Name of the Connector, if not provided one will be generated
+	// Name of the Connector, if not provided one will be generated.
 	Name pulumi.StringPtrInput
-	// The ID of the Remote Network the Connector is attached to
+	// The ID of the Remote Network the Connector is attached to.
 	RemoteNetworkId pulumi.StringPtrInput
+	// Determines whether status notifications are enabled for the Connector.
+	StatusUpdatesEnabled pulumi.BoolPtrInput
 }
 
 func (TwingateConnectorState) ElementType() reflect.Type {
@@ -71,18 +77,22 @@ func (TwingateConnectorState) ElementType() reflect.Type {
 }
 
 type twingateConnectorArgs struct {
-	// Name of the Connector, if not provided one will be generated
+	// Name of the Connector, if not provided one will be generated.
 	Name *string `pulumi:"name"`
-	// The ID of the Remote Network the Connector is attached to
+	// The ID of the Remote Network the Connector is attached to.
 	RemoteNetworkId string `pulumi:"remoteNetworkId"`
+	// Determines whether status notifications are enabled for the Connector.
+	StatusUpdatesEnabled *bool `pulumi:"statusUpdatesEnabled"`
 }
 
 // The set of arguments for constructing a TwingateConnector resource.
 type TwingateConnectorArgs struct {
-	// Name of the Connector, if not provided one will be generated
+	// Name of the Connector, if not provided one will be generated.
 	Name pulumi.StringPtrInput
-	// The ID of the Remote Network the Connector is attached to
+	// The ID of the Remote Network the Connector is attached to.
 	RemoteNetworkId pulumi.StringInput
+	// Determines whether status notifications are enabled for the Connector.
+	StatusUpdatesEnabled pulumi.BoolPtrInput
 }
 
 func (TwingateConnectorArgs) ElementType() reflect.Type {
@@ -172,14 +182,19 @@ func (o TwingateConnectorOutput) ToTwingateConnectorOutputWithContext(ctx contex
 	return o
 }
 
-// Name of the Connector, if not provided one will be generated
+// Name of the Connector, if not provided one will be generated.
 func (o TwingateConnectorOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TwingateConnector) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The ID of the Remote Network the Connector is attached to
+// The ID of the Remote Network the Connector is attached to.
 func (o TwingateConnectorOutput) RemoteNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TwingateConnector) pulumi.StringOutput { return v.RemoteNetworkId }).(pulumi.StringOutput)
+}
+
+// Determines whether status notifications are enabled for the Connector.
+func (o TwingateConnectorOutput) StatusUpdatesEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *TwingateConnector) pulumi.BoolOutput { return v.StatusUpdatesEnabled }).(pulumi.BoolOutput)
 }
 
 type TwingateConnectorArrayOutput struct{ *pulumi.OutputState }

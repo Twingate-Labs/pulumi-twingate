@@ -49,6 +49,7 @@ namespace TwingateLabs.Twingate
         public readonly string Id;
         public readonly bool IsActive;
         public readonly string Name;
+        public readonly string SecurityPolicyId;
         public readonly string Type;
 
         [OutputConstructor]
@@ -59,11 +60,14 @@ namespace TwingateLabs.Twingate
 
             string name,
 
+            string securityPolicyId,
+
             string type)
         {
             Id = id;
             IsActive = isActive;
             Name = name;
+            SecurityPolicyId = securityPolicyId;
             Type = type;
         }
     }

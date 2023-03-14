@@ -17,6 +17,7 @@ namespace TwingateLabs.Twingate.Outputs
         public readonly string Id;
         public readonly string Name;
         public readonly string RemoteNetworkId;
+        public readonly bool StatusUpdatesEnabled;
 
         [OutputConstructor]
         private GetTwingateConnectorsConnectorResult(
@@ -24,11 +25,14 @@ namespace TwingateLabs.Twingate.Outputs
 
             string name,
 
-            string remoteNetworkId)
+            string remoteNetworkId,
+
+            bool statusUpdatesEnabled)
         {
             Id = id;
             Name = name;
             RemoteNetworkId = remoteNetworkId;
+            StatusUpdatesEnabled = statusUpdatesEnabled;
         }
     }
 }

@@ -33,9 +33,23 @@ export class TwingateGroup extends pulumi.CustomResource {
     }
 
     /**
+     * Determines whether User assignments to this Group will override any existing assignments. Default is `true`. If set to
+     * `false`, assignments made outside of Terraform will be ignored.
+     */
+    public readonly isAuthoritative!: pulumi.Output<boolean>;
+    /**
      * The name of the group
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Defines which Security Policy applies to this Group. The Security Policy ID can be obtained from the
+     * `twingate_security_policy` and `twingate_security_policies` data sources.
+     */
+    public readonly securityPolicyId!: pulumi.Output<string>;
+    /**
+     * List of User IDs that have permission to access the Group.
+     */
+    public readonly userIds!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a TwingateGroup resource with the given unique name, arguments, and options.
@@ -44,19 +58,22 @@ export class TwingateGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: TwingateGroupArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: TwingateGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TwingateGroupArgs | TwingateGroupState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TwingateGroupState | undefined;
+            resourceInputs["isAuthoritative"] = state ? state.isAuthoritative : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["securityPolicyId"] = state ? state.securityPolicyId : undefined;
+            resourceInputs["userIds"] = state ? state.userIds : undefined;
         } else {
             const args = argsOrState as TwingateGroupArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
+            resourceInputs["isAuthoritative"] = args ? args.isAuthoritative : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["securityPolicyId"] = args ? args.securityPolicyId : undefined;
+            resourceInputs["userIds"] = args ? args.userIds : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TwingateGroup.__pulumiType, name, resourceInputs, opts);
@@ -68,9 +85,23 @@ export class TwingateGroup extends pulumi.CustomResource {
  */
 export interface TwingateGroupState {
     /**
+     * Determines whether User assignments to this Group will override any existing assignments. Default is `true`. If set to
+     * `false`, assignments made outside of Terraform will be ignored.
+     */
+    isAuthoritative?: pulumi.Input<boolean>;
+    /**
      * The name of the group
      */
     name?: pulumi.Input<string>;
+    /**
+     * Defines which Security Policy applies to this Group. The Security Policy ID can be obtained from the
+     * `twingate_security_policy` and `twingate_security_policies` data sources.
+     */
+    securityPolicyId?: pulumi.Input<string>;
+    /**
+     * List of User IDs that have permission to access the Group.
+     */
+    userIds?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -78,7 +109,21 @@ export interface TwingateGroupState {
  */
 export interface TwingateGroupArgs {
     /**
+     * Determines whether User assignments to this Group will override any existing assignments. Default is `true`. If set to
+     * `false`, assignments made outside of Terraform will be ignored.
+     */
+    isAuthoritative?: pulumi.Input<boolean>;
+    /**
      * The name of the group
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    /**
+     * Defines which Security Policy applies to this Group. The Security Policy ID can be obtained from the
+     * `twingate_security_policy` and `twingate_security_policies` data sources.
+     */
+    securityPolicyId?: pulumi.Input<string>;
+    /**
+     * List of User IDs that have permission to access the Group.
+     */
+    userIds?: pulumi.Input<pulumi.Input<string>[]>;
 }

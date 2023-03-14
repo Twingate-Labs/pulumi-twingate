@@ -21,7 +21,7 @@ class GetTwingateConnectorResult:
     """
     A collection of values returned by getTwingateConnector.
     """
-    def __init__(__self__, id=None, name=None, remote_network_id=None):
+    def __init__(__self__, id=None, name=None, remote_network_id=None, status_updates_enabled=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -31,6 +31,9 @@ class GetTwingateConnectorResult:
         if remote_network_id and not isinstance(remote_network_id, str):
             raise TypeError("Expected argument 'remote_network_id' to be a str")
         pulumi.set(__self__, "remote_network_id", remote_network_id)
+        if status_updates_enabled and not isinstance(status_updates_enabled, bool):
+            raise TypeError("Expected argument 'status_updates_enabled' to be a bool")
+        pulumi.set(__self__, "status_updates_enabled", status_updates_enabled)
 
     @property
     @pulumi.getter
@@ -47,6 +50,11 @@ class GetTwingateConnectorResult:
     def remote_network_id(self) -> str:
         return pulumi.get(self, "remote_network_id")
 
+    @property
+    @pulumi.getter(name="statusUpdatesEnabled")
+    def status_updates_enabled(self) -> bool:
+        return pulumi.get(self, "status_updates_enabled")
+
 
 class AwaitableGetTwingateConnectorResult(GetTwingateConnectorResult):
     # pylint: disable=using-constant-test
@@ -56,7 +64,8 @@ class AwaitableGetTwingateConnectorResult(GetTwingateConnectorResult):
         return GetTwingateConnectorResult(
             id=self.id,
             name=self.name,
-            remote_network_id=self.remote_network_id)
+            remote_network_id=self.remote_network_id,
+            status_updates_enabled=self.status_updates_enabled)
 
 
 def get_twingate_connector(id: Optional[str] = None,
@@ -72,7 +81,8 @@ def get_twingate_connector(id: Optional[str] = None,
     return AwaitableGetTwingateConnectorResult(
         id=__ret__.id,
         name=__ret__.name,
-        remote_network_id=__ret__.remote_network_id)
+        remote_network_id=__ret__.remote_network_id,
+        status_updates_enabled=__ret__.status_updates_enabled)
 
 
 @_utilities.lift_output_func(get_twingate_connector)

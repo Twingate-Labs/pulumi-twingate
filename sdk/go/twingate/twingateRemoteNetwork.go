@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,12 +23,9 @@ type TwingateRemoteNetwork struct {
 func NewTwingateRemoteNetwork(ctx *pulumi.Context,
 	name string, args *TwingateRemoteNetworkArgs, opts ...pulumi.ResourceOption) (*TwingateRemoteNetwork, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &TwingateRemoteNetworkArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	opts = pkgResourceDefaultOpts(opts)
 	var resource TwingateRemoteNetwork
 	err := ctx.RegisterResource("twingate:index/twingateRemoteNetwork:TwingateRemoteNetwork", name, args, &resource, opts...)
@@ -74,7 +70,7 @@ type twingateRemoteNetworkArgs struct {
 	// The location of the Remote Network. Must be one of the following: AWS, AZURE, GOOGLE_CLOUD, ON_PREMISE, OTHER.
 	Location *string `pulumi:"location"`
 	// The name of the Remote Network
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a TwingateRemoteNetwork resource.
@@ -82,7 +78,7 @@ type TwingateRemoteNetworkArgs struct {
 	// The location of the Remote Network. Must be one of the following: AWS, AZURE, GOOGLE_CLOUD, ON_PREMISE, OTHER.
 	Location pulumi.StringPtrInput
 	// The name of the Remote Network
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 }
 
 func (TwingateRemoteNetworkArgs) ElementType() reflect.Type {

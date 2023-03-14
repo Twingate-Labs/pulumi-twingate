@@ -165,8 +165,8 @@ namespace TwingateLabs.Twingate
         /// <summary>
         /// The name of the Resource
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no

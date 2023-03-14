@@ -618,9 +618,10 @@ func (o TwingateResourceProtocolsUdpPtrOutput) Ports() pulumi.StringArrayOutput 
 }
 
 type GetTwingateConnectorsConnector struct {
-	Id              string `pulumi:"id"`
-	Name            string `pulumi:"name"`
-	RemoteNetworkId string `pulumi:"remoteNetworkId"`
+	Id                   string `pulumi:"id"`
+	Name                 string `pulumi:"name"`
+	RemoteNetworkId      string `pulumi:"remoteNetworkId"`
+	StatusUpdatesEnabled bool   `pulumi:"statusUpdatesEnabled"`
 }
 
 // GetTwingateConnectorsConnectorInput is an input type that accepts GetTwingateConnectorsConnectorArgs and GetTwingateConnectorsConnectorOutput values.
@@ -635,9 +636,10 @@ type GetTwingateConnectorsConnectorInput interface {
 }
 
 type GetTwingateConnectorsConnectorArgs struct {
-	Id              pulumi.StringInput `pulumi:"id"`
-	Name            pulumi.StringInput `pulumi:"name"`
-	RemoteNetworkId pulumi.StringInput `pulumi:"remoteNetworkId"`
+	Id                   pulumi.StringInput `pulumi:"id"`
+	Name                 pulumi.StringInput `pulumi:"name"`
+	RemoteNetworkId      pulumi.StringInput `pulumi:"remoteNetworkId"`
+	StatusUpdatesEnabled pulumi.BoolInput   `pulumi:"statusUpdatesEnabled"`
 }
 
 func (GetTwingateConnectorsConnectorArgs) ElementType() reflect.Type {
@@ -703,6 +705,10 @@ func (o GetTwingateConnectorsConnectorOutput) RemoteNetworkId() pulumi.StringOut
 	return o.ApplyT(func(v GetTwingateConnectorsConnector) string { return v.RemoteNetworkId }).(pulumi.StringOutput)
 }
 
+func (o GetTwingateConnectorsConnectorOutput) StatusUpdatesEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetTwingateConnectorsConnector) bool { return v.StatusUpdatesEnabled }).(pulumi.BoolOutput)
+}
+
 type GetTwingateConnectorsConnectorArrayOutput struct{ *pulumi.OutputState }
 
 func (GetTwingateConnectorsConnectorArrayOutput) ElementType() reflect.Type {
@@ -724,10 +730,11 @@ func (o GetTwingateConnectorsConnectorArrayOutput) Index(i pulumi.IntInput) GetT
 }
 
 type GetTwingateGroupsGroup struct {
-	Id       string `pulumi:"id"`
-	IsActive bool   `pulumi:"isActive"`
-	Name     string `pulumi:"name"`
-	Type     string `pulumi:"type"`
+	Id               string `pulumi:"id"`
+	IsActive         bool   `pulumi:"isActive"`
+	Name             string `pulumi:"name"`
+	SecurityPolicyId string `pulumi:"securityPolicyId"`
+	Type             string `pulumi:"type"`
 }
 
 // GetTwingateGroupsGroupInput is an input type that accepts GetTwingateGroupsGroupArgs and GetTwingateGroupsGroupOutput values.
@@ -742,10 +749,11 @@ type GetTwingateGroupsGroupInput interface {
 }
 
 type GetTwingateGroupsGroupArgs struct {
-	Id       pulumi.StringInput `pulumi:"id"`
-	IsActive pulumi.BoolInput   `pulumi:"isActive"`
-	Name     pulumi.StringInput `pulumi:"name"`
-	Type     pulumi.StringInput `pulumi:"type"`
+	Id               pulumi.StringInput `pulumi:"id"`
+	IsActive         pulumi.BoolInput   `pulumi:"isActive"`
+	Name             pulumi.StringInput `pulumi:"name"`
+	SecurityPolicyId pulumi.StringInput `pulumi:"securityPolicyId"`
+	Type             pulumi.StringInput `pulumi:"type"`
 }
 
 func (GetTwingateGroupsGroupArgs) ElementType() reflect.Type {
@@ -809,6 +817,10 @@ func (o GetTwingateGroupsGroupOutput) IsActive() pulumi.BoolOutput {
 
 func (o GetTwingateGroupsGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTwingateGroupsGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetTwingateGroupsGroupOutput) SecurityPolicyId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTwingateGroupsGroup) string { return v.SecurityPolicyId }).(pulumi.StringOutput)
 }
 
 func (o GetTwingateGroupsGroupOutput) Type() pulumi.StringOutput {

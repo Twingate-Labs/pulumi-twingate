@@ -158,10 +158,12 @@ class GetTwingateConnectorsConnectorArgs:
     def __init__(__self__, *,
                  id: str,
                  name: str,
-                 remote_network_id: str):
+                 remote_network_id: str,
+                 status_updates_enabled: bool):
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "remote_network_id", remote_network_id)
+        pulumi.set(__self__, "status_updates_enabled", status_updates_enabled)
 
     @property
     @pulumi.getter
@@ -190,6 +192,15 @@ class GetTwingateConnectorsConnectorArgs:
     def remote_network_id(self, value: str):
         pulumi.set(self, "remote_network_id", value)
 
+    @property
+    @pulumi.getter(name="statusUpdatesEnabled")
+    def status_updates_enabled(self) -> bool:
+        return pulumi.get(self, "status_updates_enabled")
+
+    @status_updates_enabled.setter
+    def status_updates_enabled(self, value: bool):
+        pulumi.set(self, "status_updates_enabled", value)
+
 
 @pulumi.input_type
 class GetTwingateGroupsGroupArgs:
@@ -197,10 +208,12 @@ class GetTwingateGroupsGroupArgs:
                  id: str,
                  is_active: bool,
                  name: str,
+                 security_policy_id: str,
                  type: str):
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "is_active", is_active)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "security_policy_id", security_policy_id)
         pulumi.set(__self__, "type", type)
 
     @property
@@ -229,6 +242,15 @@ class GetTwingateGroupsGroupArgs:
     @name.setter
     def name(self, value: str):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="securityPolicyId")
+    def security_policy_id(self) -> str:
+        return pulumi.get(self, "security_policy_id")
+
+    @security_policy_id.setter
+    def security_policy_id(self, value: str):
+        pulumi.set(self, "security_policy_id", value)
 
     @property
     @pulumi.getter

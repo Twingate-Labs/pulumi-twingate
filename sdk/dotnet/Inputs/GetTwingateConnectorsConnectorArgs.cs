@@ -22,6 +22,9 @@ namespace TwingateLabs.Twingate.Inputs
         [Input("remoteNetworkId", required: true)]
         public Input<string> RemoteNetworkId { get; set; } = null!;
 
+        [Input("statusUpdatesEnabled", required: true)]
+        public Input<bool> StatusUpdatesEnabled { get; set; } = null!;
+
         public GetTwingateConnectorsConnectorInputArgs()
         {
         }

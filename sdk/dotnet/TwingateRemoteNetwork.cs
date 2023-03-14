@@ -33,7 +33,7 @@ namespace TwingateLabs.Twingate
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public TwingateRemoteNetwork(string name, TwingateRemoteNetworkArgs args, CustomResourceOptions? options = null)
+        public TwingateRemoteNetwork(string name, TwingateRemoteNetworkArgs? args = null, CustomResourceOptions? options = null)
             : base("twingate:index/twingateRemoteNetwork:TwingateRemoteNetwork", name, args ?? new TwingateRemoteNetworkArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -81,8 +81,8 @@ namespace TwingateLabs.Twingate
         /// <summary>
         /// The name of the Remote Network
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         public TwingateRemoteNetworkArgs()
         {

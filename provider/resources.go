@@ -134,7 +134,7 @@ func Provider() tfbridge.ProviderInfo {
 		GitHubOrg: "Twingate-Labs",
 	}
 
-	//prov.SetAutonaming(255, "-")
+	prov.SetAutonaming(255, "-")
 
 	return prov
 }

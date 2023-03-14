@@ -22,6 +22,9 @@ namespace TwingateLabs.Twingate.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("securityPolicyId", required: true)]
+        public Input<string> SecurityPolicyId { get; set; } = null!;
+
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

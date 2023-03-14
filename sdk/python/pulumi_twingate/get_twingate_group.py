@@ -21,7 +21,7 @@ class GetTwingateGroupResult:
     """
     A collection of values returned by getTwingateGroup.
     """
-    def __init__(__self__, id=None, is_active=None, name=None, type=None):
+    def __init__(__self__, id=None, is_active=None, name=None, security_policy_id=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -31,6 +31,9 @@ class GetTwingateGroupResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if security_policy_id and not isinstance(security_policy_id, str):
+            raise TypeError("Expected argument 'security_policy_id' to be a str")
+        pulumi.set(__self__, "security_policy_id", security_policy_id)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -51,6 +54,11 @@ class GetTwingateGroupResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="securityPolicyId")
+    def security_policy_id(self) -> str:
+        return pulumi.get(self, "security_policy_id")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         return pulumi.get(self, "type")
@@ -65,6 +73,7 @@ class AwaitableGetTwingateGroupResult(GetTwingateGroupResult):
             id=self.id,
             is_active=self.is_active,
             name=self.name,
+            security_policy_id=self.security_policy_id,
             type=self.type)
 
 
@@ -82,6 +91,7 @@ def get_twingate_group(id: Optional[str] = None,
         id=__ret__.id,
         is_active=__ret__.is_active,
         name=__ret__.name,
+        security_policy_id=__ret__.security_policy_id,
         type=__ret__.type)
 
 

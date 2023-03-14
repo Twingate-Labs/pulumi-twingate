@@ -14,23 +14,24 @@ __all__ = ['TwingateServiceAccountArgs', 'TwingateServiceAccount']
 @pulumi.input_type
 class TwingateServiceAccountArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str]):
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a TwingateServiceAccount resource.
         :param pulumi.Input[str] name: The name of the Service Account in Twingate
         """
-        pulumi.set(__self__, "name", name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the Service Account in Twingate
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
 
@@ -75,7 +76,7 @@ class TwingateServiceAccount(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: TwingateServiceAccountArgs,
+                 args: Optional[TwingateServiceAccountArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Create a TwingateServiceAccount resource with the given unique name, props, and options.
@@ -104,8 +105,6 @@ class TwingateServiceAccount(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TwingateServiceAccountArgs.__new__(TwingateServiceAccountArgs)
 
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
         super(TwingateServiceAccount, __self__).__init__(
             'twingate:index/twingateServiceAccount:TwingateServiceAccount',

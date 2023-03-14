@@ -49,9 +49,6 @@ func NewTwingateResource(ctx *pulumi.Context,
 	if args.Address == nil {
 		return nil, errors.New("invalid value for required argument 'Address'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.RemoteNetworkId == nil {
 		return nil, errors.New("invalid value for required argument 'RemoteNetworkId'")
 	}
@@ -151,7 +148,7 @@ type twingateResourceArgs struct {
 	// Controls whether this Resource will be visible in the main Resource list in the Twingate Client.
 	IsVisible *bool `pulumi:"isVisible"`
 	// The name of the Resource
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no
 	// restriction, and all protocols and ports are allowed.
 	Protocols *TwingateResourceProtocols `pulumi:"protocols"`
@@ -178,7 +175,7 @@ type TwingateResourceArgs struct {
 	// Controls whether this Resource will be visible in the main Resource list in the Twingate Client.
 	IsVisible pulumi.BoolPtrInput
 	// The name of the Resource
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no
 	// restriction, and all protocols and ports are allowed.
 	Protocols TwingateResourceProtocolsPtrInput

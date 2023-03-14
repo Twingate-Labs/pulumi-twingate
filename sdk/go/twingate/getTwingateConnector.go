@@ -27,9 +27,10 @@ type LookupTwingateConnectorArgs struct {
 
 // A collection of values returned by getTwingateConnector.
 type LookupTwingateConnectorResult struct {
-	Id              string `pulumi:"id"`
-	Name            string `pulumi:"name"`
-	RemoteNetworkId string `pulumi:"remoteNetworkId"`
+	Id                   string `pulumi:"id"`
+	Name                 string `pulumi:"name"`
+	RemoteNetworkId      string `pulumi:"remoteNetworkId"`
+	StatusUpdatesEnabled bool   `pulumi:"statusUpdatesEnabled"`
 }
 
 func LookupTwingateConnectorOutput(ctx *pulumi.Context, args LookupTwingateConnectorOutputArgs, opts ...pulumi.InvokeOption) LookupTwingateConnectorResultOutput {
@@ -79,6 +80,10 @@ func (o LookupTwingateConnectorResultOutput) Name() pulumi.StringOutput {
 
 func (o LookupTwingateConnectorResultOutput) RemoteNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTwingateConnectorResult) string { return v.RemoteNetworkId }).(pulumi.StringOutput)
+}
+
+func (o LookupTwingateConnectorResultOutput) StatusUpdatesEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupTwingateConnectorResult) bool { return v.StatusUpdatesEnabled }).(pulumi.BoolOutput)
 }
 
 func init() {

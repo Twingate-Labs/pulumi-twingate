@@ -33,13 +33,17 @@ export class TwingateConnector extends pulumi.CustomResource {
     }
 
     /**
-     * Name of the Connector, if not provided one will be generated
+     * Name of the Connector, if not provided one will be generated.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The ID of the Remote Network the Connector is attached to
+     * The ID of the Remote Network the Connector is attached to.
      */
     public readonly remoteNetworkId!: pulumi.Output<string>;
+    /**
+     * Determines whether status notifications are enabled for the Connector.
+     */
+    public readonly statusUpdatesEnabled!: pulumi.Output<boolean>;
 
     /**
      * Create a TwingateConnector resource with the given unique name, arguments, and options.
@@ -56,6 +60,7 @@ export class TwingateConnector extends pulumi.CustomResource {
             const state = argsOrState as TwingateConnectorState | undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["remoteNetworkId"] = state ? state.remoteNetworkId : undefined;
+            resourceInputs["statusUpdatesEnabled"] = state ? state.statusUpdatesEnabled : undefined;
         } else {
             const args = argsOrState as TwingateConnectorArgs | undefined;
             if ((!args || args.remoteNetworkId === undefined) && !opts.urn) {
@@ -63,6 +68,7 @@ export class TwingateConnector extends pulumi.CustomResource {
             }
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["remoteNetworkId"] = args ? args.remoteNetworkId : undefined;
+            resourceInputs["statusUpdatesEnabled"] = args ? args.statusUpdatesEnabled : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TwingateConnector.__pulumiType, name, resourceInputs, opts);
@@ -74,13 +80,17 @@ export class TwingateConnector extends pulumi.CustomResource {
  */
 export interface TwingateConnectorState {
     /**
-     * Name of the Connector, if not provided one will be generated
+     * Name of the Connector, if not provided one will be generated.
      */
     name?: pulumi.Input<string>;
     /**
-     * The ID of the Remote Network the Connector is attached to
+     * The ID of the Remote Network the Connector is attached to.
      */
     remoteNetworkId?: pulumi.Input<string>;
+    /**
+     * Determines whether status notifications are enabled for the Connector.
+     */
+    statusUpdatesEnabled?: pulumi.Input<boolean>;
 }
 
 /**
@@ -88,11 +98,15 @@ export interface TwingateConnectorState {
  */
 export interface TwingateConnectorArgs {
     /**
-     * Name of the Connector, if not provided one will be generated
+     * Name of the Connector, if not provided one will be generated.
      */
     name?: pulumi.Input<string>;
     /**
-     * The ID of the Remote Network the Connector is attached to
+     * The ID of the Remote Network the Connector is attached to.
      */
     remoteNetworkId: pulumi.Input<string>;
+    /**
+     * Determines whether status notifications are enabled for the Connector.
+     */
+    statusUpdatesEnabled?: pulumi.Input<boolean>;
 }

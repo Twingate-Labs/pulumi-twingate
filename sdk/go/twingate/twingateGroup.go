@@ -7,27 +7,31 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 type TwingateGroup struct {
 	pulumi.CustomResourceState
 
+	// Determines whether User assignments to this Group will override any existing assignments. Default is `true`. If set to
+	// `false`, assignments made outside of Terraform will be ignored.
+	IsAuthoritative pulumi.BoolOutput `pulumi:"isAuthoritative"`
 	// The name of the group
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Defines which Security Policy applies to this Group. The Security Policy ID can be obtained from the
+	// `twingate_security_policy` and `twingate_security_policies` data sources.
+	SecurityPolicyId pulumi.StringOutput `pulumi:"securityPolicyId"`
+	// List of User IDs that have permission to access the Group.
+	UserIds pulumi.StringArrayOutput `pulumi:"userIds"`
 }
 
 // NewTwingateGroup registers a new resource with the given unique name, arguments, and options.
 func NewTwingateGroup(ctx *pulumi.Context,
 	name string, args *TwingateGroupArgs, opts ...pulumi.ResourceOption) (*TwingateGroup, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &TwingateGroupArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	opts = pkgResourceDefaultOpts(opts)
 	var resource TwingateGroup
 	err := ctx.RegisterResource("twingate:index/twingateGroup:TwingateGroup", name, args, &resource, opts...)
@@ -51,13 +55,29 @@ func GetTwingateGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TwingateGroup resources.
 type twingateGroupState struct {
+	// Determines whether User assignments to this Group will override any existing assignments. Default is `true`. If set to
+	// `false`, assignments made outside of Terraform will be ignored.
+	IsAuthoritative *bool `pulumi:"isAuthoritative"`
 	// The name of the group
 	Name *string `pulumi:"name"`
+	// Defines which Security Policy applies to this Group. The Security Policy ID can be obtained from the
+	// `twingate_security_policy` and `twingate_security_policies` data sources.
+	SecurityPolicyId *string `pulumi:"securityPolicyId"`
+	// List of User IDs that have permission to access the Group.
+	UserIds []string `pulumi:"userIds"`
 }
 
 type TwingateGroupState struct {
+	// Determines whether User assignments to this Group will override any existing assignments. Default is `true`. If set to
+	// `false`, assignments made outside of Terraform will be ignored.
+	IsAuthoritative pulumi.BoolPtrInput
 	// The name of the group
 	Name pulumi.StringPtrInput
+	// Defines which Security Policy applies to this Group. The Security Policy ID can be obtained from the
+	// `twingate_security_policy` and `twingate_security_policies` data sources.
+	SecurityPolicyId pulumi.StringPtrInput
+	// List of User IDs that have permission to access the Group.
+	UserIds pulumi.StringArrayInput
 }
 
 func (TwingateGroupState) ElementType() reflect.Type {
@@ -65,14 +85,30 @@ func (TwingateGroupState) ElementType() reflect.Type {
 }
 
 type twingateGroupArgs struct {
+	// Determines whether User assignments to this Group will override any existing assignments. Default is `true`. If set to
+	// `false`, assignments made outside of Terraform will be ignored.
+	IsAuthoritative *bool `pulumi:"isAuthoritative"`
 	// The name of the group
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Defines which Security Policy applies to this Group. The Security Policy ID can be obtained from the
+	// `twingate_security_policy` and `twingate_security_policies` data sources.
+	SecurityPolicyId *string `pulumi:"securityPolicyId"`
+	// List of User IDs that have permission to access the Group.
+	UserIds []string `pulumi:"userIds"`
 }
 
 // The set of arguments for constructing a TwingateGroup resource.
 type TwingateGroupArgs struct {
+	// Determines whether User assignments to this Group will override any existing assignments. Default is `true`. If set to
+	// `false`, assignments made outside of Terraform will be ignored.
+	IsAuthoritative pulumi.BoolPtrInput
 	// The name of the group
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
+	// Defines which Security Policy applies to this Group. The Security Policy ID can be obtained from the
+	// `twingate_security_policy` and `twingate_security_policies` data sources.
+	SecurityPolicyId pulumi.StringPtrInput
+	// List of User IDs that have permission to access the Group.
+	UserIds pulumi.StringArrayInput
 }
 
 func (TwingateGroupArgs) ElementType() reflect.Type {
@@ -162,9 +198,26 @@ func (o TwingateGroupOutput) ToTwingateGroupOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Determines whether User assignments to this Group will override any existing assignments. Default is `true`. If set to
+// `false`, assignments made outside of Terraform will be ignored.
+func (o TwingateGroupOutput) IsAuthoritative() pulumi.BoolOutput {
+	return o.ApplyT(func(v *TwingateGroup) pulumi.BoolOutput { return v.IsAuthoritative }).(pulumi.BoolOutput)
+}
+
 // The name of the group
 func (o TwingateGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TwingateGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines which Security Policy applies to this Group. The Security Policy ID can be obtained from the
+// `twingate_security_policy` and `twingate_security_policies` data sources.
+func (o TwingateGroupOutput) SecurityPolicyId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TwingateGroup) pulumi.StringOutput { return v.SecurityPolicyId }).(pulumi.StringOutput)
+}
+
+// List of User IDs that have permission to access the Group.
+func (o TwingateGroupOutput) UserIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TwingateGroup) pulumi.StringArrayOutput { return v.UserIds }).(pulumi.StringArrayOutput)
 }
 
 type TwingateGroupArrayOutput struct{ *pulumi.OutputState }

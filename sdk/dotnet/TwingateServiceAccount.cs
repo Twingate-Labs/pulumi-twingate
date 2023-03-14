@@ -27,7 +27,7 @@ namespace TwingateLabs.Twingate
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public TwingateServiceAccount(string name, TwingateServiceAccountArgs args, CustomResourceOptions? options = null)
+        public TwingateServiceAccount(string name, TwingateServiceAccountArgs? args = null, CustomResourceOptions? options = null)
             : base("twingate:index/twingateServiceAccount:TwingateServiceAccount", name, args ?? new TwingateServiceAccountArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -69,8 +69,8 @@ namespace TwingateLabs.Twingate
         /// <summary>
         /// The name of the Service Account in Twingate
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         public TwingateServiceAccountArgs()
         {

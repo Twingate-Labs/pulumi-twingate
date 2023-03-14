@@ -159,10 +159,12 @@ class GetTwingateConnectorsConnectorResult(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
-                 remote_network_id: str):
+                 remote_network_id: str,
+                 status_updates_enabled: bool):
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "remote_network_id", remote_network_id)
+        pulumi.set(__self__, "status_updates_enabled", status_updates_enabled)
 
     @property
     @pulumi.getter
@@ -179,6 +181,11 @@ class GetTwingateConnectorsConnectorResult(dict):
     def remote_network_id(self) -> str:
         return pulumi.get(self, "remote_network_id")
 
+    @property
+    @pulumi.getter(name="statusUpdatesEnabled")
+    def status_updates_enabled(self) -> bool:
+        return pulumi.get(self, "status_updates_enabled")
+
 
 @pulumi.output_type
 class GetTwingateGroupsGroupResult(dict):
@@ -186,10 +193,12 @@ class GetTwingateGroupsGroupResult(dict):
                  id: str,
                  is_active: bool,
                  name: str,
+                 security_policy_id: str,
                  type: str):
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "is_active", is_active)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "security_policy_id", security_policy_id)
         pulumi.set(__self__, "type", type)
 
     @property
@@ -206,6 +215,11 @@ class GetTwingateGroupsGroupResult(dict):
     @pulumi.getter
     def name(self) -> str:
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="securityPolicyId")
+    def security_policy_id(self) -> str:
+        return pulumi.get(self, "security_policy_id")
 
     @property
     @pulumi.getter

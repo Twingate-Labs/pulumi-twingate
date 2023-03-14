@@ -26,6 +26,7 @@ export interface GetTwingateGroupResult {
     readonly id: string;
     readonly isActive: boolean;
     readonly name: string;
+    readonly securityPolicyId: string;
     readonly type: string;
 }
 export function getTwingateGroupOutput(args: GetTwingateGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTwingateGroupResult> {

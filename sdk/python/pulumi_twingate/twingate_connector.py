@@ -15,21 +15,25 @@ __all__ = ['TwingateConnectorArgs', 'TwingateConnector']
 class TwingateConnectorArgs:
     def __init__(__self__, *,
                  remote_network_id: pulumi.Input[str],
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 status_updates_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a TwingateConnector resource.
-        :param pulumi.Input[str] remote_network_id: The ID of the Remote Network the Connector is attached to
-        :param pulumi.Input[str] name: Name of the Connector, if not provided one will be generated
+        :param pulumi.Input[str] remote_network_id: The ID of the Remote Network the Connector is attached to.
+        :param pulumi.Input[str] name: Name of the Connector, if not provided one will be generated.
+        :param pulumi.Input[bool] status_updates_enabled: Determines whether status notifications are enabled for the Connector.
         """
         pulumi.set(__self__, "remote_network_id", remote_network_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if status_updates_enabled is not None:
+            pulumi.set(__self__, "status_updates_enabled", status_updates_enabled)
 
     @property
     @pulumi.getter(name="remoteNetworkId")
     def remote_network_id(self) -> pulumi.Input[str]:
         """
-        The ID of the Remote Network the Connector is attached to
+        The ID of the Remote Network the Connector is attached to.
         """
         return pulumi.get(self, "remote_network_id")
 
@@ -41,7 +45,7 @@ class TwingateConnectorArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the Connector, if not provided one will be generated
+        Name of the Connector, if not provided one will be generated.
         """
         return pulumi.get(self, "name")
 
@@ -49,27 +53,43 @@ class TwingateConnectorArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter(name="statusUpdatesEnabled")
+    def status_updates_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Determines whether status notifications are enabled for the Connector.
+        """
+        return pulumi.get(self, "status_updates_enabled")
+
+    @status_updates_enabled.setter
+    def status_updates_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "status_updates_enabled", value)
+
 
 @pulumi.input_type
 class _TwingateConnectorState:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
-                 remote_network_id: Optional[pulumi.Input[str]] = None):
+                 remote_network_id: Optional[pulumi.Input[str]] = None,
+                 status_updates_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering TwingateConnector resources.
-        :param pulumi.Input[str] name: Name of the Connector, if not provided one will be generated
-        :param pulumi.Input[str] remote_network_id: The ID of the Remote Network the Connector is attached to
+        :param pulumi.Input[str] name: Name of the Connector, if not provided one will be generated.
+        :param pulumi.Input[str] remote_network_id: The ID of the Remote Network the Connector is attached to.
+        :param pulumi.Input[bool] status_updates_enabled: Determines whether status notifications are enabled for the Connector.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
         if remote_network_id is not None:
             pulumi.set(__self__, "remote_network_id", remote_network_id)
+        if status_updates_enabled is not None:
+            pulumi.set(__self__, "status_updates_enabled", status_updates_enabled)
 
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the Connector, if not provided one will be generated
+        Name of the Connector, if not provided one will be generated.
         """
         return pulumi.get(self, "name")
 
@@ -81,13 +101,25 @@ class _TwingateConnectorState:
     @pulumi.getter(name="remoteNetworkId")
     def remote_network_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Remote Network the Connector is attached to
+        The ID of the Remote Network the Connector is attached to.
         """
         return pulumi.get(self, "remote_network_id")
 
     @remote_network_id.setter
     def remote_network_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "remote_network_id", value)
+
+    @property
+    @pulumi.getter(name="statusUpdatesEnabled")
+    def status_updates_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Determines whether status notifications are enabled for the Connector.
+        """
+        return pulumi.get(self, "status_updates_enabled")
+
+    @status_updates_enabled.setter
+    def status_updates_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "status_updates_enabled", value)
 
 
 class TwingateConnector(pulumi.CustomResource):
@@ -97,13 +129,15 @@ class TwingateConnector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  remote_network_id: Optional[pulumi.Input[str]] = None,
+                 status_updates_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         Create a TwingateConnector resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Name of the Connector, if not provided one will be generated
-        :param pulumi.Input[str] remote_network_id: The ID of the Remote Network the Connector is attached to
+        :param pulumi.Input[str] name: Name of the Connector, if not provided one will be generated.
+        :param pulumi.Input[str] remote_network_id: The ID of the Remote Network the Connector is attached to.
+        :param pulumi.Input[bool] status_updates_enabled: Determines whether status notifications are enabled for the Connector.
         """
         ...
     @overload
@@ -130,6 +164,7 @@ class TwingateConnector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  remote_network_id: Optional[pulumi.Input[str]] = None,
+                 status_updates_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -143,6 +178,7 @@ class TwingateConnector(pulumi.CustomResource):
             if remote_network_id is None and not opts.urn:
                 raise TypeError("Missing required property 'remote_network_id'")
             __props__.__dict__["remote_network_id"] = remote_network_id
+            __props__.__dict__["status_updates_enabled"] = status_updates_enabled
         super(TwingateConnector, __self__).__init__(
             'twingate:index/twingateConnector:TwingateConnector',
             resource_name,
@@ -154,7 +190,8 @@ class TwingateConnector(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             name: Optional[pulumi.Input[str]] = None,
-            remote_network_id: Optional[pulumi.Input[str]] = None) -> 'TwingateConnector':
+            remote_network_id: Optional[pulumi.Input[str]] = None,
+            status_updates_enabled: Optional[pulumi.Input[bool]] = None) -> 'TwingateConnector':
         """
         Get an existing TwingateConnector resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -162,8 +199,9 @@ class TwingateConnector(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Name of the Connector, if not provided one will be generated
-        :param pulumi.Input[str] remote_network_id: The ID of the Remote Network the Connector is attached to
+        :param pulumi.Input[str] name: Name of the Connector, if not provided one will be generated.
+        :param pulumi.Input[str] remote_network_id: The ID of the Remote Network the Connector is attached to.
+        :param pulumi.Input[bool] status_updates_enabled: Determines whether status notifications are enabled for the Connector.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -171,13 +209,14 @@ class TwingateConnector(pulumi.CustomResource):
 
         __props__.__dict__["name"] = name
         __props__.__dict__["remote_network_id"] = remote_network_id
+        __props__.__dict__["status_updates_enabled"] = status_updates_enabled
         return TwingateConnector(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the Connector, if not provided one will be generated
+        Name of the Connector, if not provided one will be generated.
         """
         return pulumi.get(self, "name")
 
@@ -185,7 +224,15 @@ class TwingateConnector(pulumi.CustomResource):
     @pulumi.getter(name="remoteNetworkId")
     def remote_network_id(self) -> pulumi.Output[str]:
         """
-        The ID of the Remote Network the Connector is attached to
+        The ID of the Remote Network the Connector is attached to.
         """
         return pulumi.get(self, "remote_network_id")
+
+    @property
+    @pulumi.getter(name="statusUpdatesEnabled")
+    def status_updates_enabled(self) -> pulumi.Output[bool]:
+        """
+        Determines whether status notifications are enabled for the Connector.
+        """
+        return pulumi.get(self, "status_updates_enabled")
 

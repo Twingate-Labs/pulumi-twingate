@@ -220,13 +220,22 @@
                             "mapCase": false
                         }
                     }
+                },
+                "statusUpdatesEnabled": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
                 }
             },
             "type": "object",
             "required": [
                 "id",
                 "name",
-                "remoteNetworkId"
+                "remoteNetworkId",
+                "statusUpdatesEnabled"
             ],
             "language": {
                 "nodejs": {
@@ -260,6 +269,14 @@
                         }
                     }
                 },
+                "securityPolicyId": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "type": {
                     "type": "string",
                     "language": {
@@ -274,6 +291,7 @@
                 "id",
                 "isActive",
                 "name",
+                "securityPolicyId",
                 "type"
             ],
             "language": {
@@ -805,26 +823,35 @@
             "properties": {
                 "name": {
                     "type": "string",
-                    "description": "Name of the Connector, if not provided one will be generated\n"
+                    "description": "Name of the Connector, if not provided one will be generated.\n"
                 },
                 "remoteNetworkId": {
                     "type": "string",
-                    "description": "The ID of the Remote Network the Connector is attached to\n"
+                    "description": "The ID of the Remote Network the Connector is attached to.\n"
+                },
+                "statusUpdatesEnabled": {
+                    "type": "boolean",
+                    "description": "Determines whether status notifications are enabled for the Connector.\n"
                 }
             },
             "required": [
                 "name",
-                "remoteNetworkId"
+                "remoteNetworkId",
+                "statusUpdatesEnabled"
             ],
             "inputProperties": {
                 "name": {
                     "type": "string",
-                    "description": "Name of the Connector, if not provided one will be generated\n"
+                    "description": "Name of the Connector, if not provided one will be generated.\n"
                 },
                 "remoteNetworkId": {
                     "type": "string",
-                    "description": "The ID of the Remote Network the Connector is attached to\n",
+                    "description": "The ID of the Remote Network the Connector is attached to.\n",
                     "willReplaceOnChanges": true
+                },
+                "statusUpdatesEnabled": {
+                    "type": "boolean",
+                    "description": "Determines whether status notifications are enabled for the Connector.\n"
                 }
             },
             "requiredInputs": [
@@ -835,12 +862,16 @@
                 "properties": {
                     "name": {
                         "type": "string",
-                        "description": "Name of the Connector, if not provided one will be generated\n"
+                        "description": "Name of the Connector, if not provided one will be generated.\n"
                     },
                     "remoteNetworkId": {
                         "type": "string",
-                        "description": "The ID of the Remote Network the Connector is attached to\n",
+                        "description": "The ID of the Remote Network the Connector is attached to.\n",
                         "willReplaceOnChanges": true
+                    },
+                    "statusUpdatesEnabled": {
+                        "type": "boolean",
+                        "description": "Determines whether status notifications are enabled for the Connector.\n"
                     }
                 },
                 "type": "object"
@@ -925,29 +956,73 @@
         },
         "twingate:index/twingateGroup:TwingateGroup": {
             "properties": {
+                "isAuthoritative": {
+                    "type": "boolean",
+                    "description": "Determines whether User assignments to this Group will override any existing assignments. Default is `true`. If set to\n`false`, assignments made outside of Terraform will be ignored.\n"
+                },
                 "name": {
                     "type": "string",
                     "description": "The name of the group\n"
+                },
+                "securityPolicyId": {
+                    "type": "string",
+                    "description": "Defines which Security Policy applies to this Group. The Security Policy ID can be obtained from the\n`twingate_security_policy` and `twingate_security_policies` data sources.\n"
+                },
+                "userIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of User IDs that have permission to access the Group.\n"
                 }
             },
             "required": [
-                "name"
+                "isAuthoritative",
+                "name",
+                "securityPolicyId"
             ],
             "inputProperties": {
+                "isAuthoritative": {
+                    "type": "boolean",
+                    "description": "Determines whether User assignments to this Group will override any existing assignments. Default is `true`. If set to\n`false`, assignments made outside of Terraform will be ignored.\n"
+                },
                 "name": {
                     "type": "string",
                     "description": "The name of the group\n"
+                },
+                "securityPolicyId": {
+                    "type": "string",
+                    "description": "Defines which Security Policy applies to this Group. The Security Policy ID can be obtained from the\n`twingate_security_policy` and `twingate_security_policies` data sources.\n"
+                },
+                "userIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of User IDs that have permission to access the Group.\n"
                 }
             },
-            "requiredInputs": [
-                "name"
-            ],
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering TwingateGroup resources.\n",
                 "properties": {
+                    "isAuthoritative": {
+                        "type": "boolean",
+                        "description": "Determines whether User assignments to this Group will override any existing assignments. Default is `true`. If set to\n`false`, assignments made outside of Terraform will be ignored.\n"
+                    },
                     "name": {
                         "type": "string",
                         "description": "The name of the group\n"
+                    },
+                    "securityPolicyId": {
+                        "type": "string",
+                        "description": "Defines which Security Policy applies to this Group. The Security Policy ID can be obtained from the\n`twingate_security_policy` and `twingate_security_policies` data sources.\n"
+                    },
+                    "userIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of User IDs that have permission to access the Group.\n"
                     }
                 },
                 "type": "object"
@@ -977,9 +1052,6 @@
                     "description": "The name of the Remote Network\n"
                 }
             },
-            "requiredInputs": [
-                "name"
-            ],
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering TwingateRemoteNetwork resources.\n",
                 "properties": {
@@ -1090,7 +1162,6 @@
             },
             "requiredInputs": [
                 "address",
-                "name",
                 "remoteNetworkId"
             ],
             "stateInputs": {
@@ -1156,9 +1227,6 @@
                     "description": "The name of the Service Account in Twingate\n"
                 }
             },
-            "requiredInputs": [
-                "name"
-            ],
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering TwingateServiceAccount resources.\n",
                 "properties": {
@@ -1250,13 +1318,17 @@
                     },
                     "remoteNetworkId": {
                         "type": "string"
+                    },
+                    "statusUpdatesEnabled": {
+                        "type": "boolean"
                     }
                 },
                 "type": "object",
                 "required": [
                     "id",
                     "name",
-                    "remoteNetworkId"
+                    "remoteNetworkId",
+                    "statusUpdatesEnabled"
                 ]
             }
         },
@@ -1318,6 +1390,9 @@
                     "name": {
                         "type": "string"
                     },
+                    "securityPolicyId": {
+                        "type": "string"
+                    },
                     "type": {
                         "type": "string"
                     }
@@ -1327,6 +1402,7 @@
                     "id",
                     "isActive",
                     "name",
+                    "securityPolicyId",
                     "type"
                 ]
             }

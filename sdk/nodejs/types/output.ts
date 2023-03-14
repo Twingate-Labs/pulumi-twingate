@@ -9,12 +9,14 @@ export interface GetTwingateConnectorsConnector {
     id: string;
     name: string;
     remoteNetworkId: string;
+    statusUpdatesEnabled: boolean;
 }
 
 export interface GetTwingateGroupsGroup {
     id: string;
     isActive: boolean;
     name: string;
+    securityPolicyId: string;
     type: string;
 }
 

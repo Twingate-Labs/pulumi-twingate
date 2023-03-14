@@ -9,18 +9,21 @@ export interface GetTwingateConnectorsConnector {
     id?: string;
     name?: string;
     remoteNetworkId?: string;
+    statusUpdatesEnabled?: boolean;
 }
 
 export interface GetTwingateConnectorsConnectorArgs {
     id?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     remoteNetworkId?: pulumi.Input<string>;
+    statusUpdatesEnabled?: pulumi.Input<boolean>;
 }
 
 export interface GetTwingateGroupsGroup {
     id?: string;
     isActive?: boolean;
     name?: string;
+    securityPolicyId?: string;
     type?: string;
 }
 
@@ -28,6 +31,7 @@ export interface GetTwingateGroupsGroupArgs {
     id?: pulumi.Input<string>;
     isActive?: pulumi.Input<boolean>;
     name?: pulumi.Input<string>;
+    securityPolicyId?: pulumi.Input<string>;
     type?: pulumi.Input<string>;
 }
 
