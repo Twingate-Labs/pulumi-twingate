@@ -135,7 +135,7 @@ connectors = data.get("connectors")
 
 # Create EC2 Instance For Each Connector
 for i in range(1, connectors + 1):
-    connector = tg.TwingateConnector(f"demo_connector_{i}", remote_network_id=remote_network.id)
+    connector = tg.TwingateConnector(f"demo_connector_{i}", name="", remote_network_id=remote_network.id)
     connector_token = tg.TwingateConnectorTokens(f"demo_token_{i}", connector_id=connector.id)
     user_data = pulumi.Output.all(connector_token.access_token, connector_token.refresh_token).apply(lambda v: f'''#!/bin/bash
     sudo mkdir -p /etc/twingate/
