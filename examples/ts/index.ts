@@ -1,7 +1,7 @@
 import * as tg from "@twingate-labs/pulumi-twingate"
 import * as pulumi from "@pulumi/pulumi"
 
-const remoteNetwork = new tg.TwingateRemoteNetwork("test-network", {name: "Pulumi Test Network"})
+const remoteNetwork = new tg.TwingateRemoteNetwork("test-network", {name: "Office"})
 const serviceAccount = new tg.TwingateServiceAccount("ci_cd_account", {name: "CI CD Service"})
 const serviceAccountKey = new tg.TwingateServiceAccountKey("ci_cd_key", {name: "CI CD Key", serviceAccountId: serviceAccount.id})
 
@@ -14,7 +14,7 @@ function getGroupId(groupName: string){
     return groups[0].id
 }
 
-new tg.TwingateResource("test_resource", {
+new tg.TwingateResource("twingate_home_page", {
     name: "Twingate Home Page",
     address: "www.twingate.com",
     remoteNetworkId: remoteNetwork.id,

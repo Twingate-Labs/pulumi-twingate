@@ -1,22 +1,22 @@
 config:
   aws:region: eu-west-1
-  pulumi:data:
+  demo-connector:data:
     active: true
-    tg_remote_network: demo_network
-    vpc_name: demo_vpc
+    tg_remote_network: aws_application_vpc
+    vpc_name: aws_application_vpc
     vpc_cidr: 10.0.0.0/16
-    prv_subnet_name: demo_private_subnet
-    pub_subnet_name: demo_public_subnet
+    prv_subnet_name: private_subnet
+    pub_subnet_name: public_subnet
     prv_cidr: 10.0.1.0/24
     pub_cidr: 10.0.2.0/24
-    eip_name: demo_eip
-    igw_name: demo_igw
-    natgw_name: demo_ngw
-    pubrttable_name: demo_pubrttable
-    prvrttable_name: demo_prvrttable
-    pubrtasst_name: demo_pub_rt_asst
-    prvrtasst_name: demo_prv_rt_asst
-    sec_grp_name: demo_sec_grp
-    key_name: demo_key
+    eip_name: eip
+    igw_name: igw
+    natgw_name: ngw
+    pubrttable_name: pubrttable
+    prvrttable_name: prvrttable
+    pubrtasst_name: pub_rt_asst
+    prvrtasst_name: prv_rt_asst
+    sec_grp_name: egress_sec_grp
+    key_name: connector_ssh_key
     ec2_type: t2.micro
     connectors: 2

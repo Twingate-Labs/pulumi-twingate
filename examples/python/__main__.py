@@ -1,7 +1,7 @@
 import pulumi
 import pulumi_twingate as tg
 
-remote_network = tg.TwingateRemoteNetwork("test_network", name="Pulumi Test Network")
+remote_network = tg.TwingateRemoteNetwork("test_network", name="Office")
 service_account = tg.TwingateServiceAccount("ci_cd_account", name="CI CD Service")
 service_account_key = tg.TwingateServiceAccountKey("ci_cd_key", name="CI CD Key", service_account_id=service_account.id)
 
@@ -15,7 +15,7 @@ def get_group_id(group_name):
     return group.id
 
 
-twingate_resource = tg.TwingateResource("test_resource",
+twingate_resource = tg.TwingateResource("twingate_home_page",
                                         name="Twingate Home Page",
                                         address="www.twingate.com",
                                         remote_network_id=remote_network.id,
