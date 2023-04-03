@@ -129,6 +129,7 @@ ami = aws.ec2.get_ami(most_recent=True,
                       owners=["617935088040"],
                       filters=[{"name": "name", "values": ["twingate/images/hvm-ssd/twingate-amd64-*"]}])
 
+# Create a Twingate remote network
 remote_network = tg.TwingateRemoteNetwork(data.get("tg_remote_network"), name=data.get("tg_remote_network"))
 
 connectors = data.get("connectors")

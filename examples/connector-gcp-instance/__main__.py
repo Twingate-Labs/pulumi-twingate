@@ -3,6 +3,9 @@ from pulumi_gcp import compute
 import pulumi_twingate as tg
 import os
 
+# Set to True to enable ssh
+
+enable_ssh = False
 config = pulumi.Config()
 data = config.require_object("data")
 
@@ -38,17 +41,17 @@ nat = compute.RouterNat(data.get("nat_name"),
                             filter="ERRORS_ONLY",
                         ))
 
-# Uncomment to Enable SSH
-# compute_firewall = compute.Firewall(
-#     "firewall",
-#     name="enable-ssh",
-#     network=vpc.self_link,
-#     allows=[compute.FirewallAllowArgs(
-#         protocol="tcp",
-#         ports=["22"],
-#     )],
-#     source_ranges=["0.0.0.0/0"]
-# )
+if enable_ssh:
+    compute_firewall = compute.Firewall(
+        "firewall",
+        name="enable-ssh",
+        network=vpc.self_link,
+        allows=[compute.FirewallAllowArgs(
+            protocol="tcp",
+            ports=["22"],
+        )],
+        source_ranges=["0.0.0.0/0"]
+    )
 
 # Create a Twingate Remote Network
 remote_network = tg.TwingateRemoteNetwork(data.get("tg_remote_network"), name=data.get("tg_remote_network"))
@@ -57,9 +60,15 @@ connectors = data.get("connectors")
 
 # Create VM Instance For Each Connector
 for i in range(1, connectors + 1):
-    connector = tg.TwingateConnector(f"demo_connector_{i}", name="", remote_network_id=remote_network.id)
-    connector_token = tg.TwingateConnectorTokens(f"demo_token_{i}", connector_id=connector.id)
-    start_script = pulumi.Output.all(connector_token.access_token, connector_token.refresh_token).apply(lambda v: f'''curl "https://binaries.twingate.com/connector/setup.sh" | sudo TWINGATE_ACCESS_TOKEN="{v[0]}" TWINGATE_REFRESH_TOKEN="{v[1]}" TWINGATE_URL="https://{tg_account}.twingate.com" bash; sudo echo TWINGATE_LABEL_DEPLOYEDBY="tg-pulumi-gcp-vm" >> /etc/twingate/connector.conf; sudo service twingate-connector restart;''')
+    connector = tg.TwingateConnector(f"connector_{i}", name="", remote_network_id=remote_network.id)
+    connector_token = tg.TwingateConnectorTokens(f"token_{i}", connector_id=connector.id)
+    start_script = pulumi.Output.all(connector_token.access_token, connector_token.refresh_token).apply(lambda v: f'''\
+    curl "https://binaries.twingate.com/connector/setup.sh" | \
+    sudo TWINGATE_ACCESS_TOKEN="{v[0]}" \
+    TWINGATE_REFRESH_TOKEN="{v[1]}" \
+    TWINGATE_URL="https://{tg_account}.twingate.com" bash; \
+    sudo echo TWINGATE_LABEL_DEPLOYEDBY="tg-pulumi-gcp-vm" >> /etc/twingate/connector.conf; \
+    sudo service twingate-connector restart;''')
 
     vm = compute.Instance(f"twingate-connector-{i}",
                           name=f"twingate-connector-{i}",
