@@ -1,5 +1,5 @@
 # Connector AWS
-This example demonstrates how to deploy Twingate connectors to AWS EC2 instances.
+This example demonstrates how to deploy Twingate connectors to AWS ECS Fargate.
 
 ## Pre-requisite
 * Python and PIP
@@ -8,7 +8,7 @@ This example demonstrates how to deploy Twingate connectors to AWS EC2 instances
 
 ## How to Use
 * Clone the repository
-* `cd /path/to/repo/examples/connector-aws`
+* `cd /path/to/repo/examples/connector-aws-ecs`
 * Configure Pulumi-Twingate Provider, see configuration section [here](../../readme.md)
 * Setup AWS CLI, see [here](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-quickstart.html)
 * `cp pulumi.dev.yaml.example pulumi.dev.yaml` and modify `pulumi.dev.yaml` to desired values including number of connectors to deploy.

@@ -8,8 +8,12 @@ import os
 enable_ssh = False
 config = pulumi.Config()
 data = config.require_object("data")
+twingate_config = pulumi.Config("twingate")
 
-tg_account = os.getenv('TWINGATE_NETWORK')
+try:
+    tg_account = twingate_config.get("apiToken")
+except:
+    tg_account = os.getenv('TWINGATE_NETWORK')
 
 # Create an VPC
 vpc = compute.Network(

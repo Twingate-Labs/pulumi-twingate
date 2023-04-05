@@ -17,6 +17,7 @@ The following configuration points are available for the `twingate` provider:
 ## Examples
 * [TypeScript](./examples/ts): Demonstrating how Twingate remote network, service account, service key and resources can be created and configured in Typescript.
 * [Python](./examples/python): Demonstrating how Twingate remote network, service account, service key and resources can be created and configured in Python.
-* [AWS Connector](./examples/connector-aws):  Deploying Twingate connectors to AWS EC2 instances.
-* [GCP Connector](./examples/connector-gcp-instance): Deploying Twingate connectors to GCP instances.
+* [AWS EC2 Connector](./examples/connector-aws-ec2): Deploying Twingate connectors to AWS EC2 instances.
+* [AWS ECS Connector](./examples/connector-aws-ecs): Deploying Twingate connectors to AWS ECS cluster.
+* [GCP VM Connector](./examples/connector-gcp-instance): Deploying Twingate connectors to GCP instances.
 * [GKE Connectors](./examples/connector-gcp-gke): Deploying Twingate connectors to GKE Kubernetes cluster.

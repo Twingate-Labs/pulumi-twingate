@@ -8,7 +8,12 @@ from pulumi_kubernetes.helm.v3 import Release, ReleaseArgs, RepositoryOptsArgs
 config = pulumi.Config()
 data = config.require_object("data")
 gcp_config = pulumi.Config("gcp")
-tg_account = os.getenv('TWINGATE_NETWORK')
+twingate_config = pulumi.Config("twingate")
+
+try:
+    tg_account = twingate_config.get("apiToken")
+except:
+    tg_account = os.getenv('TWINGATE_NETWORK')
 
 # Create an VPC
 vpc = compute.Network(

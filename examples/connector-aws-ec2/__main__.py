@@ -5,8 +5,12 @@ import os
 
 config = pulumi.Config()
 data = config.require_object("data")
+twingate_config = pulumi.Config("twingate")
 
-tg_account = os.getenv('TWINGATE_NETWORK')
+try:
+    tg_account = twingate_config.get("apiToken")
+except:
+    tg_account = os.getenv('TWINGATE_NETWORK')
 
 # Create a VPC
 vpc = aws.ec2.Vpc(
