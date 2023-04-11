@@ -128,7 +128,7 @@ for i in range(1, connectors + 1):
     connector = tg.TwingateConnector(f"twingate_connector_{i}", name="", remote_network_id=remote_network.id)
     connector_token = tg.TwingateConnectorTokens(f"connector_token_{i}", connector_id=connector.id)
     service = awsx.ecs.FargateService(f"Twingate-Connector-{i}",
-                                      name=connector.name,
+                                      name=f"tg-{connector.name}",
                                       cluster=cluster.arn,
                                       network_configuration=aws.ecs.ServiceNetworkConfigurationArgs(
                                           subnets=[private_subnet.id],

@@ -170,7 +170,7 @@ for i in range(1, connectors + 1):
     ec2_instance = aws.ec2.Instance(
         f"Twingate-Connector-{i}",
         tags={
-            "Name": connector.name,
+            "Name": f"tg-{connector.name}",
         },
         instance_type=data.get("ec2_type"),
         vpc_security_group_ids=[sg.id],

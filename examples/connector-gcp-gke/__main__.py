@@ -124,7 +124,7 @@ for i in range(1, connectors + 1):
         f"twingate-connector-{i}",
         ReleaseArgs(
             chart="connector",
-            name=connector.name,
+            name=f"tg-{connector.name}",
             namespace=data.get("namespace"),
             repository_opts=RepositoryOptsArgs(
                 repo="https://twingate.github.io/helm-charts",

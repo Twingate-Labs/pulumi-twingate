@@ -86,7 +86,7 @@ Unattended-Upgrade::Automatic-Reboot-Time \\"02:00\\";" >> /etc/apt/apt.conf.d/5
     sudo service twingate-connector restart''')
 
     vm = compute.Instance(f"twingate-connector-{i}",
-                          name=connector.name,
+                          name=f"tg-{connector.name}",
                           machine_type=data.get("vm_type"),
                           boot_disk=compute.InstanceBootDiskArgs(
                               initialize_params=compute.InstanceBootDiskInitializeParamsArgs(
