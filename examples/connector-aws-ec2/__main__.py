@@ -7,8 +7,14 @@ config = pulumi.Config()
 data = config.require_object("data")
 twingate_config = pulumi.Config("twingate")
 
+# Set to True to enable SSH to the connector EC2 instance
+ssh_enabled = False
+
+
 try:
-    tg_account = twingate_config.get("apiToken")
+    tg_account = twingate_config.get("network")
+    if tg_account is None:
+        tg_account = os.getenv('TWINGATE_NETWORK')
 except:
     tg_account = os.getenv('TWINGATE_NETWORK')
 
@@ -17,7 +23,6 @@ vpc = aws.ec2.Vpc(
     data.get("vpc_name"),
     cidr_block=data.get("vpc_cidr"),
     enable_dns_hostnames=True,
-    enable_classiclink_dns_support=True,
     tags={
         "Name": data.get("vpc_name"),
     }
@@ -101,19 +106,22 @@ prv_route_association = aws.ec2.RouteTableAssociation(
     subnet_id=private_subnet.id
 )
 
+# Enable ssh if ssh_enable is true
+sg_extra_args = {}
+if ssh_enabled:
+    sg_extra_args["ingress"] = [
+        {
+            "protocol": "tcp",
+            "from_port": 22,
+            "to_port": 22,
+            "cidr_blocks": ["0.0.0.0/0"],
+
+        }
+    ]
+
 # Create a Security Group
 sg = aws.ec2.SecurityGroup(
     data.get("sec_grp_name"),
-    # uncomment for SSH access
-    # ingress=[
-    #     {
-    #         "protocol": "tcp",
-    #         "from_port": 22,
-    #         "to_port": 22,
-    #         "cidr_blocks": ["0.0.0.0/0"],
-    #
-    #     }
-    # ],
     egress=[
         {
             "protocol": "-1",
@@ -122,7 +130,8 @@ sg = aws.ec2.SecurityGroup(
             "cidr_blocks": ["0.0.0.0/0"],
         }
     ],
-    vpc_id=vpc.id
+    vpc_id=vpc.id,
+    **sg_extra_args
 )
 
 # Get the Key Pair, Can Also Create New one
@@ -160,11 +169,14 @@ for i in range(1, connectors + 1):
 
     ec2_instance = aws.ec2.Instance(
         f"Twingate-Connector-{i}",
+        tags={
+            "Name": connector.name,
+        },
         instance_type=data.get("ec2_type"),
         vpc_security_group_ids=[sg.id],
         ami=ami.id,
         key_name=keypair.key_name,
         user_data=user_data,
         subnet_id=private_subnet.id,
-        associate_public_ip_address=True,
+        associate_public_ip_address=False,
     )

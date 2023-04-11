@@ -17,6 +17,7 @@ config:
     pubrtasst_name: pub_rt_asst
     prvrtasst_name: prv_rt_asst
     sec_grp_name: egress_sec_grp
+    cluster_name: twignate_secured_cluster
     container_cpu: 1024
     container_ram: 2048
     connectors: 2

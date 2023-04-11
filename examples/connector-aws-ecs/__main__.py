@@ -9,7 +9,9 @@ data = config.require_object("data")
 twingate_config = pulumi.Config("twingate")
 
 try:
-    tg_account = twingate_config.get("apiToken")
+    tg_account = twingate_config.get("network")
+    if tg_account is None:
+        tg_account = os.getenv('TWINGATE_NETWORK')
 except:
     tg_account = os.getenv('TWINGATE_NETWORK')
 
@@ -18,7 +20,6 @@ vpc = aws.ec2.Vpc(
     data.get("vpc_name"),
     cidr_block=data.get("vpc_cidr"),
     enable_dns_hostnames=True,
-    enable_classiclink_dns_support=True,
     tags={
         "Name": data.get("vpc_name"),
     }
@@ -121,13 +122,13 @@ remote_network = tg.TwingateRemoteNetwork(data.get("tg_remote_network"), name=da
 
 connectors = data.get("connectors")
 
-cluster = aws.ecs.Cluster("cluster")
+cluster = aws.ecs.Cluster(data.get("cluster_name"), name=data.get("cluster_name"))
 
 for i in range(1, connectors + 1):
     connector = tg.TwingateConnector(f"twingate_connector_{i}", name="", remote_network_id=remote_network.id)
     connector_token = tg.TwingateConnectorTokens(f"connector_token_{i}", connector_id=connector.id)
     service = awsx.ecs.FargateService(f"Twingate-Connector-{i}",
-                                      name=f"Twingate-Connector-{i}",
+                                      name=connector.name,
                                       cluster=cluster.arn,
                                       network_configuration=aws.ecs.ServiceNetworkConfigurationArgs(
                                           subnets=[private_subnet.id],
@@ -145,6 +146,8 @@ for i in range(1, connectors + 1):
                                                   awsx.ecs.TaskDefinitionKeyValuePairArgs(name="ACCESS_TOKEN",
                                                                                           value=connector_token.access_token),
                                                   awsx.ecs.TaskDefinitionKeyValuePairArgs(name="REFRESH_TOKEN",
-                                                                                          value=connector_token.refresh_token)]
+                                                                                          value=connector_token.refresh_token),
+                                                  awsx.ecs.TaskDefinitionKeyValuePairArgs(name="TWINGATE_LABEL_DEPLOYEDBY",
+                                                                                          value="tg-pulumi-aws-ecs")]
                                           ),
                                       ))
