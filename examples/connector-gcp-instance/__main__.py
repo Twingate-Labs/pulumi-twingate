@@ -11,7 +11,10 @@ data = config.require_object("data")
 twingate_config = pulumi.Config("twingate")
 
 try:
-    tg_account = twingate_config.get("apiToken")
+    if twingate_config.get("network"):
+        tg_account = twingate_config.get("network")
+    else:
+        tg_account = os.getenv('TWINGATE_NETWORK')
 except:
     tg_account = os.getenv('TWINGATE_NETWORK')
 
@@ -71,11 +74,19 @@ for i in range(1, connectors + 1):
     sudo TWINGATE_ACCESS_TOKEN="{v[0]}" \
     TWINGATE_REFRESH_TOKEN="{v[1]}" \
     TWINGATE_URL="https://{tg_account}.twingate.com" bash; \
-    sudo echo TWINGATE_LABEL_DEPLOYEDBY="tg-pulumi-gcp-vm" >> /etc/twingate/connector.conf; \
-    sudo service twingate-connector restart;''')
+    sudo bash -c 'echo TWINGATE_LABEL_DEPLOYEDBY="tg-pulumi-gcp-vm" >> /etc/twingate/connector.conf'; \
+    sudo bash -c 'echo "
+Unattended-Upgrade::Origins-Pattern {{
+    \\"site=packages.twingate.com\\";
+    }};" >> /etc/apt/apt.conf.d/50unattended-upgrades'; \
+    sudo bash -c 'echo "
+Unattended-Upgrade::Automatic-Reboot-Time \\"02:00\\";" >> /etc/apt/apt.conf.d/50unattended-upgrades'; \
+    sudo systemctl daemon-reload; \
+    sudo systemctl enable twingate-connector.service; \
+    sudo service twingate-connector restart''')
 
     vm = compute.Instance(f"twingate-connector-{i}",
-                          name=f"twingate-connector-{i}",
+                          name=connector.name,
                           machine_type=data.get("vm_type"),
                           boot_disk=compute.InstanceBootDiskArgs(
                               initialize_params=compute.InstanceBootDiskInitializeParamsArgs(

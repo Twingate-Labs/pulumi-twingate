@@ -6,8 +6,8 @@ config:
     router_name: router
     subnet_cidr: 10.0.1.0/24
     subnet_name: subnet
-    tg_remote_network: gke-application-network
-    vpc_name: gcp-application-vpc
+    tg_remote_network: gke-application-vnet
+    vpc_name: gke-application-vnet
     cluster_name: gke-application-cluster
     node_pool_name: gke-application-node-pool
     node_count: 3

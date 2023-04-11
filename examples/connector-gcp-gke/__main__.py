@@ -11,7 +11,9 @@ gcp_config = pulumi.Config("gcp")
 twingate_config = pulumi.Config("twingate")
 
 try:
-    tg_account = twingate_config.get("apiToken")
+    tg_account = twingate_config.get("network")
+    if tg_account is None:
+        tg_account = os.getenv('TWINGATE_NETWORK')
 except:
     tg_account = os.getenv('TWINGATE_NETWORK')
 
@@ -122,6 +124,7 @@ for i in range(1, connectors + 1):
         f"twingate-connector-{i}",
         ReleaseArgs(
             chart="connector",
+            name=connector.name,
             namespace=data.get("namespace"),
             repository_opts=RepositoryOptsArgs(
                 repo="https://twingate.github.io/helm-charts",
