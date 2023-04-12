@@ -114,7 +114,7 @@ remote_network = tg.TwingateRemoteNetwork(data.get("tg_remote_network"), name=da
 
 connectors = data.get("connectors")
 
-# Create Pods For Each Connector
+# Create a Pod For Each Connector
 for i in range(1, connectors + 1):
     connector = tg.TwingateConnector(f"connector_{i}", name="", remote_network_id=remote_network.id)
     connector_token = tg.TwingateConnectorTokens(f"demo_token_{i}", connector_id=connector.id)
@@ -124,7 +124,8 @@ for i in range(1, connectors + 1):
         f"twingate-connector-{i}",
         ReleaseArgs(
             chart="connector",
-            name=f"tg-{connector.name}",
+            name=pulumi.Output.all(connector.name).apply(
+                lambda v: f"tg-{v[0]}"),
             namespace=data.get("namespace"),
             repository_opts=RepositoryOptsArgs(
                 repo="https://twingate.github.io/helm-charts",

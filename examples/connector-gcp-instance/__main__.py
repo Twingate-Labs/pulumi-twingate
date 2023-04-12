@@ -65,7 +65,7 @@ remote_network = tg.TwingateRemoteNetwork(data.get("tg_remote_network"), name=da
 
 connectors = data.get("connectors")
 
-# Create VM Instance For Each Connector
+# Create a VM Instance For Each Connector
 for i in range(1, connectors + 1):
     connector = tg.TwingateConnector(f"connector_{i}", name="", remote_network_id=remote_network.id)
     connector_token = tg.TwingateConnectorTokens(f"token_{i}", connector_id=connector.id)
@@ -86,7 +86,8 @@ Unattended-Upgrade::Automatic-Reboot-Time \\"02:00\\";" >> /etc/apt/apt.conf.d/5
     sudo service twingate-connector restart''')
 
     vm = compute.Instance(f"twingate-connector-{i}",
-                          name=f"tg-{connector.name}",
+                          name=pulumi.Output.all(connector.name).apply(
+                              lambda v: f"tg-{v[0]}"),
                           machine_type=data.get("vm_type"),
                           boot_disk=compute.InstanceBootDiskArgs(
                               initialize_params=compute.InstanceBootDiskInitializeParamsArgs(

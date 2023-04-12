@@ -147,7 +147,7 @@ remote_network = tg.TwingateRemoteNetwork(data.get("tg_remote_network"), name=da
 
 connectors = data.get("connectors")
 
-# Create EC2 Instance For Each Connector
+# Create a EC2 Instance For Each Connector
 for i in range(1, connectors + 1):
     connector = tg.TwingateConnector(f"twingate_connector_{i}", name="", remote_network_id=remote_network.id)
     connector_token = tg.TwingateConnectorTokens(f"connector_token_{i}", connector_id=connector.id)
@@ -170,7 +170,8 @@ for i in range(1, connectors + 1):
     ec2_instance = aws.ec2.Instance(
         f"Twingate-Connector-{i}",
         tags={
-            "Name": f"tg-{connector.name}",
+            "Name": pulumi.Output.all(connector.name).apply(
+                lambda v: f"tg-{v[0]}"),
         },
         instance_type=data.get("ec2_type"),
         vpc_security_group_ids=[sg.id],
