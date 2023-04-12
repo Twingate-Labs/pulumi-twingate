@@ -1,7 +1,7 @@
 config:
   demo-connector:data:
     active: true
-    connectors: 3
+    connectors: 2
     nat_name: nat
     router_name: router
     subnet_cidr: 10.0.1.0/24

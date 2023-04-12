@@ -17,3 +17,8 @@ This example demonstrates how to deploy Twingate connectors to GKE Kubernetes Cl
 **Note**: `pulumi up` should automatically download the required Python dependency and Pulumi Plugins.
 
 **Note**: make sure `dev` part in the file name of `pulumi.dev.yaml` is changed to the Pulumi stack name.
+
+## How to Update Connectors
+Adding `recreate_pods=True,` to `ReleaseArgs` in [__main__.py](./__main__.py) and execute `pulumi up` would trigger the connector pod to be replaced. This would replace the connector image with the latest version.
+
+**Note**: Connector update can cause the existing connection to be interrupted. 

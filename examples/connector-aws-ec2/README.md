@@ -17,3 +17,8 @@ This example demonstrates how to deploy Twingate connectors to AWS EC2 instances
 **Note**: `pulumi up` should automatically download the required Python dependency and Pulumi Plugins.
 
 **Note**: make sure `dev` part in the file name of `pulumi.dev.yaml` is changed to the Pulumi stack name.
+
+## How to Update Connectors
+`pulumi up` would trigger VM replacement with the latest connector AMI version (if newer version exist).
+
+**Note**: Connector update can cause the existing connection to be interrupted. 

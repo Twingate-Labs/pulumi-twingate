@@ -17,3 +17,8 @@ This example demonstrates how to deploy Twingate connectors to GCP instances.
 **Note**: `pulumi up` should automatically download the required Python dependency and Pulumi Plugins.
 
 **Note**: make sure `dev` part in the file name of `pulumi.dev.yaml` is changed to the Pulumi stack name.
+
+## How to Update Connectors
+Auto connector update is enabled and is default to be performed at 02:00 AM server time. To modify the behaviour, see variable `start_script` in [__main__.py](./__main__.py)
+
+**Note**: Connector update can cause the existing connection to be interrupted. 
