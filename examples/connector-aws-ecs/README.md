@@ -19,6 +19,6 @@ This example demonstrates how to deploy Twingate connectors to AWS ECS Fargate.
 **Note**: make sure `dev` part in the file name of `pulumi.dev.yaml` is changed to the Pulumi stack name.
 
 ## How to Update Connectors
-Modify line `image="twingate/connector:{version number}"` in [__main__.py](./__main__.py) and execute `pulumi up` would trigger connector task definitions to be replaced. This would replace the connector image with the defined version. 
+Adding parameter `force_new_deployment=True,` to function `awsx.ecs.FargateService` in [__main__.py](./__main__.py) and execute `pulumi up` would trigger the connector container to be redeployed. This can be used to update tasks to use a newer Docker image with same image/tag combination.
 
 **Note**: Connector update can cause the existing connection to be interrupted. 
