@@ -3,12 +3,12 @@ from pulumi_gcp import compute
 import pulumi_twingate as tg
 import os
 
-# Set to True to enable ssh
-
-enable_ssh = False
 config = pulumi.Config()
 data = config.require_object("data")
 twingate_config = pulumi.Config("twingate")
+
+# Set to True to enable ssh to the connector VM instance
+enable_ssh = False
 
 try:
     if twingate_config.get("network"):

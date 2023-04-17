@@ -8,7 +8,7 @@ config = pulumi.Config()
 data = config.require_object("data")
 twingate_config = pulumi.Config("twingate")
 
-# Set to True to enable SSH to the connector EC2 instance
+# Set to True to enable SSH to the connector VM instance
 ssh_enabled = False
 
 try:
