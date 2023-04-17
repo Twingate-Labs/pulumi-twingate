@@ -21,3 +21,5 @@ The following configuration points are available for the `twingate` provider:
 * [AWS ECS Connector](./examples/connector-aws-ecs): Deploying Twingate connectors to AWS ECS cluster.
 * [GCP VM Connector](./examples/connector-gcp-instance): Deploying Twingate connectors to GCP instances.
 * [GKE Connectors](./examples/connector-gcp-gke): Deploying Twingate connectors to GKE Kubernetes cluster.
+* [Azure VM](./examples/connector-azure-vm): Deploying Twingate connectors to Azure VM instances.
+* [Azure Container Instance](./examples/connector-azure-container): Deploying Twingate connectors to Azure Container Instance.
