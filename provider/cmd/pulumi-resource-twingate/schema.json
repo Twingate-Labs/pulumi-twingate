@@ -87,22 +87,12 @@
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "serviceAccountIds": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 }
             },
@@ -111,28 +101,13 @@
         "twingate:index/TwingateResourceProtocols:TwingateResourceProtocols": {
             "properties": {
                 "allowIcmp": {
-                    "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "boolean"
                 },
                 "tcp": {
-                    "$ref": "#/types/twingate:index/TwingateResourceProtocolsTcp:TwingateResourceProtocolsTcp",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/twingate:index/TwingateResourceProtocolsTcp:TwingateResourceProtocolsTcp"
                 },
                 "udp": {
-                    "$ref": "#/types/twingate:index/TwingateResourceProtocolsUdp:TwingateResourceProtocolsUdp",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/twingate:index/TwingateResourceProtocolsUdp:TwingateResourceProtocolsUdp"
                 }
             },
             "type": "object",
@@ -144,22 +119,12 @@
         "twingate:index/TwingateResourceProtocolsTcp:TwingateResourceProtocolsTcp": {
             "properties": {
                 "policy": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "ports": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 }
             },
@@ -171,22 +136,12 @@
         "twingate:index/TwingateResourceProtocolsUdp:TwingateResourceProtocolsUdp": {
             "properties": {
                 "policy": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "ports": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 }
             },
@@ -198,36 +153,16 @@
         "twingate:index/getTwingateConnectorsConnector:getTwingateConnectorsConnector": {
             "properties": {
                 "id": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "name": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "remoteNetworkId": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "statusUpdatesEnabled": {
-                    "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "boolean"
                 }
             },
             "type": "object",
@@ -246,44 +181,19 @@
         "twingate:index/getTwingateGroupsGroup:getTwingateGroupsGroup": {
             "properties": {
                 "id": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "isActive": {
-                    "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "boolean"
                 },
                 "name": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "securityPolicyId": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "type": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -303,28 +213,13 @@
         "twingate:index/getTwingateRemoteNetworksRemoteNetwork:getTwingateRemoteNetworksRemoteNetwork": {
             "properties": {
                 "id": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "location": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "name": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -342,33 +237,18 @@
         "twingate:index/getTwingateResourceProtocol:getTwingateResourceProtocol": {
             "properties": {
                 "allowIcmp": {
-                    "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "boolean"
                 },
                 "tcps": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/twingate:index/getTwingateResourceProtocolTcp:getTwingateResourceProtocolTcp"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "udps": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/twingate:index/getTwingateResourceProtocolUdp:getTwingateResourceProtocolUdp"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 }
             },
@@ -385,22 +265,12 @@
         "twingate:index/getTwingateResourceProtocolTcp:getTwingateResourceProtocolTcp": {
             "properties": {
                 "policy": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "ports": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 }
             },
@@ -418,22 +288,12 @@
         "twingate:index/getTwingateResourceProtocolUdp:getTwingateResourceProtocolUdp": {
             "properties": {
                 "policy": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "ports": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 }
             },
@@ -451,47 +311,22 @@
         "twingate:index/getTwingateResourcesResource:getTwingateResourcesResource": {
             "properties": {
                 "address": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "id": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "name": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "protocols": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/twingate:index/getTwingateResourcesResourceProtocol:getTwingateResourcesResourceProtocol"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "remoteNetworkId": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -510,33 +345,18 @@
         "twingate:index/getTwingateResourcesResourceProtocol:getTwingateResourcesResourceProtocol": {
             "properties": {
                 "allowIcmp": {
-                    "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "boolean"
                 },
                 "tcps": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/twingate:index/getTwingateResourcesResourceProtocolTcp:getTwingateResourcesResourceProtocolTcp"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "udps": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/twingate:index/getTwingateResourcesResourceProtocolUdp:getTwingateResourcesResourceProtocolUdp"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 }
             },
@@ -553,22 +373,12 @@
         "twingate:index/getTwingateResourcesResourceProtocolTcp:getTwingateResourcesResourceProtocolTcp": {
             "properties": {
                 "policy": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "ports": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 }
             },
@@ -586,22 +396,12 @@
         "twingate:index/getTwingateResourcesResourceProtocolUdp:getTwingateResourcesResourceProtocolUdp": {
             "properties": {
                 "policy": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "ports": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 }
             },
@@ -619,20 +419,10 @@
         "twingate:index/getTwingateSecurityPoliciesSecurityPolicy:getTwingateSecurityPoliciesSecurityPolicy": {
             "properties": {
                 "id": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "name": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -649,41 +439,21 @@
         "twingate:index/getTwingateServiceAccountsServiceAccount:getTwingateServiceAccountsServiceAccount": {
             "properties": {
                 "id": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "keyIds": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "name": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "resourceIds": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 }
             },
@@ -703,52 +473,22 @@
         "twingate:index/getTwingateUsersUser:getTwingateUsersUser": {
             "properties": {
                 "email": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "firstName": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "id": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "isAdmin": {
-                    "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "boolean"
                 },
                 "lastName": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "role": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -1077,13 +817,9 @@
                     "type": "string",
                     "description": "The Resource's IP/CIDR or FQDN/DNS zone\n"
                 },
-                "groupIds": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "List of Group IDs that have permission to access the Resource, cannot be generated by Terraform and must be retrieved\nfrom the Twingate Admin Console or API\n",
-                    "deprecationMessage": "The group_ids argument is now deprecated, and the new access block argument should be used instead. The group_ids argument will be removed in a future version of the provider."
+                "alias": {
+                    "type": "string",
+                    "description": "Set a DNS alias address for the Resource. Must be a DNS-valid name string.\n"
                 },
                 "isAuthoritative": {
                     "type": "boolean",
@@ -1127,13 +863,9 @@
                     "type": "string",
                     "description": "The Resource's IP/CIDR or FQDN/DNS zone\n"
                 },
-                "groupIds": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "List of Group IDs that have permission to access the Resource, cannot be generated by Terraform and must be retrieved\nfrom the Twingate Admin Console or API\n",
-                    "deprecationMessage": "The group_ids argument is now deprecated, and the new access block argument should be used instead. The group_ids argument will be removed in a future version of the provider."
+                "alias": {
+                    "type": "string",
+                    "description": "Set a DNS alias address for the Resource. Must be a DNS-valid name string.\n"
                 },
                 "isAuthoritative": {
                     "type": "boolean",
@@ -1175,13 +907,9 @@
                         "type": "string",
                         "description": "The Resource's IP/CIDR or FQDN/DNS zone\n"
                     },
-                    "groupIds": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        },
-                        "description": "List of Group IDs that have permission to access the Resource, cannot be generated by Terraform and must be retrieved\nfrom the Twingate Admin Console or API\n",
-                        "deprecationMessage": "The group_ids argument is now deprecated, and the new access block argument should be used instead. The group_ids argument will be removed in a future version of the provider."
+                    "alias": {
+                        "type": "string",
+                        "description": "Set a DNS alias address for the Resource. Must be a DNS-valid name string.\n"
                     },
                     "isAuthoritative": {
                         "type": "boolean",
