@@ -8,7 +8,7 @@ This example demonstrate how Twingate remote network, service account, service k
 ## How to Use
 * Clone the repository
 * `cd /path/to/repo/examples/ts`
-* Setup Pulumi-Twingate Provider, see configuration section [here](../../readme.md)
+* Setup Pulumi-Twingate Provider, see configuration section [here](../../README.md)
 * `pulumi up`
 
 Note: `pulumi up` should automatically download the required typescript dependency and Pulumi Plugins.
