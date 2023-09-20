@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['TwingateGroupArgs', 'TwingateGroup']
@@ -27,14 +27,29 @@ class TwingateGroupArgs:
                `twingate_security_policy` and `twingate_security_policies` data sources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_ids: List of User IDs that have permission to access the Group.
         """
+        TwingateGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_authoritative=is_authoritative,
+            name=name,
+            security_policy_id=security_policy_id,
+            user_ids=user_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_authoritative: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             security_policy_id: Optional[pulumi.Input[str]] = None,
+             user_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if is_authoritative is not None:
-            pulumi.set(__self__, "is_authoritative", is_authoritative)
+            _setter("is_authoritative", is_authoritative)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if security_policy_id is not None:
-            pulumi.set(__self__, "security_policy_id", security_policy_id)
+            _setter("security_policy_id", security_policy_id)
         if user_ids is not None:
-            pulumi.set(__self__, "user_ids", user_ids)
+            _setter("user_ids", user_ids)
 
     @property
     @pulumi.getter(name="isAuthoritative")
@@ -103,14 +118,29 @@ class _TwingateGroupState:
                `twingate_security_policy` and `twingate_security_policies` data sources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_ids: List of User IDs that have permission to access the Group.
         """
+        _TwingateGroupState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_authoritative=is_authoritative,
+            name=name,
+            security_policy_id=security_policy_id,
+            user_ids=user_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_authoritative: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             security_policy_id: Optional[pulumi.Input[str]] = None,
+             user_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if is_authoritative is not None:
-            pulumi.set(__self__, "is_authoritative", is_authoritative)
+            _setter("is_authoritative", is_authoritative)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if security_policy_id is not None:
-            pulumi.set(__self__, "security_policy_id", security_policy_id)
+            _setter("security_policy_id", security_policy_id)
         if user_ids is not None:
-            pulumi.set(__self__, "user_ids", user_ids)
+            _setter("user_ids", user_ids)
 
     @property
     @pulumi.getter(name="isAuthoritative")
@@ -202,6 +232,10 @@ class TwingateGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TwingateGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

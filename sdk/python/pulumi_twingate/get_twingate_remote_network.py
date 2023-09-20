@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = [
@@ -72,9 +72,9 @@ def get_twingate_remote_network(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('twingate:index/getTwingateRemoteNetwork:getTwingateRemoteNetwork', __args__, opts=opts, typ=GetTwingateRemoteNetworkResult).value
 
     return AwaitableGetTwingateRemoteNetworkResult(
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name)
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'))
 
 
 @_utilities.lift_output_func(get_twingate_remote_network)

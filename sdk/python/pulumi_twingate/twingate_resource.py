@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,22 +39,47 @@ class TwingateResourceArgs:
         :param pulumi.Input['TwingateResourceProtocolsArgs'] protocols: Restrict access to certain protocols and ports. By default or when this argument is not defined, there is no
                restriction, and all protocols and ports are allowed.
         """
-        pulumi.set(__self__, "address", address)
-        pulumi.set(__self__, "remote_network_id", remote_network_id)
+        TwingateResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address=address,
+            remote_network_id=remote_network_id,
+            access=access,
+            alias=alias,
+            is_authoritative=is_authoritative,
+            is_browser_shortcut_enabled=is_browser_shortcut_enabled,
+            is_visible=is_visible,
+            name=name,
+            protocols=protocols,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address: pulumi.Input[str],
+             remote_network_id: pulumi.Input[str],
+             access: Optional[pulumi.Input['TwingateResourceAccessArgs']] = None,
+             alias: Optional[pulumi.Input[str]] = None,
+             is_authoritative: Optional[pulumi.Input[bool]] = None,
+             is_browser_shortcut_enabled: Optional[pulumi.Input[bool]] = None,
+             is_visible: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             protocols: Optional[pulumi.Input['TwingateResourceProtocolsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("address", address)
+        _setter("remote_network_id", remote_network_id)
         if access is not None:
-            pulumi.set(__self__, "access", access)
+            _setter("access", access)
         if alias is not None:
-            pulumi.set(__self__, "alias", alias)
+            _setter("alias", alias)
         if is_authoritative is not None:
-            pulumi.set(__self__, "is_authoritative", is_authoritative)
+            _setter("is_authoritative", is_authoritative)
         if is_browser_shortcut_enabled is not None:
-            pulumi.set(__self__, "is_browser_shortcut_enabled", is_browser_shortcut_enabled)
+            _setter("is_browser_shortcut_enabled", is_browser_shortcut_enabled)
         if is_visible is not None:
-            pulumi.set(__self__, "is_visible", is_visible)
+            _setter("is_visible", is_visible)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if protocols is not None:
-            pulumi.set(__self__, "protocols", protocols)
+            _setter("protocols", protocols)
 
     @property
     @pulumi.getter
@@ -193,24 +218,49 @@ class _TwingateResourceState:
                restriction, and all protocols and ports are allowed.
         :param pulumi.Input[str] remote_network_id: Remote Network ID where the Resource lives
         """
+        _TwingateResourceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access=access,
+            address=address,
+            alias=alias,
+            is_authoritative=is_authoritative,
+            is_browser_shortcut_enabled=is_browser_shortcut_enabled,
+            is_visible=is_visible,
+            name=name,
+            protocols=protocols,
+            remote_network_id=remote_network_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access: Optional[pulumi.Input['TwingateResourceAccessArgs']] = None,
+             address: Optional[pulumi.Input[str]] = None,
+             alias: Optional[pulumi.Input[str]] = None,
+             is_authoritative: Optional[pulumi.Input[bool]] = None,
+             is_browser_shortcut_enabled: Optional[pulumi.Input[bool]] = None,
+             is_visible: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             protocols: Optional[pulumi.Input['TwingateResourceProtocolsArgs']] = None,
+             remote_network_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if access is not None:
-            pulumi.set(__self__, "access", access)
+            _setter("access", access)
         if address is not None:
-            pulumi.set(__self__, "address", address)
+            _setter("address", address)
         if alias is not None:
-            pulumi.set(__self__, "alias", alias)
+            _setter("alias", alias)
         if is_authoritative is not None:
-            pulumi.set(__self__, "is_authoritative", is_authoritative)
+            _setter("is_authoritative", is_authoritative)
         if is_browser_shortcut_enabled is not None:
-            pulumi.set(__self__, "is_browser_shortcut_enabled", is_browser_shortcut_enabled)
+            _setter("is_browser_shortcut_enabled", is_browser_shortcut_enabled)
         if is_visible is not None:
-            pulumi.set(__self__, "is_visible", is_visible)
+            _setter("is_visible", is_visible)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if protocols is not None:
-            pulumi.set(__self__, "protocols", protocols)
+            _setter("protocols", protocols)
         if remote_network_id is not None:
-            pulumi.set(__self__, "remote_network_id", remote_network_id)
+            _setter("remote_network_id", remote_network_id)
 
     @property
     @pulumi.getter
@@ -372,6 +422,10 @@ class TwingateResource(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TwingateResourceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -395,6 +449,11 @@ class TwingateResource(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TwingateResourceArgs.__new__(TwingateResourceArgs)
 
+            if not isinstance(access, TwingateResourceAccessArgs):
+                access = access or {}
+                def _setter(key, value):
+                    access[key] = value
+                TwingateResourceAccessArgs._configure(_setter, **access)
             __props__.__dict__["access"] = access
             if address is None and not opts.urn:
                 raise TypeError("Missing required property 'address'")
@@ -404,6 +463,11 @@ class TwingateResource(pulumi.CustomResource):
             __props__.__dict__["is_browser_shortcut_enabled"] = is_browser_shortcut_enabled
             __props__.__dict__["is_visible"] = is_visible
             __props__.__dict__["name"] = name
+            if not isinstance(protocols, TwingateResourceProtocolsArgs):
+                protocols = protocols or {}
+                def _setter(key, value):
+                    protocols[key] = value
+                TwingateResourceProtocolsArgs._configure(_setter, **protocols)
             __props__.__dict__["protocols"] = protocols
             if remote_network_id is None and not opts.urn:
                 raise TypeError("Missing required property 'remote_network_id'")

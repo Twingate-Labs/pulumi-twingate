@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/Twingate-Labs/pulumi-twingate/sdk/go/twingate/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func GetTwingateGroups(ctx *pulumi.Context, args *GetTwingateGroupsArgs, opts ...pulumi.InvokeOption) (*GetTwingateGroupsResult, error) {
-	opts = pkgInvokeDefaultOpts(opts)
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTwingateGroupsResult
 	err := ctx.Invoke("twingate:index/getTwingateGroups:getTwingateGroups", args, &rv, opts...)
 	if err != nil {
@@ -76,6 +78,12 @@ func (o GetTwingateGroupsResultOutput) ToGetTwingateGroupsResultOutput() GetTwin
 
 func (o GetTwingateGroupsResultOutput) ToGetTwingateGroupsResultOutputWithContext(ctx context.Context) GetTwingateGroupsResultOutput {
 	return o
+}
+
+func (o GetTwingateGroupsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetTwingateGroupsResult] {
+	return pulumix.Output[GetTwingateGroupsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetTwingateGroupsResultOutput) Groups() GetTwingateGroupsGroupArrayOutput {

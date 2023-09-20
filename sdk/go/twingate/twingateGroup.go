@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/Twingate-Labs/pulumi-twingate/sdk/go/twingate/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type TwingateGroup struct {
@@ -32,7 +34,7 @@ func NewTwingateGroup(ctx *pulumi.Context,
 		args = &TwingateGroupArgs{}
 	}
 
-	opts = pkgResourceDefaultOpts(opts)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TwingateGroup
 	err := ctx.RegisterResource("twingate:index/twingateGroup:TwingateGroup", name, args, &resource, opts...)
 	if err != nil {
@@ -134,6 +136,12 @@ func (i *TwingateGroup) ToTwingateGroupOutputWithContext(ctx context.Context) Tw
 	return pulumi.ToOutputWithContext(ctx, i).(TwingateGroupOutput)
 }
 
+func (i *TwingateGroup) ToOutput(ctx context.Context) pulumix.Output[*TwingateGroup] {
+	return pulumix.Output[*TwingateGroup]{
+		OutputState: i.ToTwingateGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TwingateGroupArrayInput is an input type that accepts TwingateGroupArray and TwingateGroupArrayOutput values.
 // You can construct a concrete instance of `TwingateGroupArrayInput` via:
 //
@@ -157,6 +165,12 @@ func (i TwingateGroupArray) ToTwingateGroupArrayOutput() TwingateGroupArrayOutpu
 
 func (i TwingateGroupArray) ToTwingateGroupArrayOutputWithContext(ctx context.Context) TwingateGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TwingateGroupArrayOutput)
+}
+
+func (i TwingateGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*TwingateGroup] {
+	return pulumix.Output[[]*TwingateGroup]{
+		OutputState: i.ToTwingateGroupArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TwingateGroupMapInput is an input type that accepts TwingateGroupMap and TwingateGroupMapOutput values.
@@ -184,6 +198,12 @@ func (i TwingateGroupMap) ToTwingateGroupMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(TwingateGroupMapOutput)
 }
 
+func (i TwingateGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TwingateGroup] {
+	return pulumix.Output[map[string]*TwingateGroup]{
+		OutputState: i.ToTwingateGroupMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TwingateGroupOutput struct{ *pulumi.OutputState }
 
 func (TwingateGroupOutput) ElementType() reflect.Type {
@@ -196,6 +216,12 @@ func (o TwingateGroupOutput) ToTwingateGroupOutput() TwingateGroupOutput {
 
 func (o TwingateGroupOutput) ToTwingateGroupOutputWithContext(ctx context.Context) TwingateGroupOutput {
 	return o
+}
+
+func (o TwingateGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*TwingateGroup] {
+	return pulumix.Output[*TwingateGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Determines whether User assignments to this Group will override any existing assignments. Default is `true`. If set to
@@ -234,6 +260,12 @@ func (o TwingateGroupArrayOutput) ToTwingateGroupArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o TwingateGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TwingateGroup] {
+	return pulumix.Output[[]*TwingateGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TwingateGroupArrayOutput) Index(i pulumi.IntInput) TwingateGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TwingateGroup {
 		return vs[0].([]*TwingateGroup)[vs[1].(int)]
@@ -252,6 +284,12 @@ func (o TwingateGroupMapOutput) ToTwingateGroupMapOutput() TwingateGroupMapOutpu
 
 func (o TwingateGroupMapOutput) ToTwingateGroupMapOutputWithContext(ctx context.Context) TwingateGroupMapOutput {
 	return o
+}
+
+func (o TwingateGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TwingateGroup] {
+	return pulumix.Output[map[string]*TwingateGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TwingateGroupMapOutput) MapIndex(k pulumi.StringInput) TwingateGroupOutput {

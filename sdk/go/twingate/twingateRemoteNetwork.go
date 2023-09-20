@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/Twingate-Labs/pulumi-twingate/sdk/go/twingate/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type TwingateRemoteNetwork struct {
@@ -26,7 +28,7 @@ func NewTwingateRemoteNetwork(ctx *pulumi.Context,
 		args = &TwingateRemoteNetworkArgs{}
 	}
 
-	opts = pkgResourceDefaultOpts(opts)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TwingateRemoteNetwork
 	err := ctx.RegisterResource("twingate:index/twingateRemoteNetwork:TwingateRemoteNetwork", name, args, &resource, opts...)
 	if err != nil {
@@ -104,6 +106,12 @@ func (i *TwingateRemoteNetwork) ToTwingateRemoteNetworkOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(TwingateRemoteNetworkOutput)
 }
 
+func (i *TwingateRemoteNetwork) ToOutput(ctx context.Context) pulumix.Output[*TwingateRemoteNetwork] {
+	return pulumix.Output[*TwingateRemoteNetwork]{
+		OutputState: i.ToTwingateRemoteNetworkOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TwingateRemoteNetworkArrayInput is an input type that accepts TwingateRemoteNetworkArray and TwingateRemoteNetworkArrayOutput values.
 // You can construct a concrete instance of `TwingateRemoteNetworkArrayInput` via:
 //
@@ -127,6 +135,12 @@ func (i TwingateRemoteNetworkArray) ToTwingateRemoteNetworkArrayOutput() Twingat
 
 func (i TwingateRemoteNetworkArray) ToTwingateRemoteNetworkArrayOutputWithContext(ctx context.Context) TwingateRemoteNetworkArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TwingateRemoteNetworkArrayOutput)
+}
+
+func (i TwingateRemoteNetworkArray) ToOutput(ctx context.Context) pulumix.Output[[]*TwingateRemoteNetwork] {
+	return pulumix.Output[[]*TwingateRemoteNetwork]{
+		OutputState: i.ToTwingateRemoteNetworkArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TwingateRemoteNetworkMapInput is an input type that accepts TwingateRemoteNetworkMap and TwingateRemoteNetworkMapOutput values.
@@ -154,6 +168,12 @@ func (i TwingateRemoteNetworkMap) ToTwingateRemoteNetworkMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(TwingateRemoteNetworkMapOutput)
 }
 
+func (i TwingateRemoteNetworkMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TwingateRemoteNetwork] {
+	return pulumix.Output[map[string]*TwingateRemoteNetwork]{
+		OutputState: i.ToTwingateRemoteNetworkMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TwingateRemoteNetworkOutput struct{ *pulumi.OutputState }
 
 func (TwingateRemoteNetworkOutput) ElementType() reflect.Type {
@@ -166,6 +186,12 @@ func (o TwingateRemoteNetworkOutput) ToTwingateRemoteNetworkOutput() TwingateRem
 
 func (o TwingateRemoteNetworkOutput) ToTwingateRemoteNetworkOutputWithContext(ctx context.Context) TwingateRemoteNetworkOutput {
 	return o
+}
+
+func (o TwingateRemoteNetworkOutput) ToOutput(ctx context.Context) pulumix.Output[*TwingateRemoteNetwork] {
+	return pulumix.Output[*TwingateRemoteNetwork]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The location of the Remote Network. Must be one of the following: AWS, AZURE, GOOGLE_CLOUD, ON_PREMISE, OTHER.
@@ -192,6 +218,12 @@ func (o TwingateRemoteNetworkArrayOutput) ToTwingateRemoteNetworkArrayOutputWith
 	return o
 }
 
+func (o TwingateRemoteNetworkArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TwingateRemoteNetwork] {
+	return pulumix.Output[[]*TwingateRemoteNetwork]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TwingateRemoteNetworkArrayOutput) Index(i pulumi.IntInput) TwingateRemoteNetworkOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TwingateRemoteNetwork {
 		return vs[0].([]*TwingateRemoteNetwork)[vs[1].(int)]
@@ -210,6 +242,12 @@ func (o TwingateRemoteNetworkMapOutput) ToTwingateRemoteNetworkMapOutput() Twing
 
 func (o TwingateRemoteNetworkMapOutput) ToTwingateRemoteNetworkMapOutputWithContext(ctx context.Context) TwingateRemoteNetworkMapOutput {
 	return o
+}
+
+func (o TwingateRemoteNetworkMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TwingateRemoteNetwork] {
+	return pulumix.Output[map[string]*TwingateRemoteNetwork]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TwingateRemoteNetworkMapOutput) MapIndex(k pulumi.StringInput) TwingateRemoteNetworkOutput {

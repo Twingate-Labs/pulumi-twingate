@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/Twingate-Labs/pulumi-twingate/sdk/go/twingate/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type TwingateConnectorTokens struct {
@@ -40,7 +42,7 @@ func NewTwingateConnectorTokens(ctx *pulumi.Context,
 		"refreshToken",
 	})
 	opts = append(opts, secrets)
-	opts = pkgResourceDefaultOpts(opts)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TwingateConnectorTokens
 	err := ctx.RegisterResource("twingate:index/twingateConnectorTokens:TwingateConnectorTokens", name, args, &resource, opts...)
 	if err != nil {
@@ -130,6 +132,12 @@ func (i *TwingateConnectorTokens) ToTwingateConnectorTokensOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(TwingateConnectorTokensOutput)
 }
 
+func (i *TwingateConnectorTokens) ToOutput(ctx context.Context) pulumix.Output[*TwingateConnectorTokens] {
+	return pulumix.Output[*TwingateConnectorTokens]{
+		OutputState: i.ToTwingateConnectorTokensOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TwingateConnectorTokensArrayInput is an input type that accepts TwingateConnectorTokensArray and TwingateConnectorTokensArrayOutput values.
 // You can construct a concrete instance of `TwingateConnectorTokensArrayInput` via:
 //
@@ -153,6 +161,12 @@ func (i TwingateConnectorTokensArray) ToTwingateConnectorTokensArrayOutput() Twi
 
 func (i TwingateConnectorTokensArray) ToTwingateConnectorTokensArrayOutputWithContext(ctx context.Context) TwingateConnectorTokensArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TwingateConnectorTokensArrayOutput)
+}
+
+func (i TwingateConnectorTokensArray) ToOutput(ctx context.Context) pulumix.Output[[]*TwingateConnectorTokens] {
+	return pulumix.Output[[]*TwingateConnectorTokens]{
+		OutputState: i.ToTwingateConnectorTokensArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TwingateConnectorTokensMapInput is an input type that accepts TwingateConnectorTokensMap and TwingateConnectorTokensMapOutput values.
@@ -180,6 +194,12 @@ func (i TwingateConnectorTokensMap) ToTwingateConnectorTokensMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(TwingateConnectorTokensMapOutput)
 }
 
+func (i TwingateConnectorTokensMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TwingateConnectorTokens] {
+	return pulumix.Output[map[string]*TwingateConnectorTokens]{
+		OutputState: i.ToTwingateConnectorTokensMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TwingateConnectorTokensOutput struct{ *pulumi.OutputState }
 
 func (TwingateConnectorTokensOutput) ElementType() reflect.Type {
@@ -192,6 +212,12 @@ func (o TwingateConnectorTokensOutput) ToTwingateConnectorTokensOutput() Twingat
 
 func (o TwingateConnectorTokensOutput) ToTwingateConnectorTokensOutputWithContext(ctx context.Context) TwingateConnectorTokensOutput {
 	return o
+}
+
+func (o TwingateConnectorTokensOutput) ToOutput(ctx context.Context) pulumix.Output[*TwingateConnectorTokens] {
+	return pulumix.Output[*TwingateConnectorTokens]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Access Token of the parent Connector
@@ -229,6 +255,12 @@ func (o TwingateConnectorTokensArrayOutput) ToTwingateConnectorTokensArrayOutput
 	return o
 }
 
+func (o TwingateConnectorTokensArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TwingateConnectorTokens] {
+	return pulumix.Output[[]*TwingateConnectorTokens]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TwingateConnectorTokensArrayOutput) Index(i pulumi.IntInput) TwingateConnectorTokensOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TwingateConnectorTokens {
 		return vs[0].([]*TwingateConnectorTokens)[vs[1].(int)]
@@ -247,6 +279,12 @@ func (o TwingateConnectorTokensMapOutput) ToTwingateConnectorTokensMapOutput() T
 
 func (o TwingateConnectorTokensMapOutput) ToTwingateConnectorTokensMapOutputWithContext(ctx context.Context) TwingateConnectorTokensMapOutput {
 	return o
+}
+
+func (o TwingateConnectorTokensMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TwingateConnectorTokens] {
+	return pulumix.Output[map[string]*TwingateConnectorTokens]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TwingateConnectorTokensMapOutput) MapIndex(k pulumi.StringInput) TwingateConnectorTokensOutput {

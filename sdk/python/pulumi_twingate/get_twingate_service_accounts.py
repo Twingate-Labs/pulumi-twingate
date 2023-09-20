@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -77,9 +77,9 @@ def get_twingate_service_accounts(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('twingate:index/getTwingateServiceAccounts:getTwingateServiceAccounts', __args__, opts=opts, typ=GetTwingateServiceAccountsResult).value
 
     return AwaitableGetTwingateServiceAccountsResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        service_accounts=__ret__.service_accounts)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        service_accounts=pulumi.get(__ret__, 'service_accounts'))
 
 
 @_utilities.lift_output_func(get_twingate_service_accounts)

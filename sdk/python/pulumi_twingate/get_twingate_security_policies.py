@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -66,8 +66,8 @@ def get_twingate_security_policies(security_policies: Optional[Sequence[pulumi.I
     __ret__ = pulumi.runtime.invoke('twingate:index/getTwingateSecurityPolicies:getTwingateSecurityPolicies', __args__, opts=opts, typ=GetTwingateSecurityPoliciesResult).value
 
     return AwaitableGetTwingateSecurityPoliciesResult(
-        id=__ret__.id,
-        security_policies=__ret__.security_policies)
+        id=pulumi.get(__ret__, 'id'),
+        security_policies=pulumi.get(__ret__, 'security_policies'))
 
 
 @_utilities.lift_output_func(get_twingate_security_policies)

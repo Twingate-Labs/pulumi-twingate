@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/Twingate-Labs/pulumi-twingate/sdk/go/twingate/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func GetTwingateSecurityPolicies(ctx *pulumi.Context, args *GetTwingateSecurityPoliciesArgs, opts ...pulumi.InvokeOption) (*GetTwingateSecurityPoliciesResult, error) {
-	opts = pkgInvokeDefaultOpts(opts)
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTwingateSecurityPoliciesResult
 	err := ctx.Invoke("twingate:index/getTwingateSecurityPolicies:getTwingateSecurityPolicies", args, &rv, opts...)
 	if err != nil {
@@ -67,6 +69,12 @@ func (o GetTwingateSecurityPoliciesResultOutput) ToGetTwingateSecurityPoliciesRe
 
 func (o GetTwingateSecurityPoliciesResultOutput) ToGetTwingateSecurityPoliciesResultOutputWithContext(ctx context.Context) GetTwingateSecurityPoliciesResultOutput {
 	return o
+}
+
+func (o GetTwingateSecurityPoliciesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetTwingateSecurityPoliciesResult] {
+	return pulumix.Output[GetTwingateSecurityPoliciesResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

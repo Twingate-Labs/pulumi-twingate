@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/Twingate-Labs/pulumi-twingate/sdk/go/twingate/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type TwingateServiceAccount struct {
@@ -24,7 +26,7 @@ func NewTwingateServiceAccount(ctx *pulumi.Context,
 		args = &TwingateServiceAccountArgs{}
 	}
 
-	opts = pkgResourceDefaultOpts(opts)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TwingateServiceAccount
 	err := ctx.RegisterResource("twingate:index/twingateServiceAccount:TwingateServiceAccount", name, args, &resource, opts...)
 	if err != nil {
@@ -94,6 +96,12 @@ func (i *TwingateServiceAccount) ToTwingateServiceAccountOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(TwingateServiceAccountOutput)
 }
 
+func (i *TwingateServiceAccount) ToOutput(ctx context.Context) pulumix.Output[*TwingateServiceAccount] {
+	return pulumix.Output[*TwingateServiceAccount]{
+		OutputState: i.ToTwingateServiceAccountOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TwingateServiceAccountArrayInput is an input type that accepts TwingateServiceAccountArray and TwingateServiceAccountArrayOutput values.
 // You can construct a concrete instance of `TwingateServiceAccountArrayInput` via:
 //
@@ -117,6 +125,12 @@ func (i TwingateServiceAccountArray) ToTwingateServiceAccountArrayOutput() Twing
 
 func (i TwingateServiceAccountArray) ToTwingateServiceAccountArrayOutputWithContext(ctx context.Context) TwingateServiceAccountArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TwingateServiceAccountArrayOutput)
+}
+
+func (i TwingateServiceAccountArray) ToOutput(ctx context.Context) pulumix.Output[[]*TwingateServiceAccount] {
+	return pulumix.Output[[]*TwingateServiceAccount]{
+		OutputState: i.ToTwingateServiceAccountArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TwingateServiceAccountMapInput is an input type that accepts TwingateServiceAccountMap and TwingateServiceAccountMapOutput values.
@@ -144,6 +158,12 @@ func (i TwingateServiceAccountMap) ToTwingateServiceAccountMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(TwingateServiceAccountMapOutput)
 }
 
+func (i TwingateServiceAccountMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TwingateServiceAccount] {
+	return pulumix.Output[map[string]*TwingateServiceAccount]{
+		OutputState: i.ToTwingateServiceAccountMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TwingateServiceAccountOutput struct{ *pulumi.OutputState }
 
 func (TwingateServiceAccountOutput) ElementType() reflect.Type {
@@ -156,6 +176,12 @@ func (o TwingateServiceAccountOutput) ToTwingateServiceAccountOutput() TwingateS
 
 func (o TwingateServiceAccountOutput) ToTwingateServiceAccountOutputWithContext(ctx context.Context) TwingateServiceAccountOutput {
 	return o
+}
+
+func (o TwingateServiceAccountOutput) ToOutput(ctx context.Context) pulumix.Output[*TwingateServiceAccount] {
+	return pulumix.Output[*TwingateServiceAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the Service Account in Twingate
@@ -177,6 +203,12 @@ func (o TwingateServiceAccountArrayOutput) ToTwingateServiceAccountArrayOutputWi
 	return o
 }
 
+func (o TwingateServiceAccountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TwingateServiceAccount] {
+	return pulumix.Output[[]*TwingateServiceAccount]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TwingateServiceAccountArrayOutput) Index(i pulumi.IntInput) TwingateServiceAccountOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TwingateServiceAccount {
 		return vs[0].([]*TwingateServiceAccount)[vs[1].(int)]
@@ -195,6 +227,12 @@ func (o TwingateServiceAccountMapOutput) ToTwingateServiceAccountMapOutput() Twi
 
 func (o TwingateServiceAccountMapOutput) ToTwingateServiceAccountMapOutputWithContext(ctx context.Context) TwingateServiceAccountMapOutput {
 	return o
+}
+
+func (o TwingateServiceAccountMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TwingateServiceAccount] {
+	return pulumix.Output[map[string]*TwingateServiceAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TwingateServiceAccountMapOutput) MapIndex(k pulumi.StringInput) TwingateServiceAccountOutput {

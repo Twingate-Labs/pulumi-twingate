@@ -26,6 +26,7 @@ from .twingate_remote_network import *
 from .twingate_resource import *
 from .twingate_service_account import *
 from .twingate_service_account_key import *
+from .twingate_user import *
 from ._inputs import *
 from . import outputs
 
@@ -93,6 +94,14 @@ _utilities.register(
   "fqn": "pulumi_twingate",
   "classes": {
    "twingate:index/twingateServiceAccountKey:TwingateServiceAccountKey": "TwingateServiceAccountKey"
+  }
+ },
+ {
+  "pkg": "twingate",
+  "mod": "index/twingateUser",
+  "fqn": "pulumi_twingate",
+  "classes": {
+   "twingate:index/twingateUser:TwingateUser": "TwingateUser"
   }
  }
 ]

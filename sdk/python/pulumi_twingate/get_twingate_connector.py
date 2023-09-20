@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = [
@@ -79,10 +79,10 @@ def get_twingate_connector(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('twingate:index/getTwingateConnector:getTwingateConnector', __args__, opts=opts, typ=GetTwingateConnectorResult).value
 
     return AwaitableGetTwingateConnectorResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        remote_network_id=__ret__.remote_network_id,
-        status_updates_enabled=__ret__.status_updates_enabled)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        remote_network_id=pulumi.get(__ret__, 'remote_network_id'),
+        status_updates_enabled=pulumi.get(__ret__, 'status_updates_enabled'))
 
 
 @_utilities.lift_output_func(get_twingate_connector)

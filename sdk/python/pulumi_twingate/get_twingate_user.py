@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = [
@@ -21,7 +21,7 @@ class GetTwingateUserResult:
     """
     A collection of values returned by getTwingateUser.
     """
-    def __init__(__self__, email=None, first_name=None, id=None, is_admin=None, last_name=None, role=None):
+    def __init__(__self__, email=None, first_name=None, id=None, is_admin=None, last_name=None, role=None, type=None):
         if email and not isinstance(email, str):
             raise TypeError("Expected argument 'email' to be a str")
         pulumi.set(__self__, "email", email)
@@ -40,6 +40,9 @@ class GetTwingateUserResult:
         if role and not isinstance(role, str):
             raise TypeError("Expected argument 'role' to be a str")
         pulumi.set(__self__, "role", role)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -59,6 +62,9 @@ class GetTwingateUserResult:
     @property
     @pulumi.getter(name="isAdmin")
     def is_admin(self) -> bool:
+        warnings.warn("""This read-only Boolean value will be deprecated in a future release. You may use the `role` value instead.""", DeprecationWarning)
+        pulumi.log.warn("""is_admin is deprecated: This read-only Boolean value will be deprecated in a future release. You may use the `role` value instead.""")
+
         return pulumi.get(self, "is_admin")
 
     @property
@@ -70,6 +76,11 @@ class GetTwingateUserResult:
     @pulumi.getter
     def role(self) -> str:
         return pulumi.get(self, "role")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetTwingateUserResult(GetTwingateUserResult):
@@ -83,7 +94,8 @@ class AwaitableGetTwingateUserResult(GetTwingateUserResult):
             id=self.id,
             is_admin=self.is_admin,
             last_name=self.last_name,
-            role=self.role)
+            role=self.role,
+            type=self.type)
 
 
 def get_twingate_user(id: Optional[str] = None,
@@ -97,12 +109,13 @@ def get_twingate_user(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('twingate:index/getTwingateUser:getTwingateUser', __args__, opts=opts, typ=GetTwingateUserResult).value
 
     return AwaitableGetTwingateUserResult(
-        email=__ret__.email,
-        first_name=__ret__.first_name,
-        id=__ret__.id,
-        is_admin=__ret__.is_admin,
-        last_name=__ret__.last_name,
-        role=__ret__.role)
+        email=pulumi.get(__ret__, 'email'),
+        first_name=pulumi.get(__ret__, 'first_name'),
+        id=pulumi.get(__ret__, 'id'),
+        is_admin=pulumi.get(__ret__, 'is_admin'),
+        last_name=pulumi.get(__ret__, 'last_name'),
+        role=pulumi.get(__ret__, 'role'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_twingate_user)

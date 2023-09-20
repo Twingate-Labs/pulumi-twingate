@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/Twingate-Labs/pulumi-twingate/sdk/go/twingate/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func LookupTwingateGroup(ctx *pulumi.Context, args *LookupTwingateGroupArgs, opts ...pulumi.InvokeOption) (*LookupTwingateGroupResult, error) {
-	opts = pkgInvokeDefaultOpts(opts)
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTwingateGroupResult
 	err := ctx.Invoke("twingate:index/getTwingateGroup:getTwingateGroup", args, &rv, opts...)
 	if err != nil {
@@ -69,6 +71,12 @@ func (o LookupTwingateGroupResultOutput) ToLookupTwingateGroupResultOutput() Loo
 
 func (o LookupTwingateGroupResultOutput) ToLookupTwingateGroupResultOutputWithContext(ctx context.Context) LookupTwingateGroupResultOutput {
 	return o
+}
+
+func (o LookupTwingateGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTwingateGroupResult] {
+	return pulumix.Output[LookupTwingateGroupResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupTwingateGroupResultOutput) Id() pulumi.StringOutput {

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -66,8 +66,8 @@ def get_twingate_users(users: Optional[Sequence[pulumi.InputType['GetTwingateUse
     __ret__ = pulumi.runtime.invoke('twingate:index/getTwingateUsers:getTwingateUsers', __args__, opts=opts, typ=GetTwingateUsersResult).value
 
     return AwaitableGetTwingateUsersResult(
-        id=__ret__.id,
-        users=__ret__.users)
+        id=pulumi.get(__ret__, 'id'),
+        users=pulumi.get(__ret__, 'users'))
 
 
 @_utilities.lift_output_func(get_twingate_users)

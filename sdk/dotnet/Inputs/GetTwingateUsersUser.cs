@@ -31,6 +31,9 @@ namespace TwingateLabs.Twingate.Inputs
         [Input("role", required: true)]
         public string Role { get; set; } = null!;
 
+        [Input("type", required: true)]
+        public string Type { get; set; } = null!;
+
         public GetTwingateUsersUserArgs()
         {
         }

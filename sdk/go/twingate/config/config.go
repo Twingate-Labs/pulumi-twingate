@@ -4,9 +4,12 @@
 package config
 
 import (
+	"github.com/Twingate-Labs/pulumi-twingate/sdk/go/twingate/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 )
+
+var _ = internal.GetEnvOrDefault
 
 // The access key for API operations. You can retrieve this from the Twingate Admin Console
 // ([documentation](https://docs.twingate.com/docs/api-overview)). Alternatively, this can be specified using the
@@ -22,7 +25,9 @@ func GetHttpMaxRetry(ctx *pulumi.Context) int {
 	if err == nil {
 		return v
 	}
-	return 5
+	var value int
+	value = 5
+	return value
 }
 
 // Specifies a time limit in seconds for the http requests made. The default value is 10 seconds. Alternatively, this can
@@ -32,7 +37,9 @@ func GetHttpTimeout(ctx *pulumi.Context) int {
 	if err == nil {
 		return v
 	}
-	return 10
+	var value int
+	value = 10
+	return value
 }
 
 // Your Twingate network ID for API operations. You can find it in the Admin Console URL, for example:

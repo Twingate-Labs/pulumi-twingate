@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/Twingate-Labs/pulumi-twingate/sdk/go/twingate/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func LookupTwingateRemoteNetwork(ctx *pulumi.Context, args *LookupTwingateRemoteNetworkArgs, opts ...pulumi.InvokeOption) (*LookupTwingateRemoteNetworkResult, error) {
-	opts = pkgInvokeDefaultOpts(opts)
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTwingateRemoteNetworkResult
 	err := ctx.Invoke("twingate:index/getTwingateRemoteNetwork:getTwingateRemoteNetwork", args, &rv, opts...)
 	if err != nil {
@@ -69,6 +71,12 @@ func (o LookupTwingateRemoteNetworkResultOutput) ToLookupTwingateRemoteNetworkRe
 
 func (o LookupTwingateRemoteNetworkResultOutput) ToLookupTwingateRemoteNetworkResultOutputWithContext(ctx context.Context) LookupTwingateRemoteNetworkResultOutput {
 	return o
+}
+
+func (o LookupTwingateRemoteNetworkResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTwingateRemoteNetworkResult] {
+	return pulumix.Output[LookupTwingateRemoteNetworkResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupTwingateRemoteNetworkResultOutput) Id() pulumi.StringPtrOutput {

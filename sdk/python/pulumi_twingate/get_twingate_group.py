@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = [
@@ -88,11 +88,11 @@ def get_twingate_group(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('twingate:index/getTwingateGroup:getTwingateGroup', __args__, opts=opts, typ=GetTwingateGroupResult).value
 
     return AwaitableGetTwingateGroupResult(
-        id=__ret__.id,
-        is_active=__ret__.is_active,
-        name=__ret__.name,
-        security_policy_id=__ret__.security_policy_id,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        is_active=pulumi.get(__ret__, 'is_active'),
+        name=pulumi.get(__ret__, 'name'),
+        security_policy_id=pulumi.get(__ret__, 'security_policy_id'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_twingate_group)

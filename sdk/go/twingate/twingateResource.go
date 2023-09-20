@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/Twingate-Labs/pulumi-twingate/sdk/go/twingate/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type TwingateResource struct {
@@ -49,7 +51,7 @@ func NewTwingateResource(ctx *pulumi.Context,
 	if args.RemoteNetworkId == nil {
 		return nil, errors.New("invalid value for required argument 'RemoteNetworkId'")
 	}
-	opts = pkgResourceDefaultOpts(opts)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TwingateResource
 	err := ctx.RegisterResource("twingate:index/twingateResource:TwingateResource", name, args, &resource, opts...)
 	if err != nil {
@@ -191,6 +193,12 @@ func (i *TwingateResource) ToTwingateResourceOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(TwingateResourceOutput)
 }
 
+func (i *TwingateResource) ToOutput(ctx context.Context) pulumix.Output[*TwingateResource] {
+	return pulumix.Output[*TwingateResource]{
+		OutputState: i.ToTwingateResourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TwingateResourceArrayInput is an input type that accepts TwingateResourceArray and TwingateResourceArrayOutput values.
 // You can construct a concrete instance of `TwingateResourceArrayInput` via:
 //
@@ -214,6 +222,12 @@ func (i TwingateResourceArray) ToTwingateResourceArrayOutput() TwingateResourceA
 
 func (i TwingateResourceArray) ToTwingateResourceArrayOutputWithContext(ctx context.Context) TwingateResourceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TwingateResourceArrayOutput)
+}
+
+func (i TwingateResourceArray) ToOutput(ctx context.Context) pulumix.Output[[]*TwingateResource] {
+	return pulumix.Output[[]*TwingateResource]{
+		OutputState: i.ToTwingateResourceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TwingateResourceMapInput is an input type that accepts TwingateResourceMap and TwingateResourceMapOutput values.
@@ -241,6 +255,12 @@ func (i TwingateResourceMap) ToTwingateResourceMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(TwingateResourceMapOutput)
 }
 
+func (i TwingateResourceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TwingateResource] {
+	return pulumix.Output[map[string]*TwingateResource]{
+		OutputState: i.ToTwingateResourceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TwingateResourceOutput struct{ *pulumi.OutputState }
 
 func (TwingateResourceOutput) ElementType() reflect.Type {
@@ -253,6 +273,12 @@ func (o TwingateResourceOutput) ToTwingateResourceOutput() TwingateResourceOutpu
 
 func (o TwingateResourceOutput) ToTwingateResourceOutputWithContext(ctx context.Context) TwingateResourceOutput {
 	return o
+}
+
+func (o TwingateResourceOutput) ToOutput(ctx context.Context) pulumix.Output[*TwingateResource] {
+	return pulumix.Output[*TwingateResource]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Restrict access to certain groups or service accounts
@@ -316,6 +342,12 @@ func (o TwingateResourceArrayOutput) ToTwingateResourceArrayOutputWithContext(ct
 	return o
 }
 
+func (o TwingateResourceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TwingateResource] {
+	return pulumix.Output[[]*TwingateResource]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TwingateResourceArrayOutput) Index(i pulumi.IntInput) TwingateResourceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TwingateResource {
 		return vs[0].([]*TwingateResource)[vs[1].(int)]
@@ -334,6 +366,12 @@ func (o TwingateResourceMapOutput) ToTwingateResourceMapOutput() TwingateResourc
 
 func (o TwingateResourceMapOutput) ToTwingateResourceMapOutputWithContext(ctx context.Context) TwingateResourceMapOutput {
 	return o
+}
+
+func (o TwingateResourceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TwingateResource] {
+	return pulumix.Output[map[string]*TwingateResource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TwingateResourceMapOutput) MapIndex(k pulumi.StringInput) TwingateResourceOutput {

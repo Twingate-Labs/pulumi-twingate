@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['TwingateConnectorTokensArgs', 'TwingateConnectorTokens']
@@ -22,9 +22,20 @@ class TwingateConnectorTokensArgs:
         :param pulumi.Input[Mapping[str, Any]] keepers: Arbitrary map of values that, when changed, will trigger recreation of resource. Use this to automatically rotate
                Connector tokens on a schedule.
         """
-        pulumi.set(__self__, "connector_id", connector_id)
+        TwingateConnectorTokensArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connector_id=connector_id,
+            keepers=keepers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connector_id: pulumi.Input[str],
+             keepers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("connector_id", connector_id)
         if keepers is not None:
-            pulumi.set(__self__, "keepers", keepers)
+            _setter("keepers", keepers)
 
     @property
     @pulumi.getter(name="connectorId")
@@ -67,14 +78,29 @@ class _TwingateConnectorTokensState:
                Connector tokens on a schedule.
         :param pulumi.Input[str] refresh_token: The Refresh Token of the parent Connector
         """
+        _TwingateConnectorTokensState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_token=access_token,
+            connector_id=connector_id,
+            keepers=keepers,
+            refresh_token=refresh_token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_token: Optional[pulumi.Input[str]] = None,
+             connector_id: Optional[pulumi.Input[str]] = None,
+             keepers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             refresh_token: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if access_token is not None:
-            pulumi.set(__self__, "access_token", access_token)
+            _setter("access_token", access_token)
         if connector_id is not None:
-            pulumi.set(__self__, "connector_id", connector_id)
+            _setter("connector_id", connector_id)
         if keepers is not None:
-            pulumi.set(__self__, "keepers", keepers)
+            _setter("keepers", keepers)
         if refresh_token is not None:
-            pulumi.set(__self__, "refresh_token", refresh_token)
+            _setter("refresh_token", refresh_token)
 
     @property
     @pulumi.getter(name="accessToken")
@@ -160,6 +186,10 @@ class TwingateConnectorTokens(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TwingateConnectorTokensArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

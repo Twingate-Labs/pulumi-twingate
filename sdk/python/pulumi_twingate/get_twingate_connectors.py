@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -66,8 +66,8 @@ def get_twingate_connectors(connectors: Optional[Sequence[pulumi.InputType['GetT
     __ret__ = pulumi.runtime.invoke('twingate:index/getTwingateConnectors:getTwingateConnectors', __args__, opts=opts, typ=GetTwingateConnectorsResult).value
 
     return AwaitableGetTwingateConnectorsResult(
-        connectors=__ret__.connectors,
-        id=__ret__.id)
+        connectors=pulumi.get(__ret__, 'connectors'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_twingate_connectors)

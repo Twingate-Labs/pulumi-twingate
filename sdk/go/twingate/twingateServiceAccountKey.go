@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/Twingate-Labs/pulumi-twingate/sdk/go/twingate/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type TwingateServiceAccountKey struct {
@@ -36,7 +38,7 @@ func NewTwingateServiceAccountKey(ctx *pulumi.Context,
 		"token",
 	})
 	opts = append(opts, secrets)
-	opts = pkgResourceDefaultOpts(opts)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TwingateServiceAccountKey
 	err := ctx.RegisterResource("twingate:index/twingateServiceAccountKey:TwingateServiceAccountKey", name, args, &resource, opts...)
 	if err != nil {
@@ -118,6 +120,12 @@ func (i *TwingateServiceAccountKey) ToTwingateServiceAccountKeyOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(TwingateServiceAccountKeyOutput)
 }
 
+func (i *TwingateServiceAccountKey) ToOutput(ctx context.Context) pulumix.Output[*TwingateServiceAccountKey] {
+	return pulumix.Output[*TwingateServiceAccountKey]{
+		OutputState: i.ToTwingateServiceAccountKeyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TwingateServiceAccountKeyArrayInput is an input type that accepts TwingateServiceAccountKeyArray and TwingateServiceAccountKeyArrayOutput values.
 // You can construct a concrete instance of `TwingateServiceAccountKeyArrayInput` via:
 //
@@ -141,6 +149,12 @@ func (i TwingateServiceAccountKeyArray) ToTwingateServiceAccountKeyArrayOutput()
 
 func (i TwingateServiceAccountKeyArray) ToTwingateServiceAccountKeyArrayOutputWithContext(ctx context.Context) TwingateServiceAccountKeyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TwingateServiceAccountKeyArrayOutput)
+}
+
+func (i TwingateServiceAccountKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]*TwingateServiceAccountKey] {
+	return pulumix.Output[[]*TwingateServiceAccountKey]{
+		OutputState: i.ToTwingateServiceAccountKeyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TwingateServiceAccountKeyMapInput is an input type that accepts TwingateServiceAccountKeyMap and TwingateServiceAccountKeyMapOutput values.
@@ -168,6 +182,12 @@ func (i TwingateServiceAccountKeyMap) ToTwingateServiceAccountKeyMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(TwingateServiceAccountKeyMapOutput)
 }
 
+func (i TwingateServiceAccountKeyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TwingateServiceAccountKey] {
+	return pulumix.Output[map[string]*TwingateServiceAccountKey]{
+		OutputState: i.ToTwingateServiceAccountKeyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TwingateServiceAccountKeyOutput struct{ *pulumi.OutputState }
 
 func (TwingateServiceAccountKeyOutput) ElementType() reflect.Type {
@@ -180,6 +200,12 @@ func (o TwingateServiceAccountKeyOutput) ToTwingateServiceAccountKeyOutput() Twi
 
 func (o TwingateServiceAccountKeyOutput) ToTwingateServiceAccountKeyOutputWithContext(ctx context.Context) TwingateServiceAccountKeyOutput {
 	return o
+}
+
+func (o TwingateServiceAccountKeyOutput) ToOutput(ctx context.Context) pulumix.Output[*TwingateServiceAccountKey] {
+	return pulumix.Output[*TwingateServiceAccountKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the Service Key
@@ -211,6 +237,12 @@ func (o TwingateServiceAccountKeyArrayOutput) ToTwingateServiceAccountKeyArrayOu
 	return o
 }
 
+func (o TwingateServiceAccountKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TwingateServiceAccountKey] {
+	return pulumix.Output[[]*TwingateServiceAccountKey]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TwingateServiceAccountKeyArrayOutput) Index(i pulumi.IntInput) TwingateServiceAccountKeyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TwingateServiceAccountKey {
 		return vs[0].([]*TwingateServiceAccountKey)[vs[1].(int)]
@@ -229,6 +261,12 @@ func (o TwingateServiceAccountKeyMapOutput) ToTwingateServiceAccountKeyMapOutput
 
 func (o TwingateServiceAccountKeyMapOutput) ToTwingateServiceAccountKeyMapOutputWithContext(ctx context.Context) TwingateServiceAccountKeyMapOutput {
 	return o
+}
+
+func (o TwingateServiceAccountKeyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TwingateServiceAccountKey] {
+	return pulumix.Output[map[string]*TwingateServiceAccountKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TwingateServiceAccountKeyMapOutput) MapIndex(k pulumi.StringInput) TwingateServiceAccountKeyOutput {

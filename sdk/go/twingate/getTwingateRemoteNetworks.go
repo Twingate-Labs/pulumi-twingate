@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/Twingate-Labs/pulumi-twingate/sdk/go/twingate/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func GetTwingateRemoteNetworks(ctx *pulumi.Context, args *GetTwingateRemoteNetworksArgs, opts ...pulumi.InvokeOption) (*GetTwingateRemoteNetworksResult, error) {
-	opts = pkgInvokeDefaultOpts(opts)
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTwingateRemoteNetworksResult
 	err := ctx.Invoke("twingate:index/getTwingateRemoteNetworks:getTwingateRemoteNetworks", args, &rv, opts...)
 	if err != nil {
@@ -67,6 +69,12 @@ func (o GetTwingateRemoteNetworksResultOutput) ToGetTwingateRemoteNetworksResult
 
 func (o GetTwingateRemoteNetworksResultOutput) ToGetTwingateRemoteNetworksResultOutputWithContext(ctx context.Context) GetTwingateRemoteNetworksResultOutput {
 	return o
+}
+
+func (o GetTwingateRemoteNetworksResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetTwingateRemoteNetworksResult] {
+	return pulumix.Output[GetTwingateRemoteNetworksResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

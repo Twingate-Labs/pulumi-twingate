@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/Twingate-Labs/pulumi-twingate/sdk/go/twingate/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func GetTwingateServiceAccounts(ctx *pulumi.Context, args *GetTwingateServiceAccountsArgs, opts ...pulumi.InvokeOption) (*GetTwingateServiceAccountsResult, error) {
-	opts = pkgInvokeDefaultOpts(opts)
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTwingateServiceAccountsResult
 	err := ctx.Invoke("twingate:index/getTwingateServiceAccounts:getTwingateServiceAccounts", args, &rv, opts...)
 	if err != nil {
@@ -70,6 +72,12 @@ func (o GetTwingateServiceAccountsResultOutput) ToGetTwingateServiceAccountsResu
 
 func (o GetTwingateServiceAccountsResultOutput) ToGetTwingateServiceAccountsResultOutputWithContext(ctx context.Context) GetTwingateServiceAccountsResultOutput {
 	return o
+}
+
+func (o GetTwingateServiceAccountsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetTwingateServiceAccountsResult] {
+	return pulumix.Output[GetTwingateServiceAccountsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

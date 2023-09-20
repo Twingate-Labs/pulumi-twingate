@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -77,9 +77,9 @@ def get_twingate_resources(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('twingate:index/getTwingateResources:getTwingateResources', __args__, opts=opts, typ=GetTwingateResourcesResult).value
 
     return AwaitableGetTwingateResourcesResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        resources=__ret__.resources)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        resources=pulumi.get(__ret__, 'resources'))
 
 
 @_utilities.lift_output_func(get_twingate_resources)

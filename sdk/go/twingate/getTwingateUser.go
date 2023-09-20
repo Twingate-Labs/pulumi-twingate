@@ -7,12 +7,14 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/Twingate-Labs/pulumi-twingate/sdk/go/twingate/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-func GetTwingateUser(ctx *pulumi.Context, args *GetTwingateUserArgs, opts ...pulumi.InvokeOption) (*GetTwingateUserResult, error) {
-	opts = pkgInvokeDefaultOpts(opts)
-	var rv GetTwingateUserResult
+func LookupTwingateUser(ctx *pulumi.Context, args *LookupTwingateUserArgs, opts ...pulumi.InvokeOption) (*LookupTwingateUserResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
+	var rv LookupTwingateUserResult
 	err := ctx.Invoke("twingate:index/getTwingateUser:getTwingateUser", args, &rv, opts...)
 	if err != nil {
 		return nil, err
@@ -21,81 +23,94 @@ func GetTwingateUser(ctx *pulumi.Context, args *GetTwingateUserArgs, opts ...pul
 }
 
 // A collection of arguments for invoking getTwingateUser.
-type GetTwingateUserArgs struct {
+type LookupTwingateUserArgs struct {
 	Id string `pulumi:"id"`
 }
 
 // A collection of values returned by getTwingateUser.
-type GetTwingateUserResult struct {
+type LookupTwingateUserResult struct {
 	Email     string `pulumi:"email"`
 	FirstName string `pulumi:"firstName"`
 	Id        string `pulumi:"id"`
-	IsAdmin   bool   `pulumi:"isAdmin"`
-	LastName  string `pulumi:"lastName"`
-	Role      string `pulumi:"role"`
+	// Deprecated: This read-only Boolean value will be deprecated in a future release. You may use the `role` value instead.
+	IsAdmin  bool   `pulumi:"isAdmin"`
+	LastName string `pulumi:"lastName"`
+	Role     string `pulumi:"role"`
+	Type     string `pulumi:"type"`
 }
 
-func GetTwingateUserOutput(ctx *pulumi.Context, args GetTwingateUserOutputArgs, opts ...pulumi.InvokeOption) GetTwingateUserResultOutput {
+func LookupTwingateUserOutput(ctx *pulumi.Context, args LookupTwingateUserOutputArgs, opts ...pulumi.InvokeOption) LookupTwingateUserResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetTwingateUserResult, error) {
-			args := v.(GetTwingateUserArgs)
-			r, err := GetTwingateUser(ctx, &args, opts...)
-			var s GetTwingateUserResult
+		ApplyT(func(v interface{}) (LookupTwingateUserResult, error) {
+			args := v.(LookupTwingateUserArgs)
+			r, err := LookupTwingateUser(ctx, &args, opts...)
+			var s LookupTwingateUserResult
 			if r != nil {
 				s = *r
 			}
 			return s, err
-		}).(GetTwingateUserResultOutput)
+		}).(LookupTwingateUserResultOutput)
 }
 
 // A collection of arguments for invoking getTwingateUser.
-type GetTwingateUserOutputArgs struct {
+type LookupTwingateUserOutputArgs struct {
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
-func (GetTwingateUserOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetTwingateUserArgs)(nil)).Elem()
+func (LookupTwingateUserOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTwingateUserArgs)(nil)).Elem()
 }
 
 // A collection of values returned by getTwingateUser.
-type GetTwingateUserResultOutput struct{ *pulumi.OutputState }
+type LookupTwingateUserResultOutput struct{ *pulumi.OutputState }
 
-func (GetTwingateUserResultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetTwingateUserResult)(nil)).Elem()
+func (LookupTwingateUserResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTwingateUserResult)(nil)).Elem()
 }
 
-func (o GetTwingateUserResultOutput) ToGetTwingateUserResultOutput() GetTwingateUserResultOutput {
+func (o LookupTwingateUserResultOutput) ToLookupTwingateUserResultOutput() LookupTwingateUserResultOutput {
 	return o
 }
 
-func (o GetTwingateUserResultOutput) ToGetTwingateUserResultOutputWithContext(ctx context.Context) GetTwingateUserResultOutput {
+func (o LookupTwingateUserResultOutput) ToLookupTwingateUserResultOutputWithContext(ctx context.Context) LookupTwingateUserResultOutput {
 	return o
 }
 
-func (o GetTwingateUserResultOutput) Email() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTwingateUserResult) string { return v.Email }).(pulumi.StringOutput)
+func (o LookupTwingateUserResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTwingateUserResult] {
+	return pulumix.Output[LookupTwingateUserResult]{
+		OutputState: o.OutputState,
+	}
 }
 
-func (o GetTwingateUserResultOutput) FirstName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTwingateUserResult) string { return v.FirstName }).(pulumi.StringOutput)
+func (o LookupTwingateUserResultOutput) Email() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTwingateUserResult) string { return v.Email }).(pulumi.StringOutput)
 }
 
-func (o GetTwingateUserResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTwingateUserResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupTwingateUserResultOutput) FirstName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTwingateUserResult) string { return v.FirstName }).(pulumi.StringOutput)
 }
 
-func (o GetTwingateUserResultOutput) IsAdmin() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetTwingateUserResult) bool { return v.IsAdmin }).(pulumi.BoolOutput)
+func (o LookupTwingateUserResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTwingateUserResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-func (o GetTwingateUserResultOutput) LastName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTwingateUserResult) string { return v.LastName }).(pulumi.StringOutput)
+// Deprecated: This read-only Boolean value will be deprecated in a future release. You may use the `role` value instead.
+func (o LookupTwingateUserResultOutput) IsAdmin() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupTwingateUserResult) bool { return v.IsAdmin }).(pulumi.BoolOutput)
 }
 
-func (o GetTwingateUserResultOutput) Role() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTwingateUserResult) string { return v.Role }).(pulumi.StringOutput)
+func (o LookupTwingateUserResultOutput) LastName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTwingateUserResult) string { return v.LastName }).(pulumi.StringOutput)
+}
+
+func (o LookupTwingateUserResultOutput) Role() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTwingateUserResult) string { return v.Role }).(pulumi.StringOutput)
+}
+
+func (o LookupTwingateUserResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTwingateUserResult) string { return v.Type }).(pulumi.StringOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(GetTwingateUserResultOutput{})
+	pulumi.RegisterOutputType(LookupTwingateUserResultOutput{})
 }

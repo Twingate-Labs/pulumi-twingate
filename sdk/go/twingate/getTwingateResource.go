@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/Twingate-Labs/pulumi-twingate/sdk/go/twingate/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func LookupTwingateResource(ctx *pulumi.Context, args *LookupTwingateResourceArgs, opts ...pulumi.InvokeOption) (*LookupTwingateResourceResult, error) {
-	opts = pkgInvokeDefaultOpts(opts)
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTwingateResourceResult
 	err := ctx.Invoke("twingate:index/getTwingateResource:getTwingateResource", args, &rv, opts...)
 	if err != nil {
@@ -71,6 +73,12 @@ func (o LookupTwingateResourceResultOutput) ToLookupTwingateResourceResultOutput
 
 func (o LookupTwingateResourceResultOutput) ToLookupTwingateResourceResultOutputWithContext(ctx context.Context) LookupTwingateResourceResultOutput {
 	return o
+}
+
+func (o LookupTwingateResourceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTwingateResourceResult] {
+	return pulumix.Output[LookupTwingateResourceResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupTwingateResourceResultOutput) Address() pulumi.StringOutput {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/Twingate-Labs/pulumi-twingate/sdk/go/twingate/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func GetTwingateSecurityPolicy(ctx *pulumi.Context, args *GetTwingateSecurityPolicyArgs, opts ...pulumi.InvokeOption) (*GetTwingateSecurityPolicyResult, error) {
-	opts = pkgInvokeDefaultOpts(opts)
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTwingateSecurityPolicyResult
 	err := ctx.Invoke("twingate:index/getTwingateSecurityPolicy:getTwingateSecurityPolicy", args, &rv, opts...)
 	if err != nil {
@@ -68,6 +70,12 @@ func (o GetTwingateSecurityPolicyResultOutput) ToGetTwingateSecurityPolicyResult
 
 func (o GetTwingateSecurityPolicyResultOutput) ToGetTwingateSecurityPolicyResultOutputWithContext(ctx context.Context) GetTwingateSecurityPolicyResultOutput {
 	return o
+}
+
+func (o GetTwingateSecurityPolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetTwingateSecurityPolicyResult] {
+	return pulumix.Output[GetTwingateSecurityPolicyResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetTwingateSecurityPolicyResultOutput) Id() pulumi.StringPtrOutput {

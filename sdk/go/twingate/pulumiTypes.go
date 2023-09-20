@@ -7,8 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/Twingate-Labs/pulumi-twingate/sdk/go/twingate/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type TwingateResourceAccess struct {
 	GroupIds          []string `pulumi:"groupIds"`
@@ -41,6 +45,12 @@ func (i TwingateResourceAccessArgs) ToTwingateResourceAccessOutput() TwingateRes
 
 func (i TwingateResourceAccessArgs) ToTwingateResourceAccessOutputWithContext(ctx context.Context) TwingateResourceAccessOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TwingateResourceAccessOutput)
+}
+
+func (i TwingateResourceAccessArgs) ToOutput(ctx context.Context) pulumix.Output[TwingateResourceAccess] {
+	return pulumix.Output[TwingateResourceAccess]{
+		OutputState: i.ToTwingateResourceAccessOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i TwingateResourceAccessArgs) ToTwingateResourceAccessPtrOutput() TwingateResourceAccessPtrOutput {
@@ -84,6 +94,12 @@ func (i *twingateResourceAccessPtrType) ToTwingateResourceAccessPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(TwingateResourceAccessPtrOutput)
 }
 
+func (i *twingateResourceAccessPtrType) ToOutput(ctx context.Context) pulumix.Output[*TwingateResourceAccess] {
+	return pulumix.Output[*TwingateResourceAccess]{
+		OutputState: i.ToTwingateResourceAccessPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TwingateResourceAccessOutput struct{ *pulumi.OutputState }
 
 func (TwingateResourceAccessOutput) ElementType() reflect.Type {
@@ -108,6 +124,12 @@ func (o TwingateResourceAccessOutput) ToTwingateResourceAccessPtrOutputWithConte
 	}).(TwingateResourceAccessPtrOutput)
 }
 
+func (o TwingateResourceAccessOutput) ToOutput(ctx context.Context) pulumix.Output[TwingateResourceAccess] {
+	return pulumix.Output[TwingateResourceAccess]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TwingateResourceAccessOutput) GroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TwingateResourceAccess) []string { return v.GroupIds }).(pulumi.StringArrayOutput)
 }
@@ -128,6 +150,12 @@ func (o TwingateResourceAccessPtrOutput) ToTwingateResourceAccessPtrOutput() Twi
 
 func (o TwingateResourceAccessPtrOutput) ToTwingateResourceAccessPtrOutputWithContext(ctx context.Context) TwingateResourceAccessPtrOutput {
 	return o
+}
+
+func (o TwingateResourceAccessPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TwingateResourceAccess] {
+	return pulumix.Output[*TwingateResourceAccess]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TwingateResourceAccessPtrOutput) Elem() TwingateResourceAccessOutput {
@@ -193,6 +221,12 @@ func (i TwingateResourceProtocolsArgs) ToTwingateResourceProtocolsOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(TwingateResourceProtocolsOutput)
 }
 
+func (i TwingateResourceProtocolsArgs) ToOutput(ctx context.Context) pulumix.Output[TwingateResourceProtocols] {
+	return pulumix.Output[TwingateResourceProtocols]{
+		OutputState: i.ToTwingateResourceProtocolsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i TwingateResourceProtocolsArgs) ToTwingateResourceProtocolsPtrOutput() TwingateResourceProtocolsPtrOutput {
 	return i.ToTwingateResourceProtocolsPtrOutputWithContext(context.Background())
 }
@@ -234,6 +268,12 @@ func (i *twingateResourceProtocolsPtrType) ToTwingateResourceProtocolsPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(TwingateResourceProtocolsPtrOutput)
 }
 
+func (i *twingateResourceProtocolsPtrType) ToOutput(ctx context.Context) pulumix.Output[*TwingateResourceProtocols] {
+	return pulumix.Output[*TwingateResourceProtocols]{
+		OutputState: i.ToTwingateResourceProtocolsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TwingateResourceProtocolsOutput struct{ *pulumi.OutputState }
 
 func (TwingateResourceProtocolsOutput) ElementType() reflect.Type {
@@ -256,6 +296,12 @@ func (o TwingateResourceProtocolsOutput) ToTwingateResourceProtocolsPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TwingateResourceProtocols) *TwingateResourceProtocols {
 		return &v
 	}).(TwingateResourceProtocolsPtrOutput)
+}
+
+func (o TwingateResourceProtocolsOutput) ToOutput(ctx context.Context) pulumix.Output[TwingateResourceProtocols] {
+	return pulumix.Output[TwingateResourceProtocols]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TwingateResourceProtocolsOutput) AllowIcmp() pulumi.BoolPtrOutput {
@@ -282,6 +328,12 @@ func (o TwingateResourceProtocolsPtrOutput) ToTwingateResourceProtocolsPtrOutput
 
 func (o TwingateResourceProtocolsPtrOutput) ToTwingateResourceProtocolsPtrOutputWithContext(ctx context.Context) TwingateResourceProtocolsPtrOutput {
 	return o
+}
+
+func (o TwingateResourceProtocolsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TwingateResourceProtocols] {
+	return pulumix.Output[*TwingateResourceProtocols]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TwingateResourceProtocolsPtrOutput) Elem() TwingateResourceProtocolsOutput {
@@ -354,6 +406,12 @@ func (i TwingateResourceProtocolsTcpArgs) ToTwingateResourceProtocolsTcpOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(TwingateResourceProtocolsTcpOutput)
 }
 
+func (i TwingateResourceProtocolsTcpArgs) ToOutput(ctx context.Context) pulumix.Output[TwingateResourceProtocolsTcp] {
+	return pulumix.Output[TwingateResourceProtocolsTcp]{
+		OutputState: i.ToTwingateResourceProtocolsTcpOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i TwingateResourceProtocolsTcpArgs) ToTwingateResourceProtocolsTcpPtrOutput() TwingateResourceProtocolsTcpPtrOutput {
 	return i.ToTwingateResourceProtocolsTcpPtrOutputWithContext(context.Background())
 }
@@ -395,6 +453,12 @@ func (i *twingateResourceProtocolsTcpPtrType) ToTwingateResourceProtocolsTcpPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(TwingateResourceProtocolsTcpPtrOutput)
 }
 
+func (i *twingateResourceProtocolsTcpPtrType) ToOutput(ctx context.Context) pulumix.Output[*TwingateResourceProtocolsTcp] {
+	return pulumix.Output[*TwingateResourceProtocolsTcp]{
+		OutputState: i.ToTwingateResourceProtocolsTcpPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TwingateResourceProtocolsTcpOutput struct{ *pulumi.OutputState }
 
 func (TwingateResourceProtocolsTcpOutput) ElementType() reflect.Type {
@@ -419,6 +483,12 @@ func (o TwingateResourceProtocolsTcpOutput) ToTwingateResourceProtocolsTcpPtrOut
 	}).(TwingateResourceProtocolsTcpPtrOutput)
 }
 
+func (o TwingateResourceProtocolsTcpOutput) ToOutput(ctx context.Context) pulumix.Output[TwingateResourceProtocolsTcp] {
+	return pulumix.Output[TwingateResourceProtocolsTcp]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TwingateResourceProtocolsTcpOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v TwingateResourceProtocolsTcp) string { return v.Policy }).(pulumi.StringOutput)
 }
@@ -439,6 +509,12 @@ func (o TwingateResourceProtocolsTcpPtrOutput) ToTwingateResourceProtocolsTcpPtr
 
 func (o TwingateResourceProtocolsTcpPtrOutput) ToTwingateResourceProtocolsTcpPtrOutputWithContext(ctx context.Context) TwingateResourceProtocolsTcpPtrOutput {
 	return o
+}
+
+func (o TwingateResourceProtocolsTcpPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TwingateResourceProtocolsTcp] {
+	return pulumix.Output[*TwingateResourceProtocolsTcp]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TwingateResourceProtocolsTcpPtrOutput) Elem() TwingateResourceProtocolsTcpOutput {
@@ -502,6 +578,12 @@ func (i TwingateResourceProtocolsUdpArgs) ToTwingateResourceProtocolsUdpOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(TwingateResourceProtocolsUdpOutput)
 }
 
+func (i TwingateResourceProtocolsUdpArgs) ToOutput(ctx context.Context) pulumix.Output[TwingateResourceProtocolsUdp] {
+	return pulumix.Output[TwingateResourceProtocolsUdp]{
+		OutputState: i.ToTwingateResourceProtocolsUdpOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i TwingateResourceProtocolsUdpArgs) ToTwingateResourceProtocolsUdpPtrOutput() TwingateResourceProtocolsUdpPtrOutput {
 	return i.ToTwingateResourceProtocolsUdpPtrOutputWithContext(context.Background())
 }
@@ -543,6 +625,12 @@ func (i *twingateResourceProtocolsUdpPtrType) ToTwingateResourceProtocolsUdpPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(TwingateResourceProtocolsUdpPtrOutput)
 }
 
+func (i *twingateResourceProtocolsUdpPtrType) ToOutput(ctx context.Context) pulumix.Output[*TwingateResourceProtocolsUdp] {
+	return pulumix.Output[*TwingateResourceProtocolsUdp]{
+		OutputState: i.ToTwingateResourceProtocolsUdpPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TwingateResourceProtocolsUdpOutput struct{ *pulumi.OutputState }
 
 func (TwingateResourceProtocolsUdpOutput) ElementType() reflect.Type {
@@ -567,6 +655,12 @@ func (o TwingateResourceProtocolsUdpOutput) ToTwingateResourceProtocolsUdpPtrOut
 	}).(TwingateResourceProtocolsUdpPtrOutput)
 }
 
+func (o TwingateResourceProtocolsUdpOutput) ToOutput(ctx context.Context) pulumix.Output[TwingateResourceProtocolsUdp] {
+	return pulumix.Output[TwingateResourceProtocolsUdp]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TwingateResourceProtocolsUdpOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v TwingateResourceProtocolsUdp) string { return v.Policy }).(pulumi.StringOutput)
 }
@@ -587,6 +681,12 @@ func (o TwingateResourceProtocolsUdpPtrOutput) ToTwingateResourceProtocolsUdpPtr
 
 func (o TwingateResourceProtocolsUdpPtrOutput) ToTwingateResourceProtocolsUdpPtrOutputWithContext(ctx context.Context) TwingateResourceProtocolsUdpPtrOutput {
 	return o
+}
+
+func (o TwingateResourceProtocolsUdpPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TwingateResourceProtocolsUdp] {
+	return pulumix.Output[*TwingateResourceProtocolsUdp]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TwingateResourceProtocolsUdpPtrOutput) Elem() TwingateResourceProtocolsUdpOutput {
@@ -654,6 +754,12 @@ func (i GetTwingateConnectorsConnectorArgs) ToGetTwingateConnectorsConnectorOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetTwingateConnectorsConnectorOutput)
 }
 
+func (i GetTwingateConnectorsConnectorArgs) ToOutput(ctx context.Context) pulumix.Output[GetTwingateConnectorsConnector] {
+	return pulumix.Output[GetTwingateConnectorsConnector]{
+		OutputState: i.ToGetTwingateConnectorsConnectorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetTwingateConnectorsConnectorArrayInput is an input type that accepts GetTwingateConnectorsConnectorArray and GetTwingateConnectorsConnectorArrayOutput values.
 // You can construct a concrete instance of `GetTwingateConnectorsConnectorArrayInput` via:
 //
@@ -679,6 +785,12 @@ func (i GetTwingateConnectorsConnectorArray) ToGetTwingateConnectorsConnectorArr
 	return pulumi.ToOutputWithContext(ctx, i).(GetTwingateConnectorsConnectorArrayOutput)
 }
 
+func (i GetTwingateConnectorsConnectorArray) ToOutput(ctx context.Context) pulumix.Output[[]GetTwingateConnectorsConnector] {
+	return pulumix.Output[[]GetTwingateConnectorsConnector]{
+		OutputState: i.ToGetTwingateConnectorsConnectorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetTwingateConnectorsConnectorOutput struct{ *pulumi.OutputState }
 
 func (GetTwingateConnectorsConnectorOutput) ElementType() reflect.Type {
@@ -691,6 +803,12 @@ func (o GetTwingateConnectorsConnectorOutput) ToGetTwingateConnectorsConnectorOu
 
 func (o GetTwingateConnectorsConnectorOutput) ToGetTwingateConnectorsConnectorOutputWithContext(ctx context.Context) GetTwingateConnectorsConnectorOutput {
 	return o
+}
+
+func (o GetTwingateConnectorsConnectorOutput) ToOutput(ctx context.Context) pulumix.Output[GetTwingateConnectorsConnector] {
+	return pulumix.Output[GetTwingateConnectorsConnector]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetTwingateConnectorsConnectorOutput) Id() pulumi.StringOutput {
@@ -721,6 +839,12 @@ func (o GetTwingateConnectorsConnectorArrayOutput) ToGetTwingateConnectorsConnec
 
 func (o GetTwingateConnectorsConnectorArrayOutput) ToGetTwingateConnectorsConnectorArrayOutputWithContext(ctx context.Context) GetTwingateConnectorsConnectorArrayOutput {
 	return o
+}
+
+func (o GetTwingateConnectorsConnectorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetTwingateConnectorsConnector] {
+	return pulumix.Output[[]GetTwingateConnectorsConnector]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetTwingateConnectorsConnectorArrayOutput) Index(i pulumi.IntInput) GetTwingateConnectorsConnectorOutput {
@@ -768,6 +892,12 @@ func (i GetTwingateGroupsGroupArgs) ToGetTwingateGroupsGroupOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetTwingateGroupsGroupOutput)
 }
 
+func (i GetTwingateGroupsGroupArgs) ToOutput(ctx context.Context) pulumix.Output[GetTwingateGroupsGroup] {
+	return pulumix.Output[GetTwingateGroupsGroup]{
+		OutputState: i.ToGetTwingateGroupsGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetTwingateGroupsGroupArrayInput is an input type that accepts GetTwingateGroupsGroupArray and GetTwingateGroupsGroupArrayOutput values.
 // You can construct a concrete instance of `GetTwingateGroupsGroupArrayInput` via:
 //
@@ -793,6 +923,12 @@ func (i GetTwingateGroupsGroupArray) ToGetTwingateGroupsGroupArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetTwingateGroupsGroupArrayOutput)
 }
 
+func (i GetTwingateGroupsGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]GetTwingateGroupsGroup] {
+	return pulumix.Output[[]GetTwingateGroupsGroup]{
+		OutputState: i.ToGetTwingateGroupsGroupArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetTwingateGroupsGroupOutput struct{ *pulumi.OutputState }
 
 func (GetTwingateGroupsGroupOutput) ElementType() reflect.Type {
@@ -805,6 +941,12 @@ func (o GetTwingateGroupsGroupOutput) ToGetTwingateGroupsGroupOutput() GetTwinga
 
 func (o GetTwingateGroupsGroupOutput) ToGetTwingateGroupsGroupOutputWithContext(ctx context.Context) GetTwingateGroupsGroupOutput {
 	return o
+}
+
+func (o GetTwingateGroupsGroupOutput) ToOutput(ctx context.Context) pulumix.Output[GetTwingateGroupsGroup] {
+	return pulumix.Output[GetTwingateGroupsGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetTwingateGroupsGroupOutput) Id() pulumi.StringOutput {
@@ -839,6 +981,12 @@ func (o GetTwingateGroupsGroupArrayOutput) ToGetTwingateGroupsGroupArrayOutput()
 
 func (o GetTwingateGroupsGroupArrayOutput) ToGetTwingateGroupsGroupArrayOutputWithContext(ctx context.Context) GetTwingateGroupsGroupArrayOutput {
 	return o
+}
+
+func (o GetTwingateGroupsGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetTwingateGroupsGroup] {
+	return pulumix.Output[[]GetTwingateGroupsGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetTwingateGroupsGroupArrayOutput) Index(i pulumi.IntInput) GetTwingateGroupsGroupOutput {
@@ -882,6 +1030,12 @@ func (i GetTwingateRemoteNetworksRemoteNetworkArgs) ToGetTwingateRemoteNetworksR
 	return pulumi.ToOutputWithContext(ctx, i).(GetTwingateRemoteNetworksRemoteNetworkOutput)
 }
 
+func (i GetTwingateRemoteNetworksRemoteNetworkArgs) ToOutput(ctx context.Context) pulumix.Output[GetTwingateRemoteNetworksRemoteNetwork] {
+	return pulumix.Output[GetTwingateRemoteNetworksRemoteNetwork]{
+		OutputState: i.ToGetTwingateRemoteNetworksRemoteNetworkOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetTwingateRemoteNetworksRemoteNetworkArrayInput is an input type that accepts GetTwingateRemoteNetworksRemoteNetworkArray and GetTwingateRemoteNetworksRemoteNetworkArrayOutput values.
 // You can construct a concrete instance of `GetTwingateRemoteNetworksRemoteNetworkArrayInput` via:
 //
@@ -907,6 +1061,12 @@ func (i GetTwingateRemoteNetworksRemoteNetworkArray) ToGetTwingateRemoteNetworks
 	return pulumi.ToOutputWithContext(ctx, i).(GetTwingateRemoteNetworksRemoteNetworkArrayOutput)
 }
 
+func (i GetTwingateRemoteNetworksRemoteNetworkArray) ToOutput(ctx context.Context) pulumix.Output[[]GetTwingateRemoteNetworksRemoteNetwork] {
+	return pulumix.Output[[]GetTwingateRemoteNetworksRemoteNetwork]{
+		OutputState: i.ToGetTwingateRemoteNetworksRemoteNetworkArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetTwingateRemoteNetworksRemoteNetworkOutput struct{ *pulumi.OutputState }
 
 func (GetTwingateRemoteNetworksRemoteNetworkOutput) ElementType() reflect.Type {
@@ -919,6 +1079,12 @@ func (o GetTwingateRemoteNetworksRemoteNetworkOutput) ToGetTwingateRemoteNetwork
 
 func (o GetTwingateRemoteNetworksRemoteNetworkOutput) ToGetTwingateRemoteNetworksRemoteNetworkOutputWithContext(ctx context.Context) GetTwingateRemoteNetworksRemoteNetworkOutput {
 	return o
+}
+
+func (o GetTwingateRemoteNetworksRemoteNetworkOutput) ToOutput(ctx context.Context) pulumix.Output[GetTwingateRemoteNetworksRemoteNetwork] {
+	return pulumix.Output[GetTwingateRemoteNetworksRemoteNetwork]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetTwingateRemoteNetworksRemoteNetworkOutput) Id() pulumi.StringOutput {
@@ -945,6 +1111,12 @@ func (o GetTwingateRemoteNetworksRemoteNetworkArrayOutput) ToGetTwingateRemoteNe
 
 func (o GetTwingateRemoteNetworksRemoteNetworkArrayOutput) ToGetTwingateRemoteNetworksRemoteNetworkArrayOutputWithContext(ctx context.Context) GetTwingateRemoteNetworksRemoteNetworkArrayOutput {
 	return o
+}
+
+func (o GetTwingateRemoteNetworksRemoteNetworkArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetTwingateRemoteNetworksRemoteNetwork] {
+	return pulumix.Output[[]GetTwingateRemoteNetworksRemoteNetwork]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetTwingateRemoteNetworksRemoteNetworkArrayOutput) Index(i pulumi.IntInput) GetTwingateRemoteNetworksRemoteNetworkOutput {
@@ -988,6 +1160,12 @@ func (i GetTwingateResourceProtocolArgs) ToGetTwingateResourceProtocolOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetTwingateResourceProtocolOutput)
 }
 
+func (i GetTwingateResourceProtocolArgs) ToOutput(ctx context.Context) pulumix.Output[GetTwingateResourceProtocol] {
+	return pulumix.Output[GetTwingateResourceProtocol]{
+		OutputState: i.ToGetTwingateResourceProtocolOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetTwingateResourceProtocolArrayInput is an input type that accepts GetTwingateResourceProtocolArray and GetTwingateResourceProtocolArrayOutput values.
 // You can construct a concrete instance of `GetTwingateResourceProtocolArrayInput` via:
 //
@@ -1013,6 +1191,12 @@ func (i GetTwingateResourceProtocolArray) ToGetTwingateResourceProtocolArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetTwingateResourceProtocolArrayOutput)
 }
 
+func (i GetTwingateResourceProtocolArray) ToOutput(ctx context.Context) pulumix.Output[[]GetTwingateResourceProtocol] {
+	return pulumix.Output[[]GetTwingateResourceProtocol]{
+		OutputState: i.ToGetTwingateResourceProtocolArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetTwingateResourceProtocolOutput struct{ *pulumi.OutputState }
 
 func (GetTwingateResourceProtocolOutput) ElementType() reflect.Type {
@@ -1025,6 +1209,12 @@ func (o GetTwingateResourceProtocolOutput) ToGetTwingateResourceProtocolOutput()
 
 func (o GetTwingateResourceProtocolOutput) ToGetTwingateResourceProtocolOutputWithContext(ctx context.Context) GetTwingateResourceProtocolOutput {
 	return o
+}
+
+func (o GetTwingateResourceProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[GetTwingateResourceProtocol] {
+	return pulumix.Output[GetTwingateResourceProtocol]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetTwingateResourceProtocolOutput) AllowIcmp() pulumi.BoolOutput {
@@ -1051,6 +1241,12 @@ func (o GetTwingateResourceProtocolArrayOutput) ToGetTwingateResourceProtocolArr
 
 func (o GetTwingateResourceProtocolArrayOutput) ToGetTwingateResourceProtocolArrayOutputWithContext(ctx context.Context) GetTwingateResourceProtocolArrayOutput {
 	return o
+}
+
+func (o GetTwingateResourceProtocolArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetTwingateResourceProtocol] {
+	return pulumix.Output[[]GetTwingateResourceProtocol]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetTwingateResourceProtocolArrayOutput) Index(i pulumi.IntInput) GetTwingateResourceProtocolOutput {
@@ -1092,6 +1288,12 @@ func (i GetTwingateResourceProtocolTcpArgs) ToGetTwingateResourceProtocolTcpOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetTwingateResourceProtocolTcpOutput)
 }
 
+func (i GetTwingateResourceProtocolTcpArgs) ToOutput(ctx context.Context) pulumix.Output[GetTwingateResourceProtocolTcp] {
+	return pulumix.Output[GetTwingateResourceProtocolTcp]{
+		OutputState: i.ToGetTwingateResourceProtocolTcpOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetTwingateResourceProtocolTcpArrayInput is an input type that accepts GetTwingateResourceProtocolTcpArray and GetTwingateResourceProtocolTcpArrayOutput values.
 // You can construct a concrete instance of `GetTwingateResourceProtocolTcpArrayInput` via:
 //
@@ -1117,6 +1319,12 @@ func (i GetTwingateResourceProtocolTcpArray) ToGetTwingateResourceProtocolTcpArr
 	return pulumi.ToOutputWithContext(ctx, i).(GetTwingateResourceProtocolTcpArrayOutput)
 }
 
+func (i GetTwingateResourceProtocolTcpArray) ToOutput(ctx context.Context) pulumix.Output[[]GetTwingateResourceProtocolTcp] {
+	return pulumix.Output[[]GetTwingateResourceProtocolTcp]{
+		OutputState: i.ToGetTwingateResourceProtocolTcpArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetTwingateResourceProtocolTcpOutput struct{ *pulumi.OutputState }
 
 func (GetTwingateResourceProtocolTcpOutput) ElementType() reflect.Type {
@@ -1129,6 +1337,12 @@ func (o GetTwingateResourceProtocolTcpOutput) ToGetTwingateResourceProtocolTcpOu
 
 func (o GetTwingateResourceProtocolTcpOutput) ToGetTwingateResourceProtocolTcpOutputWithContext(ctx context.Context) GetTwingateResourceProtocolTcpOutput {
 	return o
+}
+
+func (o GetTwingateResourceProtocolTcpOutput) ToOutput(ctx context.Context) pulumix.Output[GetTwingateResourceProtocolTcp] {
+	return pulumix.Output[GetTwingateResourceProtocolTcp]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetTwingateResourceProtocolTcpOutput) Policy() pulumi.StringOutput {
@@ -1151,6 +1365,12 @@ func (o GetTwingateResourceProtocolTcpArrayOutput) ToGetTwingateResourceProtocol
 
 func (o GetTwingateResourceProtocolTcpArrayOutput) ToGetTwingateResourceProtocolTcpArrayOutputWithContext(ctx context.Context) GetTwingateResourceProtocolTcpArrayOutput {
 	return o
+}
+
+func (o GetTwingateResourceProtocolTcpArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetTwingateResourceProtocolTcp] {
+	return pulumix.Output[[]GetTwingateResourceProtocolTcp]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetTwingateResourceProtocolTcpArrayOutput) Index(i pulumi.IntInput) GetTwingateResourceProtocolTcpOutput {
@@ -1192,6 +1412,12 @@ func (i GetTwingateResourceProtocolUdpArgs) ToGetTwingateResourceProtocolUdpOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetTwingateResourceProtocolUdpOutput)
 }
 
+func (i GetTwingateResourceProtocolUdpArgs) ToOutput(ctx context.Context) pulumix.Output[GetTwingateResourceProtocolUdp] {
+	return pulumix.Output[GetTwingateResourceProtocolUdp]{
+		OutputState: i.ToGetTwingateResourceProtocolUdpOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetTwingateResourceProtocolUdpArrayInput is an input type that accepts GetTwingateResourceProtocolUdpArray and GetTwingateResourceProtocolUdpArrayOutput values.
 // You can construct a concrete instance of `GetTwingateResourceProtocolUdpArrayInput` via:
 //
@@ -1217,6 +1443,12 @@ func (i GetTwingateResourceProtocolUdpArray) ToGetTwingateResourceProtocolUdpArr
 	return pulumi.ToOutputWithContext(ctx, i).(GetTwingateResourceProtocolUdpArrayOutput)
 }
 
+func (i GetTwingateResourceProtocolUdpArray) ToOutput(ctx context.Context) pulumix.Output[[]GetTwingateResourceProtocolUdp] {
+	return pulumix.Output[[]GetTwingateResourceProtocolUdp]{
+		OutputState: i.ToGetTwingateResourceProtocolUdpArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetTwingateResourceProtocolUdpOutput struct{ *pulumi.OutputState }
 
 func (GetTwingateResourceProtocolUdpOutput) ElementType() reflect.Type {
@@ -1229,6 +1461,12 @@ func (o GetTwingateResourceProtocolUdpOutput) ToGetTwingateResourceProtocolUdpOu
 
 func (o GetTwingateResourceProtocolUdpOutput) ToGetTwingateResourceProtocolUdpOutputWithContext(ctx context.Context) GetTwingateResourceProtocolUdpOutput {
 	return o
+}
+
+func (o GetTwingateResourceProtocolUdpOutput) ToOutput(ctx context.Context) pulumix.Output[GetTwingateResourceProtocolUdp] {
+	return pulumix.Output[GetTwingateResourceProtocolUdp]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetTwingateResourceProtocolUdpOutput) Policy() pulumi.StringOutput {
@@ -1251,6 +1489,12 @@ func (o GetTwingateResourceProtocolUdpArrayOutput) ToGetTwingateResourceProtocol
 
 func (o GetTwingateResourceProtocolUdpArrayOutput) ToGetTwingateResourceProtocolUdpArrayOutputWithContext(ctx context.Context) GetTwingateResourceProtocolUdpArrayOutput {
 	return o
+}
+
+func (o GetTwingateResourceProtocolUdpArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetTwingateResourceProtocolUdp] {
+	return pulumix.Output[[]GetTwingateResourceProtocolUdp]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetTwingateResourceProtocolUdpArrayOutput) Index(i pulumi.IntInput) GetTwingateResourceProtocolUdpOutput {
@@ -1298,6 +1542,12 @@ func (i GetTwingateResourcesResourceArgs) ToGetTwingateResourcesResourceOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetTwingateResourcesResourceOutput)
 }
 
+func (i GetTwingateResourcesResourceArgs) ToOutput(ctx context.Context) pulumix.Output[GetTwingateResourcesResource] {
+	return pulumix.Output[GetTwingateResourcesResource]{
+		OutputState: i.ToGetTwingateResourcesResourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetTwingateResourcesResourceArrayInput is an input type that accepts GetTwingateResourcesResourceArray and GetTwingateResourcesResourceArrayOutput values.
 // You can construct a concrete instance of `GetTwingateResourcesResourceArrayInput` via:
 //
@@ -1323,6 +1573,12 @@ func (i GetTwingateResourcesResourceArray) ToGetTwingateResourcesResourceArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetTwingateResourcesResourceArrayOutput)
 }
 
+func (i GetTwingateResourcesResourceArray) ToOutput(ctx context.Context) pulumix.Output[[]GetTwingateResourcesResource] {
+	return pulumix.Output[[]GetTwingateResourcesResource]{
+		OutputState: i.ToGetTwingateResourcesResourceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetTwingateResourcesResourceOutput struct{ *pulumi.OutputState }
 
 func (GetTwingateResourcesResourceOutput) ElementType() reflect.Type {
@@ -1335,6 +1591,12 @@ func (o GetTwingateResourcesResourceOutput) ToGetTwingateResourcesResourceOutput
 
 func (o GetTwingateResourcesResourceOutput) ToGetTwingateResourcesResourceOutputWithContext(ctx context.Context) GetTwingateResourcesResourceOutput {
 	return o
+}
+
+func (o GetTwingateResourcesResourceOutput) ToOutput(ctx context.Context) pulumix.Output[GetTwingateResourcesResource] {
+	return pulumix.Output[GetTwingateResourcesResource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetTwingateResourcesResourceOutput) Address() pulumi.StringOutput {
@@ -1369,6 +1631,12 @@ func (o GetTwingateResourcesResourceArrayOutput) ToGetTwingateResourcesResourceA
 
 func (o GetTwingateResourcesResourceArrayOutput) ToGetTwingateResourcesResourceArrayOutputWithContext(ctx context.Context) GetTwingateResourcesResourceArrayOutput {
 	return o
+}
+
+func (o GetTwingateResourcesResourceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetTwingateResourcesResource] {
+	return pulumix.Output[[]GetTwingateResourcesResource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetTwingateResourcesResourceArrayOutput) Index(i pulumi.IntInput) GetTwingateResourcesResourceOutput {
@@ -1412,6 +1680,12 @@ func (i GetTwingateResourcesResourceProtocolArgs) ToGetTwingateResourcesResource
 	return pulumi.ToOutputWithContext(ctx, i).(GetTwingateResourcesResourceProtocolOutput)
 }
 
+func (i GetTwingateResourcesResourceProtocolArgs) ToOutput(ctx context.Context) pulumix.Output[GetTwingateResourcesResourceProtocol] {
+	return pulumix.Output[GetTwingateResourcesResourceProtocol]{
+		OutputState: i.ToGetTwingateResourcesResourceProtocolOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetTwingateResourcesResourceProtocolArrayInput is an input type that accepts GetTwingateResourcesResourceProtocolArray and GetTwingateResourcesResourceProtocolArrayOutput values.
 // You can construct a concrete instance of `GetTwingateResourcesResourceProtocolArrayInput` via:
 //
@@ -1437,6 +1711,12 @@ func (i GetTwingateResourcesResourceProtocolArray) ToGetTwingateResourcesResourc
 	return pulumi.ToOutputWithContext(ctx, i).(GetTwingateResourcesResourceProtocolArrayOutput)
 }
 
+func (i GetTwingateResourcesResourceProtocolArray) ToOutput(ctx context.Context) pulumix.Output[[]GetTwingateResourcesResourceProtocol] {
+	return pulumix.Output[[]GetTwingateResourcesResourceProtocol]{
+		OutputState: i.ToGetTwingateResourcesResourceProtocolArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetTwingateResourcesResourceProtocolOutput struct{ *pulumi.OutputState }
 
 func (GetTwingateResourcesResourceProtocolOutput) ElementType() reflect.Type {
@@ -1449,6 +1729,12 @@ func (o GetTwingateResourcesResourceProtocolOutput) ToGetTwingateResourcesResour
 
 func (o GetTwingateResourcesResourceProtocolOutput) ToGetTwingateResourcesResourceProtocolOutputWithContext(ctx context.Context) GetTwingateResourcesResourceProtocolOutput {
 	return o
+}
+
+func (o GetTwingateResourcesResourceProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[GetTwingateResourcesResourceProtocol] {
+	return pulumix.Output[GetTwingateResourcesResourceProtocol]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetTwingateResourcesResourceProtocolOutput) AllowIcmp() pulumi.BoolOutput {
@@ -1475,6 +1761,12 @@ func (o GetTwingateResourcesResourceProtocolArrayOutput) ToGetTwingateResourcesR
 
 func (o GetTwingateResourcesResourceProtocolArrayOutput) ToGetTwingateResourcesResourceProtocolArrayOutputWithContext(ctx context.Context) GetTwingateResourcesResourceProtocolArrayOutput {
 	return o
+}
+
+func (o GetTwingateResourcesResourceProtocolArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetTwingateResourcesResourceProtocol] {
+	return pulumix.Output[[]GetTwingateResourcesResourceProtocol]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetTwingateResourcesResourceProtocolArrayOutput) Index(i pulumi.IntInput) GetTwingateResourcesResourceProtocolOutput {
@@ -1516,6 +1808,12 @@ func (i GetTwingateResourcesResourceProtocolTcpArgs) ToGetTwingateResourcesResou
 	return pulumi.ToOutputWithContext(ctx, i).(GetTwingateResourcesResourceProtocolTcpOutput)
 }
 
+func (i GetTwingateResourcesResourceProtocolTcpArgs) ToOutput(ctx context.Context) pulumix.Output[GetTwingateResourcesResourceProtocolTcp] {
+	return pulumix.Output[GetTwingateResourcesResourceProtocolTcp]{
+		OutputState: i.ToGetTwingateResourcesResourceProtocolTcpOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetTwingateResourcesResourceProtocolTcpArrayInput is an input type that accepts GetTwingateResourcesResourceProtocolTcpArray and GetTwingateResourcesResourceProtocolTcpArrayOutput values.
 // You can construct a concrete instance of `GetTwingateResourcesResourceProtocolTcpArrayInput` via:
 //
@@ -1541,6 +1839,12 @@ func (i GetTwingateResourcesResourceProtocolTcpArray) ToGetTwingateResourcesReso
 	return pulumi.ToOutputWithContext(ctx, i).(GetTwingateResourcesResourceProtocolTcpArrayOutput)
 }
 
+func (i GetTwingateResourcesResourceProtocolTcpArray) ToOutput(ctx context.Context) pulumix.Output[[]GetTwingateResourcesResourceProtocolTcp] {
+	return pulumix.Output[[]GetTwingateResourcesResourceProtocolTcp]{
+		OutputState: i.ToGetTwingateResourcesResourceProtocolTcpArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetTwingateResourcesResourceProtocolTcpOutput struct{ *pulumi.OutputState }
 
 func (GetTwingateResourcesResourceProtocolTcpOutput) ElementType() reflect.Type {
@@ -1553,6 +1857,12 @@ func (o GetTwingateResourcesResourceProtocolTcpOutput) ToGetTwingateResourcesRes
 
 func (o GetTwingateResourcesResourceProtocolTcpOutput) ToGetTwingateResourcesResourceProtocolTcpOutputWithContext(ctx context.Context) GetTwingateResourcesResourceProtocolTcpOutput {
 	return o
+}
+
+func (o GetTwingateResourcesResourceProtocolTcpOutput) ToOutput(ctx context.Context) pulumix.Output[GetTwingateResourcesResourceProtocolTcp] {
+	return pulumix.Output[GetTwingateResourcesResourceProtocolTcp]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetTwingateResourcesResourceProtocolTcpOutput) Policy() pulumi.StringOutput {
@@ -1575,6 +1885,12 @@ func (o GetTwingateResourcesResourceProtocolTcpArrayOutput) ToGetTwingateResourc
 
 func (o GetTwingateResourcesResourceProtocolTcpArrayOutput) ToGetTwingateResourcesResourceProtocolTcpArrayOutputWithContext(ctx context.Context) GetTwingateResourcesResourceProtocolTcpArrayOutput {
 	return o
+}
+
+func (o GetTwingateResourcesResourceProtocolTcpArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetTwingateResourcesResourceProtocolTcp] {
+	return pulumix.Output[[]GetTwingateResourcesResourceProtocolTcp]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetTwingateResourcesResourceProtocolTcpArrayOutput) Index(i pulumi.IntInput) GetTwingateResourcesResourceProtocolTcpOutput {
@@ -1616,6 +1932,12 @@ func (i GetTwingateResourcesResourceProtocolUdpArgs) ToGetTwingateResourcesResou
 	return pulumi.ToOutputWithContext(ctx, i).(GetTwingateResourcesResourceProtocolUdpOutput)
 }
 
+func (i GetTwingateResourcesResourceProtocolUdpArgs) ToOutput(ctx context.Context) pulumix.Output[GetTwingateResourcesResourceProtocolUdp] {
+	return pulumix.Output[GetTwingateResourcesResourceProtocolUdp]{
+		OutputState: i.ToGetTwingateResourcesResourceProtocolUdpOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetTwingateResourcesResourceProtocolUdpArrayInput is an input type that accepts GetTwingateResourcesResourceProtocolUdpArray and GetTwingateResourcesResourceProtocolUdpArrayOutput values.
 // You can construct a concrete instance of `GetTwingateResourcesResourceProtocolUdpArrayInput` via:
 //
@@ -1641,6 +1963,12 @@ func (i GetTwingateResourcesResourceProtocolUdpArray) ToGetTwingateResourcesReso
 	return pulumi.ToOutputWithContext(ctx, i).(GetTwingateResourcesResourceProtocolUdpArrayOutput)
 }
 
+func (i GetTwingateResourcesResourceProtocolUdpArray) ToOutput(ctx context.Context) pulumix.Output[[]GetTwingateResourcesResourceProtocolUdp] {
+	return pulumix.Output[[]GetTwingateResourcesResourceProtocolUdp]{
+		OutputState: i.ToGetTwingateResourcesResourceProtocolUdpArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetTwingateResourcesResourceProtocolUdpOutput struct{ *pulumi.OutputState }
 
 func (GetTwingateResourcesResourceProtocolUdpOutput) ElementType() reflect.Type {
@@ -1653,6 +1981,12 @@ func (o GetTwingateResourcesResourceProtocolUdpOutput) ToGetTwingateResourcesRes
 
 func (o GetTwingateResourcesResourceProtocolUdpOutput) ToGetTwingateResourcesResourceProtocolUdpOutputWithContext(ctx context.Context) GetTwingateResourcesResourceProtocolUdpOutput {
 	return o
+}
+
+func (o GetTwingateResourcesResourceProtocolUdpOutput) ToOutput(ctx context.Context) pulumix.Output[GetTwingateResourcesResourceProtocolUdp] {
+	return pulumix.Output[GetTwingateResourcesResourceProtocolUdp]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetTwingateResourcesResourceProtocolUdpOutput) Policy() pulumi.StringOutput {
@@ -1675,6 +2009,12 @@ func (o GetTwingateResourcesResourceProtocolUdpArrayOutput) ToGetTwingateResourc
 
 func (o GetTwingateResourcesResourceProtocolUdpArrayOutput) ToGetTwingateResourcesResourceProtocolUdpArrayOutputWithContext(ctx context.Context) GetTwingateResourcesResourceProtocolUdpArrayOutput {
 	return o
+}
+
+func (o GetTwingateResourcesResourceProtocolUdpArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetTwingateResourcesResourceProtocolUdp] {
+	return pulumix.Output[[]GetTwingateResourcesResourceProtocolUdp]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetTwingateResourcesResourceProtocolUdpArrayOutput) Index(i pulumi.IntInput) GetTwingateResourcesResourceProtocolUdpOutput {
@@ -1716,6 +2056,12 @@ func (i GetTwingateSecurityPoliciesSecurityPolicyArgs) ToGetTwingateSecurityPoli
 	return pulumi.ToOutputWithContext(ctx, i).(GetTwingateSecurityPoliciesSecurityPolicyOutput)
 }
 
+func (i GetTwingateSecurityPoliciesSecurityPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[GetTwingateSecurityPoliciesSecurityPolicy] {
+	return pulumix.Output[GetTwingateSecurityPoliciesSecurityPolicy]{
+		OutputState: i.ToGetTwingateSecurityPoliciesSecurityPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetTwingateSecurityPoliciesSecurityPolicyArrayInput is an input type that accepts GetTwingateSecurityPoliciesSecurityPolicyArray and GetTwingateSecurityPoliciesSecurityPolicyArrayOutput values.
 // You can construct a concrete instance of `GetTwingateSecurityPoliciesSecurityPolicyArrayInput` via:
 //
@@ -1741,6 +2087,12 @@ func (i GetTwingateSecurityPoliciesSecurityPolicyArray) ToGetTwingateSecurityPol
 	return pulumi.ToOutputWithContext(ctx, i).(GetTwingateSecurityPoliciesSecurityPolicyArrayOutput)
 }
 
+func (i GetTwingateSecurityPoliciesSecurityPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]GetTwingateSecurityPoliciesSecurityPolicy] {
+	return pulumix.Output[[]GetTwingateSecurityPoliciesSecurityPolicy]{
+		OutputState: i.ToGetTwingateSecurityPoliciesSecurityPolicyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetTwingateSecurityPoliciesSecurityPolicyOutput struct{ *pulumi.OutputState }
 
 func (GetTwingateSecurityPoliciesSecurityPolicyOutput) ElementType() reflect.Type {
@@ -1753,6 +2105,12 @@ func (o GetTwingateSecurityPoliciesSecurityPolicyOutput) ToGetTwingateSecurityPo
 
 func (o GetTwingateSecurityPoliciesSecurityPolicyOutput) ToGetTwingateSecurityPoliciesSecurityPolicyOutputWithContext(ctx context.Context) GetTwingateSecurityPoliciesSecurityPolicyOutput {
 	return o
+}
+
+func (o GetTwingateSecurityPoliciesSecurityPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[GetTwingateSecurityPoliciesSecurityPolicy] {
+	return pulumix.Output[GetTwingateSecurityPoliciesSecurityPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetTwingateSecurityPoliciesSecurityPolicyOutput) Id() pulumi.StringOutput {
@@ -1775,6 +2133,12 @@ func (o GetTwingateSecurityPoliciesSecurityPolicyArrayOutput) ToGetTwingateSecur
 
 func (o GetTwingateSecurityPoliciesSecurityPolicyArrayOutput) ToGetTwingateSecurityPoliciesSecurityPolicyArrayOutputWithContext(ctx context.Context) GetTwingateSecurityPoliciesSecurityPolicyArrayOutput {
 	return o
+}
+
+func (o GetTwingateSecurityPoliciesSecurityPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetTwingateSecurityPoliciesSecurityPolicy] {
+	return pulumix.Output[[]GetTwingateSecurityPoliciesSecurityPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetTwingateSecurityPoliciesSecurityPolicyArrayOutput) Index(i pulumi.IntInput) GetTwingateSecurityPoliciesSecurityPolicyOutput {
@@ -1820,6 +2184,12 @@ func (i GetTwingateServiceAccountsServiceAccountArgs) ToGetTwingateServiceAccoun
 	return pulumi.ToOutputWithContext(ctx, i).(GetTwingateServiceAccountsServiceAccountOutput)
 }
 
+func (i GetTwingateServiceAccountsServiceAccountArgs) ToOutput(ctx context.Context) pulumix.Output[GetTwingateServiceAccountsServiceAccount] {
+	return pulumix.Output[GetTwingateServiceAccountsServiceAccount]{
+		OutputState: i.ToGetTwingateServiceAccountsServiceAccountOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetTwingateServiceAccountsServiceAccountArrayInput is an input type that accepts GetTwingateServiceAccountsServiceAccountArray and GetTwingateServiceAccountsServiceAccountArrayOutput values.
 // You can construct a concrete instance of `GetTwingateServiceAccountsServiceAccountArrayInput` via:
 //
@@ -1845,6 +2215,12 @@ func (i GetTwingateServiceAccountsServiceAccountArray) ToGetTwingateServiceAccou
 	return pulumi.ToOutputWithContext(ctx, i).(GetTwingateServiceAccountsServiceAccountArrayOutput)
 }
 
+func (i GetTwingateServiceAccountsServiceAccountArray) ToOutput(ctx context.Context) pulumix.Output[[]GetTwingateServiceAccountsServiceAccount] {
+	return pulumix.Output[[]GetTwingateServiceAccountsServiceAccount]{
+		OutputState: i.ToGetTwingateServiceAccountsServiceAccountArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetTwingateServiceAccountsServiceAccountOutput struct{ *pulumi.OutputState }
 
 func (GetTwingateServiceAccountsServiceAccountOutput) ElementType() reflect.Type {
@@ -1857,6 +2233,12 @@ func (o GetTwingateServiceAccountsServiceAccountOutput) ToGetTwingateServiceAcco
 
 func (o GetTwingateServiceAccountsServiceAccountOutput) ToGetTwingateServiceAccountsServiceAccountOutputWithContext(ctx context.Context) GetTwingateServiceAccountsServiceAccountOutput {
 	return o
+}
+
+func (o GetTwingateServiceAccountsServiceAccountOutput) ToOutput(ctx context.Context) pulumix.Output[GetTwingateServiceAccountsServiceAccount] {
+	return pulumix.Output[GetTwingateServiceAccountsServiceAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetTwingateServiceAccountsServiceAccountOutput) Id() pulumi.StringOutput {
@@ -1889,6 +2271,12 @@ func (o GetTwingateServiceAccountsServiceAccountArrayOutput) ToGetTwingateServic
 	return o
 }
 
+func (o GetTwingateServiceAccountsServiceAccountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetTwingateServiceAccountsServiceAccount] {
+	return pulumix.Output[[]GetTwingateServiceAccountsServiceAccount]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetTwingateServiceAccountsServiceAccountArrayOutput) Index(i pulumi.IntInput) GetTwingateServiceAccountsServiceAccountOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTwingateServiceAccountsServiceAccount {
 		return vs[0].([]GetTwingateServiceAccountsServiceAccount)[vs[1].(int)]
@@ -1899,9 +2287,11 @@ type GetTwingateUsersUser struct {
 	Email     string `pulumi:"email"`
 	FirstName string `pulumi:"firstName"`
 	Id        string `pulumi:"id"`
-	IsAdmin   bool   `pulumi:"isAdmin"`
-	LastName  string `pulumi:"lastName"`
-	Role      string `pulumi:"role"`
+	// Deprecated: This read-only Boolean value will be deprecated in a future release. You may use the `role` value instead.
+	IsAdmin  bool   `pulumi:"isAdmin"`
+	LastName string `pulumi:"lastName"`
+	Role     string `pulumi:"role"`
+	Type     string `pulumi:"type"`
 }
 
 // GetTwingateUsersUserInput is an input type that accepts GetTwingateUsersUserArgs and GetTwingateUsersUserOutput values.
@@ -1919,9 +2309,11 @@ type GetTwingateUsersUserArgs struct {
 	Email     pulumi.StringInput `pulumi:"email"`
 	FirstName pulumi.StringInput `pulumi:"firstName"`
 	Id        pulumi.StringInput `pulumi:"id"`
-	IsAdmin   pulumi.BoolInput   `pulumi:"isAdmin"`
-	LastName  pulumi.StringInput `pulumi:"lastName"`
-	Role      pulumi.StringInput `pulumi:"role"`
+	// Deprecated: This read-only Boolean value will be deprecated in a future release. You may use the `role` value instead.
+	IsAdmin  pulumi.BoolInput   `pulumi:"isAdmin"`
+	LastName pulumi.StringInput `pulumi:"lastName"`
+	Role     pulumi.StringInput `pulumi:"role"`
+	Type     pulumi.StringInput `pulumi:"type"`
 }
 
 func (GetTwingateUsersUserArgs) ElementType() reflect.Type {
@@ -1934,6 +2326,12 @@ func (i GetTwingateUsersUserArgs) ToGetTwingateUsersUserOutput() GetTwingateUser
 
 func (i GetTwingateUsersUserArgs) ToGetTwingateUsersUserOutputWithContext(ctx context.Context) GetTwingateUsersUserOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetTwingateUsersUserOutput)
+}
+
+func (i GetTwingateUsersUserArgs) ToOutput(ctx context.Context) pulumix.Output[GetTwingateUsersUser] {
+	return pulumix.Output[GetTwingateUsersUser]{
+		OutputState: i.ToGetTwingateUsersUserOutputWithContext(ctx).OutputState,
+	}
 }
 
 // GetTwingateUsersUserArrayInput is an input type that accepts GetTwingateUsersUserArray and GetTwingateUsersUserArrayOutput values.
@@ -1961,6 +2359,12 @@ func (i GetTwingateUsersUserArray) ToGetTwingateUsersUserArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetTwingateUsersUserArrayOutput)
 }
 
+func (i GetTwingateUsersUserArray) ToOutput(ctx context.Context) pulumix.Output[[]GetTwingateUsersUser] {
+	return pulumix.Output[[]GetTwingateUsersUser]{
+		OutputState: i.ToGetTwingateUsersUserArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetTwingateUsersUserOutput struct{ *pulumi.OutputState }
 
 func (GetTwingateUsersUserOutput) ElementType() reflect.Type {
@@ -1975,6 +2379,12 @@ func (o GetTwingateUsersUserOutput) ToGetTwingateUsersUserOutputWithContext(ctx 
 	return o
 }
 
+func (o GetTwingateUsersUserOutput) ToOutput(ctx context.Context) pulumix.Output[GetTwingateUsersUser] {
+	return pulumix.Output[GetTwingateUsersUser]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetTwingateUsersUserOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTwingateUsersUser) string { return v.Email }).(pulumi.StringOutput)
 }
@@ -1987,6 +2397,7 @@ func (o GetTwingateUsersUserOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTwingateUsersUser) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Deprecated: This read-only Boolean value will be deprecated in a future release. You may use the `role` value instead.
 func (o GetTwingateUsersUserOutput) IsAdmin() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetTwingateUsersUser) bool { return v.IsAdmin }).(pulumi.BoolOutput)
 }
@@ -1997,6 +2408,10 @@ func (o GetTwingateUsersUserOutput) LastName() pulumi.StringOutput {
 
 func (o GetTwingateUsersUserOutput) Role() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTwingateUsersUser) string { return v.Role }).(pulumi.StringOutput)
+}
+
+func (o GetTwingateUsersUserOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTwingateUsersUser) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type GetTwingateUsersUserArrayOutput struct{ *pulumi.OutputState }
@@ -2011,6 +2426,12 @@ func (o GetTwingateUsersUserArrayOutput) ToGetTwingateUsersUserArrayOutput() Get
 
 func (o GetTwingateUsersUserArrayOutput) ToGetTwingateUsersUserArrayOutputWithContext(ctx context.Context) GetTwingateUsersUserArrayOutput {
 	return o
+}
+
+func (o GetTwingateUsersUserArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetTwingateUsersUser] {
+	return pulumix.Output[[]GetTwingateUsersUser]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetTwingateUsersUserArrayOutput) Index(i pulumi.IntInput) GetTwingateUsersUserOutput {

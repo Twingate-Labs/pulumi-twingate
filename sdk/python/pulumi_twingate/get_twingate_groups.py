@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -99,11 +99,11 @@ def get_twingate_groups(groups: Optional[Sequence[pulumi.InputType['GetTwingateG
     __ret__ = pulumi.runtime.invoke('twingate:index/getTwingateGroups:getTwingateGroups', __args__, opts=opts, typ=GetTwingateGroupsResult).value
 
     return AwaitableGetTwingateGroupsResult(
-        groups=__ret__.groups,
-        id=__ret__.id,
-        is_active=__ret__.is_active,
-        name=__ret__.name,
-        type=__ret__.type)
+        groups=pulumi.get(__ret__, 'groups'),
+        id=pulumi.get(__ret__, 'id'),
+        is_active=pulumi.get(__ret__, 'is_active'),
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_twingate_groups)

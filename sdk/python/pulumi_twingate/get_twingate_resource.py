@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -92,11 +92,11 @@ def get_twingate_resource(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('twingate:index/getTwingateResource:getTwingateResource', __args__, opts=opts, typ=GetTwingateResourceResult).value
 
     return AwaitableGetTwingateResourceResult(
-        address=__ret__.address,
-        id=__ret__.id,
-        name=__ret__.name,
-        protocols=__ret__.protocols,
-        remote_network_id=__ret__.remote_network_id)
+        address=pulumi.get(__ret__, 'address'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        protocols=pulumi.get(__ret__, 'protocols'),
+        remote_network_id=pulumi.get(__ret__, 'remote_network_id'))
 
 
 @_utilities.lift_output_func(get_twingate_resource)

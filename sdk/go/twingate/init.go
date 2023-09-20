@@ -6,6 +6,7 @@ package twingate
 import (
 	"fmt"
 
+	"github.com/Twingate-Labs/pulumi-twingate/sdk/go/twingate/internal"
 	"github.com/blang/semver"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -34,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &TwingateServiceAccount{}
 	case "twingate:index/twingateServiceAccountKey:TwingateServiceAccountKey":
 		r = &TwingateServiceAccountKey{}
+	case "twingate:index/twingateUser:TwingateUser":
+		r = &TwingateUser{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -61,7 +64,10 @@ func (p *pkg) ConstructProvider(ctx *pulumi.Context, name, typ, urn string) (pul
 }
 
 func init() {
-	version, _ := PkgVersion()
+	version, err := internal.PkgVersion()
+	if err != nil {
+		version = semver.Version{Major: 1}
+	}
 	pulumi.RegisterResourceModule(
 		"twingate",
 		"index/twingateConnector",
@@ -95,6 +101,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"twingate",
 		"index/twingateServiceAccountKey",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"twingate",
+		"index/twingateUser",
 		&module{version},
 	)
 	pulumi.RegisterResourcePackage(

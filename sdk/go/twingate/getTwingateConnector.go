@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/Twingate-Labs/pulumi-twingate/sdk/go/twingate/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func LookupTwingateConnector(ctx *pulumi.Context, args *LookupTwingateConnectorArgs, opts ...pulumi.InvokeOption) (*LookupTwingateConnectorResult, error) {
-	opts = pkgInvokeDefaultOpts(opts)
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTwingateConnectorResult
 	err := ctx.Invoke("twingate:index/getTwingateConnector:getTwingateConnector", args, &rv, opts...)
 	if err != nil {
@@ -68,6 +70,12 @@ func (o LookupTwingateConnectorResultOutput) ToLookupTwingateConnectorResultOutp
 
 func (o LookupTwingateConnectorResultOutput) ToLookupTwingateConnectorResultOutputWithContext(ctx context.Context) LookupTwingateConnectorResultOutput {
 	return o
+}
+
+func (o LookupTwingateConnectorResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTwingateConnectorResult] {
+	return pulumix.Output[LookupTwingateConnectorResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupTwingateConnectorResultOutput) Id() pulumi.StringOutput {

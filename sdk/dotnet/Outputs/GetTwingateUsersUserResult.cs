@@ -20,6 +20,7 @@ namespace TwingateLabs.Twingate.Outputs
         public readonly bool IsAdmin;
         public readonly string LastName;
         public readonly string Role;
+        public readonly string Type;
 
         [OutputConstructor]
         private GetTwingateUsersUserResult(
@@ -33,7 +34,9 @@ namespace TwingateLabs.Twingate.Outputs
 
             string lastName,
 
-            string role)
+            string role,
+
+            string type)
         {
             Email = email;
             FirstName = firstName;
@@ -41,6 +44,7 @@ namespace TwingateLabs.Twingate.Outputs
             IsAdmin = isAdmin;
             LastName = lastName;
             Role = role;
+            Type = type;
         }
     }
 }

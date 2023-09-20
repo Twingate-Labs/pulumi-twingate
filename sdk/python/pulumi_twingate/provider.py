@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ProviderArgs', 'Provider']
@@ -33,20 +33,37 @@ class ProviderArgs:
                environment variable.
         :param pulumi.Input[str] url: The default is 'twingate.com' This is optional and shouldn't be changed under normal circumstances.
         """
+        ProviderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_token=api_token,
+            http_max_retry=http_max_retry,
+            http_timeout=http_timeout,
+            network=network,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_token: Optional[pulumi.Input[str]] = None,
+             http_max_retry: Optional[pulumi.Input[int]] = None,
+             http_timeout: Optional[pulumi.Input[int]] = None,
+             network: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if api_token is not None:
-            pulumi.set(__self__, "api_token", api_token)
+            _setter("api_token", api_token)
         if http_max_retry is None:
             http_max_retry = 5
         if http_max_retry is not None:
-            pulumi.set(__self__, "http_max_retry", http_max_retry)
+            _setter("http_max_retry", http_max_retry)
         if http_timeout is None:
             http_timeout = 10
         if http_timeout is not None:
-            pulumi.set(__self__, "http_timeout", http_timeout)
+            _setter("http_timeout", http_timeout)
         if network is not None:
-            pulumi.set(__self__, "network", network)
+            _setter("network", network)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter(name="apiToken")
@@ -168,6 +185,10 @@ class Provider(pulumi.ProviderResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProviderArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
