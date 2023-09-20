@@ -83,6 +83,7 @@ func Provider() tfbridge.ProviderInfo {
 			"twingate_resource":            {Tok: tfbridge.MakeResource(mainPkg, mainMod, "TwingateResource")},
 			"twingate_service_account":     {Tok: tfbridge.MakeResource(mainPkg, mainMod, "TwingateServiceAccount")},
 			"twingate_service_account_key": {Tok: tfbridge.MakeResource(mainPkg, mainMod, "TwingateServiceAccountKey")},
+			"twingate_user":                {Tok: tfbridge.MakeResource(mainPkg, mainMod, "TwingateUser")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"twingate_remote_network":    {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getTwingateRemoteNetwork")},

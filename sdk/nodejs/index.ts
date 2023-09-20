@@ -110,6 +110,11 @@ export type TwingateServiceAccountKey = import("./twingateServiceAccountKey").Tw
 export const TwingateServiceAccountKey: typeof import("./twingateServiceAccountKey").TwingateServiceAccountKey = null as any;
 utilities.lazyLoad(exports, ["TwingateServiceAccountKey"], () => require("./twingateServiceAccountKey"));
 
+export { TwingateUserArgs, TwingateUserState } from "./twingateUser";
+export type TwingateUser = import("./twingateUser").TwingateUser;
+export const TwingateUser: typeof import("./twingateUser").TwingateUser = null as any;
+utilities.lazyLoad(exports, ["TwingateUser"], () => require("./twingateUser"));
+
 
 // Export sub-modules:
 import * as config from "./config";
@@ -138,6 +143,8 @@ const _module = {
                 return new TwingateServiceAccount(name, <any>undefined, { urn })
             case "twingate:index/twingateServiceAccountKey:TwingateServiceAccountKey":
                 return new TwingateServiceAccountKey(name, <any>undefined, { urn })
+            case "twingate:index/twingateUser:TwingateUser":
+                return new TwingateUser(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -150,6 +157,7 @@ pulumi.runtime.registerResourceModule("twingate", "index/twingateRemoteNetwork",
 pulumi.runtime.registerResourceModule("twingate", "index/twingateResource", _module)
 pulumi.runtime.registerResourceModule("twingate", "index/twingateServiceAccount", _module)
 pulumi.runtime.registerResourceModule("twingate", "index/twingateServiceAccountKey", _module)
+pulumi.runtime.registerResourceModule("twingate", "index/twingateUser", _module)
 pulumi.runtime.registerResourcePackage("twingate", {
     version: utilities.getVersion(),
     constructProvider: (name: string, type: string, urn: string): pulumi.ProviderResource => {

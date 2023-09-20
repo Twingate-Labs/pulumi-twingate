@@ -155,18 +155,26 @@ export interface GetTwingateUsersUser {
     email?: string;
     firstName?: string;
     id?: string;
+    /**
+     * @deprecated This read-only Boolean value will be deprecated in a future release. You may use the `role` value instead.
+     */
     isAdmin?: boolean;
     lastName?: string;
     role?: string;
+    type?: string;
 }
 
 export interface GetTwingateUsersUserArgs {
     email?: pulumi.Input<string>;
     firstName?: pulumi.Input<string>;
     id?: pulumi.Input<string>;
+    /**
+     * @deprecated This read-only Boolean value will be deprecated in a future release. You may use the `role` value instead.
+     */
     isAdmin?: pulumi.Input<boolean>;
     lastName?: pulumi.Input<string>;
     role?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }
 
 export interface TwingateResourceAccess {

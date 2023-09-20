@@ -18,20 +18,21 @@
     },
     "language": {
         "csharp": {
-            "compatibility": "tfbridge20",
-            "namespaces": null,
             "packageReferences": {
                 "Pulumi": "3.*"
             },
+            "compatibility": "tfbridge20",
             "rootNamespace": "TwingateLabs"
         },
         "go": {
-            "generateExtraInputTypes": true,
+            "importBasePath": "github.com/Twingate-Labs/pulumi-twingate/sdk/go/twingate",
             "generateResourceContainerTypes": true,
-            "importBasePath": "github.com/Twingate-Labs/pulumi-twingate/sdk/go/twingate"
+            "generateExtraInputTypes": true
         },
         "nodejs": {
-            "compatibility": "tfbridge20",
+            "packageName": "@twingate-labs/pulumi-twingate",
+            "packageDescription": "A Pulumi package for creating and managing Twingate cloud resources.",
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/Twingate-Labs/terraform-provider-twingate)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-twingate` repo](https://github.com/Twingate-Labs/pulumi-twingate/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-twingate` repo](https://github.com/Twingate-Labs/terraform-provider-twingate/issues).",
             "dependencies": {
                 "@pulumi/pulumi": "^3.0.0"
             },
@@ -39,18 +40,16 @@
                 "@types/mime": "^2.0.0",
                 "@types/node": "^10.0.0"
             },
-            "disableUnionOutputTypes": true,
-            "packageDescription": "A Pulumi package for creating and managing Twingate cloud resources.",
-            "packageName": "@twingate-labs/pulumi-twingate",
-            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/Twingate-Labs/terraform-provider-twingate)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-twingate` repo](https://github.com/Twingate-Labs/pulumi-twingate/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-twingate` repo](https://github.com/Twingate-Labs/terraform-provider-twingate/issues).",
-            "typescriptVersion": ""
+            "compatibility": "tfbridge20",
+            "disableUnionOutputTypes": true
         },
         "python": {
-            "compatibility": "tfbridge20",
-            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/Twingate-Labs/terraform-provider-twingate)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-twingate` repo](https://github.com/Twingate-Labs/pulumi-twingate/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-twingate` repo](https://github.com/Twingate-Labs/terraform-provider-twingate/issues).",
             "requires": {
                 "pulumi": "\u003e=3.0.0,\u003c4.0.0"
-            }
+            },
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/Twingate-Labs/terraform-provider-twingate)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-twingate` repo](https://github.com/Twingate-Labs/pulumi-twingate/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-twingate` repo](https://github.com/Twingate-Labs/terraform-provider-twingate/issues).",
+            "compatibility": "tfbridge20",
+            "pyproject": {}
         }
     },
     "config": {
@@ -482,12 +481,16 @@
                     "type": "string"
                 },
                 "isAdmin": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "deprecationMessage": "This read-only Boolean value will be deprecated in a future release. You may use the `role` value instead."
                 },
                 "lastName": {
                     "type": "string"
                 },
                 "role": {
+                    "type": "string"
+                },
+                "type": {
                     "type": "string"
                 }
             },
@@ -498,7 +501,8 @@
                 "id",
                 "isAdmin",
                 "lastName",
-                "role"
+                "role",
+                "type"
             ],
             "language": {
                 "nodejs": {
@@ -1019,6 +1023,112 @@
                 },
                 "type": "object"
             }
+        },
+        "twingate:index/twingateUser:TwingateUser": {
+            "properties": {
+                "email": {
+                    "type": "string",
+                    "description": "The User's email address\n"
+                },
+                "firstName": {
+                    "type": "string",
+                    "description": "The User's first name\n"
+                },
+                "isActive": {
+                    "type": "boolean",
+                    "description": "Determines whether the User is active or not. Inactive users will be not able to sign in.\n"
+                },
+                "lastName": {
+                    "type": "string",
+                    "description": "The User's last name\n"
+                },
+                "role": {
+                    "type": "string",
+                    "description": "Determines the User's role. Either ADMIN, DEVOPS, SUPPORT or MEMBER.\n"
+                },
+                "sendInvite": {
+                    "type": "boolean",
+                    "description": "Determines whether to send an email invitation to the User. True by default.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Indicates the User's type. Either MANUAL or SYNCED.\n"
+                }
+            },
+            "required": [
+                "email",
+                "firstName",
+                "isActive",
+                "lastName",
+                "role",
+                "sendInvite",
+                "type"
+            ],
+            "inputProperties": {
+                "email": {
+                    "type": "string",
+                    "description": "The User's email address\n",
+                    "willReplaceOnChanges": true
+                },
+                "firstName": {
+                    "type": "string",
+                    "description": "The User's first name\n"
+                },
+                "isActive": {
+                    "type": "boolean",
+                    "description": "Determines whether the User is active or not. Inactive users will be not able to sign in.\n"
+                },
+                "lastName": {
+                    "type": "string",
+                    "description": "The User's last name\n"
+                },
+                "role": {
+                    "type": "string",
+                    "description": "Determines the User's role. Either ADMIN, DEVOPS, SUPPORT or MEMBER.\n"
+                },
+                "sendInvite": {
+                    "type": "boolean",
+                    "description": "Determines whether to send an email invitation to the User. True by default.\n"
+                }
+            },
+            "requiredInputs": [
+                "email"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering TwingateUser resources.\n",
+                "properties": {
+                    "email": {
+                        "type": "string",
+                        "description": "The User's email address\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "firstName": {
+                        "type": "string",
+                        "description": "The User's first name\n"
+                    },
+                    "isActive": {
+                        "type": "boolean",
+                        "description": "Determines whether the User is active or not. Inactive users will be not able to sign in.\n"
+                    },
+                    "lastName": {
+                        "type": "string",
+                        "description": "The User's last name\n"
+                    },
+                    "role": {
+                        "type": "string",
+                        "description": "Determines the User's role. Either ADMIN, DEVOPS, SUPPORT or MEMBER.\n"
+                    },
+                    "sendInvite": {
+                        "type": "boolean",
+                        "description": "Determines whether to send an email invitation to the User. True by default.\n"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Indicates the User's type. Either MANUAL or SYNCED.\n"
+                    }
+                },
+                "type": "object"
+            }
         }
     },
     "functions": {
@@ -1468,12 +1578,16 @@
                         "type": "string"
                     },
                     "isAdmin": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "deprecationMessage": "This read-only Boolean value will be deprecated in a future release. You may use the `role` value instead."
                     },
                     "lastName": {
                         "type": "string"
                     },
                     "role": {
+                        "type": "string"
+                    },
+                    "type": {
                         "type": "string"
                     }
                 },
@@ -1484,7 +1598,8 @@
                     "id",
                     "isAdmin",
                     "lastName",
-                    "role"
+                    "role",
+                    "type"
                 ]
             }
         },

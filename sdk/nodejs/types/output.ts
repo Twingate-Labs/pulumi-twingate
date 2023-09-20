@@ -82,9 +82,13 @@ export interface GetTwingateUsersUser {
     email: string;
     firstName: string;
     id: string;
+    /**
+     * @deprecated This read-only Boolean value will be deprecated in a future release. You may use the `role` value instead.
+     */
     isAdmin: boolean;
     lastName: string;
     role: string;
+    type: string;
 }
 
 export interface TwingateResourceAccess {

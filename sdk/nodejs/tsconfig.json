@@ -37,6 +37,7 @@
         "twingateResource.ts",
         "twingateServiceAccount.ts",
         "twingateServiceAccountKey.ts",
+        "twingateUser.ts",
         "types/index.ts",
         "types/input.ts",
         "types/output.ts",

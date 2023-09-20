@@ -26,9 +26,13 @@ export interface GetTwingateUserResult {
     readonly email: string;
     readonly firstName: string;
     readonly id: string;
+    /**
+     * @deprecated This read-only Boolean value will be deprecated in a future release. You may use the `role` value instead.
+     */
     readonly isAdmin: boolean;
     readonly lastName: string;
     readonly role: string;
+    readonly type: string;
 }
 export function getTwingateUserOutput(args: GetTwingateUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTwingateUserResult> {
     return pulumi.output(args).apply((a: any) => getTwingateUser(a, opts))
