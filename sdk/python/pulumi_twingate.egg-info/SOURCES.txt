@@ -27,6 +27,7 @@ pulumi_twingate/twingate_remote_network.py
 pulumi_twingate/twingate_resource.py
 pulumi_twingate/twingate_service_account.py
 pulumi_twingate/twingate_service_account_key.py
+pulumi_twingate/twingate_user.py
 pulumi_twingate.egg-info/PKG-INFO
 pulumi_twingate.egg-info/SOURCES.txt
 pulumi_twingate.egg-info/dependency_links.txt

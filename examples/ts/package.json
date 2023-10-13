@@ -5,6 +5,6 @@
     },
     "dependencies": {
         "@pulumi/pulumi": "^3.0.0",
-        "@twingate-labs/pulumi-twingate": "^0.0.34"
+        "@twingate-labs/pulumi-twingate": "^0.0.47"
     }
 }

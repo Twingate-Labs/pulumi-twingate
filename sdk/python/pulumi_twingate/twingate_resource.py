@@ -449,7 +449,7 @@ class TwingateResource(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TwingateResourceArgs.__new__(TwingateResourceArgs)
 
-            if not isinstance(access, TwingateResourceAccessArgs):
+            if access is not None and not isinstance(access, TwingateResourceAccessArgs):
                 access = access or {}
                 def _setter(key, value):
                     access[key] = value
@@ -463,7 +463,7 @@ class TwingateResource(pulumi.CustomResource):
             __props__.__dict__["is_browser_shortcut_enabled"] = is_browser_shortcut_enabled
             __props__.__dict__["is_visible"] = is_visible
             __props__.__dict__["name"] = name
-            if not isinstance(protocols, TwingateResourceProtocolsArgs):
+            if protocols is not None and not isinstance(protocols, TwingateResourceProtocolsArgs):
                 protocols = protocols or {}
                 def _setter(key, value):
                     protocols[key] = value
