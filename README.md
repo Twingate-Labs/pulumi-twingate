@@ -1,3 +1,7 @@
+> [!IMPORTANT]
+> Pulumi is now **officially supported** by Twingate. Please refer to the official repository at: https://github.com/Twingate/pulumi-twingate/
+>
+
 # Twingate Resource Provider
 This is a non-official Pulumi resource provider for Twingate that was built using the pulumi terraform bridge utilizing 
 the official [Twingate Terraform Provider](https://registry.terraform.io/providers/Twingate/twingate/latest).
